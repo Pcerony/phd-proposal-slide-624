@@ -976,6 +976,36 @@
   .block-funnel-stage:nth-child(1){height:100%}
   .block-funnel-stage:nth-child(2){height:76%;background:#343434}
   .block-funnel-stage:nth-child(3){height:52%;background:var(--accent);color:var(--accent-on)}
+  .slide.accent .block-logic-note{border-top-color:var(--ink);color:rgba(10,10,10,.86)}
+  .slide.accent .block-arrow-card:not(.ink){background:var(--paper);color:var(--ink)}
+  .slide.dark .block-logic-word{color:var(--text-inverse-primary)}
+  .slide.dark .block-logic-note{color:var(--text-inverse-secondary)}
+  .slide.dark .block-panel{background:#181818;color:var(--text-inverse-primary);border-top-color:rgba(255,255,255,.72)}
+  .slide.dark .block-panel .t-meta{color:var(--text-inverse-helper)}
+  .slide.dark .block-panel-head h3{color:var(--text-inverse-primary)}
+  .slide.dark .block-panel.ink{background:#1f1f1f;border-top-color:var(--accent)}
+  .slide.accent .block-panel.ink .t-meta{color:var(--text-inverse-helper)}
+  .slide.accent .block-panel.ink .bi{color:var(--text-inverse-secondary)}
+  .slide.dark .hypothesis-block{background:#252525}
+  .slide.dark .block-arrow-card.ink{background:var(--paper);color:var(--ink)}
+  .slide.dark .block-funnel-stage:nth-child(1){background:var(--paper);color:var(--ink)}
+  .slide.dark .block-funnel-stage:nth-child(2){background:#555;color:var(--text-inverse-primary)}
+  .slide.dark .block-panel.accent{background:var(--accent);color:var(--accent-on);border-top-color:var(--paper)}
+  .slide.dark .block-panel.accent .t-meta{color:#253000}
+  .slide.dark .block-panel.accent h3{color:var(--accent-on)}
+  .slide.dark .block-panel.accent .bi,
+  .slide.dark .principle-output .bi{color:#253000}
+  .slide.dark .phase-header p{color:var(--text-inverse-secondary)}
+  .slide.dark .phase-mini{background:#1f1f1f;color:var(--text-inverse-primary);border-top:3px solid var(--accent);border-bottom:1px solid rgba(255,255,255,.18)}
+  .slide.dark .phase-mini h3,.slide.dark .phase-icon-row span{color:var(--text-inverse-primary)}
+  .slide.dark .phase-mini i,.slide.dark .phase-icon-row i{color:var(--accent)}
+  .slide.dark .phase-main.validation{background:var(--accent);color:var(--accent-on)}
+  .slide.dark .phase-main.validation .t-meta,
+  .slide.dark .phase-main.validation .phase-method-card .t-meta{color:#253000}
+  .slide.dark .phase-main.validation .bi{color:#253000}
+  .slide.dark .phase-main.validation .phase-flow-node.accent .bi{color:var(--text-inverse-secondary)!important}
+  .slide.accent .phase-main.dark .t-meta,
+  .slide.accent .phase-main.dark .phase-method-card .t-meta{color:var(--text-inverse-helper)}
   .aux-stack{display:grid;grid-template-rows:auto 1fr;gap:1vh;align-items:stretch}
   .aux-mini{border-top:2px solid var(--border-subtle);padding:1vh 0 0;display:flex;flex-direction:column;gap:.55vh}
   .aux-mini h3{font-size:max(18px,1.1vw);font-weight:400;line-height:1.12;margin:0}
@@ -2240,7 +2270,7 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S17" data-animate="system-diagram">
+<section class="slide accent" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>12 / 27</div></div>
     <div class="block-logic-head" data-anim="line">
@@ -2275,7 +2305,7 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S14" data-animate="loop-form">
+<section class="slide accent" data-layout="S14" data-animate="loop-form">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>13 / 27</div></div>
     <div class="phase-header" data-anim="line">
@@ -2317,7 +2347,7 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S17" data-animate="system-diagram">
+<section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>14 / 27</div></div>
     <div class="block-logic-head" data-anim="line">
@@ -2353,7 +2383,7 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S17" data-animate="system-diagram">
+<section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>15 / 27</div></div>
     <div class="phase-header" data-anim="line">

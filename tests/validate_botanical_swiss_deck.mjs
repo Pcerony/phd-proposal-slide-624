@@ -9,6 +9,16 @@ assert.ok(fs.existsSync(target), `missing ${path.basename(target)}`);
 
 const html = fs.readFileSync(target, 'utf8');
 const slides = [...html.matchAll(/<section\s+class="slide[^"]*"[^>]*data-layout="(S\d{2})"/g)];
+const slideClassFor = (label) => {
+  const labelIndex = html.indexOf(label);
+  assert.notEqual(labelIndex, -1, `missing slide label: ${label}`);
+  const sectionIndex = html.lastIndexOf('<section', labelIndex);
+  assert.notEqual(sectionIndex, -1, `missing section for label: ${label}`);
+  const sectionStart = html.slice(sectionIndex, html.indexOf('>', sectionIndex) + 1);
+  const classMatch = sectionStart.match(/class="([^"]+)"/);
+  assert.ok(classMatch, `missing class for section: ${label}`);
+  return classMatch[1].split(/\s+/);
+};
 
 assert.equal(slides.length, 27, 'deck must contain exactly twenty-seven registered slides');
 assert.deepEqual(
@@ -41,6 +51,12 @@ assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hyp
 assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
 assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
 assert.match(html, /Design principle 2/, 'method 03 output must reduce hypotheses into fewer principles');
+assert.ok(slideClassFor('Method 01 Logic').includes('light'), 'method 01 logic slide must remain light');
+assert.ok(slideClassFor('Method 01 Detail').includes('light'), 'method 01 detail slide must remain light');
+assert.ok(slideClassFor('Method 02 Logic').includes('accent'), 'method 02 logic slide must use lemon-green background');
+assert.ok(slideClassFor('Method 02 Detail').includes('accent'), 'method 02 detail slide must use lemon-green background');
+assert.ok(slideClassFor('Method 03 Logic').includes('dark'), 'method 03 logic slide must use dark background');
+assert.ok(slideClassFor('Method 03 Detail').includes('dark'), 'method 03 detail slide must use dark background');
 assert.match(html, />18-27</, 'closing slide must show updated Q&A appendix range');
 assert.doesNotMatch(html, /TAKEAWAYS/, 'closing slide must not include takeaways');
 assert.doesNotMatch(html, /\[必填\]|TODO/, 'required placeholders must be removed');
