@@ -1647,7 +1647,7 @@
     <div class="canvas-card">
    <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 14 · 2026</div></div>
-    <div style="flex:1;display:flex;flex-direction:column;gap:3vh">
+    <div style="flex:1;display:flex;flex-direction:column;gap:8vh">
       <div style="display:flex;flex-direction:column;gap:0">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Interpretive Signage Systems</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">解説サインシステム</span></div></div>
@@ -2376,19 +2376,25 @@ if(motion){
      easing:opts.easing ?? EASE_ENTRY_EXP});
 
   /* ---------- recipe: hero · 封面索引 ----------
-     大标题改为可交互部分,一开始隐藏且线合并为第一根,随着文本依次展开 */
+     大标题改为可交互部分,一开始隐藏且线合并为第一根(减细处理),随着文本依次展开 */
   function rHero(slide, all){
     const coverRows = [...slide.querySelectorAll('.cover-row')];
     const targets = coverRows.map(row => row.querySelector('div'));
 
-    // 初始隐藏文本并向左偏移微调，同时将行折叠（实现三根线合并为第一根的开始状态）
-    coverRows.forEach(row => {
+    // 初始折叠行，且只保留第一行（Row 1）的 border-top 显色，其余边框设为透明（防止堆叠过粗）
+    coverRows.forEach((row, i) => {
       if (row) {
         row.style.maxHeight = '0';
         row.style.paddingTop = '0';
         row.style.paddingBottom = '0';
         row.style.overflow = 'hidden';
         row.style.transition = 'none';
+        if (i > 0) {
+          row.style.borderTopColor = 'rgba(10,10,10,0)';
+        }
+        if (i === 2) {
+          row.style.borderBottomColor = 'rgba(10,10,10,0)';
+        }
       }
     });
     targets.forEach(el => {
@@ -2418,11 +2424,22 @@ if(motion){
         const row = coverRows[currentStep];
         const el = targets[currentStep];
         if (row) {
-          row.style.transition = 'max-height 0.6s var(--ease-entry-exp), padding-top 0.6s var(--ease-entry-exp), padding-bottom 0.6s var(--ease-entry-exp)';
+          row.style.transition = 'max-height 0.6s var(--ease-entry-exp), padding-top 0.6s var(--ease-entry-exp), padding-bottom 0.6s var(--ease-entry-exp), border-top-color 0.6s var(--ease-entry-exp), border-bottom-color 0.6s var(--ease-entry-exp)';
           row.style.maxHeight = '20vh';
           row.style.paddingTop = '1.5vh';
           row.style.paddingBottom = '1.5vh';
         }
+        
+        // 递进展开时，同时将相邻的一根边框线渐变显现出来
+        const nextRow = coverRows[currentStep + 1];
+        if (nextRow) {
+          nextRow.style.transition = 'border-top-color 0.6s var(--ease-entry-exp)';
+          nextRow.style.borderTopColor = 'rgba(10,10,10,.28)';
+        } else if (row) {
+          // 如果是最后一行（Row 3），显现底边框
+          row.style.borderBottomColor = 'rgba(10,10,10,.28)';
+        }
+
         if (el) {
           el.style.transition = 'opacity 0.4s var(--ease-entry-exp) 0.15s, transform 0.4s var(--ease-entry-exp) 0.15s';
           el.style.opacity = '1';
