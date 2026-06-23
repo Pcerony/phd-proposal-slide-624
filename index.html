@@ -1648,14 +1648,24 @@
    <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 14 · 2026</div></div>
     <div style="flex:1;display:flex;flex-direction:column;gap:8vh">
-      <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:flex;flex-direction:column;gap:0;position:relative">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Interpretive Signage Systems</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">解説サインシステム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
+        <div class="overlay-row" style="position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0">
+          <div>
+            <span style="display:block;font-size:min(2.7vw,4.6vh);font-weight:300;line-height:1.28;letter-spacing:-.02em;color:var(--text-primary)">
+              How the design of interpretive signage systems affects visitors' learning experiences and cognitive memory
+            </span>
+            <span class="jp" lang="ja" style="display:block;margin-top:1.2vh;font-size:min(1.5vw,2.5vh);color:var(--text-helper)">
+              解説サインシステムのデザインが来訪者の学習体験と認知的記憶に及ぼす影響に関する研究
+            </span>
+          </div>
+        </div>
       </div>
       <div style="display:grid;grid-template-columns:7fr 5fr;gap:3vw;align-items:end">
         <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems<br>in Botanical Gardens from a Co-creation Perspective:<br>Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム — 記憶指向デザイン原則の構築に向けて —</span></div>
-        <div style="text-align:right"><i data-lucide="leaf" style="width:32px;height:32px;margin-bottom:0.55vh"></i><div><div style="font-size:max(18px,1.08vw);font-weight:400">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">Strategic Design Course, M2<span class="bi">ストラテジックデザインコース M2</span></div></div></div>
+        <div style="position:absolute;right:5vw;bottom:4.4vh;text-align:right"><i data-lucide="leaf" style="width:32px;height:32px;margin-bottom:0.55vh"></i><div><div style="font-size:max(18px,1.08vw);font-weight:400">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">Strategic Design Course, M2<span class="bi">ストラテジックデザインコース M2</span></div></div></div>
       </div>
     </div>
   </div>
@@ -2381,14 +2391,23 @@ if(motion){
      easing:opts.easing ?? EASE_ENTRY_EXP});
 
   /* ---------- recipe: hero · 封面索引 ----------
-     大标题改为可交互部分,一开始隐藏且线合并为第一根(减细处理),随着文本依次展开 */
+     大标题改为可交互部分,一开始隐藏且线合并为第一根(减细处理),随着文本依次展开,最后可覆盖显示主要研究主题 */
   function rHero(slide, all){
     const coverRows = [...slide.querySelectorAll('.cover-row')];
     const targets = coverRows.map(row => row.querySelector('div'));
+    const overlayRow = slide.querySelector('.overlay-row');
+
+    // 初始隐藏覆盖层
+    if (overlayRow) {
+      overlayRow.style.opacity = '0';
+      overlayRow.style.pointerEvents = 'none';
+      overlayRow.style.transition = 'none';
+    }
 
     // 初始折叠行，且只保留第一行（Row 1）的 border-top 显色，其余边框设为透明（防止堆叠过粗）
     coverRows.forEach((row, i) => {
       if (row) {
+        row.style.opacity = '1'; // 重置还原透明度
         row.style.maxHeight = '0';
         row.style.paddingTop = '0';
         row.style.paddingBottom = '0';
@@ -2428,6 +2447,7 @@ if(motion){
 
     // 自定义按键/滚轮/滑动递进逻辑
     window.__pipeAdvance = function() {
+      // 0, 1, 2 步：依次展开三个大标题行
       if (currentStep < coverRows.length) {
         const row = coverRows[currentStep];
         const el = targets[currentStep];
@@ -2455,8 +2475,23 @@ if(motion){
         }
         currentStep++;
         return true; // 拦截默认翻页
+      } else if (currentStep === coverRows.length) {
+        // 第 3 步全部展开后，第 4 步隐藏标题，覆盖淡入双语主要研究主题
+        coverRows.forEach(row => {
+          if (row) {
+            row.style.transition = 'opacity 0.5s var(--ease-prod)';
+            row.style.opacity = '0';
+          }
+        });
+        if (overlayRow) {
+          overlayRow.style.transition = 'opacity 0.5s var(--ease-prod) 0.1s';
+          overlayRow.style.opacity = '1';
+          overlayRow.style.pointerEvents = 'auto';
+        }
+        currentStep++;
+        return true; // 拦截默认翻页
       }
-      return false; // 已展示完所有行，执行默认翻页
+      return false; // 已展示完所有行与覆盖文字，执行默认翻页
     };
   }
 
