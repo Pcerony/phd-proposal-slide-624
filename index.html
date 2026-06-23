@@ -742,7 +742,7 @@
   .diagram-card p{font-size:max(15px,.86vw);line-height:1.34;font-weight:500;color:var(--text-secondary);margin:0}
   .diagram-card.ink p{color:var(--text-inverse-secondary)}
   .diagram-card.ink .bi{color:var(--text-inverse-secondary)}
-  .diagram-card.accent p{color:var(--text-primary)}
+  .diagram-card.accent p{color:var(--text-secondary)}
   .method-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch}
   .method-output{display:grid;grid-template-columns:1.3fr .55fr 1.3fr;gap:1vw;align-items:stretch;margin-top:1.4vh}
   .arrow-cell{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:max(34px,3.2vw);font-weight:200;line-height:1}
@@ -1631,36 +1631,30 @@
       <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
         <article class="card-fill force-card" data-anim="up">
           <div class="force-num">01</div>
-          <div>
-            <h3 class="force-title">Contextual Learning Model
-              <span class="jp compact" lang="ja">情境学習モデル</span>
-            </h3>
-            <p class="t-body-sm">Falk &amp; Dierking (1992). Learning is shaped by the physical, personal, and socio-cultural context around a sign.
-              <span class="bi">学習は物理・個人・社会文化的文脈に規定される。</span>
-            </p>
-          </div>
+          <h3 class="force-title">Contextual Learning Model
+            <span class="jp compact" lang="ja">情境学習モデル</span>
+          </h3>
+          <p class="t-body-sm">Falk &amp; Dierking (1992). Learning is shaped by the physical, personal, and socio-cultural context around a sign.
+            <span class="bi">学習は物理・個人・社会文化的文脈に規定される。</span>
+          </p>
         </article>
         <article class="card-fill force-card" data-anim="up">
           <div class="force-num">02</div>
-          <div>
-            <h3 class="force-title">Attention-Value Model
-              <span class="jp compact" lang="ja">注意力価値モデル</span>
-            </h3>
-            <p class="t-body-sm">Ham (1992). A sign succeeds only when it first captures attention, then delivers meaningful value.
-              <span class="bi">注意を引き、次に意味的価値を届けることで学習が成立する。</span>
-            </p>
-          </div>
+          <h3 class="force-title">Attention-Value Model
+            <span class="jp compact" lang="ja">注意力価値モデル</span>
+          </h3>
+          <p class="t-body-sm">Ham (1992). A sign succeeds only when it first captures attention, then delivers meaningful value.
+            <span class="bi">注意を引き、次に意味的価値を届けることで学習が成立する。</span>
+          </p>
         </article>
         <article class="card-accent force-card" data-anim="up">
           <div class="force-num" style="color:var(--accent-on)">03</div>
-          <div>
-            <h3 class="force-title">Cognitive Theory of Multimedia Learning
-              <span class="jp compact" lang="ja">マルチメディア認知学習理論</span>
-            </h3>
-            <p class="t-body-sm" style="color:rgba(10,10,10,.82)">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
-              <span class="bi">テキストと画像の統合設計が認知負荷を下げ記憶を深める。</span>
-            </p>
-          </div>
+          <h3 class="force-title">Cognitive Theory of Multimedia Learning
+            <span class="jp compact" lang="ja">マルチメディア認知学習理論</span>
+          </h3>
+          <p class="t-body-sm" style="color:rgba(10,10,10,.82)">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
+            <span class="bi">テキストと画像の統合設計が認知負荷を下げ記憶を深める。</span>
+          </p>
         </article>
       </div>
     </div>
@@ -1688,7 +1682,7 @@
     <div style="position:absolute;right:5vw;top:16vh;width:34vw;height:48vh;color:var(--accent)" class="dots-bold" aria-hidden="true"></div>
     <div style="flex:1;display:grid;grid-template-columns:5fr 7fr;gap:4vw;align-items:center">
       <div><div class="t-cat accent">FORGETTING CURVE TEST</div><div style="font-size:min(13vw,22vh);font-weight:200;line-height:.82;letter-spacing:-.07em;color:var(--accent-text)">48%</div><p style="font-size:max(18px,1.08vw);line-height:1.48;font-weight:500;color:var(--text-secondary);max-width:32ch">average second-day forgetting rate in master's research.<span class="bi">修士研究で確認された平均翌日忘却率。</span></p></div>
-      <div style="display:flex;flex-direction:column;gap:1.7vh"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="#0a0a0a" stroke-width="2" opacity=".8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--ink)">Day 0</div><div class="t-meta" style="position:absolute;left:35%;bottom:0;color:var(--ink)">Day 1</div><div class="t-meta" style="position:absolute;right:4%;bottom:0;color:var(--ink)">Day 2</div></div><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
+      <div style="display:flex;flex-direction:column;gap:1.7vh"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="#0a0a0a" stroke-width="2" opacity=".8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--text-helper)">Day 0</div><div class="t-meta" style="position:absolute;left:35%;bottom:0;color:var(--text-helper)">Day 1</div><div class="t-meta" style="position:absolute;right:4%;bottom:0;color:var(--text-helper)">Day 2</div></div><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
     </div>
   </div>
 </section>
@@ -1778,7 +1772,7 @@
 <section class="slide hero dark split" data-layout="S10" data-animate="split-statement">
   <div class="canvas-card">
     <div class="half b-accent" style="flex:0 0 39%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>12 / 12</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
-    <div class="half b-paper" style="flex:1 1 auto;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;background:var(--paper);color:var(--ink)"><div class="chrome-min" style="margin-bottom:0"><div class="l">TAKEAWAYS</div><div class="r">Q&A</div></div><div style="display:flex;flex-direction:column;gap:0"><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">01</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From first attention to information retention</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">即時の注意から、情報の記憶定着へ。</p></div></div><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">02</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From isolated signs to a sequential system</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">単一サインから、連続した解説サインシステムへ。</p></div></div><div style="border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta" style="color:var(--accent-text)">03</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;color:var(--accent-text);margin-bottom:.7vh">From cognitive model to validated design rules</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">因果モデルから、実証済みの記憶指向デザイン原則へ。</p></div></div></div><div class="t-meta" style="color:var(--text-helper);text-align:right">I am happy to answer your questions. · ご質問をお待ちしております。</div></div>
+    <div class="half b-paper" style="flex:1 1 auto;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;background:var(--paper);color:var(--ink)"><div class="chrome-min" style="margin-bottom:0"><div class="l">TAKEAWAYS</div><div class="r">Q&A</div></div><div style="display:flex;flex-direction:column;gap:0"><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">01</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From first attention to information retention</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">即時の注意から、情報の記憶定着へ。</p></div></div><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">02</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From isolated signs to a sequential system</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">単一サインから、連続した解説サインシステムへ。</p></div></div><div style="border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta" style="color:var(--accent-text)">03</div><div><div style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;color:var(--accent-text);margin-bottom:.7vh">From cognitive model to validated design rules</div><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">因果モデルから、実証済みの記憶指向デザイン原則へ。</p></div></div></div><div class="t-meta" style="color:var(--text-helper);text-align:right">I am happy to answer your questions. · ご質問をお待ちしております。</div></div>
   </div>
 </section>
 
