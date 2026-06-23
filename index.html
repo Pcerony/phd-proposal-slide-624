@@ -776,8 +776,41 @@
   .handoff-card.ink p,.module-card.ink p{color:var(--text-inverse-secondary)}
   .handoff-card.ink .bi,.module-card.ink .bi{color:var(--text-inverse-secondary)}
   .handoff-card.accent p,.module-card.accent p{color:var(--text-secondary)}
+  .handoff-card.compact{min-height:7.2vh;padding:.72vh 1vw}
+  .handoff-card.compact p{font-size:max(14px,.74vw);line-height:1.18}
   .handoff-arrow{font-size:max(28px,2.6vw);font-weight:200;color:var(--accent-text);line-height:1}
   .phase-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch}
+  .method-hierarchy{display:grid;grid-template-columns:2.15fr 5.9fr 2.25fr;gap:1.1vw;align-items:stretch;margin-top:2.7vh}
+  .method-stage-layout{display:grid;grid-template-columns:2fr 6.25fr 2fr;gap:1vw;align-items:stretch;margin-top:2.2vh}
+  .method-purpose{background:var(--paper);border-top:3px solid var(--ink);border-bottom:1px solid var(--border-subtle);padding:1.35vh 1vw;display:flex;flex-direction:column;justify-content:space-between;gap:1vh;min-height:22vh}
+  .method-purpose i{width:30px;height:30px;color:var(--ink);stroke-width:1.7}
+  .method-purpose h3{font-size:max(20px,1.34vw);font-weight:400;line-height:1.12;margin:0;letter-spacing:-.015em}
+  .method-purpose p{font-size:max(16px,.9vw);font-weight:500;line-height:1.34;margin:0;color:var(--text-secondary)}
+  .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr;gap:1.25vh;min-height:22vh}
+  .method-spotlight.dark{background:var(--ink);color:var(--text-inverse-primary)}
+  .method-spotlight .t-meta{color:var(--text-helper)}
+  .method-spotlight.dark .t-meta{color:var(--text-inverse-helper)}
+  .method-spotlight h3{font-size:max(24px,1.75vw);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.018em}
+  .method-units{display:grid;grid-template-columns:repeat(3,1fr);gap:.8vw;align-items:stretch}
+  .method-units.cols-4{grid-template-columns:repeat(4,1fr)}
+  .method-unit{background:rgba(255,255,255,.42);border-top:2px solid var(--ink);padding:1.05vh .85vw;display:flex;flex-direction:column;gap:.65vh;min-height:13.5vh}
+  .method-spotlight.dark .method-unit{background:rgba(255,255,255,.08);border-top-color:var(--accent)}
+  .method-unit i{width:32px;height:32px;color:var(--ink);stroke-width:1.65}
+  .method-spotlight.dark .method-unit i{color:var(--accent)}
+  .method-unit h4{font-size:max(17px,1.05vw);font-weight:600;line-height:1.12;margin:0;letter-spacing:-.01em}
+  .method-unit p{font-size:max(15px,.82vw);line-height:1.28;font-weight:500;margin:0;color:rgba(10,10,10,.72)}
+  .method-spotlight.dark .method-unit p{color:var(--text-inverse-secondary)}
+  .method-spotlight.dark .method-unit .bi{color:var(--text-inverse-secondary)}
+  .participant-panel{background:var(--ink);color:var(--text-inverse-primary);padding:1.35vh 1vw;display:flex;flex-direction:column;justify-content:space-between;gap:1vh;min-height:22vh}
+  .participant-panel .t-meta{color:var(--text-inverse-helper)}
+  .participant-panel i{width:30px;height:30px;color:var(--accent);stroke-width:1.7}
+  .participant-panel h3{font-size:max(19px,1.26vw);font-weight:400;line-height:1.12;margin:0;letter-spacing:-.01em}
+  .participant-chips{display:flex;flex-wrap:wrap;gap:.55vh .45vw}
+  .participant-chip{border:1px solid rgba(255,255,255,.28);padding:.45vh .55vw;font-family:var(--mono);font-size:max(14px,.72vw);font-weight:600;letter-spacing:.08em;color:var(--text-inverse-secondary)}
+  .aux-stack{display:grid;grid-template-rows:auto 1fr;gap:1vh;align-items:stretch}
+  .aux-mini{border-top:2px solid var(--border-subtle);padding:1vh 0 0;display:flex;flex-direction:column;gap:.55vh}
+  .aux-mini h3{font-size:max(18px,1.1vw);font-weight:400;line-height:1.12;margin:0}
+  .aux-mini p{font-size:max(15px,.82vw);line-height:1.28;color:var(--text-secondary);font-weight:500;margin:0}
   .phase-flow{display:grid;grid-template-columns:1fr auto 1.2fr auto 1fr;gap:1vw;align-items:center;margin-top:1.4vh}
   .workshop-core{background:var(--fill);border-top:3px solid var(--accent);padding:1.6vh 1.2vw;min-height:24vh;display:grid;grid-template-rows:auto 1fr;gap:1.2vh}
   .workshop-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:.8vw;align-items:stretch}
@@ -1831,15 +1864,34 @@
       <div><div class="t-cat accent">WHAT · PHASE 1</div><h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">What variables matter?</h2><span class="jp" lang="ja">どの設計変数が認知負荷と情報保持に影響するのか。</span></div>
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">This phase extracts the variables before any intervention is designed.<span class="bi">介入設計の前に、測定すべき変数を明確にする段階である。</span></p>
     </div>
-    <div class="phase-card-grid" data-anim="up" style="margin-top:3vh;grid-template-columns:repeat(3,1fr)">
-      <article class="module-card"><i data-lucide="target"></i><div class="t-meta">PURPOSE</div><h3>Identify key variables</h3><p>Cognitive load and information retention.<span class="bi">認知負荷と情報保持に関わる主要変数。</span></p></article>
-      <article class="module-card"><i data-lucide="library"></i><div class="t-meta">METHODS</div><h3>Review + interviews + walkthrough</h3><p>Literature, stakeholders, Fukuoka greenhouse.<span class="bi">文献、関係者、福岡市植物園温室の走査。</span></p></article>
-      <article class="module-card"><i data-lucide="users-round"></i><div class="t-meta">PARTICIPANTS</div><h3>Visitors and managers</h3><p>First contact with field knowledge.<span class="bi">来訪者と園区管理者から現場知を得る。</span></p></article>
+    <div class="method-hierarchy" data-anim="up">
+      <aside class="method-purpose">
+        <i data-lucide="target"></i>
+        <div><div class="t-meta">PURPOSE</div><h3>Find the variables.</h3></div>
+        <p>Clarify what may increase cognitive load or support retention.<span class="bi">認知負荷を高める要因と記憶保持を支える要因を特定する。</span></p>
+      </aside>
+      <section class="method-spotlight">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · PRIMARY LAYER</div><h3>Three ways to extract evidence.</h3></div>
+          <div class="t-meta">MODULE A</div>
+        </div>
+        <div class="method-units">
+          <article class="method-unit"><i data-lucide="book-open"></i><div class="t-meta">01</div><h4>Literature review</h4><p>Prior models of attention, load, and memory.<span class="bi">注意、負荷、記憶に関する先行モデル。</span></p></article>
+          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">02</div><h4>Stakeholder interviews</h4><p>Visitor needs and management constraints.<span class="bi">来訪者ニーズと管理上の制約。</span></p></article>
+          <article class="method-unit"><i data-lucide="footprints"></i><div class="t-meta">03</div><h4>Greenhouse walkthrough</h4><p>Trace signs on the real Fukuoka route.<span class="bi">福岡市植物園温室の実経路でサインを確認する。</span></p></article>
+        </div>
+      </section>
+      <aside class="participant-panel">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>Field knowledge holders.</h3></div>
+        <div class="participant-chips"><span class="participant-chip">VISITORS</span><span class="participant-chip">MANAGERS</span><span class="participant-chip">SITE STAFF</span></div>
+        <p style="font-size:max(15px,.82vw);line-height:1.28;color:var(--text-inverse-secondary);font-weight:500;margin:0">現場知を持つ来訪者・園区管理者・スタッフ。</p>
+      </aside>
     </div>
-    <div class="handoff-line nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1fr auto 1fr;margin-top:2.4vh">
-      <div class="handoff-card ink"><div class="t-meta">INPUTS</div><h3>Studies · Interviews · Field walk</h3><p>Evidence from theory and site.<span class="bi">理論と現場から得る根拠。</span></p></div>
+    <div class="handoff-line nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1fr auto 1fr;margin-top:1.45vh">
+      <div class="handoff-card ink compact"><div class="t-meta">INPUTS</div><h3>Studies · Interviews · Field walk</h3><p>理論・面接・現場観察。</p></div>
       <div class="handoff-arrow">→</div>
-      <div class="handoff-card accent"><div class="t-meta">MODULE A</div><h3>Initial causal model</h3><p>This card moves into the next phase.<span class="bi">この成果が次段階の入力となる。</span></p></div>
+      <div class="handoff-card accent compact"><div class="t-meta">MODULE A</div><h3>Initial causal model</h3><p>次段階への入力。</p></div>
     </div>
   </div>
 </section>
@@ -1851,19 +1903,32 @@
       <div><div class="t-cat accent">HOW · PHASE 2</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">How does the model become usable?</h2><span class="jp" lang="ja">認知モデルを、使える設計原則へどう変換するのか。</span></div>
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">Expert interviews and co-creation workshops translate the model into shared design language.<span class="bi">専門家インタビューと共創ワークショップにより、モデルを共有可能な設計言語へ変換する。</span></p>
     </div>
-    <div class="phase-flow nav-safe-bottom-tight" data-anim="up">
-      <div class="module-card accent"><div class="t-meta">INPUT · MODULE A</div><h3>Initial causal model</h3><p>Variables and causal links.<span class="bi">変数と因果関係。</span></p></div>
-      <div class="handoff-arrow">→</div>
-      <div class="workshop-core">
-        <div><div class="t-meta">CO-CREATION WORKSHOP</div><h3 style="font-size:max(22px,1.6vw);font-weight:400;line-height:1.1;margin:.6vh 0 0">Translate the model together</h3></div>
-        <div class="workshop-steps">
-          <div class="workshop-step"><i data-lucide="messages-square"></i><div class="t-meta">EXPERT INPUT</div><p>Interpretation and design review.<span class="bi">解説とデザインの専門的評価。</span></p></div>
-          <div class="workshop-step"><i data-lucide="panels-top-left"></i><div class="t-meta">STORYBOARD</div><p>Visitor scenarios and route stories.<span class="bi">来訪シナリオと経路物語。</span></p></div>
-          <div class="workshop-step"><i data-lucide="shapes"></i><div class="t-meta">PROTOTYPE</div><p>Participatory sign-system mockups.<span class="bi">参加型サインシステム試作。</span></p></div>
+    <div class="method-stage-layout nav-safe-bottom-tight" data-anim="up">
+      <aside class="aux-stack">
+        <div class="method-purpose" style="min-height:0">
+          <i data-lucide="lightbulb"></i>
+          <div><div class="t-meta">PURPOSE</div><h3>Make the model usable.</h3></div>
+          <p>Translate causal links into design language.<span class="bi">因果関係を設計言語へ翻訳する。</span></p>
         </div>
-      </div>
-      <div class="handoff-arrow">→</div>
-      <div class="module-card accent"><div class="t-meta">OUTPUT · MODULE B</div><h3>Design principle hypotheses</h3><p>First actionable rule set.<span class="bi">第一批の操作可能な設計原則仮説。</span></p></div>
+        <div class="handoff-card"><div class="t-meta">INPUT · MODULE A</div><h3>Initial causal model</h3><p>Variables and causal links.<span class="bi">変数と因果関係。</span></p></div>
+      </aside>
+      <section class="method-spotlight dark">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · CO-CREATION CORE</div><h3>Workshop methods turn analysis into rules.</h3></div>
+          <div class="t-meta">MODULE B</div>
+        </div>
+        <div class="method-units">
+          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">01</div><h4>Expert input</h4><p>Interpretation and design review.<span class="bi">解説とデザインの専門的評価。</span></p></article>
+          <article class="method-unit"><i data-lucide="panels-top-left"></i><div class="t-meta">02</div><h4>Storyboard</h4><p>Visitor scenarios and route stories.<span class="bi">来訪シナリオと経路物語。</span></p></article>
+          <article class="method-unit"><i data-lucide="shapes"></i><div class="t-meta">03</div><h4>Prototype</h4><p>Participatory sign-system mockups.<span class="bi">参加型サインシステム試作。</span></p></article>
+        </div>
+      </section>
+      <aside class="participant-panel">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>Design conversation.</h3></div>
+        <div class="participant-chips"><span class="participant-chip">EXPERTS</span><span class="participant-chip">DESIGNERS</span><span class="participant-chip">MANAGERS</span></div>
+        <div class="aux-mini" style="border-top-color:rgba(255,255,255,.28)"><div class="t-meta">OUTPUT</div><h3 style="color:var(--text-inverse-primary)">Design principle hypotheses</h3><p style="color:var(--text-inverse-secondary)">操作可能な設計原則仮説。</p></div>
+      </aside>
     </div>
   </div>
 </section>
@@ -1873,19 +1938,33 @@
     <div class="chrome-min"><div class="l">Method 03 · 研究方法 03</div><div class="r" data-slide-page>12 / 14</div></div>
     <div data-anim="line" style="display:grid;grid-template-columns:4.7fr 7.3fr;gap:3vw;align-items:end">
       <div><div class="t-cat accent">WHICH · PHASE 3</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">Which principles really work?</h2><span class="jp" lang="ja">どの設計原則が実際に有効なのか。</span></div>
-      <div class="module-card accent" style="min-height:0"><div class="t-meta">TARGET SAMPLE</div><h3>About 60 participants</h3><p>Real greenhouse, connected interpretive signs.<span class="bi">実際の温室で、連続した解説サインを読む約60名。</span></p></div>
+      <div class="method-purpose" style="min-height:0"><i data-lucide="badge-check"></i><div><div class="t-meta">PURPOSE</div><h3>Validate what works.</h3></div><p>Check whether the proposed principles improve reading, load, and retention.<span class="bi">提案原則が読解、負荷、記憶保持を改善するか検証する。</span></p></div>
     </div>
-    <div class="validation-grid" data-anim="up" style="margin-top:2.4vh">
-      <article class="module-card"><i data-lucide="flask-conical"></i><div class="t-meta">FIELD EXPERIMENT</div><h3>Multi-condition control</h3><p>Compare different principle-based conditions.<span class="bi">原則に基づく複数条件を比較する。</span></p></article>
-      <article class="module-card"><i data-lucide="scan-eye"></i><div class="t-meta">MULTIMODAL TOOL</div><h3>Sequential eye-tracking</h3><p>Upgrade from one sign to route-level gaze.<span class="bi">単一サインから経路レベル視線へ拡張する。</span></p></article>
-      <article class="module-card"><i data-lucide="clipboard-list"></i><div class="t-meta">COGNITIVE LOAD</div><h3>NASA-TLX</h3><p>Measure perceived mental workload.<span class="bi">主観的な認知負荷を測定する。</span></p></article>
-      <article class="module-card"><i data-lucide="timer-reset"></i><div class="t-meta">RETENTION</div><h3>Forgetting curve tests</h3><p>Quantify information retention over time.<span class="bi">時間経過による情報保持を定量化する。</span></p></article>
+    <div class="method-stage-layout" data-anim="up" style="grid-template-columns:1.65fr 6.7fr 1.65fr;margin-top:2.2vh">
+      <aside class="participant-panel">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>About 60 readers.</h3></div>
+        <div class="participant-chips"><span class="participant-chip">REAL ROUTE</span><span class="participant-chip">GREENHOUSE</span><span class="participant-chip">SIGNS</span></div>
+        <p style="font-size:max(15px,.82vw);line-height:1.28;color:var(--text-inverse-secondary);font-weight:500;margin:0">温室内で連続した解説サインを読む約60名。</p>
+      </aside>
+      <section class="method-spotlight">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · EMPIRICAL VALIDATION</div><h3>Four linked measures test the same route.</h3></div>
+          <div class="t-meta">MODULE C</div>
+        </div>
+        <div class="method-units cols-4">
+          <article class="method-unit"><i data-lucide="flask-conical"></i><div class="t-meta">01</div><h4>Field experiment</h4><p>Compare principle-based conditions.<span class="bi">原則に基づく条件を比較する。</span></p></article>
+          <article class="method-unit"><i data-lucide="scan-eye"></i><div class="t-meta">02</div><h4>Eye-tracking</h4><p>Measure sequential gaze on route signs.<span class="bi">経路上の視線推移を測定する。</span></p></article>
+          <article class="method-unit"><i data-lucide="clipboard-list"></i><div class="t-meta">03</div><h4>NASA-TLX</h4><p>Capture perceived cognitive load.<span class="bi">主観的な認知負荷を測定する。</span></p></article>
+          <article class="method-unit"><i data-lucide="timer-reset"></i><div class="t-meta">04</div><h4>Retention test</h4><p>Track forgetting-curve change.<span class="bi">忘却曲線上の記憶変化を捉える。</span></p></article>
+        </div>
+      </section>
+      <aside class="aux-stack">
+        <div class="handoff-card"><div class="t-meta">INPUT · MODULE B</div><h3>Design principle hypotheses</h3><p>Co-created rule set.<span class="bi">共創された設計原則仮説。</span></p></div>
+        <div class="handoff-card accent"><div class="t-meta">OUTPUT</div><h3>Validated principles</h3><p>Memory-oriented design rules.<span class="bi">記憶指向の設計原則。</span></p></div>
+      </aside>
     </div>
-    <div class="handoff-line nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1fr auto 1fr;margin-top:2.2vh">
-      <div class="handoff-card accent"><div class="t-meta">INPUT · MODULE B</div><h3>Design principle hypotheses</h3><p>What co-creation produced.<span class="bi">共創から得られた設計原則仮説。</span></p></div>
-      <div class="handoff-arrow">→</div>
-      <div class="handoff-card accent"><div style="display:flex;justify-content:space-between;gap:1vw;align-items:start"><div><div class="t-meta">OUTPUT · MODULE C</div><h3>Empirically validated design principles</h3><p>Final memory-oriented rules.<span class="bi">実証された記憶指向デザイン原則。</span></p></div><span class="validated-stamp">VALIDATED</span></div></div>
-    </div>
+    <div class="nav-safe-bottom-tight" data-anim="up" style="margin-top:1.3vh;text-align:right"><span class="validated-stamp">VALIDATED</span></div>
   </div>
 </section>
 
