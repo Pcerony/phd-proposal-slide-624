@@ -1382,6 +1382,25 @@
   }
   .slide.dark .duo-compare .col.accent .col-ttl{color:var(--text-inverse-primary)}
   .slide.light .duo-compare .col.accent .col-ttl{color:var(--text-primary)}
+  .sign-density{
+    height:18vh;margin:.7vh 0 1vh;padding:1.15vh 1vw;
+    display:grid;grid-template-columns:repeat(7,1fr);gap:.75vw;align-items:end;
+    background:rgba(255,255,255,.055);border-top:2px solid var(--accent);
+    overflow:hidden
+  }
+  .sign-density .sign-icon{
+    color:rgba(255,255,255,.72);height:var(--h,13vh);
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0
+  }
+  .sign-density .sign-icon:nth-child(even){color:rgba(255,255,255,.54)}
+  .sign-density .sign-icon.accent{color:var(--accent)}
+  .sign-density .sign-board{
+    width:var(--w,4.5vw);height:var(--bh,4.6vh);
+    border:2px solid currentColor;background:rgba(255,255,255,.03);box-sizing:border-box
+  }
+  .sign-density .sign-icon.accent .sign-board{background:var(--accent);border-color:var(--accent)}
+  .sign-density .sign-post{width:2px;height:var(--ph,4vh);background:currentColor}
+  .sign-density .sign-base{width:58%;height:2px;background:currentColor}
   .duo-compare .col-desc{
     font-family:var(--sans),var(--sans-zh);
     font-size:max(16px,1.04vw);line-height:1.55;opacity:.78;
@@ -1730,7 +1749,7 @@
         <i data-lucide="file-text" style="width:3.2vw;height:3.2vw;color:var(--text-inverse-secondary)"></i>
       </div><ul class="bi-list"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
       <div class="vrule"></div>
-      <div class="col accent"><div class="col-tag"><span class="num">B</span> REAL VISITOR PATH</div><h3 class="col-ttl">A whole path of signs<span class="bi">連続したサイン経路</span></h3><div style="position:relative;height:18vh;margin:.7vh 0 1vh"><svg viewBox="0 0 900 210" aria-hidden="true" style="width:100%;height:100%;display:block"><rect x="15" y="22" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="185" y="108" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="355" y="40" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="525" y="118" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="695" y="52" width="150" height="96" fill="var(--accent)" stroke="var(--accent)"/><path d="M80 118 C165 10, 250 196, 420 88 S620 34, 770 106" fill="none" stroke="var(--accent)" stroke-width="6" stroke-dasharray="18 18"/><circle cx="80" cy="118" r="10" fill="var(--accent)"/><circle cx="250" cy="148" r="10" fill="var(--accent)"/><circle cx="420" cy="88" r="10" fill="var(--accent)"/><circle cx="590" cy="157" r="10" fill="var(--accent)"/><circle cx="770" cy="106" r="15" fill="#0a0a0a"/></svg><div style="position:absolute;left:2%;top:0" class="t-meta">SIGN 1</div><div style="position:absolute;left:23%;bottom:0" class="t-meta">SIGN 2</div><div style="position:absolute;left:43%;top:0" class="t-meta">SIGN 3</div><div style="position:absolute;left:63%;bottom:0" class="t-meta">SIGN 4</div><div style="position:absolute;right:1%;top:0;color:var(--accent)" class="t-meta">SIGN 5</div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
+      <div class="col accent"><div class="col-tag"><span class="num">B</span> REAL VISITOR PATH</div><h3 class="col-ttl">A dense field of signs<span class="bi">密集したサイン環境</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
     </div>
   </div>
 </section>
