@@ -869,6 +869,113 @@
   .phase-main.dark .phase-flow-node.accent .bi{color:#253000!important}
   .phase-flow .arrow{font-size:max(24px,2.2vw);font-weight:200;line-height:1;color:var(--accent-text)}
   .phase-main.dark .phase-flow .arrow,.phase-main.validation .phase-flow .arrow{color:var(--ink)}
+  .method-logic-head{display:grid;grid-template-columns:4.5fr 7.5fr;gap:3vw;align-items:end}
+  .method-logic-head h2{font-weight:200;font-size:min(3.9vw,6.9vh);line-height:1.02;letter-spacing:-.04em;margin:.75vh 0 0}
+  .method-logic-head p{font-size:max(18px,1.02vw);line-height:1.38;color:var(--text-secondary);font-weight:500;margin:0}
+  .logic-triptych{display:grid;grid-template-columns:4.55fr 1.8fr 5.65fr;gap:1.35vw;align-items:stretch;margin-top:2.1vh;flex:1;min-height:0}
+  .logic-panel{border-top:3px solid var(--ink);background:var(--paper);padding:1.25vh 1vw;min-height:0;display:flex;flex-direction:column;gap:1vh}
+  .logic-panel.accent{background:var(--accent);color:var(--accent-on)}
+  .logic-panel.ink{background:var(--ink);color:var(--text-inverse-primary);border-top-color:var(--accent)}
+  .logic-panel .logic-title{display:flex;align-items:center;justify-content:space-between;gap:1vw}
+  .logic-panel .logic-title h3{font-size:max(19px,1.16vw);font-weight:600;line-height:1.08;margin:0;max-width:72%;min-width:0;text-align:right}
+  .logic-panel.ink .t-meta{color:var(--text-inverse-helper)}
+  .memory-field{position:relative;flex:1;min-height:38vh;overflow:hidden;background:var(--fill);border:1px solid var(--border-subtle)}
+  .memory-field:before,.memory-field:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid rgba(10,10,10,.18);width:74%;aspect-ratio:1;border-radius:50%}
+  .memory-field:after{width:48%;border-color:rgba(10,10,10,.28)}
+  .memory-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10.4vw;max-width:152px;aspect-ratio:1;background:var(--ink);color:var(--text-inverse-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1vh .8vw;z-index:2}
+  .memory-core i{width:30px;height:30px;color:var(--accent);stroke-width:1.7;margin-bottom:.65vh}
+  .memory-core strong{font-size:max(16px,.94vw);line-height:1.06;font-weight:650}
+  .var-chip{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:3;display:flex;align-items:center;gap:.45vw;background:var(--paper);border:1px solid var(--ink);padding:.5vh .55vw;font-family:var(--mono);font-size:max(12px,.66vw);font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .var-chip i{width:16px;height:16px;stroke-width:1.8;color:var(--accent-text)}
+  .method-arrow-stack{display:grid;grid-template-rows:repeat(4,1fr);gap:.9vh;align-items:center}
+  .logic-arrow{position:relative;display:flex;align-items:center;justify-content:center;min-height:7.3vh}
+  .logic-arrow:before{content:"";position:absolute;left:4%;right:10%;top:50%;height:2px;background:var(--ink);transform:translateY(-50%)}
+  .logic-arrow:after{content:"";position:absolute;right:5%;top:50%;transform:translateY(-50%);border-left:12px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent}
+  .logic-arrow span{position:relative;z-index:1;background:var(--paper);border:1px solid var(--ink);padding:.45vh .55vw;font-family:var(--mono);font-size:max(12px,.66vw);font-weight:700;letter-spacing:.12em;color:var(--accent-text)}
+  .formula-stack,.hypothesis-stack,.principle-stack{display:flex;flex-direction:column;gap:.75vh;min-height:0}
+  .formula-card{display:grid;grid-template-columns:auto 1fr;gap:.9vw;align-items:center;background:var(--fill);border-top:2px solid var(--ink);padding:.85vh .85vw}
+  .formula-card .formula{font-family:var(--mono);font-size:max(20px,1.38vw);font-weight:500;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+  .formula-card p{font-size:max(14px,.78vw);line-height:1.2;color:var(--text-secondary);font-weight:500;margin:0}
+  .formula-stack.model-stack{gap:.52vh}
+  .formula-stack.model-stack .formula-card{padding:.62vh .72vw}
+  .formula-stack.model-stack .formula-card .formula{font-size:max(18px,1.12vw)}
+  .formula-stack.model-stack .formula-card p{font-size:max(13px,.72vw);line-height:1.16}
+  .model-combo{display:flex;align-items:center;justify-content:space-between;gap:.8vw;background:var(--accent);border-top:2px solid var(--ink);padding:.56vh .72vw;font-size:max(13px,.72vw);line-height:1.1;color:var(--accent-on);font-weight:700}
+  .model-combo strong{font-family:var(--mono);font-size:max(17px,1vw);font-weight:600;white-space:nowrap}
+  .formula-key{margin-top:.15vh;border-top:1px solid var(--border-subtle);padding-top:.6vh;display:grid;grid-template-columns:repeat(3,1fr);gap:.55vw}
+  .formula-key div{font-size:max(12px,.66vw);line-height:1.12;color:var(--text-secondary);font-weight:600}
+  .formula-key strong{display:block;font-family:var(--mono);font-size:max(15px,.82vw);color:var(--ink)}
+  .translation-panel{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.1vh}
+  .twist-svg{width:100%;height:18vh;display:block}
+  .translation-panel .method-label{border:2px solid var(--ink);background:var(--accent);padding:.7vh .75vw;font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-align:center}
+  .hypothesis-card,.principle-card{background:var(--fill);border-top:2px solid var(--ink);padding:.9vh .85vw;display:grid;grid-template-columns:auto 1fr;gap:.75vw;align-items:start;min-height:0}
+  .hypothesis-card i,.principle-card i{width:24px;height:24px;stroke-width:1.7;color:var(--accent-text)}
+  .hypothesis-card h4,.principle-card h4{font-size:max(16px,.92vw);font-weight:650;line-height:1.08;margin:0}
+  .hypothesis-card p,.principle-card p{font-size:max(14px,.76vw);line-height:1.2;color:var(--text-secondary);font-weight:500;margin:.35vh 0 0}
+  .funnel-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1vh}
+  .funnel-shape{width:100%;height:24vh;display:grid;grid-template-rows:1fr 1fr 1fr;gap:.55vh;align-items:stretch}
+  .funnel-step{background:var(--ink);clip-path:polygon(var(--l) 0, calc(100% - var(--l)) 0, calc(86% - var(--l)) 100%, calc(14% + var(--l)) 100%)}
+  .funnel-step:nth-child(1){--l:0%}
+  .funnel-step:nth-child(2){--l:13%;background:#3a3a3a}
+  .funnel-step:nth-child(3){--l:26%;background:var(--accent)}
+  .funnel-caption{font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);text-align:center}
+  .logic-panel.ink .hypothesis-card{background:#202020;border-top-color:var(--accent)}
+  .logic-panel.ink .hypothesis-card p,.logic-panel.ink .hypothesis-card .bi{color:var(--text-inverse-secondary)}
+  .logic-panel.ink .hypothesis-card i{color:var(--accent)}
+  .logic-panel.ink .hypothesis-card h4{color:var(--text-inverse-primary)}
+  .logic-panel.accent .principle-card{background:rgba(255,255,255,.42)}
+  .logic-panel.accent .principle-card p,.logic-panel.accent .principle-card .bi{color:#253000}
+  .block-logic-head{display:grid;grid-template-columns:2.15fr 9.85fr;gap:2.2vw;align-items:end;margin-bottom:2vh}
+  .block-logic-word{font-size:min(8.3vw,14.4vh);font-weight:200;line-height:.82;letter-spacing:-.055em;color:var(--ink);margin:0;text-transform:uppercase}
+  .block-logic-note{border-top:4px solid var(--accent);padding-top:1.05vh;font-size:max(18px,1.05vw);line-height:1.38;color:var(--text-secondary);font-weight:500;margin:0;max-width:68vw}
+  .block-flow{display:grid;grid-template-columns:4.6fr 2.05fr 5.35fr;gap:1.25vw;align-items:stretch;flex:1;min-height:0}
+  .block-flow.validation-flow{grid-template-columns:3.95fr 3.05fr 4.8fr;gap:1.05vw}
+  .block-panel{border-top:4px solid var(--ink);background:var(--paper);padding:1.2vh 1vw;display:flex;flex-direction:column;gap:1vh;min-height:0}
+  .block-panel.ink{background:var(--ink);color:var(--text-inverse-primary);border-top-color:var(--accent)}
+  .block-panel.accent{background:var(--accent);color:var(--accent-on);border-top-color:var(--ink)}
+  .block-panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1vw}
+  .block-panel-head h3{font-size:max(18px,1.08vw);font-weight:600;line-height:1.08;margin:0;text-align:right}
+  .block-panel.ink .t-meta{color:var(--text-inverse-helper)}
+  .block-panel.accent .t-meta{color:#253000}
+  .block-tile-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:.58vw;flex:1;min-height:0}
+  .block-tile{background:var(--fill);border-top:2px solid var(--ink);display:flex;flex-direction:column;justify-content:space-between;gap:.45vh;padding:.85vh .7vw;min-height:0}
+  .block-tile i{width:24px;height:24px;stroke-width:1.7;color:var(--accent-text)}
+  .block-tile span{font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text-primary);line-height:1.08}
+  .block-core-tile{grid-column:2 / span 2;grid-row:2 / span 2;background:var(--ink);color:var(--text-inverse-primary);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1vh;padding:1.1vh 1vw;min-height:0}
+  .block-core-tile i{width:36px;height:36px;color:var(--accent);stroke-width:1.55}
+  .block-core-tile strong{font-size:max(21px,1.32vw);font-weight:600;line-height:1.04;letter-spacing:-.02em}
+  .block-core-tile .bi{color:var(--text-inverse-secondary);font-size:max(14px,.76vw);line-height:1.2}
+  .block-arrow-stack{display:flex;flex-direction:column;justify-content:center;gap:1.15vh;min-height:0}
+  .block-arrow-card{min-height:8.6vh;background:var(--accent);color:var(--accent-on);clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%,17% 50%);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 1.05vw 0 1.55vw;font-family:var(--mono);font-size:max(13px,.74vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.16}
+  .block-arrow-card.ink{background:var(--ink);color:var(--text-inverse-primary)}
+  .block-arrow-card.paper{background:var(--fill);color:var(--ink);border-top:2px solid var(--ink)}
+  .block-ledger{display:flex;flex-direction:column;gap:.65vh;flex:1;min-height:0}
+  .block-formula-row{display:grid;grid-template-columns:1.25fr 1fr;gap:.8vw;align-items:center;background:var(--fill);border-top:2px solid var(--ink);padding:.76vh .78vw;min-height:0}
+  .block-formula-row .formula{font-family:var(--mono);font-size:max(19px,1.16vw);font-weight:600;letter-spacing:-.025em;color:var(--ink);white-space:nowrap}
+  .block-formula-row p{font-size:max(14px,.74vw);line-height:1.16;color:var(--text-secondary);font-weight:600;margin:0}
+  .block-formula-row.total{background:var(--ink);color:var(--text-inverse-primary);border-top-color:var(--accent)}
+  .block-formula-row.total .formula{color:var(--accent)}
+  .block-formula-row.total p{color:var(--text-inverse-secondary)}
+  .block-formula-row.total .bi{color:var(--text-inverse-secondary)}
+  .block-key-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.6vw;margin-top:.45vh}
+  .block-key-strip div{border-top:1px solid var(--border-subtle);padding-top:.55vh;font-size:max(12px,.66vw);line-height:1.14;color:var(--text-secondary);font-weight:600}
+  .block-key-strip strong{display:block;font-family:var(--mono);font-size:max(15px,.82vw);color:var(--ink)}
+  .hypothesis-block-list{display:grid;grid-template-rows:repeat(4,1fr);gap:.78vh;flex:1;min-height:0}
+  .hypothesis-block{background:#202020;border-top:2px solid var(--accent);display:grid;grid-template-columns:auto 1fr;gap:.85vw;align-items:center;padding:.9vh .9vw;min-height:0}
+  .hypothesis-block .num,.principle-output .num{font-family:var(--mono);font-size:max(22px,1.35vw);font-weight:500;letter-spacing:-.03em;line-height:1}
+  .hypothesis-block h4,.principle-output h4{font-size:max(17px,1vw);font-weight:700;line-height:1.08;margin:0;text-transform:uppercase;letter-spacing:.03em}
+  .hypothesis-block .bi,.principle-output .bi{font-size:max(14px,.76vw);line-height:1.2;margin-top:.3vh}
+  .hypothesis-block .bi{color:var(--text-inverse-secondary)}
+  .principle-output-list{display:grid;grid-template-rows:repeat(2,1fr);gap:1vh;flex:1;min-height:0}
+  .principle-output{background:rgba(255,255,255,.45);border-top:3px solid var(--ink);display:grid;grid-template-columns:auto 1fr;gap:1vw;align-items:center;padding:1.4vh 1.05vw;min-height:0}
+  .principle-output .bi{color:#253000}
+  .block-funnel-horizontal{display:grid;grid-template-columns:2.15fr 1.55fr 1.05fr;gap:.42vw;align-items:center;height:33vh;margin:auto 0}
+  .validation-flow .block-funnel-horizontal{height:31vh;grid-template-columns:1.55fr 1.22fr 1fr;gap:.5vw}
+  .block-funnel-stage{clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%,13% 50%);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 1vw 0 1.35vw;color:var(--text-inverse-primary);font-family:var(--mono);font-size:max(13px,.76vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.18;background:var(--ink)}
+  .validation-flow .block-funnel-stage{font-size:max(14px,.82vw)}
+  .block-funnel-stage:nth-child(1){height:100%}
+  .block-funnel-stage:nth-child(2){height:76%;background:#343434}
+  .block-funnel-stage:nth-child(3){height:52%;background:var(--accent);color:var(--accent-on)}
   .aux-stack{display:grid;grid-template-rows:auto 1fr;gap:1vh;align-items:stretch}
   .aux-mini{border-top:2px solid var(--border-subtle);padding:1vh 0 0;display:flex;flex-direction:column;gap:.55vh}
   .aux-mini h3{font-size:max(18px,1.1vw);font-weight:400;line-height:1.12;margin:0}
@@ -1759,7 +1866,7 @@
 <section class="slide accent" data-layout="S01" data-animate="hero">
     <div class="canvas-card">
    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 24 · 2026</div></div>
+    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 27 · 2026</div></div>
     <div style="flex:1;display:flex;flex-direction:column;gap:8vh">
       <div style="display:flex;flex-direction:column;gap:0;position:relative">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
@@ -1788,7 +1895,7 @@
   <div class="canvas-card" style="padding:0;overflow:hidden">
     <div class="bg-only-layout">
       <div class="bg-hero-copy">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 24</div></div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 27</div></div>
         <div class="bg-hero-title-container" data-anim="title-container" style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:2vh;margin-bottom:2vh">
           <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:0;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
@@ -1829,7 +1936,7 @@
 
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 24</div></div>
+    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 27</div></div>
     <div class="s17-object-layout">
       <div class="s17-object-copy" data-anim="line">
         <div>
@@ -1864,7 +1971,7 @@
 
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 24</div></div>
+    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 27</div></div>
     <div class="three-forces nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
@@ -1913,7 +2020,7 @@
 
 <section class="slide light" data-layout="S22" data-animate="image-hero">
   <div class="canvas-card" style="display:grid;grid-template-rows:auto 30vh 1fr;gap:1.8vh;overflow:hidden">
-    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>05 / 24</div></div>
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>05 / 27</div></div>
     <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:30vh;max-height:none">
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
       <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
@@ -1946,7 +2053,7 @@
 
 <section class="slide dark" data-layout="S08">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>06 / 24</div></div>
+    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>06 / 27</div></div>
     <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at single sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
     <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
       <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
@@ -1961,7 +2068,7 @@
 
 <section class="slide light" data-layout="S09" data-animate="statement">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Question · 研究問題</div><div class="r" data-slide-page>07 / 24</div></div>
+    <div class="chrome-min"><div class="l">Research Question · 研究問題</div><div class="r" data-slide-page>07 / 27</div></div>
     <div style="position:absolute;right:5vw;top:15vh;width:36vw;height:50vh;color:var(--accent);opacity:.42" class="dots-bold" aria-hidden="true"></div>
     <div class="rq-layout">
       <div class="rq-stat-panel">
@@ -1993,7 +2100,7 @@
 
 <section class="slide dark" data-layout="S05" data-animate="stack-build">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 24</div></div>
+    <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 27</div></div>
     <div style="display:flex;flex-direction:column;gap:1.2vh" data-anim="line"><div class="t-cat accent">RESEARCH OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">What This Research Aims to Produce</h2><span class="jp inverse" lang="ja">本研究が産み出すもの</span></div>
     <div class="stack-row" style="margin-top:5vh">
       <div class="stack-block b-paper"><div class="layer-nb">01 · MODEL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">A Causal Model<span class="bi">因果メカニズムモデル</span></h3><p class="layer-desc">Revealing how spatial information design variables connect to visitor cognition and memory.<span class="bi">空間情報デザインの変数が来訪者の認知・記憶とどうつながるかを明らかにする。</span></p><div class="layer-tag">STAGE 1: MODEL</div></div>
@@ -2019,7 +2126,7 @@
 
 <section class="slide light" data-layout="S11" data-animate="timeline-walk">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method Overview · 研究方法総覧</div><div class="r" data-slide-page>09 / 24</div></div>
+    <div class="chrome-min"><div class="l">Method Overview · 研究方法総覧</div><div class="r" data-slide-page>09 / 27</div></div>
     <div data-anim="line" style="display:grid;grid-template-columns:4.6fr 7.4fr;gap:3vw;align-items:end">
       <div><h2 style="font-weight:200;font-size:min(4.85vw,8.5vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">Co-creation research strategy</h2><span class="jp" lang="ja">三つのWで研究方法を連鎖させる。</span></div>
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">A co-creation research strategy linking model-building, hypothesis formulation, and principle validation across three phases.<span class="bi">モデル構築、仮説立案、原則検証を三つのフェーズで連鎖させる共創研究戦略。</span></p>
@@ -2039,9 +2146,55 @@
   </div>
 </section>
 
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>10 / 27</div></div>
+    <div class="block-logic-head" data-anim="line">
+      <h2 class="block-logic-word">WHAT</h2>
+      <p class="block-logic-note">Select variables that may explain memory retention.<span class="bi">記憶保持を説明し得る設計変数を選ぶ。</span></p>
+    </div>
+    <div class="block-flow nav-safe-bottom-tight" data-anim="up">
+      <section class="block-panel">
+        <div class="block-panel-head"><div class="t-meta">INPUT</div><h3>Variable field</h3></div>
+        <div class="block-tile-grid" aria-label="Design variables around memory retention">
+          <div class="block-core-tile"><i data-lucide="brain"></i><strong>Memory<br/>retention</strong><span class="bi">記憶保持</span></div>
+          <div class="block-tile"><i data-lucide="type"></i><span>Font</span></div>
+          <div class="block-tile"><i data-lucide="layout-grid"></i><span>Layout</span></div>
+          <div class="block-tile"><i data-lucide="route"></i><span>Path</span></div>
+          <div class="block-tile"><i data-lucide="sun"></i><span>Light</span></div>
+          <div class="block-tile"><i data-lucide="palette"></i><span>Color</span></div>
+          <div class="block-tile"><i data-lucide="align-left"></i><span>Density</span></div>
+          <div class="block-tile"><i data-lucide="ruler"></i><span>Distance</span></div>
+          <div class="block-tile"><i data-lucide="image"></i><span>Image</span></div>
+        </div>
+      </section>
+      <section class="block-arrow-stack" aria-label="Method 1 filters variables from left to right">
+        <div class="block-arrow-card">METHOD 1</div>
+        <div class="block-arrow-card ink">SCREEN</div>
+        <div class="block-arrow-card">MODEL</div>
+      </section>
+      <section class="block-panel">
+        <div class="block-panel-head"><div class="t-meta">OUTPUT</div><h3>Mechanism model</h3></div>
+        <div class="block-ledger">
+          <article class="block-formula-row"><div class="formula">y = n1(x)</div><p>font<span class="bi">文字</span></p></article>
+          <article class="block-formula-row"><div class="formula">y = n2(x)</div><p>layout<span class="bi">配置</span></p></article>
+          <article class="block-formula-row"><div class="formula">y = n3(x)</div><p>route<span class="bi">経路</span></p></article>
+          <article class="block-formula-row"><div class="formula">y = n4(x)</div><p>visibility<span class="bi">視認性</span></p></article>
+          <article class="block-formula-row total"><div class="formula">Σ y = N(x)</div><p>combined model<span class="bi">統合モデル</span></p></article>
+        </div>
+        <div class="block-key-strip">
+          <div><strong>y</strong>retention<span class="bi">保持</span></div>
+          <div><strong>n</strong>variable<span class="bi">変数</span></div>
+          <div><strong>x</strong>visitor<span class="bi">来訪者</span></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
 <section class="slide light" data-layout="S16" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 01 · 研究方法 01</div><div class="r" data-slide-page>10 / 24</div></div>
+    <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>11 / 27</div></div>
     <div data-anim="line" style="display:grid;grid-template-columns:4.7fr 7.3fr;gap:3vw;align-items:end">
       <div><div class="t-cat accent">WHAT · PHASE 1</div><h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:1.05;letter-spacing:-.04em;margin-top:.9vh">What variables matter?</h2><span class="jp" lang="ja" style="display:block;margin-top:0.6vh">どの設計変数が認知負荷と情報保持に影響するのか。</span></div>
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">This phase extracts the variables before any intervention is designed.<span class="bi">介入設計の前に、測定すべき変数を明確にする段階である。</span></p>
@@ -2087,9 +2240,44 @@
   </div>
 </section>
 
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>12 / 27</div></div>
+    <div class="block-logic-head" data-anim="line">
+      <h2 class="block-logic-word">HOW</h2>
+      <p class="block-logic-note">Translate the mechanism model into design-principle hypotheses.<span class="bi">メカニズムモデルを設計原則仮説へ翻訳する。</span></p>
+    </div>
+    <div class="block-flow nav-safe-bottom-tight" data-anim="up">
+      <section class="block-panel">
+        <div class="block-panel-head"><div class="t-meta">INPUT</div><h3>Module A</h3></div>
+        <div class="block-ledger">
+          <article class="block-formula-row"><div class="formula">y = n1(x)</div><p>variable 1<span class="bi">変数1</span></p></article>
+          <article class="block-formula-row"><div class="formula">y = n2(x)</div><p>variable 2<span class="bi">変数2</span></p></article>
+          <article class="block-formula-row"><div class="formula">y = n3(x)</div><p>variable 3<span class="bi">変数3</span></p></article>
+          <article class="block-formula-row total"><div class="formula">Σ y = N(x)</div><p>mechanism model<span class="bi">メカニズムモデル</span></p></article>
+        </div>
+      </section>
+      <section class="block-arrow-stack" aria-label="Method 2 translates formulas to hypotheses from left to right">
+        <div class="block-arrow-card ink">METHOD 2</div>
+        <div class="block-arrow-card">CO-CREATE</div>
+        <div class="block-arrow-card">TRANSLATE</div>
+      </section>
+      <section class="block-panel ink">
+        <div class="block-panel-head"><div class="t-meta">OUTPUT</div><h3>Module B</h3></div>
+        <div class="hypothesis-block-list">
+          <article class="hypothesis-block"><div class="num">01</div><div><h4>Design principle<br/>hypothesis 1</h4><span class="bi">設計原則仮説 1</span></div></article>
+          <article class="hypothesis-block"><div class="num">02</div><div><h4>Design principle<br/>hypothesis 2</h4><span class="bi">設計原則仮説 2</span></div></article>
+          <article class="hypothesis-block"><div class="num">03</div><div><h4>Design principle<br/>hypothesis 3</h4><span class="bi">設計原則仮説 3</span></div></article>
+          <article class="hypothesis-block"><div class="num">04</div><div><h4>Design principle<br/>hypothesis 4</h4><span class="bi">設計原則仮説 4</span></div></article>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
 <section class="slide light" data-layout="S14" data-animate="loop-form">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 · 研究方法 02</div><div class="r" data-slide-page>11 / 24</div></div>
+    <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>13 / 27</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">HOW · PHASE 2</div><h2>How does the model become usable?</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">認知モデルを、使える設計原則へどう変換するのか。</span></div>
       <p>Expert interviews and co-creation workshops translate the model into shared design language.<span class="bi">専門家インタビューと共創ワークショップにより、モデルを共有可能な設計言語へ変換する。</span></p>
@@ -2131,7 +2319,43 @@
 
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 · 研究方法 03</div><div class="r" data-slide-page>12 / 24</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>14 / 27</div></div>
+    <div class="block-logic-head" data-anim="line">
+      <h2 class="block-logic-word">WHICH</h2>
+      <p class="block-logic-note">Filter hypotheses through empirical validation.<span class="bi">実証検証を通じて仮説を絞り込む。</span></p>
+    </div>
+    <div class="block-flow validation-flow nav-safe-bottom-tight" data-anim="up">
+      <section class="block-panel ink">
+        <div class="block-panel-head"><div class="t-meta">INPUT</div><h3>Candidate hypotheses</h3></div>
+        <div class="hypothesis-block-list">
+          <article class="hypothesis-block"><div class="num">01</div><div><h4>Design principle<br/>hypothesis 1</h4><span class="bi">設計原則仮説 1</span></div></article>
+          <article class="hypothesis-block"><div class="num">02</div><div><h4>Design principle<br/>hypothesis 2</h4><span class="bi">設計原則仮説 2</span></div></article>
+          <article class="hypothesis-block"><div class="num">03</div><div><h4>Design principle<br/>hypothesis 3</h4><span class="bi">設計原則仮説 3</span></div></article>
+          <article class="hypothesis-block"><div class="num">04</div><div><h4>Design principle<br/>hypothesis 4</h4><span class="bi">設計原則仮説 4</span></div></article>
+        </div>
+      </section>
+      <section class="block-arrow-stack" aria-label="Method 3 filters hypotheses from left to right">
+        <div class="block-arrow-card ink">METHOD 3</div>
+        <div class="block-funnel-horizontal" aria-label="Horizontal validation funnel">
+          <div class="block-funnel-stage">FIELD<br/>TEST</div>
+          <div class="block-funnel-stage">LOAD<br/>GAZE</div>
+          <div class="block-funnel-stage">RETENTION</div>
+        </div>
+      </section>
+      <section class="block-panel accent">
+        <div class="block-panel-head"><div class="t-meta">OUTPUT</div><h3>Module C</h3></div>
+        <div class="principle-output-list">
+          <article class="principle-output"><div class="num">01</div><div><h4>Design principle 1</h4><span class="bi">設計原則 1</span></div></article>
+          <article class="principle-output"><div class="num">02</div><div><h4>Design principle 2</h4><span class="bi">設計原則 2</span></div></article>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>15 / 27</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>Which principles really work?</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">どの設計原則が実際に有効なのか。</span></div>
       <p>Controlled field experiments on the real greenhouse route measure actual cognitive load and memory retention.<span class="bi">温室での実地対照実験により、実際の認知負荷と記憶保持率を測定する。</span></p>
@@ -2174,7 +2398,7 @@
 
 <section class="slide dark" data-layout="S13">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>13 / 24</div></div>
+    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>16 / 27</div></div>
     <div class="t-cat accent" style="margin-bottom:2vh">PRACTICAL VALUE · 実践的価値</div>
     <div class="value-layout nav-safe-bottom-tight">
       <div class="value-outputs">
@@ -2197,10 +2421,10 @@
 
 <section class="slide hero dark split" data-layout="S10" data-animate="split-statement">
   <div class="canvas-card">
-    <div class="half b-accent" style="flex:0 0 39%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>14 / 24</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
+    <div class="half b-accent" style="flex:0 0 39%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>17 / 27</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
     <div class="half b-paper" style="flex:1 1 auto;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;background:var(--paper);color:var(--ink)">
       <div class="closing-entry">
-        <div><div class="chrome-min" style="margin-bottom:0"><div class="l">Q&A Appendix</div><div class="r">15-24</div></div><div class="t-cat accent" style="margin-top:2.2vh">SUPPLEMENTARY DEFENSE SLIDES</div><h2 style="font-weight:200;font-size:min(4.2vw,7.2vh);line-height:.94;letter-spacing:-.04em;margin:1vh 0 1.4vh">Open pressure-test answers.</h2><span class="jp" lang="ja">想定質問への回答スライドを開く。</span></div>
+        <div><div class="chrome-min" style="margin-bottom:0"><div class="l">Q&A Appendix</div><div class="r">18-27</div></div><div class="t-cat accent" style="margin-top:2.2vh">SUPPLEMENTARY DEFENSE SLIDES</div><h2 style="font-weight:200;font-size:min(4.2vw,7.2vh);line-height:.94;letter-spacing:-.04em;margin:1vh 0 1.4vh">Open pressure-test answers.</h2><span class="jp" lang="ja">想定質問への回答スライドを開く。</span></div>
         <div class="qa-entry-list">
           <div class="qa-entry-item">01 Memory definition</div><div class="qa-entry-item">02 Experiment variables</div>
           <div class="qa-entry-item">03 Ecological validity</div><div class="qa-entry-item">04 Why botanical gardens</div>
@@ -2208,7 +2432,7 @@
           <div class="qa-entry-item">07 Sample size</div><div class="qa-entry-item">08 Mobile eye-tracking</div>
           <div class="qa-entry-item">09 Theoretical novelty</div><div class="qa-entry-item">10 Transferability</div>
         </div>
-        <button class="qa-jump" onclick="go(window.__qaStartIndex || 14)">Open Q&A appendix →</button>
+        <button class="qa-jump" onclick="go(window.__qaStartIndex || 17)">Open Q&A appendix →</button>
       </div>
     </div>
   </div>
@@ -2216,7 +2440,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 01 · 記憶測定</div><div class="r" data-slide-page>15 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 01 · 記憶測定</div><div class="r" data-slide-page>18 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 01</div><h2>How will you measure long-term memory?</h2><span class="jp" lang="ja">長期的な記憶をどのように測定するのか。</span></div><span class="qa-tag">MEMORY</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Define it as information retention, not broad memory.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="badge-check"></i><h4>Precise term</h4><p>I use "information retention" to keep the construct narrow.<span class="bi">概念を「情報保持」に限定する。</span></p></div><div class="qa-point"><i data-lucide="clock"></i><h4>Short window</h4><p>Immediate and short-term recall reduce time-based confounds.<span class="bi">短期回想で時間要因を抑える。</span></p></div><div class="qa-point"><i data-lucide="flask-conical"></i><h4>Causal clarity</h4><p>The aim is cleaner comparison between design conditions.<span class="bi">設計条件間の比較を明確にする。</span></p></div></div></section>
@@ -2226,7 +2450,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 02 · 実験変数</div><div class="r" data-slide-page>16 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 02 · 実験変数</div><div class="r" data-slide-page>19 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 02</div><h2>How can you know the Phase 3 variables before co-creation?</h2><span class="jp" lang="ja">共創前に第3段階の変数をどう決めるのか。</span></div><span class="qa-tag">VARIABLES</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>The variables are not fixed now; the parameterization framework is ready.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="users-round"></i><h4>Co-creation decides</h4><p>Specific factors should come from Phase 2 outputs.<span class="bi">具体因子は共創の成果から決める。</span></p></div><div class="qa-point"><i data-lucide="ruler"></i><h4>Design dimensions</h4><p>Possible factors include viewing distance or text density.<span class="bi">視線距離や文字密度などが候補。</span></p></div><div class="qa-point"><i data-lucide="table-2"></i><h4>Experimental frame</h4><p>The study is prepared to convert principles into controlled conditions.<span class="bi">原則を実験条件へ変換できる。</span></p></div></div></section>
@@ -2236,7 +2460,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 03 · 生態学的妥当性</div><div class="r" data-slide-page>17 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 03 · 生態学的妥当性</div><div class="r" data-slide-page>20 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 03</div><h2>How will you balance ecological validity and internal validity?</h2><span class="jp" lang="ja">実環境の妥当性と内部妥当性をどう両立するのか。</span></div><span class="qa-tag">FIELD TEST</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>The real greenhouse is a deliberate strength, controlled by design.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="leaf"></i><h4>Real context</h4><p>Heat, humidity, and fatigue are part of actual design use.<span class="bi">温湿度や疲労も実使用の一部。</span></p></div><div class="qa-point"><i data-lucide="shuffle"></i><h4>Counterbalance</h4><p>Use within-subject design and Latin-square ordering.<span class="bi">被験者内設計と順序平衡を用いる。</span></p></div><div class="qa-point"><i data-lucide="target"></i><h4>Design relevance</h4><p>Slight noise is acceptable for stronger real-world relevance.<span class="bi">現実適用性を優先する。</span></p></div></div></section>
@@ -2246,7 +2470,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 04 · 研究対象</div><div class="r" data-slide-page>18 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 04 · 研究対象</div><div class="r" data-slide-page>21 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 04</div><h2>Why study botanical gardens instead of museums directly?</h2><span class="jp" lang="ja">なぜ博物館ではなく植物園を対象にするのか。</span></div><span class="qa-tag">SITE</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Botanical gardens make the signage problem visible and measurable.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="leaf"></i><h4>Learning mission</h4><p>Visitors come to learn and explore plants.<span class="bi">来訪者は植物を学び探索する。</span></p></div><div class="qa-point"><i data-lucide="map"></i><h4>Route structure</h4><p>The greenhouse naturally creates sequential viewing.<span class="bi">温室は連続閲覧を生む。</span></p></div><div class="qa-point"><i data-lucide="repeat-2"></i><h4>Transfer case</h4><p>The same spatial-information issue appears in museums and zoos.<span class="bi">同じ課題は博物館や動物園にもある。</span></p></div></div></section>
@@ -2256,7 +2480,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 05 · 共創研究</div><div class="r" data-slide-page>19 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 05 · 共創研究</div><div class="r" data-slide-page>22 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 05</div><h2>Why is co-creation necessary for a cognitive study?</h2><span class="jp" lang="ja">認知研究に共創がなぜ必要なのか。</span></div><span class="qa-tag">CO-CREATION</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Co-creation connects cognitive evidence to usable design rules.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="brain"></i><h4>Cognitive model</h4><p>Research identifies mechanisms and variables.<span class="bi">研究が機序と変数を特定する。</span></p></div><div class="qa-point"><i data-lucide="messages-square"></i><h4>Stakeholder translation</h4><p>Experts and site actors translate them into design language.<span class="bi">関係者が設計言語へ翻訳する。</span></p></div><div class="qa-point"><i data-lucide="wrench"></i><h4>Usable principles</h4><p>The goal is not only theory, but rules designers can use.<span class="bi">実務で使える原則を目指す。</span></p></div></div></section>
@@ -2266,7 +2490,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 06 · 交絡要因</div><div class="r" data-slide-page>20 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 06 · 交絡要因</div><div class="r" data-slide-page>23 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 06</div><h2>How will you control prior knowledge and plant interest?</h2><span class="jp" lang="ja">事前知識や植物への興味をどう統制するのか。</span></div><span class="qa-tag">CONFOUNDS</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Measure key visitor differences and keep route exposure comparable.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="clipboard-list"></i><h4>Pre-survey</h4><p>Collect prior knowledge, motivation, and plant interest.<span class="bi">事前知識・動機・興味を取得する。</span></p></div><div class="qa-point"><i data-lucide="route"></i><h4>Same route</h4><p>Keep exposure order and route length controlled.<span class="bi">経路と順序を揃える。</span></p></div><div class="qa-point"><i data-lucide="bar-chart-3"></i><h4>Model covariates</h4><p>Use these variables in analysis rather than ignore them.<span class="bi">分析上の共変量として扱う。</span></p></div></div></section>
@@ -2276,7 +2500,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 07 · サンプル数</div><div class="r" data-slide-page>21 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 07 · サンプル数</div><div class="r" data-slide-page>24 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 07</div><h2>Is about sixty participants enough?</h2><span class="jp" lang="ja">約60名の参加者で十分なのか。</span></div><span class="qa-tag">SAMPLE</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>N≈60 is a field-study target, refined by power and feasibility checks.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="users-round"></i><h4>Field constraint</h4><p>Real-route testing limits throughput and time.<span class="bi">実経路実験には人数制約がある。</span></p></div><div class="qa-point"><i data-lucide="calculator"></i><h4>Power check</h4><p>The exact number will be checked after factor selection.<span class="bi">因子決定後に検出力を確認する。</span></p></div><div class="qa-point"><i data-lucide="repeat"></i><h4>Within-subjects</h4><p>Repeated measures can improve sensitivity.<span class="bi">反復測定で感度を高める。</span></p></div></div></section>
@@ -2286,7 +2510,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 08 · 視線計測</div><div class="r" data-slide-page>22 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 08 · 視線計測</div><div class="r" data-slide-page>25 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 08</div><h2>How will eye-tracking work on a walking route?</h2><span class="jp" lang="ja">歩行経路上で視線計測をどう行うのか。</span></div><span class="qa-tag">TOOL</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Upgrade the master's single-sign tool into a route-level multimodal toolkit.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="scan-eye"></i><h4>Sequential gaze</h4><p>Record attention shifts across multiple signs.<span class="bi">複数サイン間の視線推移を記録する。</span></p></div><div class="qa-point"><i data-lucide="settings"></i><h4>Calibration protocol</h4><p>Use clear calibration points and quality checks.<span class="bi">校正点と品質確認を設ける。</span></p></div><div class="qa-point"><i data-lucide="shield"></i><h4>Ethics</h4><p>Limit captured data to research needs and consented use.<span class="bi">同意範囲内で必要データに限定する。</span></p></div></div></section>
@@ -2296,7 +2520,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 09 · 理論的新規性</div><div class="r" data-slide-page>23 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 09 · 理論的新規性</div><div class="r" data-slide-page>26 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 09</div><h2>What is new beyond CLM, AVM, and CTML?</h2><span class="jp" lang="ja">既存モデルを超える新規性は何か。</span></div><span class="qa-tag">NOVELTY</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>The novelty is route-level memory-oriented integration.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="layers"></i><h4>Model integration</h4><p>Existing models explain parts of attention and learning.<span class="bi">既存モデルは部分を説明する。</span></p></div><div class="qa-point"><i data-lucide="route"></i><h4>System level</h4><p>This study shifts from one sign to a whole path.<span class="bi">単一サインから経路全体へ移る。</span></p></div><div class="qa-point"><i data-lucide="timer-reset"></i><h4>Retention target</h4><p>The design goal is memory retention, not only first attention.<span class="bi">注意だけでなく記憶保持を目標にする。</span></p></div></div></section>
@@ -2306,7 +2530,7 @@
 
 <section class="slide light qa-slide" data-layout="S08" data-appendix="qa">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Q&A 10 · 応用可能性</div><div class="r" data-slide-page>24 / 24</div></div>
+    <div class="chrome-min"><div class="l">Q&A 10 · 応用可能性</div><div class="r" data-slide-page>27 / 27</div></div>
     <div class="qa-layout nav-safe-bottom-tight">
       <aside class="qa-question"><div><div class="t-meta">QUESTION 10</div><h2>How far can these principles transfer?</h2><span class="jp" lang="ja">この原則はどこまで応用できるのか。</span></div><span class="qa-tag">TRANSFER</span></aside>
       <section class="qa-answer"><div><div class="t-cat accent">ANSWER STRATEGY</div><h3>Transfer the logic, then adapt each domain's content and route constraints.</h3></div><div class="qa-points"><div class="qa-point"><i data-lucide="landmark"></i><h4>Museums</h4><p>Long exhibitions with repeated interpretation points.<span class="bi">長い展示経路に応用できる。</span></p></div><div class="qa-point"><i data-lucide="trees"></i><h4>Zoos</h4><p>Learning routes across habitats and animal areas.<span class="bi">動物展示の学習経路へ展開できる。</span></p></div><div class="qa-point"><i data-lucide="gamepad-2"></i><h4>VR</h4><p>Task guidance in spatial and immersive environments.<span class="bi">VR空間のタスク誘導に応用できる。</span></p></div></div></section>

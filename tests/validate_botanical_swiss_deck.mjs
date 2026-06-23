@@ -10,12 +10,12 @@ assert.ok(fs.existsSync(target), `missing ${path.basename(target)}`);
 const html = fs.readFileSync(target, 'utf8');
 const slides = [...html.matchAll(/<section\s+class="slide[^"]*"[^>]*data-layout="(S\d{2})"/g)];
 
-assert.equal(slides.length, 24, 'deck must contain exactly twenty-four registered slides');
+assert.equal(slides.length, 27, 'deck must contain exactly twenty-seven registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
     'S01', 'S22', 'S17', 'S13', 'S22', 'S08', 'S09', 'S05',
-    'S11', 'S16', 'S14', 'S17', 'S13', 'S10',
+    'S11', 'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
   'registered layouts must match the approved narrative map',
@@ -33,6 +33,15 @@ assert.match(html, /overview/i, 'ESC overview must remain available');
 assert.match(html, /data-appendix="qa"/, 'Q&A appendix slides must be marked');
 assert.match(html, /__qaStartIndex/, 'Q&A appendix entry point must be wired');
 assert.match(html, /overview-qa-btn/, 'ESC overview must expose Q&A appendix entry');
+assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
+assert.match(html, /y = n1\(x\)/, 'method 01 formula model must be present');
+assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
+assert.match(html, /Method 02 Logic/, 'method 02 translation diagram slide must be present');
+assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hypothesis output must use numbered hypothesis blocks');
+assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
+assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
+assert.match(html, /Design principle 2/, 'method 03 output must reduce hypotheses into fewer principles');
+assert.match(html, />18-27</, 'closing slide must show updated Q&A appendix range');
 assert.doesNotMatch(html, /TAKEAWAYS/, 'closing slide must not include takeaways');
 assert.doesNotMatch(html, /\[必填\]|TODO/, 'required placeholders must be removed');
 assert.match(html, /認知メカニズム/, 'Japanese title translation must be present');
@@ -52,4 +61,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (24 slides)');
+console.log('PASS botanical Swiss deck structure (27 slides)');
