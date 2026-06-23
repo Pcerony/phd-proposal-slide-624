@@ -1551,8 +1551,11 @@
   }
   .slide.dark .fc-col{border-color:rgba(255,255,255,.18)}
   .three-forces{
-    display:grid;grid-template-columns:5fr 11fr;gap:1.6vw;flex:1;min-height:0
+    display:grid;grid-template-columns:5fr 11fr;grid-template-areas:"hero cards""accent accent";gap:1.6vw;flex:1;min-height:0
   }
+  .three-forces .hero-ink-col{grid-area:hero}
+  .three-forces .accent-stripe{grid-area:accent}
+  .three-forces .force-stack{grid-area:cards}
   .three-forces .card-fill .t-body-sm{color:var(--text-secondary)!important}
   .three-forces .card-fill .jp{color:var(--text-secondary)!important}
   .three-forces .card-fill .bi{color:var(--text-secondary)!important}
@@ -1760,11 +1763,11 @@
           <span class="jp" style="display:block;font-family:var(--sans-jp);font-size:max(16px,.86vw);font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);margin-top:1.2vh">三つの理論モデルが、サインによる学習メカニズムを説明してきた。</span>
         </div>
       </div>
-      <div style="background:var(--accent);padding:1.8vh 1.2vw;margin-top:2.4vh">
+      <div class="accent-stripe" style="background:var(--accent);padding:1.8vh 2.2vw;margin-top:2.4vh">
         <div class="t-meta" style="color:rgba(10,10,10,.85)">→ Each model studies a single sign in isolation.</div>
         <div class="t-meta" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
       </div>
-      <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
+      <div class="force-stack" style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
         <article class="card-fill force-card" data-anim="up">
           <div class="force-num">01</div>
           <h3 class="force-title">Contextual Learning Model
@@ -2072,7 +2075,7 @@
     <div class="t-cat accent" style="margin-bottom:2vh">THREE CORE OUTCOMES</div>
     <div class="three-forces nav-safe-bottom-tight">
       <div class="card-accent" style="padding:3vh 1.8vw;display:flex;flex-direction:column;justify-content:space-between"><div><div class="t-meta">TRANSFERABILITY</div><h2 style="font-size:min(4.45vw,7.9vh);font-weight:200;line-height:.92;letter-spacing:-.04em">Beyond botanical gardens.</h2><span class="jp" lang="ja" style="margin-top:1vh;color:var(--text-secondary)">植物園を超えた応用可能性。</span></div><div style="display:flex;gap:1vw;align-items:center"><i data-lucide="landmark"></i><i data-lucide="trees"></i><i data-lucide="gamepad-2"></i><span class="t-meta">MUSEUMS · ZOOS · VR</span></div></div>
-      <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
+      <div class="force-stack" style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
         <article class="card-fill force-card"><div class="force-num">01</div><h3 class="force-title">Causal Model<span class="jp compact" lang="ja">因果メカニズムモデル</span></h3><p class="t-body-sm">Connect sign design, cognition, and memory retention.<span class="bi">サイン設計、認知、記憶保持を接続する。</span></p></article>
         <article class="card-fill force-card"><div class="force-num">02</div><h3 class="force-title">Measurement Tools<span class="jp compact" lang="ja">測定ツール</span></h3><p class="t-body-sm">Assess cognitive load and information retention in real routes.<span class="bi">実際の経路で認知負荷と情報保持を測定する。</span></p></article>
         <article class="card-fill force-card"><div class="force-num">03</div><h3 class="force-title">Design Principles<span class="jp compact" lang="ja">空間情報デザイン原則</span></h3><p class="t-body-sm">Memory-oriented and empirically validated rules for spatial information design.<span class="bi">記憶指向かつ実証済みの空間情報デザイン原則。</span></p></article>
