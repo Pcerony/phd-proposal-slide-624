@@ -83,6 +83,11 @@ GitHub Pages publishes from the repository root on the default branch.
 The public page should load from:
 
 ```text
-https://<github-user>.github.io/<repo-name>/
+https://pcerony.github.io/phd-proposal-slide-624/
 ```
 
+Repository:
+
+```text
+https://github.com/Pcerony/phd-proposal-slide-624
+```
