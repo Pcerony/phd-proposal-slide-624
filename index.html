@@ -653,7 +653,7 @@
     flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;gap:3.6vw;align-items:stretch
   }
   .s17-object-copy{
-    min-height:0;display:flex;flex-direction:column;justify-content:space-between;gap:2.5vh;
+    min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:3.2vh;
     padding-bottom:calc(var(--nav-safe-bottom) * .48)
   }
   .s17-object-copy h2{
@@ -661,17 +661,28 @@
     max-width:10ch;margin-top:1vh
   }
   .s17-object-copy .jp{max-width:32ch;margin-top:1.5vh}
-  .s17-points{display:grid;gap:1.05vh}
-  .s17-point{
-    display:grid;grid-template-columns:3.8em 1fr;gap:1vw;border-top:1px solid var(--border-subtle);
-    padding-top:1.15vh;min-height:8.2vh
-  }
-  .s17-point .t-meta{color:var(--accent-text);font-size:max(11px,.64vw)}
-  .s17-point h3{font-size:max(20px,1.18vw);font-weight:600;line-height:1.08;margin:0}
-  .s17-point p{font-size:max(15px,.82vw);line-height:1.32;color:var(--text-secondary);font-weight:500;margin:.45vh 0 0}
   .s17-system-stage{
-    min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:1.7vh;
+    min-height:0;display:grid;grid-template-rows:minmax(0,1fr);gap:1.7vh;
     padding-bottom:calc(var(--nav-safe-bottom) * .42)
+  }
+  .s17-function-stack{display:grid;gap:1.05vh;margin-top:auto}
+  .s17-function-stack .s17-note{
+    min-height:8.8vh;background:var(--paper);box-shadow:0 0 0 1px rgba(10,10,10,.06)
+  }
+  .s17-photo-grid{
+    min-height:0;display:grid;grid-template-rows:1.22fr .88fr;grid-template-columns:1fr 1fr;gap:1vw
+  }
+  .s17-photo{
+    position:relative;overflow:hidden;background:var(--grey-1);border-top:3px solid var(--accent);min-height:0
+  }
+  .s17-photo.main{grid-column:1 / -1}
+  .s17-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.02) contrast(1.04)}
+  .s17-photo.main img{object-position:center 46%}
+  .s17-photo.detail-a img{object-position:56% 78%}
+  .s17-photo.detail-b img{object-position:center 52%}
+  .s17-photo figcaption{
+    position:absolute;left:.8vw;bottom:.8vh;background:rgba(250,250,248,.86);padding:.55vh .7vw;
+    color:rgba(10,10,10,.74);max-width:78%
   }
   .s17-ring{
     position:relative;min-height:43vh;background:linear-gradient(90deg,rgba(10,10,10,.035),rgba(10,10,10,.015));
@@ -1562,59 +1573,26 @@
           <h2>Interpretive signage system.</h2>
           <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
-        <div class="s17-points" aria-label="Research object layers">
-          <div class="s17-point">
-            <div class="t-meta">01<br>OUTER</div>
-            <div>
-              <h3>Plant display</h3>
-              <p>The physical exhibit that visitors encounter first.<span class="bi">来訪者が最初に出会う物理的な植物展示。</span></p>
-            </div>
-          </div>
-          <div class="s17-point">
-            <div class="t-meta">02<br>MIDDLE</div>
-            <div>
-              <h3>Signage system</h3>
-              <p>The interpretive layer that connects exhibits and routes.<span class="bi">展示と経路を結びつける解説の層。</span></p>
-            </div>
-          </div>
-          <div class="s17-point">
-            <div class="t-meta">03<br>CORE</div>
-            <div>
-              <h3>Visitor memory</h3>
-              <p>The retained knowledge this research tries to improve.<span class="bi">本研究が高めようとする知識の定着。</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="s17-system-stage" data-anim="up">
-        <div class="s17-ring" aria-label="Interpretive signage system diagram">
-          <svg viewBox="0 0 720 440" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-            <ellipse cx="360" cy="224" rx="174" ry="174" fill="rgba(10,10,10,.035)" stroke="rgba(10,10,10,.34)" stroke-width="3"/>
-            <ellipse cx="360" cy="224" rx="112" ry="112" fill="rgba(197,232,3,.18)" stroke="var(--accent)" stroke-width="13"/>
-            <ellipse cx="360" cy="224" rx="48" ry="48" fill="rgba(10,10,10,.9)" stroke="#0a0a0a" stroke-width="3"/>
-            <path d="M228 111 L148 84 M470 168 L602 146 M397 270 L503 341" fill="none" stroke="var(--ink)" stroke-width="1.8" opacity=".55"/>
-            <path d="M360 50 L360 398 M186 224 L534 224" fill="none" stroke="rgba(10,10,10,.14)" stroke-width="1"/>
-          </svg>
-          <div class="s17-label outer">
-            <div class="t-meta">OUTER / EXHIBIT</div>
-            <strong>Plant display</strong>
-            <span class="bi" lang="ja">植物展示</span>
-          </div>
-          <div class="s17-label middle">
-            <div class="t-meta">MIDDLE / TARGET</div>
-            <strong>Signage system</strong>
-            <span class="bi" lang="ja">解説サインシステム</span>
-          </div>
-          <div class="s17-label core">
-            <div class="t-meta">CORE / OUTCOME</div>
-            <strong>Visitor memory</strong>
-            <span class="bi" lang="ja">来訪者の記憶</span>
-          </div>
-        </div>
-        <div class="s17-notes">
+        <div class="s17-function-stack" aria-label="Interpretive signage functions">
           <div class="s17-note"><i data-lucide="badge-info"></i><div><h3>Identify</h3><p>Name and distinguish plants.<span class="bi">植物を識別する。</span></p></div></div>
           <div class="s17-note"><i data-lucide="book-open"></i><div><h3>Explain</h3><p>Turn displays into knowledge.<span class="bi">展示を知識へ変換する。</span></p></div></div>
           <div class="s17-note"><i data-lucide="route"></i><div><h3>Connect</h3><p>Link signs across a route.<span class="bi">経路上でサインをつなぐ。</span></p></div></div>
+        </div>
+      </div>
+      <div class="s17-system-stage" data-anim="up">
+        <div class="s17-photo-grid" aria-label="Interpretive signage system photos">
+          <figure class="s17-photo main">
+            <img data-image-slot="s16-brief-21x9" src="images/signage-candidates/corylopsis-miyajima.jpg" alt="Japanese plant label at Miyajima Natural Botanical Garden" loading="eager">
+            <figcaption class="t-meta">JAPANESE PLANT LABEL · 日本語植物名ラベル</figcaption>
+          </figure>
+          <figure class="s17-photo detail-a">
+            <img data-image-slot="s16-brief-21x9" src="images/signage-candidates/akebia-miyajima.jpg" alt="Plant label placed on a tree at Miyajima Natural Botanical Garden" loading="eager">
+            <figcaption class="t-meta">IN-SITU LABEL · 植栽内のラベル</figcaption>
+          </figure>
+          <figure class="s17-photo detail-b">
+            <img data-image-slot="s16-brief-21x9" src="images/signage-candidates/manyo-board.jpg" alt="Entrance information board at Manyo Botanical Garden in Nara" loading="eager">
+            <figcaption class="t-meta">GARDEN INFORMATION BOARD · 園内案内板</figcaption>
+          </figure>
         </div>
       </div>
     </div>
