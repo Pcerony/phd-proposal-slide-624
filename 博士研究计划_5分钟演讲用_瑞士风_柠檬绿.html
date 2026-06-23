@@ -110,7 +110,8 @@
   .slide.accent .accent-block{background:var(--accent-on);color:var(--accent)}
 
   /* Hero 页透出网格背景多一点 */
-  .slide.hero{background:transparent}
+ .slide.hero{background:transparent}
+  .slide.hero.accent{background:var(--accent)}
   .slide.hero.grey{background:rgba(var(--paper-rgb),.86);backdrop-filter:blur(1px)}
   .slide.hero.dark{background:rgba(var(--ink-rgb),.92);color:var(--text-inverse-primary)}
 
@@ -609,22 +610,23 @@
   .bg-hero-image{position:relative;overflow:hidden;background:var(--grey-1)}
   .bg-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block;filter:grayscale(.05) contrast(1.04)}
   .bg-hero-image::after{content:"";position:absolute;inset:0;background:rgba(250,250,248,.08)}
-  .bg-source{
-    position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
-    color:var(--text-placeholder);font-size:max(8px,.42vw);line-height:1;letter-spacing:.08em;
-    max-width:28vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-  }
+ .bg-source{
+   position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    font-family:var(--mono);text-transform:uppercase;
+    color:var(--text-placeholder);font-size:max(7px,.36vw);line-height:1;letter-spacing:.08em;
+    max-width:36vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+ }
   .source-caption{
     position:absolute;right:.75vw;bottom:.65vh;background:rgba(250,250,248,.56);padding:.2vh .34vw;
     color:var(--text-placeholder);font-family:var(--mono);font-size:max(8px,.42vw);
     line-height:1;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
     max-width:30vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   }
-  .bg-stat{
-    display:grid;grid-template-columns:auto 1fr;gap:1.4vw;align-items:end;background:var(--accent);padding:1.5vh 1.3vw;
-    color:var(--accent-on);max-width:34vw
+.bg-stat{
+    display:grid;grid-template-columns:1fr;gap:.6vh;background:var(--accent);padding:4.8vh 1.5vw;
+    color:var(--accent-on);max-width:38vw
   }
-  .bg-stat .num{font-family:var(--sans);font-size:min(4.7vw,8.2vh);font-weight:200;line-height:.82;letter-spacing:-.06em}
+  .bg-stat .num{font-family:var(--sans);font-size:min(7.5vw,13vh);font-weight:200;line-height:.82;letter-spacing:-.06em;margin-bottom:.2vh}
   .research-object-band{
     padding:2.4vh 5vw 7vh;display:grid;grid-template-rows:auto 1fr;gap:1.6vh;min-height:0
   }
@@ -677,9 +679,9 @@
     padding-bottom:calc(var(--nav-safe-bottom) * .42)
   }
   .s17-function-stack{display:grid;gap:1.05vh;margin-top:auto}
-  .s17-function-stack .s17-note{
-    min-height:8.8vh;background:var(--paper);box-shadow:0 0 0 1px rgba(10,10,10,.06)
-  }
+ .s17-function-stack .s17-note{
+    background:transparent;min-height:0;border-left:none;padding-left:0
+ }
   .s17-photo-grid{
     min-height:0;display:grid;grid-template-rows:1.22fr .88fr;grid-template-columns:1fr 1fr;gap:1vw
   }
@@ -1438,7 +1440,7 @@
     gap:0 3.4vw;
     flex:1;align-items:stretch;margin-top:8vh
   }
-  .duo-compare .vrule{background:var(--grey-2);width:1px;align-self:stretch}
+  .duo-compare .vrule{background:var(--grey-2);width:1px;align-self:stretch;opacity:.22}
   .duo-compare .col{display:flex;flex-direction:column;gap:1.6vh;padding:0 .4vw}
   .duo-compare .col-tag{
     font-family:var(--mono);font-size:max(14px,.78vw);
@@ -1638,21 +1640,20 @@
 
 <div id="deck">
 
-<section class="slide accent" data-layout="S01" data-animate="hero">
-  <div class="canvas-card">
-    <canvas class="ascii-bg" aria-hidden="true"></canvas>
+<section class="slide accent" data-layout="S01" data-animate="hero" style="padding-bottom:3.5vh">
+    <div class="canvas-card">
+   <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 14 · 2026</div></div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:3vh">
+    <div style="flex:1;display:flex;flex-direction:column;gap:3vh">
       <div style="display:flex;flex-direction:column;gap:0">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Interpretive Signage Systems</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">解説サインシステム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
       </div>
       <div style="display:grid;grid-template-columns:7fr 5fr;gap:3vw;align-items:end">
-        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems in Botanical Gardens from a Co-creation Perspective: Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム — 記憶指向デザイン原則の構築に向けて —</span></div>
-        <div style="display:flex;align-items:center;gap:1vw;justify-content:flex-end"><i data-lucide="leaf" style="width:32px;height:32px"></i><div><div style="font-size:max(18px,1.08vw);font-weight:600">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">芸術工学専攻 博士後期課程 · Prof. Akane Matsumae</div></div></div>
+        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems<br>in Botanical Gardens from a Co-creation Perspective:<br>Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム — 記憶指向デザイン原則の構築に向けて —</span></div>
+        <div style="text-align:right"><i data-lucide="leaf" style="width:32px;height:32px;margin-bottom:0.55vh"></i><div><div style="font-size:max(18px,1.08vw);font-weight:400">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">Strategic Design Course, M2<span class="bi">ストラテジックデザインコース M2</span></div></div></div>
       </div>
-      <div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh"><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal Presentation</div></div>
     </div>
   </div>
 </section>
@@ -1663,18 +1664,17 @@
       <div class="bg-hero-copy">
         <div>
           <div class="chrome-min" style="margin-bottom:7vh"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 14</div></div>
-          <div class="t-cat accent">THE SCALE</div>
           <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:1vh;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
         </div>
         <div class="bg-stat">
           <div class="num">60%+</div>
-          <p style="font-size:max(18px,1.05vw);font-weight:700;line-height:1.28;margin:0;color:var(--text-primary)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
+          <p style="font-size:max(18px,1.05vw);font-weight:400;line-height:1.28;margin:0;color:var(--text-primary)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
         </div>
       </div>
       <figure class="bg-hero-image">
         <img data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
-        <figcaption class="t-meta bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
+        <figcaption class="bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
       </figure>
     </div>
   </div>
@@ -1686,7 +1686,6 @@
     <div class="s17-object-layout">
       <div class="s17-object-copy" data-anim="line">
         <div>
-          <div class="t-cat accent">THE OBJECT</div>
           <h2>Interpretive signage system.</h2>
           <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
@@ -1719,7 +1718,6 @@
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 14</div></div>
-    <div class="t-cat accent" style="margin-bottom:1.6vh">THREE THEORETICAL FOUNDATIONS</div>
     <div class="three-forces nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
@@ -1727,9 +1725,9 @@
           <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.2vw,7.4vh);line-height:.96;letter-spacing:-.04em;color:var(--paper)">Three models explain how signs teach.</h2>
           <span class="jp" style="display:block;font-family:var(--sans-jp);font-size:max(16px,.86vw);font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);margin-top:1.2vh">三つの理論モデルが、サインによる学習メカニズムを説明してきた。</span>
         </div>
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:1.6vh;margin-top:auto">
-          <div class="t-meta" style="color:rgba(255,255,255,.62)">→ Each model studies a single sign in isolation.</div>
-          <div class="t-meta" style="color:var(--accent);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
+        <div style="background:var(--accent);padding:1.8vh 1.2vw;margin-top:auto">
+          <div class="t-meta" style="color:var(--accent-on)">→ Each model studies a single sign in isolation.</div>
+          <div class="t-meta" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
         </div>
       </div>
       <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
@@ -1751,12 +1749,12 @@
             <span class="bi">注意を引き、次に意味的価値を届けることで学習が成立する。</span>
           </p>
         </article>
-        <article class="card-accent force-card" data-anim="up">
-          <div class="force-num" style="color:var(--accent-on)">03</div>
+        <article class="card-fill force-card" data-anim="up">
+          <div class="force-num">03</div>
           <h3 class="force-title">Cognitive Theory of Multimedia Learning
             <span class="jp compact" lang="ja">マルチメディア認知学習理論</span>
           </h3>
-          <p class="t-body-sm" style="color:rgba(10,10,10,.82)">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
+          <p class="t-body-sm">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
             <span class="bi">テキストと画像の統合設計が認知負荷を下げ記憶を深める。</span>
           </p>
         </article>
@@ -1772,7 +1770,7 @@
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
       <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
     </figure>
-    <div data-anim="kpi" class="nav-safe-bottom-tight" style="display:grid;grid-template-columns:5.6fr 6.4fr;gap:3vw;align-items:center;min-height:0">
+    <div data-anim="kpi" class="nav-safe-bottom-tight" style="display:grid;grid-template-columns:5.6fr 6.4fr;gap:3vw;align-items:start;min-height:0;margin-top:2.4vh">
       <div style="border-top:2px solid var(--accent);padding-top:1.5vh">
         <div class="t-meta" style="color:var(--accent-text)">FIVE SIGNS ON A ROUTE</div>
         <div style="position:relative;height:23vh;margin-top:1.2vh;overflow:hidden">
@@ -1818,14 +1816,14 @@
 <section class="slide dark" data-layout="S08">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>06 / 14</div></div>
-    <div style="display:flex;flex-direction:column;gap:1vh"><div class="t-cat accent">THE GAP</div><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at one sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
-    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:1.3vh;grid-template-columns:4.8fr auto 7.2fr">
-      <div class="col"><div class="col-tag"><span class="num">A</span> WHAT MODELS FOUND</div><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:12vh;margin:1vh 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8vh;padding:.8vh 1vw">
-        <div style="font-size:max(14px,.78vw);font-family:var(--mono);letter-spacing:.1em;color:var(--text-inverse-secondary)">CLM · AVM · CTML</div>
-        <i data-lucide="file-text" style="width:3.2vw;height:3.2vw;color:var(--text-inverse-secondary)"></i>
-      </div><ul class="bi-list"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
+    <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at one sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
+    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
+      <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
+        <div class="sign-icon" style="--h:12vh;--w:5.5vw;--bh:4.8vh;--ph:4.2vh;color:rgba(255,255,255,.82)"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
+        <div style="font-size:max(15px,.82vw);font-family:var(--mono);letter-spacing:.1em;color:var(--text-inverse-secondary);opacity:.7">CLM · AVM · CTML</div>
+      </div><ul class="bi-list" style="opacity:.55"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw)">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
       <div class="vrule"></div>
-      <div class="col accent"><div class="col-tag"><span class="num">B</span> REAL VISITOR PATH</div><h3 class="col-ttl">A dense field of signs<span class="bi">密集したサイン環境</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
+      <div class="col accent"><h3 class="col-ttl" style="color:var(--accent)">A dense field of signs<span class="bi">密集したサイン環境</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
     </div>
   </div>
 </section>
@@ -1834,9 +1832,9 @@
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Core Problem · 核心問題</div><div class="r" data-slide-page>07 / 14</div></div>
     <div style="position:absolute;right:5vw;top:16vh;width:34vw;height:48vh;color:var(--accent)" class="dots-bold" aria-hidden="true"></div>
-    <div style="flex:1;display:grid;grid-template-columns:5fr 7fr;gap:4vw;align-items:center">
-      <div><div class="t-cat accent">FORGETTING CURVE TEST</div><div style="font-size:min(13vw,22vh);font-weight:200;line-height:.82;letter-spacing:-.07em;color:var(--accent-text)">48%</div><p style="font-size:max(18px,1.08vw);line-height:1.48;font-weight:500;color:var(--text-secondary);max-width:32ch">average second-day forgetting rate in master's research.<span class="bi">修士研究で確認された平均翌日忘却率。</span></p></div>
-      <div style="display:flex;flex-direction:column;gap:1.7vh"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="#0a0a0a" stroke-width="2" opacity=".8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--text-helper)">Day 0</div><div class="t-meta" style="position:absolute;left:35%;bottom:0;color:var(--text-helper)">Day 1</div><div class="t-meta" style="position:absolute;right:4%;bottom:0;color:var(--text-helper)">Day 2</div></div><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:5fr 7fr;gap:7vw;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:2.2vh;justify-content:center"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--text-helper)">Day 0</div><div class="t-meta" style="position:absolute;left:38%;bottom:0;color:var(--text-helper)">Day 1</div><div class="t-meta" style="position:absolute;left:89%;bottom:0;color:var(--text-helper)">Day 7</div></div><div><div class="t-cat accent">FORGETTING CURVE TEST</div><div style="font-size:min(13vw,22vh);font-weight:200;line-height:.82;letter-spacing:-.07em;color:#000000">48%</div><p style="font-size:max(18px,1.08vw);line-height:1.48;font-weight:500;color:var(--text-secondary);max-width:32ch">average second-day forgetting rate in master's research.<span class="bi">修士研究で確認された平均翌日忘却率。</span></p></div></div>
+      <div style="display:flex;flex-direction:column;justify-content:center"><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
     </div>
   </div>
 </section>
@@ -1844,11 +1842,25 @@
 <section class="slide dark" data-layout="S05" data-animate="stack-build">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 14</div></div>
-    <div style="display:flex;flex-direction:column;gap:1.2vh"><div class="t-cat accent">THREE OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">Reveal. Co-create. Validate.</h2><span class="jp inverse" lang="ja">三つの目標は、メカニズムの解明から設計原則の検証へと連鎖する。</span></div>
-    <div class="stack-row nav-safe-bottom-tight">
-      <div class="stack-block b-paper"><div class="layer-nb">01 · REVEAL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Causal mechanism<span class="bi">因果メカニズム</span></h3><p class="layer-desc">Model how information amount, story order, and spatial proximity influence memory.<span class="bi">情報量、物語順序、空間的近接性が記憶に与える影響をモデル化する。</span></p><div class="layer-tag">SYSTEM FACTORS → MEMORY</div></div>
-      <div class="stack-block b-paper"><div class="layer-nb">02 · CO-CREATE</div><i data-lucide="users-round" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design principles<span class="bi">デザイン原則</span></h3><p class="layer-desc">Translate the model into rules with visitors, managers, communicators, and designers.<span class="bi">来訪者・管理者・解説者・デザイナーと共に、モデルを設計原則へ変換する。</span></p><div class="layer-tag">MODEL → RULES</div></div>
-      <div class="stack-block b-accent"><div class="layer-nb">03 · VALIDATE</div><i data-lucide="flask-conical" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Closed-loop testing<span class="bi">閉ループ検証</span></h3><p class="layer-desc">Test principles through gaze, cognitive load, and forgetting-curve measures.<span class="bi">視線、認知負荷、忘却曲線の指標で原則を検証する。</span></p><div class="layer-tag">RULES → EVIDENCE</div></div>
+    <div style="display:flex;flex-direction:column;gap:1.2vh" data-anim="line"><div class="t-cat accent">RESEARCH OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">What This Research Aims to Produce</h2><span class="jp inverse" lang="ja">本研究が産み出すもの</span></div>
+    <div class="stack-row" style="margin-top:5vh">
+      <div class="stack-block b-paper"><div class="layer-nb">01 · MODEL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">A Causal Model<span class="bi">因果メカニズムモデル</span></h3><p class="layer-desc">Revealing how spatial information design variables connect to visitor cognition and memory.<span class="bi">空間情報デザインの変数が来訪者の認知・記憶とどうつながるかを明らかにする。</span></p><div class="layer-tag">STAGE 1: MODEL</div></div>
+      <div class="stack-block b-paper"><div class="layer-nb">02 · PRINCIPLE</div><i data-lucide="clipboard-list" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design Principles<span class="bi">記憶指向デザイン原則</span></h3><p class="layer-desc">Not just theory — principles that designers can directly apply.<span class="bi">理論にとどまらず、デザイナーが実務で直接活用できる原則。</span></p><div class="layer-tag">STAGE 2: PRINCIPLE</div></div>
+      <div class="stack-block b-accent"><div class="layer-nb">03 · EVIDENCE</div><i data-lucide="shield-check" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Validation Framework<span class="bi">閉ループ検証・測定フレームワーク</span></h3><p class="layer-desc">Ensuring the principles are tested in a real environment — not just a lab assumption.<span class="bi">デザイン原則が実際の環境で検証されたものであることを担保する体系。</span></p><div class="layer-tag">STAGE 3: EVIDENCE</div></div>
+    </div>
+    <div data-anim="foot" class="nav-safe-bottom-tight" style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.15);padding-top:2.2vh">
+      <div style="display:flex;align-items:center;gap:1.2vw;font-family:var(--mono);font-size:max(13px,.75vw);letter-spacing:.05em;color:var(--text-inverse-secondary)">
+        <span style="opacity:.65">Prior Research <span class="bi" style="display:inline;opacity:.8;font-size:max(11px,.65vw)">先行研究</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Model <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">因果モデル</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Principles <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">デザイン原則</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Evidence <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">実証データ</span></span>
+      </div>
+      <div style="font-family:var(--mono);font-size:max(12px,.7vw);letter-spacing:.1em;color:var(--text-inverse-helper);opacity:.65;text-align:right;text-transform:uppercase">
+        Next: Research Methods
+      </div>
     </div>
   </div>
 </section>
@@ -2401,21 +2413,21 @@ if(motion){
      中间 thin 先入 → 上层 fat skills 从顶推下 → 下层 application 从底推上 */
   function rStackBuild(slide, all){
     const head = slide.querySelector('[data-anim="line"]');
-    if(head) fade(head, {duration:.6, y:10});
+    if(head) fade(head, {duration:.6, y:-10});
 
     const blocks = [...slide.querySelectorAll('.stack-block')];
-    /* 先入: 中间薄层(LAYER 02) */
-    if(blocks[1]) animate(blocks[1], {opacity:[0,1], scaleY:[.85, 1]},
-      {duration:.55, delay:.3, easing:EASE_ENTRY_EXP});
-    /* 上推下: LAYER 01 fat skills 从顶部 push down */
-    if(blocks[0]) animate(blocks[0], {opacity:[0,1], y:[-22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
-    /* 下推上: LAYER 03 application 从底部 push up */
-    if(blocks[2]) animate(blocks[2], {opacity:[0,1], y:[22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
+    const foot = slide.querySelector('[data-anim="foot"]');
 
-    const foot = slide.querySelector('.t-meta');
-    if(foot) animate(foot, {opacity:[0,1]}, {duration:.3, delay:1.3, easing:EASE_PROD});
+    // Hide cards and foot initially, then stagger them in
+    blocks.forEach((block, i)=>{
+      block.style.opacity = '0';
+      animate(block, {opacity:[0,1], x:[-40, 0]}, {duration:.6, delay:.35 + i*.15, easing:EASE_ENTRY_EXP});
+    });
+
+    if(foot) {
+      foot.style.opacity = '0';
+      animate(foot, {opacity:[0,1], y:[12, 0]}, {duration:.6, delay:.8, easing:EASE_PROD});
+    }
   }
 
   /* ---------- recipe: measure-up · YC KPI 塔 ----------
@@ -2953,6 +2965,7 @@ if(motion){
   }
 
   function playSlide(i){
+    window.__pipeAdvance = ()=>false;
     const slide = slides[i];
     if(!slide) return;
     lastIdx = i;

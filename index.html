@@ -1842,11 +1842,25 @@
 <section class="slide dark" data-layout="S05" data-animate="stack-build">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 14</div></div>
-    <div style="display:flex;flex-direction:column;gap:1.2vh"><div class="t-cat accent">THREE OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">Reveal. Co-create. Validate.</h2><span class="jp inverse" lang="ja">三つの目標は、メカニズムの解明から設計原則の検証へと連鎖する。</span></div>
-    <div class="stack-row nav-safe-bottom-tight">
-      <div class="stack-block b-paper"><div class="layer-nb">01 · REVEAL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Causal mechanism<span class="bi">因果メカニズム</span></h3><p class="layer-desc">Model how information amount, story order, and spatial proximity influence memory.<span class="bi">情報量、物語順序、空間的近接性が記憶に与える影響をモデル化する。</span></p><div class="layer-tag">SYSTEM FACTORS → MEMORY</div></div>
-      <div class="stack-block b-paper"><div class="layer-nb">02 · CO-CREATE</div><i data-lucide="users-round" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design principles<span class="bi">デザイン原則</span></h3><p class="layer-desc">Translate the model into rules with visitors, managers, communicators, and designers.<span class="bi">来訪者・管理者・解説者・デザイナーと共に、モデルを設計原則へ変換する。</span></p><div class="layer-tag">MODEL → RULES</div></div>
-      <div class="stack-block b-accent"><div class="layer-nb">03 · VALIDATE</div><i data-lucide="flask-conical" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Closed-loop testing<span class="bi">閉ループ検証</span></h3><p class="layer-desc">Test principles through gaze, cognitive load, and forgetting-curve measures.<span class="bi">視線、認知負荷、忘却曲線の指標で原則を検証する。</span></p><div class="layer-tag">RULES → EVIDENCE</div></div>
+    <div style="display:flex;flex-direction:column;gap:1.2vh" data-anim="line"><div class="t-cat accent">RESEARCH OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">What This Research Aims to Produce</h2><span class="jp inverse" lang="ja">本研究が産み出すもの</span></div>
+    <div class="stack-row" style="margin-top:5vh">
+      <div class="stack-block b-paper"><div class="layer-nb">01 · MODEL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">A Causal Model<span class="bi">因果メカニズムモデル</span></h3><p class="layer-desc">Revealing how spatial information design variables connect to visitor cognition and memory.<span class="bi">空間情報デザインの変数が来訪者の認知・記憶とどうつながるかを明らかにする。</span></p><div class="layer-tag">STAGE 1: MODEL</div></div>
+      <div class="stack-block b-paper"><div class="layer-nb">02 · PRINCIPLE</div><i data-lucide="clipboard-list" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design Principles<span class="bi">記憶指向デザイン原則</span></h3><p class="layer-desc">Not just theory — principles that designers can directly apply.<span class="bi">理論にとどまらず、デザイナーが実務で直接活用できる原則。</span></p><div class="layer-tag">STAGE 2: PRINCIPLE</div></div>
+      <div class="stack-block b-accent"><div class="layer-nb">03 · EVIDENCE</div><i data-lucide="shield-check" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Validation Framework<span class="bi">閉ループ検証・測定フレームワーク</span></h3><p class="layer-desc">Ensuring the principles are tested in a real environment — not just a lab assumption.<span class="bi">デザイン原則が実際の環境で検証されたものであることを担保する体系。</span></p><div class="layer-tag">STAGE 3: EVIDENCE</div></div>
+    </div>
+    <div data-anim="foot" class="nav-safe-bottom-tight" style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.15);padding-top:2.2vh">
+      <div style="display:flex;align-items:center;gap:1.2vw;font-family:var(--mono);font-size:max(13px,.75vw);letter-spacing:.05em;color:var(--text-inverse-secondary)">
+        <span style="opacity:.65">Prior Research <span class="bi" style="display:inline;opacity:.8;font-size:max(11px,.65vw)">先行研究</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Model <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">因果モデル</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Principles <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">デザイン原則</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Evidence <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">実証データ</span></span>
+      </div>
+      <div style="font-family:var(--mono);font-size:max(12px,.7vw);letter-spacing:.1em;color:var(--text-inverse-helper);opacity:.65;text-align:right;text-transform:uppercase">
+        Next: Research Methods
+      </div>
     </div>
   </div>
 </section>
@@ -2399,21 +2413,21 @@ if(motion){
      中间 thin 先入 → 上层 fat skills 从顶推下 → 下层 application 从底推上 */
   function rStackBuild(slide, all){
     const head = slide.querySelector('[data-anim="line"]');
-    if(head) fade(head, {duration:.6, y:10});
+    if(head) fade(head, {duration:.6, y:-10});
 
     const blocks = [...slide.querySelectorAll('.stack-block')];
-    /* 先入: 中间薄层(LAYER 02) */
-    if(blocks[1]) animate(blocks[1], {opacity:[0,1], scaleY:[.85, 1]},
-      {duration:.55, delay:.3, easing:EASE_ENTRY_EXP});
-    /* 上推下: LAYER 01 fat skills 从顶部 push down */
-    if(blocks[0]) animate(blocks[0], {opacity:[0,1], y:[-22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
-    /* 下推上: LAYER 03 application 从底部 push up */
-    if(blocks[2]) animate(blocks[2], {opacity:[0,1], y:[22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
+    const foot = slide.querySelector('[data-anim="foot"]');
 
-    const foot = slide.querySelector('.t-meta');
-    if(foot) animate(foot, {opacity:[0,1]}, {duration:.3, delay:1.3, easing:EASE_PROD});
+    // Hide cards and foot initially, then stagger them in
+    blocks.forEach((block, i)=>{
+      block.style.opacity = '0';
+      animate(block, {opacity:[0,1], x:[-40, 0]}, {duration:.6, delay:.35 + i*.15, easing:EASE_ENTRY_EXP});
+    });
+
+    if(foot) {
+      foot.style.opacity = '0';
+      animate(foot, {opacity:[0,1], y:[12, 0]}, {duration:.6, delay:.8, easing:EASE_PROD});
+    }
   }
 
   /* ---------- recipe: measure-up · YC KPI 塔 ----------
@@ -2951,6 +2965,7 @@ if(motion){
   }
 
   function playSlide(i){
+    window.__pipeAdvance = ()=>false;
     const slide = slides[i];
     if(!slide) return;
     lastIdx = i;

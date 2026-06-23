@@ -21,7 +21,7 @@ assert.match(html, /--accent-on:\s*#0a0a0a/i, 'accent text must be black');
 assert.match(html, /--accent-text:\s*#3f4a00/i, 'Readable accent text token must be active');
 assert.match(
   html,
-  /Cognitive Mechanisms of Interpretive Signage Systems in Botanical Gardens from a Co-creation Perspective/,
+  /Cognitive Mechanisms of Interpretive Signage Systems(<br>|\s)+in Botanical Gardens from a Co-creation Perspective/,
   'full proposal title must be present',
 );
 assert.match(html, /classList\.toggle\(['"]low-power['"]/, 'B low-power mode must remain available');

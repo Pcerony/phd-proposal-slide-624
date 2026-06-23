@@ -110,7 +110,8 @@
   .slide.accent .accent-block{background:var(--accent-on);color:var(--accent)}
 
   /* Hero 页透出网格背景多一点 */
-  .slide.hero{background:transparent}
+ .slide.hero{background:transparent}
+  .slide.hero.accent{background:var(--accent)}
   .slide.hero.grey{background:rgba(var(--paper-rgb),.86);backdrop-filter:blur(1px)}
   .slide.hero.dark{background:rgba(var(--ink-rgb),.92);color:var(--text-inverse-primary)}
 
@@ -609,15 +610,23 @@
   .bg-hero-image{position:relative;overflow:hidden;background:var(--grey-1)}
   .bg-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block;filter:grayscale(.05) contrast(1.04)}
   .bg-hero-image::after{content:"";position:absolute;inset:0;background:rgba(250,250,248,.08)}
-  .bg-source{
-    position:absolute;right:1.6vw;bottom:5.4vh;background:rgba(250,250,248,.82);padding:.55vh .7vw;
-    color:var(--text-helper)
+ .bg-source{
+   position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    font-family:var(--mono);text-transform:uppercase;
+    color:var(--text-placeholder);font-size:max(7px,.36vw);line-height:1;letter-spacing:.08em;
+    max-width:36vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+ }
+  .source-caption{
+    position:absolute;right:.75vw;bottom:.65vh;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    color:var(--text-placeholder);font-family:var(--mono);font-size:max(8px,.42vw);
+    line-height:1;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+    max-width:30vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   }
-  .bg-stat{
-    display:grid;grid-template-columns:auto 1fr;gap:1.4vw;align-items:end;background:var(--accent);padding:1.5vh 1.3vw;
-    color:var(--accent-on);max-width:34vw
+.bg-stat{
+    display:grid;grid-template-columns:1fr;gap:.6vh;background:var(--accent);padding:4.8vh 1.5vw;
+    color:var(--accent-on);max-width:38vw
   }
-  .bg-stat .num{font-family:var(--sans);font-size:min(4.7vw,8.2vh);font-weight:200;line-height:.82;letter-spacing:-.06em}
+  .bg-stat .num{font-family:var(--sans);font-size:min(7.5vw,13vh);font-weight:200;line-height:.82;letter-spacing:-.06em;margin-bottom:.2vh}
   .research-object-band{
     padding:2.4vh 5vw 7vh;display:grid;grid-template-rows:auto 1fr;gap:1.6vh;min-height:0
   }
@@ -670,9 +679,9 @@
     padding-bottom:calc(var(--nav-safe-bottom) * .42)
   }
   .s17-function-stack{display:grid;gap:1.05vh;margin-top:auto}
-  .s17-function-stack .s17-note{
-    min-height:8.8vh;background:var(--paper);box-shadow:0 0 0 1px rgba(10,10,10,.06)
-  }
+ .s17-function-stack .s17-note{
+    background:transparent;min-height:0;border-left:none;padding-left:0
+ }
   .s17-photo-grid{
     min-height:0;display:grid;grid-template-rows:1.22fr .88fr;grid-template-columns:1fr 1fr;gap:1vw
   }
@@ -685,8 +694,9 @@
   .s17-photo.detail-a img{object-position:56% 78%}
   .s17-photo.detail-b img{object-position:center 52%}
   .s17-photo figcaption{
-    position:absolute;left:.8vw;bottom:.8vh;background:rgba(250,250,248,.86);padding:.55vh .7vw;
-    color:var(--text-secondary);max-width:78%
+    position:absolute;left:.55vw;bottom:.55vh;background:rgba(250,250,248,.74);padding:.32vh .46vw;
+    color:var(--text-helper);font-size:max(10px,.52vw);line-height:1;letter-spacing:.13em;max-width:64%;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   }
   .s17-ring{
     position:relative;min-height:43vh;background:linear-gradient(90deg,rgba(10,10,10,.035),rgba(10,10,10,.015));
@@ -753,6 +763,82 @@
   .route-step .nb{font-family:var(--mono);font-size:max(13px,.72vw);letter-spacing:.16em;color:var(--accent-text);font-weight:700}
   .route-step h3{font-size:max(18px,1.18vw);font-weight:400;line-height:1.12;margin:0}
   .route-step p{font-size:max(14px,.78vw);line-height:1.28;color:var(--text-secondary);margin:0;font-weight:500}
+  .method-3w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;align-items:stretch}
+  .method-3w-node{background:var(--fill);border-top:3px solid var(--accent);padding:1.55vh 1.15vw;min-height:28vh;display:flex;flex-direction:column;justify-content:space-between}
+  .method-3w-node .big{font-size:min(5.6vw,9.8vh);font-weight:200;line-height:.84;letter-spacing:-.06em;color:var(--accent-text)}
+  .method-3w-node h3{font-size:max(21px,1.5vw);font-weight:400;line-height:1.08;margin:.9vh 0 .7vh;letter-spacing:-.015em}
+  .method-3w-node p{font-size:max(16px,.9vw);line-height:1.34;color:var(--text-secondary);font-weight:500;margin:0}
+  .handoff-line{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:1vw;align-items:center;margin-top:2.2vh}
+  .handoff-card,.module-card{border-top:2px solid var(--accent);background:var(--fill);padding:1.3vh 1vw;min-height:12vh;display:flex;flex-direction:column;gap:.65vh;justify-content:space-between}
+  .handoff-card.ink,.module-card.ink{background:var(--ink);color:var(--text-inverse-primary);border-top-color:var(--accent)}
+  .handoff-card.accent,.module-card.accent{background:var(--accent);color:var(--accent-on);border-top-color:var(--ink)}
+  .handoff-card h3,.module-card h3{font-size:max(18px,1.18vw);line-height:1.12;font-weight:400;margin:0;letter-spacing:-.01em}
+  .handoff-card p,.module-card p{font-size:max(14px,.8vw);line-height:1.28;color:var(--text-secondary);font-weight:500;margin:0}
+  .handoff-card.ink .t-meta,.module-card.ink .t-meta{color:var(--text-inverse-helper)}
+  .handoff-card.ink p,.module-card.ink p{color:var(--text-inverse-secondary)}
+  .handoff-card.ink .bi,.module-card.ink .bi{color:var(--text-inverse-secondary)}
+  .handoff-card.accent p,.module-card.accent p{color:var(--text-secondary)}
+  .handoff-card.compact{min-height:7.2vh;padding:.72vh 1vw}
+  .handoff-card.compact p{font-size:max(14px,.74vw);line-height:1.18}
+  .handoff-arrow{font-size:max(28px,2.6vw);font-weight:200;color:var(--accent-text);line-height:1}
+  .phase-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch}
+  .method-hierarchy{display:grid;grid-template-columns:1.3fr 7.35fr 1.35fr;gap:1.1vw;align-items:stretch;margin-top:2.7vh}
+  .method-stage-layout{display:grid;grid-template-columns:1.3fr 7.35fr 1.35fr;gap:1vw;align-items:stretch;margin-top:2.2vh}
+  .method-purpose{background:var(--paper);border-top:3px solid var(--ink);border-bottom:1px solid var(--border-subtle);padding:1.35vh 1vw;display:flex;flex-direction:column;justify-content:space-between;gap:1vh;min-height:22vh}
+  .method-purpose i{width:30px;height:30px;color:var(--ink);stroke-width:1.7}
+  .method-purpose h3{font-size:max(20px,1.34vw);font-weight:400;line-height:1.12;margin:0;letter-spacing:-.015em}
+  .method-purpose p{font-size:max(16px,.9vw);font-weight:500;line-height:1.34;margin:0;color:var(--text-secondary)}
+  .method-purpose.icon-only{justify-content:center;align-items:flex-start;gap:1.4vh;min-height:18vh;padding:1.2vh .9vw}
+  .method-purpose.icon-only i{width:46px;height:46px;stroke-width:1.45}
+  .method-purpose.icon-only h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12}
+  .method-purpose.icon-only p{display:none}
+  .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr;gap:1.25vh;min-height:22vh}
+  .method-spotlight.dark{background:var(--ink);color:var(--text-inverse-primary)}
+  .method-spotlight .t-meta{color:var(--text-helper)}
+  .method-spotlight.dark .t-meta{color:var(--text-inverse-helper)}
+  .method-spotlight h3{font-size:max(24px,1.75vw);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.018em}
+  .method-units{display:grid;grid-template-columns:repeat(3,1fr);gap:.8vw;align-items:stretch}
+  .method-units.cols-4{grid-template-columns:repeat(4,1fr)}
+  .method-unit{background:rgba(255,255,255,.42);border-top:2px solid var(--ink);padding:1.05vh .85vw;display:flex;flex-direction:column;gap:.65vh;min-height:13.5vh}
+  .method-spotlight.dark .method-unit{background:rgba(255,255,255,.08);border-top-color:var(--accent)}
+  .method-unit i{width:32px;height:32px;color:var(--ink);stroke-width:1.65}
+  .method-spotlight.dark .method-unit i{color:var(--accent)}
+  .method-unit h4{font-size:max(17px,1.05vw);font-weight:600;line-height:1.12;margin:0;letter-spacing:-.01em}
+  .method-unit p{font-size:max(15px,.82vw);line-height:1.28;font-weight:500;margin:0;color:rgba(10,10,10,.72)}
+  .method-spotlight.dark .method-unit p{color:var(--text-inverse-secondary)}
+  .method-spotlight.dark .method-unit .bi{color:var(--text-inverse-secondary)}
+  .participant-panel{background:var(--ink);color:var(--text-inverse-primary);padding:1.35vh 1vw;display:flex;flex-direction:column;justify-content:space-between;gap:1vh;min-height:22vh}
+  .participant-panel .t-meta{color:var(--text-inverse-helper)}
+  .participant-panel i{width:30px;height:30px;color:var(--accent);stroke-width:1.7}
+  .participant-panel h3{font-size:max(19px,1.26vw);font-weight:400;line-height:1.12;margin:0;letter-spacing:-.01em}
+  .participant-panel.icon-only{background:var(--paper);color:var(--text-primary);border-top:3px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);justify-content:center;align-items:flex-start;gap:1.4vh;min-height:18vh;padding:1.2vh .9vw}
+  .participant-panel.icon-only .t-meta{color:var(--text-helper)}
+  .participant-panel.icon-only i{width:46px;height:46px;stroke-width:1.45;color:var(--ink)}
+  .participant-panel.icon-only h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12}
+  .participant-panel.icon-only > p{display:none}
+  .participant-chips{display:flex;flex-wrap:wrap;gap:.55vh .45vw}
+  .participant-chip{border:1px solid rgba(255,255,255,.28);padding:.45vh .55vw;font-family:var(--mono);font-size:max(14px,.72vw);font-weight:600;letter-spacing:.08em;color:var(--text-inverse-secondary)}
+  .participant-panel.icon-only .participant-chips{gap:.4vh .35vw}
+  .participant-panel.icon-only .participant-chip{border-color:var(--border-subtle);color:var(--text-helper);font-size:max(12px,.58vw);padding:.35vh .42vw;letter-spacing:.08em}
+  .participant-panel.icon-only .aux-mini h3{color:var(--text-primary)!important}
+  .participant-panel.icon-only .aux-mini p{color:var(--text-secondary)!important}
+  .result-panel{background:var(--paper);color:var(--text-primary);border-top:3px solid var(--accent);border-bottom:1px solid var(--border-subtle);display:flex;flex-direction:column;justify-content:center;gap:1.25vh;min-height:18vh;padding:1.2vh .9vw}
+  .result-panel i{width:46px;height:46px;color:var(--ink);stroke-width:1.45}
+  .result-panel h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12;margin:0}
+  .result-panel .t-meta{color:var(--text-helper)}
+  .output-chip{display:inline-flex;align-items:center;gap:.45vw;border:1px solid currentColor;padding:.45vh .55vw;font-family:var(--mono);font-size:max(12px,.62vw);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:inherit}
+  .aux-stack{display:grid;grid-template-rows:auto 1fr;gap:1vh;align-items:stretch}
+  .aux-mini{border-top:2px solid var(--border-subtle);padding:1vh 0 0;display:flex;flex-direction:column;gap:.55vh}
+  .aux-mini h3{font-size:max(18px,1.1vw);font-weight:400;line-height:1.12;margin:0}
+  .aux-mini p{font-size:max(15px,.82vw);line-height:1.28;color:var(--text-secondary);font-weight:500;margin:0}
+  .phase-flow{display:grid;grid-template-columns:1fr auto 1.2fr auto 1fr;gap:1vw;align-items:center;margin-top:1.4vh}
+  .workshop-core{background:var(--fill);border-top:3px solid var(--accent);padding:1.6vh 1.2vw;min-height:24vh;display:grid;grid-template-rows:auto 1fr;gap:1.2vh}
+  .workshop-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:.8vw;align-items:stretch}
+  .workshop-step{border-top:1px solid var(--border-subtle);padding-top:1vh;display:flex;flex-direction:column;gap:.7vh}
+  .workshop-step p{font-size:max(14px,.8vw);line-height:1.28;color:var(--text-secondary);font-weight:500;margin:0}
+  .workshop-step i,.phase-card-grid i,.validation-grid i{width:24px;height:24px;color:var(--accent-text);stroke-width:1.8}
+  .validation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch}
+  .validated-stamp{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--ink);padding:.35vh .65vw;font-family:var(--mono);font-size:max(13px,.72vw);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);transform:rotate(-4deg)}
   .bilingual-kpi-grid{display:grid;grid-template-columns:1.18fr repeat(3,1fr);gap:1.2vw;align-items:stretch;width:100%}
   .tight-card{padding:1.8vh 1.25vw!important;min-height:0}
   .tight-card p{font-size:max(16px,.9vw);line-height:1.35;margin:0;color:var(--text-secondary);font-weight:500}
@@ -1354,7 +1440,7 @@
     gap:0 3.4vw;
     flex:1;align-items:stretch;margin-top:8vh
   }
-  .duo-compare .vrule{background:var(--grey-2);width:1px;align-self:stretch}
+  .duo-compare .vrule{background:var(--grey-2);width:1px;align-self:stretch;opacity:.22}
   .duo-compare .col{display:flex;flex-direction:column;gap:1.6vh;padding:0 .4vw}
   .duo-compare .col-tag{
     font-family:var(--mono);font-size:max(14px,.78vw);
@@ -1374,6 +1460,25 @@
   }
   .slide.dark .duo-compare .col.accent .col-ttl{color:var(--text-inverse-primary)}
   .slide.light .duo-compare .col.accent .col-ttl{color:var(--text-primary)}
+  .sign-density{
+    height:18vh;margin:.7vh 0 1vh;padding:1.15vh 1vw;
+    display:grid;grid-template-columns:repeat(7,1fr);gap:.75vw;align-items:end;
+    background:rgba(255,255,255,.055);border-top:2px solid var(--accent);
+    overflow:hidden
+  }
+  .sign-density .sign-icon{
+    color:rgba(255,255,255,.72);height:var(--h,13vh);
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0
+  }
+  .sign-density .sign-icon:nth-child(even){color:rgba(255,255,255,.54)}
+  .sign-density .sign-icon.accent{color:var(--accent)}
+  .sign-density .sign-board{
+    width:var(--w,4.5vw);height:var(--bh,4.6vh);
+    border:2px solid currentColor;background:rgba(255,255,255,.03);box-sizing:border-box
+  }
+  .sign-density .sign-icon.accent .sign-board{background:var(--accent);border-color:var(--accent)}
+  .sign-density .sign-post{width:2px;height:var(--ph,4vh);background:currentColor}
+  .sign-density .sign-base{width:58%;height:2px;background:currentColor}
   .duo-compare .col-desc{
     font-family:var(--sans),var(--sans-zh);
     font-size:max(16px,1.04vw);line-height:1.55;opacity:.78;
@@ -1535,21 +1640,20 @@
 
 <div id="deck">
 
-<section class="slide accent" data-layout="S01" data-animate="hero">
-  <div class="canvas-card">
-    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 11 · 2026</div></div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:3vh">
+<section class="slide accent" data-layout="S01" data-animate="hero" style="padding-bottom:3.5vh">
+    <div class="canvas-card">
+   <canvas class="ascii-bg" aria-hidden="true"></canvas>
+    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 14 · 2026</div></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:3vh">
       <div style="display:flex;flex-direction:column;gap:0">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Interpretive Signage Systems</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">解説サインシステム</span></div></div>
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
       </div>
       <div style="display:grid;grid-template-columns:7fr 5fr;gap:3vw;align-items:end">
-        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems in Botanical Gardens from a Co-creation Perspective: Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム — 記憶指向デザイン原則の構築に向けて —</span></div>
-        <div style="display:flex;align-items:center;gap:1vw;justify-content:flex-end"><i data-lucide="leaf" style="width:32px;height:32px"></i><div><div style="font-size:max(18px,1.08vw);font-weight:600">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">芸術工学専攻 博士後期課程 · Prof. Akane Matsumae</div></div></div>
+        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems<br>in Botanical Gardens from a Co-creation Perspective:<br>Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム — 記憶指向デザイン原則の構築に向けて —</span></div>
+        <div style="text-align:right"><i data-lucide="leaf" style="width:32px;height:32px;margin-bottom:0.55vh"></i><div><div style="font-size:max(18px,1.08vw);font-weight:400">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">Strategic Design Course, M2<span class="bi">ストラテジックデザインコース M2</span></div></div></div>
       </div>
-      <div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh"><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal Presentation</div></div>
     </div>
   </div>
 </section>
@@ -1559,19 +1663,18 @@
     <div class="bg-only-layout">
       <div class="bg-hero-copy">
         <div>
-          <div class="chrome-min" style="margin-bottom:7vh"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 11</div></div>
-          <div class="t-cat accent">THE SCALE</div>
+          <div class="chrome-min" style="margin-bottom:7vh"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 14</div></div>
           <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:1vh;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
         </div>
         <div class="bg-stat">
           <div class="num">60%+</div>
-          <p style="font-size:max(18px,1.05vw);font-weight:700;line-height:1.28;margin:0;color:var(--text-primary)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
+          <p style="font-size:max(18px,1.05vw);font-weight:400;line-height:1.28;margin:0;color:var(--text-primary)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
         </div>
       </div>
       <figure class="bg-hero-image">
         <img data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
-        <figcaption class="t-meta bg-source">Image: Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
+        <figcaption class="bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
       </figure>
     </div>
   </div>
@@ -1579,11 +1682,10 @@
 
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 11</div></div>
+    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 14</div></div>
     <div class="s17-object-layout">
       <div class="s17-object-copy" data-anim="line">
         <div>
-          <div class="t-cat accent">THE OBJECT</div>
           <h2>Interpretive signage system.</h2>
           <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
@@ -1615,8 +1717,7 @@
 
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 12</div></div>
-    <div class="t-cat accent" style="margin-bottom:1.6vh">THREE THEORETICAL FOUNDATIONS</div>
+    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 14</div></div>
     <div class="three-forces nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
@@ -1624,9 +1725,9 @@
           <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.2vw,7.4vh);line-height:.96;letter-spacing:-.04em;color:var(--paper)">Three models explain how signs teach.</h2>
           <span class="jp" style="display:block;font-family:var(--sans-jp);font-size:max(16px,.86vw);font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);margin-top:1.2vh">三つの理論モデルが、サインによる学習メカニズムを説明してきた。</span>
         </div>
-        <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:1.6vh;margin-top:auto">
-          <div class="t-meta" style="color:rgba(255,255,255,.62)">→ Each model studies a single sign in isolation.</div>
-          <div class="t-meta" style="color:var(--accent);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
+        <div style="background:var(--accent);padding:1.8vh 1.2vw;margin-top:auto">
+          <div class="t-meta" style="color:var(--accent-on)">→ Each model studies a single sign in isolation.</div>
+          <div class="t-meta" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
         </div>
       </div>
       <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
@@ -1648,12 +1749,12 @@
             <span class="bi">注意を引き、次に意味的価値を届けることで学習が成立する。</span>
           </p>
         </article>
-        <article class="card-accent force-card" data-anim="up">
-          <div class="force-num" style="color:var(--accent-on)">03</div>
+        <article class="card-fill force-card" data-anim="up">
+          <div class="force-num">03</div>
           <h3 class="force-title">Cognitive Theory of Multimedia Learning
             <span class="jp compact" lang="ja">マルチメディア認知学習理論</span>
           </h3>
-          <p class="t-body-sm" style="color:rgba(10,10,10,.82)">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
+          <p class="t-body-sm">Mayer (2001). Text and image, when designed together, reduce cognitive load and deepen encoding.
             <span class="bi">テキストと画像の統合設計が認知負荷を下げ記憶を深める。</span>
           </p>
         </article>
@@ -1662,102 +1763,238 @@
   </div>
 </section>
 
+<section class="slide light" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card" style="display:grid;grid-template-rows:auto 33vh 1fr;gap:1.8vh;overflow:hidden">
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>05 / 14</div></div>
+    <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:33vh;max-height:none">
+      <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
+      <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
+    </figure>
+    <div data-anim="kpi" class="nav-safe-bottom-tight" style="display:grid;grid-template-columns:5.6fr 6.4fr;gap:3vw;align-items:start;min-height:0;margin-top:2.4vh">
+      <div style="border-top:2px solid var(--accent);padding-top:1.5vh">
+        <div class="t-meta" style="color:var(--accent-text)">FIVE SIGNS ON A ROUTE</div>
+        <div style="position:relative;height:23vh;margin-top:1.2vh;overflow:hidden">
+          <svg viewBox="0 0 900 230" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block">
+            <defs>
+              <marker id="route-arrow-05" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 Z" fill="#0a0a0a"/>
+              </marker>
+            </defs>
+            <path d="M78 118 H830" fill="none" stroke="#0a0a0a" stroke-width="4" marker-end="url(#route-arrow-05)"/>
+            <line x1="88" y1="94" x2="88" y2="118" stroke="#0a0a0a" stroke-width="3"/>
+            <line x1="268" y1="118" x2="268" y2="144" stroke="#0a0a0a" stroke-width="3"/>
+            <line x1="448" y1="94" x2="448" y2="118" stroke="#0a0a0a" stroke-width="3"/>
+            <line x1="628" y1="118" x2="628" y2="144" stroke="#0a0a0a" stroke-width="3"/>
+            <line x1="808" y1="94" x2="808" y2="118" stroke="#0a0a0a" stroke-width="3"/>
+            <rect x="28" y="36" width="120" height="58" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
+            <rect x="208" y="144" width="120" height="58" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
+            <rect x="388" y="36" width="120" height="58" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
+            <rect x="568" y="144" width="120" height="58" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
+            <rect x="748" y="36" width="120" height="58" fill="var(--accent)" stroke="#0a0a0a" stroke-width="4"/>
+            <circle cx="88" cy="118" r="10" fill="#0a0a0a"/>
+            <circle cx="268" cy="118" r="10" fill="#0a0a0a"/>
+            <circle cx="448" cy="118" r="10" fill="#0a0a0a"/>
+            <circle cx="628" cy="118" r="10" fill="#0a0a0a"/>
+            <circle cx="808" cy="118" r="12" fill="#0a0a0a"/>
+          </svg>
+          <div class="t-meta" style="position:absolute;left:1%;top:0;color:var(--text-helper)">SIGN 1</div>
+          <div class="t-meta" style="position:absolute;left:22%;bottom:.2vh;color:var(--text-helper)">SIGN 2</div>
+          <div class="t-meta" style="position:absolute;left:43%;top:0;color:var(--text-helper)">SIGN 3</div>
+          <div class="t-meta" style="position:absolute;left:64%;bottom:.2vh;color:var(--text-helper)">SIGN 4</div>
+          <div class="t-meta" style="position:absolute;right:0;top:0;color:var(--accent-text)">SIGN 5</div>
+        </div>
+      </div>
+      <div style="border-top:2px solid var(--ink);padding-top:1.5vh">
+        <div class="t-meta">MUSEUM FATIGUE</div>
+        <h2 style="font-weight:200;font-size:min(4.05vw,7.1vh);line-height:.96;letter-spacing:-.04em;margin:.8vh 0 1.4vh">Attention declines across repeated viewing.</h2>
+        <span class="jp" lang="ja" style="max-width:38ch;color:var(--text-secondary)">解説を連続して読むほど、注意と処理資源は低下しやすい。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="slide dark" data-layout="S08">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 12</div></div>
-    <div style="display:flex;flex-direction:column;gap:1vh"><div class="t-cat accent">THE GAP</div><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at one sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
-    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:1.3vh;grid-template-columns:4.8fr auto 7.2fr">
-      <div class="col"><div class="col-tag"><span class="num">A</span> WHAT MODELS FOUND</div><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:12vh;margin:1vh 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8vh;padding:.8vh 1vw">
-        <div style="font-size:max(14px,.78vw);font-family:var(--mono);letter-spacing:.1em;color:var(--text-inverse-secondary)">CLM · AVM · CTML</div>
-        <i data-lucide="file-text" style="width:3.2vw;height:3.2vw;color:var(--text-inverse-secondary)"></i>
-      </div><ul class="bi-list"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw);opacity:.55">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
+    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>06 / 14</div></div>
+    <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at one sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
+    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
+      <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
+        <div class="sign-icon" style="--h:12vh;--w:5.5vw;--bh:4.8vh;--ph:4.2vh;color:rgba(255,255,255,.82)"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
+        <div style="font-size:max(15px,.82vw);font-family:var(--mono);letter-spacing:.1em;color:var(--text-inverse-secondary);opacity:.7">CLM · AVM · CTML</div>
+      </div><ul class="bi-list" style="opacity:.55"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw)">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
       <div class="vrule"></div>
-      <div class="col accent"><div class="col-tag"><span class="num">B</span> REAL VISITOR PATH</div><h3 class="col-ttl">A whole path of signs<span class="bi">連続したサイン経路</span></h3><div style="position:relative;height:18vh;margin:.7vh 0 1vh"><svg viewBox="0 0 900 210" aria-hidden="true" style="width:100%;height:100%;display:block"><rect x="15" y="22" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="185" y="108" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="355" y="40" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="525" y="118" width="130" height="82" fill="rgba(197,232,3,.10)" stroke="var(--accent)"/><rect x="695" y="52" width="150" height="96" fill="var(--accent)" stroke="var(--accent)"/><path d="M80 118 C165 10, 250 196, 420 88 S620 34, 770 106" fill="none" stroke="var(--accent)" stroke-width="6" stroke-dasharray="18 18"/><circle cx="80" cy="118" r="10" fill="var(--accent)"/><circle cx="250" cy="148" r="10" fill="var(--accent)"/><circle cx="420" cy="88" r="10" fill="var(--accent)"/><circle cx="590" cy="157" r="10" fill="var(--accent)"/><circle cx="770" cy="106" r="15" fill="#0a0a0a"/></svg><div style="position:absolute;left:2%;top:0" class="t-meta">SIGN 1</div><div style="position:absolute;left:23%;bottom:0" class="t-meta">SIGN 2</div><div style="position:absolute;left:43%;top:0" class="t-meta">SIGN 3</div><div style="position:absolute;left:63%;bottom:0" class="t-meta">SIGN 4</div><div style="position:absolute;right:1%;top:0;color:var(--accent)" class="t-meta">SIGN 5</div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
+      <div class="col accent"><h3 class="col-ttl" style="color:var(--accent)">A dense field of signs<span class="bi">密集したサイン環境</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
     </div>
   </div>
 </section>
 
 <section class="slide light" data-layout="S09" data-animate="statement">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Core Problem · 核心問題</div><div class="r" data-slide-page>06 / 12</div></div>
+    <div class="chrome-min"><div class="l">Core Problem · 核心問題</div><div class="r" data-slide-page>07 / 14</div></div>
     <div style="position:absolute;right:5vw;top:16vh;width:34vw;height:48vh;color:var(--accent)" class="dots-bold" aria-hidden="true"></div>
-    <div style="flex:1;display:grid;grid-template-columns:5fr 7fr;gap:4vw;align-items:center">
-      <div><div class="t-cat accent">FORGETTING CURVE TEST</div><div style="font-size:min(13vw,22vh);font-weight:200;line-height:.82;letter-spacing:-.07em;color:var(--accent-text)">48%</div><p style="font-size:max(18px,1.08vw);line-height:1.48;font-weight:500;color:var(--text-secondary);max-width:32ch">average second-day forgetting rate in master's research.<span class="bi">修士研究で確認された平均翌日忘却率。</span></p></div>
-      <div style="display:flex;flex-direction:column;gap:1.7vh"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="#0a0a0a" stroke-width="2" opacity=".8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--text-helper)">Day 0</div><div class="t-meta" style="position:absolute;left:35%;bottom:0;color:var(--text-helper)">Day 1</div><div class="t-meta" style="position:absolute;right:4%;bottom:0;color:var(--text-helper)">Day 2</div></div><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:5fr 7fr;gap:7vw;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:2.2vh;justify-content:center"><div style="position:relative"><svg viewBox="0 0 620 210" aria-hidden="true" style="width:100%;height:19vh;display:block"><line x1="28" y1="174" x2="585" y2="174" stroke="var(--ink)" stroke-width="2" opacity=".28"/><line x1="36" y1="24" x2="36" y2="184" stroke="var(--ink)" stroke-width="2" opacity=".28"/><path d="M50 38 C130 78, 175 110, 235 132 S390 165, 555 166" fill="none" stroke="var(--accent)" stroke-width="8"/><circle cx="50" cy="38" r="10" fill="var(--accent)"/><circle cx="235" cy="132" r="10" fill="var(--accent)"/><circle cx="555" cy="166" r="10" fill="var(--accent)"/></svg><div class="t-meta" style="position:absolute;left:8%;bottom:0;color:var(--text-helper)">Day 0</div><div class="t-meta" style="position:absolute;left:38%;bottom:0;color:var(--text-helper)">Day 1</div><div class="t-meta" style="position:absolute;left:89%;bottom:0;color:var(--text-helper)">Day 7</div></div><div><div class="t-cat accent">FORGETTING CURVE TEST</div><div style="font-size:min(13vw,22vh);font-weight:200;line-height:.82;letter-spacing:-.07em;color:#000000">48%</div><p style="font-size:max(18px,1.08vw);line-height:1.48;font-weight:500;color:var(--text-secondary);max-width:32ch">average second-day forgetting rate in master's research.<span class="bi">修士研究で確認された平均翌日忘却率。</span></p></div></div>
+      <div style="display:flex;flex-direction:column;justify-content:center"><h2 class="h-statement" style="font-size:min(4.55vw,8vh);line-height:.98;max-width:12ch">How can a signage system reduce load and improve retention?</h2><span class="jp" lang="ja">認知負荷を下げ、情報留存率を高める解説サインシステムをどう設計すればよいのか。</span></div>
     </div>
   </div>
 </section>
 
 <section class="slide dark" data-layout="S05" data-animate="stack-build">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>07 / 12</div></div>
-    <div style="display:flex;flex-direction:column;gap:1.2vh"><div class="t-cat accent">THREE OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">Reveal. Co-create. Validate.</h2><span class="jp inverse" lang="ja">三つの目標は、メカニズムの解明から設計原則の検証へと連鎖する。</span></div>
-    <div class="stack-row nav-safe-bottom-tight">
-      <div class="stack-block b-paper"><div class="layer-nb">01 · REVEAL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Causal mechanism<span class="bi">因果メカニズム</span></h3><p class="layer-desc">Model how information amount, story order, and spatial proximity influence memory.<span class="bi">情報量、物語順序、空間的近接性が記憶に与える影響をモデル化する。</span></p><div class="layer-tag">SYSTEM FACTORS → MEMORY</div></div>
-      <div class="stack-block b-paper"><div class="layer-nb">02 · CO-CREATE</div><i data-lucide="users-round" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design principles<span class="bi">デザイン原則</span></h3><p class="layer-desc">Translate the model into rules with visitors, managers, communicators, and designers.<span class="bi">来訪者・管理者・解説者・デザイナーと共に、モデルを設計原則へ変換する。</span></p><div class="layer-tag">MODEL → RULES</div></div>
-      <div class="stack-block b-accent"><div class="layer-nb">03 · VALIDATE</div><i data-lucide="flask-conical" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Closed-loop testing<span class="bi">閉ループ検証</span></h3><p class="layer-desc">Test principles through gaze, cognitive load, and forgetting-curve measures.<span class="bi">視線、認知負荷、忘却曲線の指標で原則を検証する。</span></p><div class="layer-tag">RULES → EVIDENCE</div></div>
+    <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 14</div></div>
+    <div style="display:flex;flex-direction:column;gap:1.2vh" data-anim="line"><div class="t-cat accent">RESEARCH OBJECTIVES</div><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">What This Research Aims to Produce</h2><span class="jp inverse" lang="ja">本研究が産み出すもの</span></div>
+    <div class="stack-row" style="margin-top:5vh">
+      <div class="stack-block b-paper"><div class="layer-nb">01 · MODEL</div><i data-lucide="network" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">A Causal Model<span class="bi">因果メカニズムモデル</span></h3><p class="layer-desc">Revealing how spatial information design variables connect to visitor cognition and memory.<span class="bi">空間情報デザインの変数が来訪者の認知・記憶とどうつながるかを明らかにする。</span></p><div class="layer-tag">STAGE 1: MODEL</div></div>
+      <div class="stack-block b-paper"><div class="layer-nb">02 · PRINCIPLE</div><i data-lucide="clipboard-list" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Design Principles<span class="bi">記憶指向デザイン原則</span></h3><p class="layer-desc">Not just theory — principles that designers can directly apply.<span class="bi">理論にとどまらず、デザイナーが実務で直接活用できる原則。</span></p><div class="layer-tag">STAGE 2: PRINCIPLE</div></div>
+      <div class="stack-block b-accent"><div class="layer-nb">03 · EVIDENCE</div><i data-lucide="shield-check" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Validation Framework<span class="bi">閉ループ検証・測定フレームワーク</span></h3><p class="layer-desc">Ensuring the principles are tested in a real environment — not just a lab assumption.<span class="bi">デザイン原則が実際の環境で検証されたものであることを担保する体系。</span></p><div class="layer-tag">STAGE 3: EVIDENCE</div></div>
     </div>
-  </div>
-</section>
-
-<section class="slide light" data-layout="S17">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 01 · 研究方法 01</div><div class="r" data-slide-page>08 / 12</div></div>
-    <div style="display:grid;grid-template-columns:5fr 7fr;gap:3vw;align-items:start;margin-bottom:2.6vh"><div><div class="t-cat accent">PHASE 1 · Y1 S1</div><h2 style="font-weight:200;font-size:min(4.7vw,8.2vh);line-height:.95;letter-spacing:-.035em;margin-top:1vh">Build the causal model.</h2><span class="jp" lang="ja">サインシステムが記憶に影響する因果モデルを構築する。</span></div><p style="font-size:max(18px,1vw);line-height:1.45;color:var(--text-secondary);font-weight:500;margin-top:4.5vh">This phase defines what variables should be measured before designing the experiment.<span class="bi">この段階では、実験設計の前に測定すべき変数を定義する。</span></p></div>
-    <div class="method-flow">
-      <div class="diagram-card"><i data-lucide="library"></i><div class="t-meta">THEORY INPUT</div><h3>Environmental psychology</h3><p>Cognitive load, museum fatigue, memory retention.<span class="bi">認知負荷、展示疲労、記憶保持。</span></p></div>
-      <div class="diagram-card"><i data-lucide="messages-square"></i><div class="t-meta">INTERVIEW INPUT</div><h3>Stakeholder interviews</h3><p>Managers, interpreters, designers, visitors.<span class="bi">管理者、解説者、デザイナー、来訪者。</span></p></div>
-      <div class="diagram-card"><i data-lucide="footprints"></i><div class="t-meta">FIELD INPUT</div><h3>Greenhouse walkthrough</h3><p>Map signs, route, density, story sequence.<span class="bi">サイン、経路、密度、物語順序を記録する。</span></p></div>
-      <div class="diagram-card"><i data-lucide="ruler"></i><div class="t-meta">CODING INPUT</div><h3>Design variables</h3><p>Amount, hierarchy, proximity, narrative order.<span class="bi">情報量、階層、近接性、ナラティブ順序。</span></p></div>
-    </div>
-    <div class="method-output nav-safe-bottom-tight"><div class="diagram-card ink"><div class="t-meta">SYNTHESIS</div><h3>Cross-source coding</h3><p style="color:var(--text-inverse-secondary)">Compare theory, interviews, and field observations.<span class="bi">理論・聞き取り・現地観察を照合する。</span></p></div><div class="arrow-cell">→</div><div class="diagram-card accent"><i data-lucide="git-fork"></i><div class="t-meta">OUTPUT</div><h3>Initial causal model</h3><p>Testable links between sign-system factors and memory outcomes.<span class="bi">サインシステム要因と記憶成果をつなぐ検証可能な因果モデル。</span></p></div></div>
-  </div>
-</section>
-
-<section class="slide light" data-layout="S14">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 · 研究方法 02</div><div class="r" data-slide-page>09 / 12</div></div>
-    <div style="display:grid;grid-template-columns:4.6fr 7.4fr;gap:3vw;align-items:start;flex:1">
-      <div style="display:flex;flex-direction:column;gap:1.4vh"><div class="t-cat accent">PHASE 2 · Y1 S2</div><h2 style="font-weight:200;font-size:min(4.7vw,8.2vh);line-height:.95;letter-spacing:-.035em">Translate through co-creation.</h2><span class="jp" lang="ja">モデルを、現場で使えるデザイン仮説へ共創的に変換する。</span><div class="diagram-card accent" style="margin-top:2vh"><div class="t-meta">FORMAT</div><div style="font-size:min(6vw,10vh);font-weight:200;line-height:.86">2</div><p style="font-weight:700;color:var(--text-primary)">workshops, 8–10 participants each.<span class="bi">各8〜10名、2回のワークショップ。</span></p></div></div>
-      <div>
-        <div class="method-matrix">
-          <div class="diagram-card"><i data-lucide="users-round"></i><div class="t-meta">PARTICIPANTS</div><h3>Four perspectives</h3><p>Designers, interpreters, administrators, visitor representatives.<span class="bi">デザイナー、解説者、管理者、来訪者代表。</span></p></div>
-          <div class="diagram-card"><i data-lucide="panels-top-left"></i><div class="t-meta">ACTIVITIES</div><h3>Translate model</h3><p>Scenario storyboarding, card sorting, participatory prototyping.<span class="bi">シナリオ化、カード分類、参加型プロトタイピング。</span></p></div>
-          <div class="diagram-card"><i data-lucide="list-checks"></i><div class="t-meta">OUTPUT</div><h3>Principle hypotheses</h3><p>Information amount, visual hierarchy, story order, spatial rhythm.<span class="bi">情報量、視覚階層、物語順序、空間リズム。</span></p></div>
-        </div>
-        <div style="position:relative;height:23vh;margin-top:1.4vh;background:var(--fill);overflow:hidden">
-          <svg viewBox="0 0 900 260" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"><path d="M90 130 C150 40, 270 40, 330 130 S510 220, 570 130 S750 40, 810 130" fill="none" stroke="var(--accent)" stroke-width="7" stroke-dasharray="18 16"/><circle cx="90" cy="130" r="18" fill="var(--accent)"/><circle cx="330" cy="130" r="18" fill="var(--accent)"/><circle cx="570" cy="130" r="18" fill="var(--accent)"/><circle cx="810" cy="130" r="18" fill="var(--accent)"/></svg>
-          <div class="diagram-card" style="position:absolute;left:4%;top:2vh;width:19%"><div class="t-meta">MODEL</div><p>Causal links<span class="bi">因果関係</span></p></div>
-          <div class="diagram-card" style="position:absolute;left:29%;bottom:2vh;width:19%"><div class="t-meta">SCENARIO</div><p>Visitor route<span class="bi">来訪経路</span></p></div>
-          <div class="diagram-card" style="position:absolute;left:54%;top:2vh;width:19%"><div class="t-meta">PROTOTYPE</div><p>Sign system<span class="bi">サイン体系</span></p></div>
-          <div class="diagram-card accent" style="position:absolute;right:4%;bottom:2vh;width:19%"><div class="t-meta">RULES</div><p style="font-weight:700;color:var(--text-primary)">Design hypotheses<span class="bi">設計仮説</span></p></div>
-        </div>
-        <div class="diagram-card ink" style="margin-top:1.2vh;display:grid;grid-template-columns:1.15fr 2fr;gap:1.2vw;align-items:center">
-          <div><div class="t-meta">DESIGN VARIABLE SET</div><h3>Ready for validation</h3><span class="bi">検証可能な設計変数セットへ。</span></div>
-          <p style="color:var(--text-inverse-secondary)">Information amount · visual hierarchy · story order · spatial rhythm<span class="bi">情報量・視覚階層・物語順序・空間リズム</span></p>
-        </div>
+    <div data-anim="foot" class="nav-safe-bottom-tight" style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.15);padding-top:2.2vh">
+      <div style="display:flex;align-items:center;gap:1.2vw;font-family:var(--mono);font-size:max(13px,.75vw);letter-spacing:.05em;color:var(--text-inverse-secondary)">
+        <span style="opacity:.65">Prior Research <span class="bi" style="display:inline;opacity:.8;font-size:max(11px,.65vw)">先行研究</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Model <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">因果モデル</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Principles <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">デザイン原則</span></span>
+        <span style="opacity:.3">→</span>
+        <span style="color:var(--accent);font-weight:500">Evidence <span class="bi" style="display:inline;opacity:.9;font-size:max(11px,.65vw)">実証データ</span></span>
+      </div>
+      <div style="font-family:var(--mono);font-size:max(12px,.7vw);letter-spacing:.1em;color:var(--text-inverse-helper);opacity:.65;text-align:right;text-transform:uppercase">
+        Next: Research Methods
       </div>
     </div>
   </div>
 </section>
 
-<section class="slide light" data-layout="S11">
+<section class="slide light" data-layout="S11" data-animate="timeline-walk">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 · 研究方法 03</div><div class="r" data-slide-page>10 / 12</div></div>
-    <div style="display:grid;grid-template-columns:5fr 7fr;gap:3vw;align-items:start"><div><div class="t-cat accent">PHASE 3 · Y2–3</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.035em;margin-top:1vh">Validate sequential memory effects.</h2><span class="jp" lang="ja">連続したサイン経路における記憶効果を検証する。</span></div><div class="diagram-card accent"><div class="t-meta">SAMPLE</div><div style="font-size:min(5.8vw,10vh);font-weight:200;line-height:.86">60</div><p style="font-weight:700;color:var(--text-primary)">participants in a real or high-fidelity greenhouse setting.<span class="bi">実環境または高忠実度の温室環境で約60名を対象にする。</span></p></div></div>
-    <div class="method-route nav-safe-bottom-tight">
-      <div class="route-step"><div class="nb">01 SETUP</div><i data-lucide="shuffle" style="color:var(--accent)"></i><h3>Counterbalanced route</h3><p>Latin-square order control.<span class="bi">ラテン方格で順序効果を制御。</span></p></div>
-      <div class="route-step"><div class="nb">02 VIEW</div><i data-lucide="scan-eye" style="color:var(--accent)"></i><h3>Sequential eye-tracking</h3><p>From single sign to multi-sign gaze path.<span class="bi">単一サインから複数サインの視線経路へ。</span></p></div>
-      <div class="route-step"><div class="nb">03 LOAD</div><i data-lucide="clipboard-list" style="color:var(--accent)"></i><h3>Cognitive load</h3><p>NASA-TLX and route-level comprehension.<span class="bi">NASA-TLXと経路全体の理解度。</span></p></div>
-      <div class="route-step"><div class="nb">04 MEMORY</div><i data-lucide="timer-reset" style="color:var(--accent)"></i><h3>Forgetting curve</h3><p>Immediate and next-day recall tests.<span class="bi">直後・翌日の記憶再生テスト。</span></p></div>
-      <div class="route-step"><div class="nb">05 MODEL</div><i data-lucide="bar-chart-3" style="color:var(--accent)"></i><h3>Mixed-effects analysis</h3><p>Estimate what design variables improve retention.<span class="bi">記憶保持を高める設計変数を推定する。</span></p></div>
+    <div class="chrome-min"><div class="l">Method Overview · 研究方法総覧</div><div class="r" data-slide-page>09 / 14</div></div>
+    <div data-anim="line" style="display:grid;grid-template-columns:4.6fr 7.4fr;gap:3vw;align-items:end">
+      <div><div class="t-cat accent">CO-CREATION RESEARCH STRATEGY</div><h2 style="font-weight:200;font-size:min(4.85vw,8.5vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">Three W questions.</h2><span class="jp" lang="ja">三つのWで研究方法を連鎖させる。</span></div>
+      <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">Each phase hands its output to the next phase: model, hypotheses, then validated principles.<span class="bi">各段階の成果は、モデル、仮説、検証済み原則として次段階へ受け渡される。</span></p>
+    </div>
+    <div class="method-3w-grid" data-anim="up" style="margin-top:3.2vh">
+      <article class="method-3w-node"><div><div class="big">WHAT</div><h3>Exploratory Modeling</h3><p>Identify design variables affecting load and retention.<span class="bi">認知負荷と情報保持に関わる設計変数を抽出する。</span></p></div><div class="t-meta">Y1 · SEMESTER 1</div></article>
+      <article class="method-3w-node"><div><div class="big">HOW</div><h3>Co-Creative Translation</h3><p>Turn the model into actionable design principle hypotheses.<span class="bi">モデルを実行可能な設計原則仮説へ変換する。</span></p></div><div class="t-meta">Y1 · SEMESTER 2</div></article>
+      <article class="method-3w-node"><div><div class="big">WHICH</div><h3>Empirical Validation</h3><p>Test which principles work in the real greenhouse setting.<span class="bi">どの原則が実環境で有効かを検証する。</span></p></div><div class="t-meta">Y2–3+</div></article>
+    </div>
+    <div class="handoff-line nav-safe-bottom-tight" data-anim="up">
+      <div class="handoff-card"><div class="t-meta">MODULE A</div><h3>Initial causal model</h3></div>
+      <div class="handoff-arrow">→</div>
+      <div class="handoff-card"><div class="t-meta">MODULE B</div><h3>Design principle hypotheses</h3></div>
+      <div class="handoff-arrow">→</div>
+      <div class="handoff-card accent"><div class="t-meta">MODULE C</div><h3>Validated principles</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S16" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 01 · 研究方法 01</div><div class="r" data-slide-page>10 / 14</div></div>
+    <div data-anim="line" style="display:grid;grid-template-columns:4.7fr 7.3fr;gap:3vw;align-items:end">
+      <div><div class="t-cat accent">WHAT · PHASE 1</div><h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">What variables matter?</h2><span class="jp" lang="ja">どの設計変数が認知負荷と情報保持に影響するのか。</span></div>
+      <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">This phase extracts the variables before any intervention is designed.<span class="bi">介入設計の前に、測定すべき変数を明確にする段階である。</span></p>
+    </div>
+    <div class="method-hierarchy" data-anim="up">
+      <aside class="method-purpose icon-only">
+        <i data-lucide="target"></i>
+        <div><div class="t-meta">PURPOSE</div><h3>Variables<br/>変数</h3></div>
+      </aside>
+      <section class="method-spotlight">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · PRIMARY LAYER</div><h3>Three ways to extract evidence.</h3></div>
+          <div class="t-meta">MODULE A</div>
+        </div>
+        <div class="method-units">
+          <article class="method-unit"><i data-lucide="book-open"></i><div class="t-meta">01</div><h4>Literature review</h4><p>Prior models of attention, load, and memory.<span class="bi">注意、負荷、記憶に関する先行モデル。</span></p></article>
+          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">02</div><h4>Stakeholder interviews</h4><p>Visitor needs and management constraints.<span class="bi">来訪者ニーズと管理上の制約。</span></p></article>
+          <article class="method-unit"><i data-lucide="footprints"></i><div class="t-meta">03</div><h4>Greenhouse walkthrough</h4><p>Trace signs on the real Fukuoka route.<span class="bi">福岡市植物園温室の実経路でサインを確認する。</span></p></article>
+        </div>
+      </section>
+      <aside class="participant-panel icon-only">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>Field actors<br/>現場関係者</h3></div>
+        <div class="participant-chips"><span class="participant-chip">VISITORS</span><span class="participant-chip">STAFF</span></div>
+      </aside>
+    </div>
+    <div class="handoff-line nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1fr auto 1fr;margin-top:1.45vh">
+      <div class="handoff-card ink compact"><div class="t-meta">INPUTS</div><h3>Studies · Interviews · Field walk</h3><p>理論・面接・現場観察。</p></div>
+      <div class="handoff-arrow">→</div>
+      <div class="handoff-card accent compact"><div class="t-meta">MODULE A</div><h3>Initial causal model</h3><p>次段階への入力。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S14" data-animate="loop-form">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 02 · 研究方法 02</div><div class="r" data-slide-page>11 / 14</div></div>
+    <div data-anim="line" style="display:grid;grid-template-columns:4.7fr 7.3fr;gap:3vw;align-items:end">
+      <div><div class="t-cat accent">HOW · PHASE 2</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">How does the model become usable?</h2><span class="jp" lang="ja">認知モデルを、使える設計原則へどう変換するのか。</span></div>
+      <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">Expert interviews and co-creation workshops translate the model into shared design language.<span class="bi">専門家インタビューと共創ワークショップにより、モデルを共有可能な設計言語へ変換する。</span></p>
+    </div>
+    <div class="method-stage-layout nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1.15fr 7.7fr 1.15fr">
+      <aside class="aux-stack">
+        <div class="method-purpose icon-only" style="min-height:0">
+          <i data-lucide="lightbulb"></i>
+          <div><div class="t-meta">PURPOSE</div><h3>Translate<br/>翻訳</h3></div>
+        </div>
+        <div class="handoff-card compact"><div class="t-meta">INPUT</div><h3>Module A</h3><p>Causal model<span class="bi">因果モデル</span></p></div>
+      </aside>
+      <section class="method-spotlight dark">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · CO-CREATION CORE</div><h3>Workshop methods turn analysis into rules.</h3></div>
+          <div class="output-chip">MODULE B</div>
+        </div>
+        <div class="method-units">
+          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">01</div><h4>Expert input</h4><p>Interpretation and design review.<span class="bi">解説とデザインの専門的評価。</span></p></article>
+          <article class="method-unit"><i data-lucide="panels-top-left"></i><div class="t-meta">02</div><h4>Storyboard</h4><p>Visitor scenarios and route stories.<span class="bi">来訪シナリオと経路物語。</span></p></article>
+          <article class="method-unit"><i data-lucide="shapes"></i><div class="t-meta">03</div><h4>Prototype</h4><p>Participatory sign-system mockups.<span class="bi">参加型サインシステム試作。</span></p></article>
+        </div>
+      </section>
+      <aside class="participant-panel icon-only">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>Co-creation<br/>共創</h3></div>
+        <div class="participant-chips"><span class="participant-chip">EXPERTS</span><span class="participant-chip">DESIGNERS</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Method 03 · 研究方法 03</div><div class="r" data-slide-page>12 / 14</div></div>
+    <div data-anim="line" style="display:grid;grid-template-columns:4.7fr 7.3fr;gap:3vw;align-items:end">
+      <div><div class="t-cat accent">WHICH · PHASE 3</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">Which principles really work?</h2><span class="jp" lang="ja">どの設計原則が実際に有効なのか。</span></div>
+      <div class="method-purpose icon-only" style="min-height:0"><i data-lucide="badge-check"></i><div><div class="t-meta">PURPOSE</div><h3>Validate<br/>検証</h3></div></div>
+    </div>
+    <div class="method-stage-layout" data-anim="up" style="grid-template-columns:1.05fr 8.05fr 1.05fr;margin-top:2.2vh">
+      <aside class="participant-panel icon-only">
+        <i data-lucide="users-round"></i>
+        <div><div class="t-meta">PARTICIPANTS</div><h3>N≈60<br/>読者</h3></div>
+        <div class="participant-chips"><span class="participant-chip">ROUTE</span><span class="participant-chip">SIGNS</span></div>
+      </aside>
+      <section class="method-spotlight" style="min-height:31vh">
+        <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
+          <div><div class="t-meta">METHODS · EMPIRICAL VALIDATION</div><h3>Four linked measures test the same route.</h3></div>
+          <div class="output-chip">MODULE C</div>
+        </div>
+        <div class="method-units cols-4">
+          <article class="method-unit"><i data-lucide="flask-conical"></i><div class="t-meta">01</div><h4>Field experiment</h4><p>Compare principle-based conditions.<span class="bi">原則に基づく条件を比較する。</span></p></article>
+          <article class="method-unit"><i data-lucide="scan-eye"></i><div class="t-meta">02</div><h4>Eye-tracking</h4><p>Measure sequential gaze on route signs.<span class="bi">経路上の視線推移を測定する。</span></p></article>
+          <article class="method-unit"><i data-lucide="clipboard-list"></i><div class="t-meta">03</div><h4>NASA-TLX</h4><p>Capture perceived cognitive load.<span class="bi">主観的な認知負荷を測定する。</span></p></article>
+          <article class="method-unit"><i data-lucide="timer-reset"></i><div class="t-meta">04</div><h4>Retention test</h4><p>Track forgetting-curve change.<span class="bi">忘却曲線上の記憶変化を捉える。</span></p></article>
+        </div>
+      </section>
+      <aside class="result-panel">
+        <i data-lucide="badge-check"></i>
+        <div><div class="t-meta">OUTPUT</div><h3>Validated<br/>principles<br/>検証済み</h3></div>
+      </aside>
     </div>
   </div>
 </section>
 
 <section class="slide dark" data-layout="S13">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>11 / 12</div></div>
+    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>13 / 14</div></div>
     <div class="t-cat accent" style="margin-bottom:2vh">THREE CORE OUTCOMES</div>
     <div class="three-forces nav-safe-bottom-tight">
       <div class="card-accent" style="padding:3vh 1.8vw;display:flex;flex-direction:column;justify-content:space-between"><div><div class="t-meta">TRANSFERABILITY</div><h2 style="font-size:min(4.45vw,7.9vh);font-weight:200;line-height:.92;letter-spacing:-.04em">Beyond botanical gardens.</h2><span class="jp" lang="ja" style="margin-top:1vh;color:var(--text-secondary)">植物園を超えた応用可能性。</span></div><div style="display:flex;gap:1vw;align-items:center"><i data-lucide="landmark"></i><i data-lucide="trees"></i><i data-lucide="gamepad-2"></i><span class="t-meta">MUSEUMS · ZOOS · VR</span></div></div>
@@ -1772,7 +2009,7 @@
 
 <section class="slide hero dark split" data-layout="S10" data-animate="split-statement">
   <div class="canvas-card">
-    <div class="half b-accent" style="flex:0 0 39%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>12 / 12</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
+    <div class="half b-accent" style="flex:0 0 39%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>14 / 14</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
     <div class="half b-paper" style="flex:1 1 auto;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;background:var(--paper);color:var(--ink)"><div class="chrome-min" style="margin-bottom:0"><div class="l">TAKEAWAYS</div><div class="r">Q&A</div></div><div style="display:flex;flex-direction:column;gap:0"><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">01</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From first attention to information retention</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">即時の注意から、情報の記憶定着へ。</p></div></div><div style="border-top:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta">02</div><div><h3 style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;margin-bottom:.7vh">From isolated signs to a sequential system</h3><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">単一サインから、連続した解説サインシステムへ。</p></div></div><div style="border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);padding:2vh 0;display:grid;grid-template-columns:auto 1fr;gap:1.5vw"><div class="t-meta" style="color:var(--accent-text)">03</div><div><div style="font-weight:400;font-size:max(22px,1.68vw);line-height:1.15;letter-spacing:-.015em;color:var(--accent-text);margin-bottom:.7vh">From cognitive model to validated design rules</div><p style="font-size:max(16px,.95vw);line-height:1.42;font-weight:500;color:var(--text-secondary)">因果モデルから、実証済みの記憶指向デザイン原則へ。</p></div></div></div><div class="t-meta" style="color:var(--text-helper);text-align:right">I am happy to answer your questions. · ご質問をお待ちしております。</div></div>
   </div>
 </section>
@@ -2176,21 +2413,21 @@ if(motion){
      中间 thin 先入 → 上层 fat skills 从顶推下 → 下层 application 从底推上 */
   function rStackBuild(slide, all){
     const head = slide.querySelector('[data-anim="line"]');
-    if(head) fade(head, {duration:.6, y:10});
+    if(head) fade(head, {duration:.6, y:-10});
 
     const blocks = [...slide.querySelectorAll('.stack-block')];
-    /* 先入: 中间薄层(LAYER 02) */
-    if(blocks[1]) animate(blocks[1], {opacity:[0,1], scaleY:[.85, 1]},
-      {duration:.55, delay:.3, easing:EASE_ENTRY_EXP});
-    /* 上推下: LAYER 01 fat skills 从顶部 push down */
-    if(blocks[0]) animate(blocks[0], {opacity:[0,1], y:[-22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
-    /* 下推上: LAYER 03 application 从底部 push up */
-    if(blocks[2]) animate(blocks[2], {opacity:[0,1], y:[22, 0]},
-      {duration:.6, delay:.6, easing:EASE_ENTRY_EXP});
+    const foot = slide.querySelector('[data-anim="foot"]');
 
-    const foot = slide.querySelector('.t-meta');
-    if(foot) animate(foot, {opacity:[0,1]}, {duration:.3, delay:1.3, easing:EASE_PROD});
+    // Hide cards and foot initially, then stagger them in
+    blocks.forEach((block, i)=>{
+      block.style.opacity = '0';
+      animate(block, {opacity:[0,1], x:[-40, 0]}, {duration:.6, delay:.35 + i*.15, easing:EASE_ENTRY_EXP});
+    });
+
+    if(foot) {
+      foot.style.opacity = '0';
+      animate(foot, {opacity:[0,1], y:[12, 0]}, {duration:.6, delay:.8, easing:EASE_PROD});
+    }
   }
 
   /* ---------- recipe: measure-up · YC KPI 塔 ----------
@@ -2728,6 +2965,7 @@ if(motion){
   }
 
   function playSlide(i){
+    window.__pipeAdvance = ()=>false;
     const slide = slides[i];
     if(!slide) return;
     lastIdx = i;
