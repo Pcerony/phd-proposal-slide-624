@@ -820,6 +820,11 @@
   .participant-panel.icon-only .participant-chip{border-color:var(--border-subtle);color:var(--text-helper);font-size:max(12px,.58vw);padding:.35vh .42vw;letter-spacing:.08em}
   .participant-panel.icon-only .aux-mini h3{color:var(--text-primary)!important}
   .participant-panel.icon-only .aux-mini p{color:var(--text-secondary)!important}
+  .result-panel{background:var(--paper);color:var(--text-primary);border-top:3px solid var(--accent);border-bottom:1px solid var(--border-subtle);display:flex;flex-direction:column;justify-content:center;gap:1.25vh;min-height:18vh;padding:1.2vh .9vw}
+  .result-panel i{width:46px;height:46px;color:var(--ink);stroke-width:1.45}
+  .result-panel h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12;margin:0}
+  .result-panel .t-meta{color:var(--text-helper)}
+  .output-chip{display:inline-flex;align-items:center;gap:.45vw;border:1px solid currentColor;padding:.45vh .55vw;font-family:var(--mono);font-size:max(12px,.62vw);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:inherit}
   .aux-stack{display:grid;grid-template-rows:auto 1fr;gap:1vh;align-items:stretch}
   .aux-mini{border-top:2px solid var(--border-subtle);padding:1vh 0 0;display:flex;flex-direction:column;gap:.55vh}
   .aux-mini h3{font-size:max(18px,1.1vw);font-weight:400;line-height:1.12;margin:0}
@@ -1914,18 +1919,18 @@
       <div><div class="t-cat accent">HOW · PHASE 2</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">How does the model become usable?</h2><span class="jp" lang="ja">認知モデルを、使える設計原則へどう変換するのか。</span></div>
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">Expert interviews and co-creation workshops translate the model into shared design language.<span class="bi">専門家インタビューと共創ワークショップにより、モデルを共有可能な設計言語へ変換する。</span></p>
     </div>
-    <div class="method-stage-layout nav-safe-bottom-tight" data-anim="up">
+    <div class="method-stage-layout nav-safe-bottom-tight" data-anim="up" style="grid-template-columns:1.15fr 7.7fr 1.15fr">
       <aside class="aux-stack">
         <div class="method-purpose icon-only" style="min-height:0">
           <i data-lucide="lightbulb"></i>
           <div><div class="t-meta">PURPOSE</div><h3>Translate<br/>翻訳</h3></div>
         </div>
-        <div class="handoff-card"><div class="t-meta">INPUT · MODULE A</div><h3>Initial causal model</h3><p>Variables and causal links.<span class="bi">変数と因果関係。</span></p></div>
+        <div class="handoff-card compact"><div class="t-meta">INPUT</div><h3>Module A</h3><p>Causal model<span class="bi">因果モデル</span></p></div>
       </aside>
       <section class="method-spotlight dark">
         <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
           <div><div class="t-meta">METHODS · CO-CREATION CORE</div><h3>Workshop methods turn analysis into rules.</h3></div>
-          <div class="t-meta">MODULE B</div>
+          <div class="output-chip">MODULE B</div>
         </div>
         <div class="method-units">
           <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">01</div><h4>Expert input</h4><p>Interpretation and design review.<span class="bi">解説とデザインの専門的評価。</span></p></article>
@@ -1937,7 +1942,6 @@
         <i data-lucide="users-round"></i>
         <div><div class="t-meta">PARTICIPANTS</div><h3>Co-creation<br/>共創</h3></div>
         <div class="participant-chips"><span class="participant-chip">EXPERTS</span><span class="participant-chip">DESIGNERS</span></div>
-        <div class="aux-mini" style="border-top-color:rgba(255,255,255,.28)"><div class="t-meta">OUTPUT</div><h3 style="color:var(--text-inverse-primary)">Design principle hypotheses</h3><p style="color:var(--text-inverse-secondary)">操作可能な設計原則仮説。</p></div>
       </aside>
     </div>
   </div>
@@ -1950,16 +1954,16 @@
       <div><div class="t-cat accent">WHICH · PHASE 3</div><h2 style="font-weight:200;font-size:min(4.65vw,8.1vh);line-height:.95;letter-spacing:-.04em;margin-top:.9vh">Which principles really work?</h2><span class="jp" lang="ja">どの設計原則が実際に有効なのか。</span></div>
       <div class="method-purpose icon-only" style="min-height:0"><i data-lucide="badge-check"></i><div><div class="t-meta">PURPOSE</div><h3>Validate<br/>検証</h3></div></div>
     </div>
-    <div class="method-stage-layout" data-anim="up" style="grid-template-columns:1.15fr 7.75fr 1.3fr;margin-top:2.2vh">
+    <div class="method-stage-layout" data-anim="up" style="grid-template-columns:1.05fr 8.05fr 1.05fr;margin-top:2.2vh">
       <aside class="participant-panel icon-only">
         <i data-lucide="users-round"></i>
         <div><div class="t-meta">PARTICIPANTS</div><h3>N≈60<br/>読者</h3></div>
         <div class="participant-chips"><span class="participant-chip">ROUTE</span><span class="participant-chip">SIGNS</span></div>
       </aside>
-      <section class="method-spotlight">
+      <section class="method-spotlight" style="min-height:31vh">
         <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
           <div><div class="t-meta">METHODS · EMPIRICAL VALIDATION</div><h3>Four linked measures test the same route.</h3></div>
-          <div class="t-meta">MODULE C</div>
+          <div class="output-chip">MODULE C</div>
         </div>
         <div class="method-units cols-4">
           <article class="method-unit"><i data-lucide="flask-conical"></i><div class="t-meta">01</div><h4>Field experiment</h4><p>Compare principle-based conditions.<span class="bi">原則に基づく条件を比較する。</span></p></article>
@@ -1968,12 +1972,11 @@
           <article class="method-unit"><i data-lucide="timer-reset"></i><div class="t-meta">04</div><h4>Retention test</h4><p>Track forgetting-curve change.<span class="bi">忘却曲線上の記憶変化を捉える。</span></p></article>
         </div>
       </section>
-      <aside class="aux-stack">
-        <div class="handoff-card"><div class="t-meta">INPUT · MODULE B</div><h3>Design principle hypotheses</h3><p>Co-created rule set.<span class="bi">共創された設計原則仮説。</span></p></div>
-        <div class="handoff-card accent"><div class="t-meta">OUTPUT</div><h3>Validated principles</h3><p>Memory-oriented design rules.<span class="bi">記憶指向の設計原則。</span></p></div>
+      <aside class="result-panel">
+        <i data-lucide="badge-check"></i>
+        <div><div class="t-meta">OUTPUT</div><h3>Validated<br/>principles<br/>検証済み</h3></div>
       </aside>
     </div>
-    <div class="nav-safe-bottom-tight" data-anim="up" style="margin-top:.7vh;text-align:right;padding-right:3vw"><span class="validated-stamp">VALIDATED</span></div>
   </div>
 </section>
 
