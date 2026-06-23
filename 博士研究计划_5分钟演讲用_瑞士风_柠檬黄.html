@@ -2289,7 +2289,12 @@ addEventListener('keydown',e=>{
     return;
   }
   if(overviewOn)return;
-  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
+  if(e.key===' '){
+    e.preventDefault();
+    if(window.__pipeAdvance) window.__pipeAdvance();
+    return;
+  }
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key==='ArrowDown'){
     if(window.__pipeAdvance && window.__pipeAdvance()) return;
     go(idx+1);
     return;
@@ -2409,11 +2414,14 @@ if(motion){
     const chrome = slide.querySelector('.chrome-min');
     if(chrome) animate(chrome, {opacity:[0,1]}, {duration:.24, easing:EASE_PROD});
 
-    // 底部文字也随后显现
+    // 仅让底部左侧的元信息和副标题随后显现，右侧姓名组件固定不动（不参与入场动画）
     const bottomGrid = slide.querySelector('div[style*="display:grid"]');
     if(bottomGrid) {
-      bottomGrid.style.opacity = '0';
-      animate(bottomGrid, {opacity:[0,1], y:[6,0]}, {duration:.5, delay:.1, easing:EASE_ENTRY_EXP});
+      const leftCol = bottomGrid.firstElementChild;
+      if (leftCol) {
+        leftCol.style.opacity = '0';
+        animate(leftCol, {opacity:[0,1], y:[6,0]}, {duration:.5, delay:.1, easing:EASE_ENTRY_EXP});
+      }
     }
 
     let currentStep = 0;
