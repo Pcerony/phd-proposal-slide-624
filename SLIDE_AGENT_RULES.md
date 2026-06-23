@@ -5,11 +5,11 @@ This repository maintains the 5-minute PhD proposal web slide deck.
 ## Canonical Files
 
 - `index.html` is the canonical editable deck and the GitHub Pages entrypoint.
-- `博士研究计划_5分钟演讲用_瑞士风_柠檬绿.html` is a local compatibility mirror.
-- `博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html` is also kept as a compatibility mirror, but its actual theme is lemon green.
-- When changing the deck, edit `index.html` first, then sync both mirror files from `index.html`.
+- `博士研究计划_5分钟演讲用_瑞士风_柠檬绿.html` is a legacy local compatibility mirror.
+- `博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html` is also a legacy compatibility mirror, but its actual theme is lemon green.
+- When changing the deck, edit and validate `index.html` only. Do not sync mirror HTML files unless the user explicitly asks for mirror updates.
 
-Sync command:
+Optional mirror sync command, only after explicit user request:
 
 ```bash
 cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬绿.html'
@@ -78,6 +78,7 @@ Only one agent should edit `index.html` at a time. If parallel work is needed, e
 - Prefer small commits with focused messages, for example `Refine method diagram layout` or `Update bilingual wording`.
 - Before starting a new edit session, run `git status -sb` and understand whether there are uncommitted user changes.
 - If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, syncing mirror files, validating, and committing.
+- If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, validating, and committing. Mirror files stay untouched unless explicitly requested.
 
 ## Required Validation
 
@@ -93,7 +94,7 @@ node tests/readability_audit.mjs
 
 Then manually inspect the generated screenshots, especially:
 
-- all 11 slides render;
+- all 27 slides render;
 - no text overflows or enters the bottom navigation area;
 - all English body text has nearby Japanese;
 - method slides include real diagrams;

@@ -1128,6 +1128,23 @@
   .method-overview-node .big{font-size:min(5.1vw,9vh);font-weight:200;line-height:.84;letter-spacing:-.06em;color:var(--accent-text)}
   .method-overview-node h3{font-size:max(20px,1.35vw);font-weight:400;line-height:1.08;margin:.8vh 0 .6vh}
   .method-overview-node p{color:var(--text-secondary);font-weight:500}
+  .method-overview-node.phase-what{background:var(--grey-1);border-top-color:var(--ink);color:var(--ink)}
+  .method-overview-node.phase-what .big{color:var(--text-helper)}
+  .method-overview-node.phase-what p{color:var(--text-secondary)}
+  .method-overview-node.phase-how{background:var(--accent);border-top-color:var(--ink);color:var(--accent-on)}
+  .method-overview-node.phase-how .big,
+  .method-overview-node.phase-how h3,
+  .method-overview-node.phase-how strong{color:var(--accent-on)}
+  .method-overview-node.phase-how p,
+  .method-overview-node.phase-how .bi,
+  .method-overview-node.phase-how .t-meta{color:#253000}
+  .method-overview-node.phase-which{background:var(--ink);border-top-color:var(--accent);color:var(--text-inverse-primary)}
+  .method-overview-node.phase-which .big{color:var(--accent)}
+  .method-overview-node.phase-which h3,
+  .method-overview-node.phase-which strong{color:var(--text-inverse-primary)}
+  .method-overview-node.phase-which p,
+  .method-overview-node.phase-which .bi{color:var(--text-inverse-secondary)}
+  .method-overview-node.phase-which .t-meta{color:var(--text-inverse-helper)}
   .method-output-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.9vw;align-items:center;margin-top:1.2vh}
   .method-output-pill{border-top:2px solid var(--ink);padding:1vh .9vw;font-size:max(16px,.92vw);font-weight:500;line-height:1.18}
   .method-output-pill.accent{background:var(--accent);border-top-color:var(--ink)}
@@ -2162,9 +2179,9 @@
       <p style="font-size:max(18px,1.02vw);line-height:1.42;color:var(--text-secondary);font-weight:500;margin:0">A co-creation research strategy linking model-building, hypothesis formulation, and principle validation across three phases.<span class="bi">モデル構築、仮説立案、原則検証を三つのフェーズで連鎖させる共創研究戦略。</span></p>
     </div>
     <div class="method-overview-grid" data-anim="up">
-      <article class="method-overview-node"><div><div class="big">WHAT</div><h3>Exploratory Modeling</h3><p>Identify design variables affecting load and retention.<span class="bi">認知負荷と情報保持に関わる設計変数を抽出する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Initial causal model</strong></div></article>
-      <article class="method-overview-node"><div><div class="big">HOW</div><h3>Co-Creative Translation</h3><p>Turn the model into actionable design principle hypotheses.<span class="bi">モデルを実行可能な設計原則仮説へ変換する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Design principle hypotheses</strong></div></article>
-      <article class="method-overview-node"><div><div class="big">WHICH</div><h3>Empirical Validation</h3><p>Test which principles work in the real greenhouse setting.<span class="bi">どの原則が実環境で有効かを検証する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Validated principles</strong></div></article>
+      <article class="method-overview-node phase-what"><div><div class="big">WHAT</div><h3>Exploratory Modeling</h3><p>Identify design variables affecting load and retention.<span class="bi">認知負荷と情報保持に関わる設計変数を抽出する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Initial causal model</strong></div></article>
+      <article class="method-overview-node phase-how"><div><div class="big">HOW</div><h3>Co-Creative Translation</h3><p>Turn the model into actionable design principle hypotheses.<span class="bi">モデルを実行可能な設計原則仮説へ変換する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Design principle hypotheses</strong></div></article>
+      <article class="method-overview-node phase-which"><div><div class="big">WHICH</div><h3>Empirical Validation</h3><p>Test which principles work in the real greenhouse setting.<span class="bi">どの原則が実環境で有効かを検証する。</span></p></div><div><div class="t-meta">OUTPUT</div><strong>Validated principles</strong></div></article>
     </div>
     <div class="method-output-row nav-safe-bottom-tight" data-anim="up">
       <div class="method-output-pill">Model<span class="bi">因果モデル</span></div>
