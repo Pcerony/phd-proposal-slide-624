@@ -2376,17 +2376,26 @@ if(motion){
      easing:opts.easing ?? EASE_ENTRY_EXP});
 
   /* ---------- recipe: hero · 封面索引 ----------
-     大标题改为可交互部分,一开始隐藏,按空格/右键依次展开 */
+     大标题改为可交互部分,一开始隐藏且线合并为第一根,随着文本依次展开 */
   function rHero(slide, all){
     const coverRows = [...slide.querySelectorAll('.cover-row')];
     const targets = coverRows.map(row => row.querySelector('div'));
 
-    // 初始隐藏文本并向左偏移微调
+    // 初始隐藏文本并向左偏移微调，同时将行折叠（实现三根线合并为第一根的开始状态）
+    coverRows.forEach(row => {
+      if (row) {
+        row.style.maxHeight = '0';
+        row.style.paddingTop = '0';
+        row.style.paddingBottom = '0';
+        row.style.overflow = 'hidden';
+        row.style.transition = 'none';
+      }
+    });
     targets.forEach(el => {
       if (el) {
         el.style.opacity = '0';
         el.style.transform = 'translateX(-12px)';
-        el.style.transition = 'opacity 0.4s var(--ease-entry-exp), transform 0.4s var(--ease-entry-exp)';
+        el.style.transition = 'none';
       }
     });
 
@@ -2405,9 +2414,17 @@ if(motion){
 
     // 自定义按键/滚轮/滑动递进逻辑
     window.__pipeAdvance = function() {
-      if (currentStep < targets.length) {
+      if (currentStep < coverRows.length) {
+        const row = coverRows[currentStep];
         const el = targets[currentStep];
+        if (row) {
+          row.style.transition = 'max-height 0.6s var(--ease-entry-exp), padding-top 0.6s var(--ease-entry-exp), padding-bottom 0.6s var(--ease-entry-exp)';
+          row.style.maxHeight = '20vh';
+          row.style.paddingTop = '1.5vh';
+          row.style.paddingBottom = '1.5vh';
+        }
         if (el) {
+          el.style.transition = 'opacity 0.4s var(--ease-entry-exp) 0.15s, transform 0.4s var(--ease-entry-exp) 0.15s';
           el.style.opacity = '1';
           el.style.transform = 'translateX(0)';
         }
