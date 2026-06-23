@@ -13,7 +13,7 @@ Use `index.html` as the main deck file.
 
 ## Editing
 
-Read `SLIDE_AGENT_RULES.md` before making changes. It defines the canonical file, bilingual rules, method-section requirements, validation, and GitHub Pages deployment workflow.
+Read `SLIDE_AGENT_RULES.md` before making changes. It defines the canonical file, bilingual rules, method-section requirements, validation, local Git workflow, and the rule that GitHub Pages is updated only when explicitly requested.
 
 ## Validation
 

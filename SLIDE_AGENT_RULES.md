@@ -56,9 +56,18 @@ Use this split when running multiple agents:
 - Agent A: language consistency and English/Japanese wording.
 - Agent B: slide layout, spacing, and visual hierarchy.
 - Agent C: method diagrams and research-logic accuracy.
-- Agent D: validation, screenshots, deployment, and GitHub Pages.
+- Agent D: validation, screenshots, local Git hygiene, and deployment only when explicitly requested.
 
 Only one agent should edit `index.html` at a time. If parallel work is needed, each agent should write a patch note or proposed section in `docs/agent_notes/`, then one integrator applies the final HTML changes.
+
+## Git Workflow
+
+- Keep the repository clean and commit meaningful local checkpoints.
+- Do not push to GitHub after every edit.
+- Do not update GitHub Pages unless the user explicitly asks to publish, push, deploy, or sync to GitHub.
+- Prefer small commits with focused messages, for example `Refine method diagram layout` or `Update bilingual wording`.
+- Before starting a new edit session, run `git status -sb` and understand whether there are uncommitted user changes.
+- If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, syncing mirror files, validating, and committing.
 
 ## Required Validation
 
@@ -78,7 +87,13 @@ Then verify in a browser at 1280x720:
 
 ## Deployment
 
-GitHub Pages publishes from the repository root on the default branch.
+GitHub Pages publishes from the repository root on the default branch. Deployment is manual and should happen only after an explicit user request.
+
+Publish command:
+
+```bash
+git push
+```
 
 The public page should load from:
 
