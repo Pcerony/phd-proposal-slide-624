@@ -6,7 +6,7 @@
 <title>Memory-Oriented Interpretive Signage Systems · Wang Pingcheng</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     /* ============ 主题色: 🟢 柠檬绿 Lemon Green ============
@@ -1654,10 +1654,10 @@
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
         <div class="overlay-row" style="position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0">
           <div>
-            <span style="display:block;font-size:min(3.9vw,6.6vh);font-weight:200;line-height:1.12;letter-spacing:-.03em;color:var(--text-primary)">
+            <span style="display:block;font-size:48px;font-weight:200;line-height:1.12;letter-spacing:-.03em;color:var(--text-primary)">
               How the design of interpretive signage systems affects visitors' learning experiences and cognitive memory
             </span>
-            <span class="jp" lang="ja" style="display:block;margin-top:1.8vh;font-size:min(1.8vw,3.0vh);color:var(--text-helper)">
+            <span class="jp" lang="ja" style="display:block;margin-top:1.8vh;font-size:max(22px,1.2vw);color:var(--text-helper)">
               解説サインシステムのデザインが来訪者の学習体験と認知的記憶に及ぼす影響に関する研究
             </span>
           </div>
@@ -1671,22 +1671,43 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S22" data-animate="image-hero">
+<section class="slide light" data-layout="S22" data-animate="background">
   <div class="canvas-card" style="padding:0;overflow:hidden">
     <div class="bg-only-layout">
       <div class="bg-hero-copy">
-        <div>
-          <div class="chrome-min" style="margin-bottom:7vh"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 14</div></div>
-          <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:1vh;max-width:10ch">Visitors come to learn.</h2>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 14</div></div>
+        <div class="bg-hero-title-container" data-anim="title-container" style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:2vh;margin-bottom:2vh">
+          <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:0;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
         </div>
-        <div class="bg-stat">
-          <div class="num">60%+</div>
+        <div class="bg-stat" data-anim="stat-card" style="max-width:none">
+          <div class="num" style="font-weight:200;font-size:min(10.5vw,17vh);line-height:.82;letter-spacing:-.06em;margin-bottom:.2vh;color:var(--accent-on)">0%+</div>
           <p style="font-size:max(18px,1.05vw);font-weight:400;line-height:1.28;margin:0;color:var(--text-secondary)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
+          <div class="bg-stat-icons" style="display:flex;gap:1.5vw;align-items:center;margin-top:1.8vh;opacity:0.85;border-top:1px solid rgba(10,10,10,0.12);padding-top:1.8vh;color:var(--accent-on)">
+            <i data-lucide="book-open" style="width:20px;height:20px;stroke-width:2"></i>
+            <i data-lucide="compass" style="width:20px;height:20px;stroke-width:2"></i>
+            <i data-lucide="graduation-cap" style="width:20px;height:20px;stroke-width:2"></i>
+            <i data-lucide="brain" style="width:20px;height:20px;stroke-width:2"></i>
+          </div>
         </div>
       </div>
-      <figure class="bg-hero-image">
-        <img data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
+      <figure class="bg-hero-image" style="position:relative">
+        <img data-anim="hero-img" data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
+        <!-- Lemon Green multiply overlay for tint filter -->
+        <div style="position:absolute;inset:0;background:var(--accent);opacity:0.22;mix-blend-mode:screen;pointer-events:none;z-index:2"></div>
+
+        <!-- Top-left plant icon overlay -->
+        <div data-anim="hud-icon" style="position:absolute;left:2.5vw;top:4.2vh;z-index:4;color:var(--accent);filter:drop-shadow(0 2px 8px rgba(0,0,0,0.35))">
+          <i data-lucide="leaf" style="width:48px;height:48px;stroke-width:2.2"></i>
+        </div>
+
+        <!-- Right side vertical banner -->
+        <div data-anim="hud-banner" style="position:absolute;right:0;top:0;bottom:0;width:7.5vw;background:var(--accent);color:var(--accent-on);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4">
+          <div style="font-family:'Orbitron',var(--sans);font-weight:900;font-size:max(22px,2.0vw);letter-spacing:.22em;text-transform:uppercase;writing-mode:vertical-rl;white-space:nowrap">
+            BOTANICAL GARDEN
+          </div>
+        </div>
+
         <figcaption class="bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
       </figure>
     </div>
@@ -2379,9 +2400,78 @@ if(motion){
       el.style.opacity='';
       el.style.transform='';
     });
-    /* 同时复位需要被 recipe 接管的元素 */
+    /* 同时复位需要被 recipe 接管 of 元素 */
     slide.querySelectorAll('.row-fill,.tl-node,.stack-block,.bar-tower,.sub-card,.col,.vrule,.kpi-cell')
       .forEach(el=>{el.style.cssText = el.dataset._origCss || el.style.cssText;});
+
+    // Reset Slide 2 counter if present
+    const numEl = slide.querySelector('.bg-stat .num');
+    if(numEl){
+      if(numEl._rafId) cancelAnimationFrame(numEl._rafId);
+      numEl.textContent = '0%+';
+    }
+  }
+
+  /* ---------- Slide 2 Counter Helper ---------- */
+  function animateCounter(numEl, start, end, durationMs) {
+    let startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / durationMs, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const current = start + easeProgress * (end - start);
+      numEl.textContent = `${Math.round(current)}%+`;
+      if (progress < 1) {
+        numEl._rafId = requestAnimationFrame(step);
+      }
+    }
+    if (numEl._rafId) cancelAnimationFrame(numEl._rafId);
+    numEl._rafId = requestAnimationFrame(step);
+  }
+
+  /* ============ P22 · Background · 柠檬绿滤波/失落星球HUD + 标题居中 + 计数器 ============ */
+  function rBackground(slide, all){
+    // 1. Right Image Zoom
+    const img = slide.querySelector('.bg-hero-image img');
+    if(img){
+      animate(img, {opacity:[0,1], scale:[1.06, 1]}, {duration:1.1, delay:.05, easing:EASE_ENTRY_EXP});
+    }
+
+    // 2. HUD Overlay Icon & Banner Reveal
+    const hudIcon = slide.querySelector('[data-anim="hud-icon"]');
+    if(hudIcon){
+      animate(hudIcon, {opacity:[0,1], scale:[0.8, 1]}, {duration:.6, delay:.45, easing:EASE_ENTRY_EXP});
+    }
+    const hudBanner = slide.querySelector('[data-anim="hud-banner"]');
+    if(hudBanner){
+      animate(hudBanner, {opacity:[0,1], x:[24, 0]}, {duration:.75, delay:.4, easing:EASE_ENTRY_EXP});
+    }
+
+
+
+    // 3. Title Container Fade-Up
+    const titleContainer = slide.querySelector('.bg-hero-title-container');
+    if(titleContainer){
+      animate(titleContainer, {opacity:[0,1], y:[16, 0]}, {duration:.7, delay:.25, easing:EASE_ENTRY_EXP});
+    }
+
+    // 4. Stat Card Slide-Up
+    const statCard = slide.querySelector('.bg-stat');
+    if(statCard){
+      animate(statCard, {opacity:[0,1], y:[32, 0], scale:[0.96, 1]}, {duration:.65, delay:.55, easing:EASE_ENTRY_EXP});
+      
+      // 5. Chained Counter Animation
+      const numEl = statCard.querySelector('.num');
+      if(numEl){
+        numEl.textContent = '0%+';
+        setTimeout(() => {
+          // Verify we are still on the same slide before running
+          if(slide.getBoundingClientRect().right > 0 && slide.getBoundingClientRect().left < window.innerWidth) {
+            animateCounter(numEl, 0, 60, 1100);
+          }
+        }, 1050); // Start counter right as card finishes sliding up
+      }
+    }
   }
 
   /* ---------- 通用工具 ---------- */
@@ -3097,6 +3187,7 @@ if(motion){
     'stacked-ledger': rStackedLedger,
     'tech-spec': rTechSpec,
     'image-hero': rImageHero,
+    'background': rBackground,
   };
 
   function revealStatic(slide){
@@ -3107,6 +3198,11 @@ if(motion){
         el.style.opacity='1';
         el.style.transform='none';
       });
+    const numEl = slide.querySelector('.bg-stat .num');
+    if(numEl){
+      if(numEl._rafId) cancelAnimationFrame(numEl._rafId);
+      numEl.textContent = '60%+';
+    }
   }
 
   function playSlide(i){
