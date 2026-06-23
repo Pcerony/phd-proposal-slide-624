@@ -25,6 +25,15 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 - Use Lucide icons where possible.
 - Do not add emoji, rounded cards, shadows, decorative gradients, or unrelated ornaments.
 
+## Text Color And Readability Rules
+
+- Light backgrounds (`--paper`, grey cards, lemon-green accent blocks) must use black or dark-grey text.
+- Never place white text on lemon green or other light backgrounds.
+- Do not use raw lemon green as body text on light backgrounds. Use `--accent-text` for readable highlighted text, and keep raw `--accent` for fills, rules, icons, bars, and geometry.
+- Primary text uses `--text-primary`; body/supporting text uses `--text-secondary`; auxiliary labels use `--text-helper`.
+- Dark backgrounds use light text, but accent cards inside dark slides must switch back to dark text.
+- If an agent changes colors, it must verify both computed contrast and actual screenshots in a browser.
+
 ## Language Rules
 
 - All reader-facing slide content must be English + Japanese.
@@ -75,15 +84,21 @@ Run these checks before committing:
 
 ```bash
 node /Users/heisei/.codex/skills/guizang-ppt-skill/scripts/validate-swiss-deck.mjs index.html
+node tests/validate_botanical_swiss_deck.mjs
+node tests/readability_audit.mjs
 ```
 
-Then verify in a browser at 1280x720:
+`tests/readability_audit.mjs` opens the deck in real Chromium at 1280x720, forces a static final state, captures all slides to `output/readability-qa/`, and fails on low-contrast text.
+
+Then manually inspect the generated screenshots, especially:
 
 - all 10 slides render;
 - no text overflows or enters the bottom navigation area;
 - all English body text has nearby Japanese;
 - method slides include real diagrams;
 - images under `images/` load correctly.
+- no white text appears on light backgrounds;
+- less important text is grey, but still readable.
 
 ## Deployment
 

@@ -19,4 +19,8 @@ Read `SLIDE_AGENT_RULES.md` before making changes. It defines the canonical file
 
 ```bash
 node /Users/heisei/.codex/skills/guizang-ppt-skill/scripts/validate-swiss-deck.mjs index.html
+node tests/validate_botanical_swiss_deck.mjs
+node tests/readability_audit.mjs
 ```
+
+The readability audit opens the deck in real Chromium at 1280x720, captures screenshots to `output/readability-qa/`, and fails if visible text falls below the contrast thresholds. GitHub Pages should only be updated after an explicit publish/push request.
