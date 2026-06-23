@@ -610,8 +610,15 @@
   .bg-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block;filter:grayscale(.05) contrast(1.04)}
   .bg-hero-image::after{content:"";position:absolute;inset:0;background:rgba(250,250,248,.08)}
   .bg-source{
-    position:absolute;right:1.6vw;bottom:5.4vh;background:rgba(250,250,248,.82);padding:.55vh .7vw;
-    color:var(--text-helper)
+    position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    color:var(--text-placeholder);font-size:max(8px,.42vw);line-height:1;letter-spacing:.08em;
+    max-width:28vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+  }
+  .source-caption{
+    position:absolute;right:.75vw;bottom:.65vh;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    color:var(--text-placeholder);font-family:var(--mono);font-size:max(8px,.42vw);
+    line-height:1;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+    max-width:30vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   }
   .bg-stat{
     display:grid;grid-template-columns:auto 1fr;gap:1.4vw;align-items:end;background:var(--accent);padding:1.5vh 1.3vw;
@@ -685,8 +692,9 @@
   .s17-photo.detail-a img{object-position:56% 78%}
   .s17-photo.detail-b img{object-position:center 52%}
   .s17-photo figcaption{
-    position:absolute;left:.8vw;bottom:.8vh;background:rgba(250,250,248,.86);padding:.55vh .7vw;
-    color:var(--text-secondary);max-width:78%
+    position:absolute;left:.55vw;bottom:.55vh;background:rgba(250,250,248,.74);padding:.32vh .46vw;
+    color:var(--text-helper);font-size:max(10px,.52vw);line-height:1;letter-spacing:.13em;max-width:64%;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis
   }
   .s17-ring{
     position:relative;min-height:43vh;background:linear-gradient(90deg,rgba(10,10,10,.035),rgba(10,10,10,.015));
@@ -1571,7 +1579,7 @@
       </div>
       <figure class="bg-hero-image">
         <img data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
-        <figcaption class="t-meta bg-source">Image: Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
+        <figcaption class="t-meta bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
       </figure>
     </div>
   </div>
@@ -1667,7 +1675,7 @@
     <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>05 / 13</div></div>
     <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:33vh;max-height:none">
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
-      <figcaption class="t-meta" style="position:absolute;right:1vw;bottom:1vh;background:rgba(250,250,248,.84);padding:.55vh .7vw;color:var(--text-helper)">Image: Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
+      <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
     </figure>
     <div data-anim="kpi" class="nav-safe-bottom-tight" style="display:grid;grid-template-columns:5.6fr 6.4fr;gap:3vw;align-items:center;min-height:0">
       <div style="border-top:2px solid var(--accent);padding-top:1.5vh">
