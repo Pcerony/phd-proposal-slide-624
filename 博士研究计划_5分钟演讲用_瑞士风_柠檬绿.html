@@ -649,6 +649,57 @@
   .object-only-layout .object-head{grid-template-columns:6fr 6fr;padding-bottom:2vh}
   .object-only-layout .object-core{grid-template-columns:3.6fr 5.4fr 3fr}
   .object-only-layout .object-chain-node{min-height:24vh}
+  .s17-object-layout{
+    flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;gap:3.6vw;align-items:stretch
+  }
+  .s17-object-copy{
+    min-height:0;display:flex;flex-direction:column;justify-content:space-between;gap:2.5vh;
+    padding-bottom:calc(var(--nav-safe-bottom) * .48)
+  }
+  .s17-object-copy h2{
+    font-size:min(5.25vw,9.2vh);font-weight:200;line-height:.92;letter-spacing:-.045em;
+    max-width:10ch;margin-top:1vh
+  }
+  .s17-object-copy .jp{max-width:32ch;margin-top:1.5vh}
+  .s17-points{display:grid;gap:1.05vh}
+  .s17-point{
+    display:grid;grid-template-columns:3.8em 1fr;gap:1vw;border-top:1px solid var(--border-subtle);
+    padding-top:1.15vh;min-height:8.2vh
+  }
+  .s17-point .t-meta{color:var(--accent-text);font-size:max(11px,.64vw)}
+  .s17-point h3{font-size:max(20px,1.18vw);font-weight:600;line-height:1.08;margin:0}
+  .s17-point p{font-size:max(15px,.82vw);line-height:1.32;color:var(--text-secondary);font-weight:500;margin:.45vh 0 0}
+  .s17-system-stage{
+    min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:1.7vh;
+    padding-bottom:calc(var(--nav-safe-bottom) * .42)
+  }
+  .s17-ring{
+    position:relative;min-height:43vh;background:linear-gradient(90deg,rgba(10,10,10,.035),rgba(10,10,10,.015));
+    border-top:3px solid var(--accent);overflow:hidden
+  }
+  .s17-ring svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .s17-ring circle,.s17-ring ellipse{vector-effect:non-scaling-stroke}
+  .s17-label{
+    position:absolute;z-index:2;background:var(--paper);border-top:3px solid var(--accent);
+    padding:1.05vh 1vw;width:min(16.8vw,250px);box-shadow:0 0 0 1px rgba(10,10,10,.08)
+  }
+  .s17-label .t-meta{font-size:max(10px,.62vw);color:var(--accent-text)}
+  .s17-label strong{display:block;font-size:max(18px,1.08vw);font-weight:600;line-height:1.1;margin-top:.5vh}
+  .s17-label .bi{font-size:max(13px,.72vw);line-height:1.22;margin-top:.35vh}
+  .s17-label.outer{left:4.5%;top:7.5%}
+  .s17-label.middle{right:4.5%;top:18%;background:var(--accent);color:var(--accent-on);box-shadow:none}
+  .s17-label.middle .t-meta,.s17-label.middle .bi{color:rgba(10,10,10,.66)}
+  .s17-label.core{right:13.5%;bottom:7%;background:var(--ink);color:var(--paper);box-shadow:none}
+  .s17-label.core .t-meta{color:var(--accent)}
+  .s17-label.core .bi{color:rgba(246,245,239,.76)}
+  .s17-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:.9vw}
+  .s17-note{
+    display:grid;grid-template-columns:auto 1fr;gap:.75vw;align-items:start;border-top:1px solid var(--border-subtle);
+    padding-top:1.1vh;min-height:8.5vh
+  }
+  .s17-note i{width:22px;height:22px;color:var(--accent-text);stroke-width:1.8}
+  .s17-note h3{font-size:max(16px,.94vw);font-weight:600;line-height:1.08;margin:0}
+  .s17-note p{font-size:max(13px,.72vw);line-height:1.24;color:var(--text-secondary);font-weight:500;margin:.35vh 0 0}
   .method-grid .card-fill,.method-grid .card-accent{
     padding:1.3vh 1vw!important;
     min-height:0;
@@ -1501,35 +1552,69 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S17" data-animate="system">
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 11</div></div>
-    <div class="object-only-layout">
-      <div class="object-head">
+    <div class="s17-object-layout">
+      <div class="s17-object-copy" data-anim="line">
         <div>
           <div class="t-cat accent">THE OBJECT</div>
           <h2>Interpretive signage system.</h2>
+          <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
-        <span class="jp" lang="ja" style="max-width:48ch">本研究の対象は、植物園における解説サインシステムである。</span>
-      </div>
-      <div class="object-core nav-safe-bottom-tight">
-        <div class="object-brief">
-          <div>
-            <div class="t-meta">BASIC DEFINITION</div>
-            <p>A planned set of signs that links plant displays, route experience, and visitor cognition.<span class="bi">植物展示・回遊体験・来訪者の認知をつなぐ、計画されたサイン群。</span></p>
+        <div class="s17-points" aria-label="Research object layers">
+          <div class="s17-point">
+            <div class="t-meta">01<br>OUTER</div>
+            <div>
+              <h3>Plant display</h3>
+              <p>The physical exhibit that visitors encounter first.<span class="bi">来訪者が最初に出会う物理的な植物展示。</span></p>
+            </div>
+          </div>
+          <div class="s17-point">
+            <div class="t-meta">02<br>MIDDLE</div>
+            <div>
+              <h3>Signage system</h3>
+              <p>The interpretive layer that connects exhibits and routes.<span class="bi">展示と経路を結びつける解説の層。</span></p>
+            </div>
+          </div>
+          <div class="s17-point">
+            <div class="t-meta">03<br>CORE</div>
+            <div>
+              <h3>Visitor memory</h3>
+              <p>The retained knowledge this research tries to improve.<span class="bi">本研究が高めようとする知識の定着。</span></p>
+            </div>
           </div>
         </div>
-        <div class="object-chain" aria-label="Interpretive signage system chain">
-          <div class="object-chain-node"><div class="t-meta">PLANT DISPLAY</div><p>What is shown<span class="bi">見せる植物</span></p></div>
-          <div class="object-arrow">→</div>
-          <div class="object-chain-node"><div class="t-meta">SIGNAGE SYSTEM</div><p>What is explained<span class="bi">意味づけるサイン</span></p></div>
-          <div class="object-arrow">→</div>
-          <div class="object-chain-node"><div class="t-meta">VISITOR MEMORY</div><p>What remains<span class="bi">残る記憶</span></p></div>
+      </div>
+      <div class="s17-system-stage" data-anim="up">
+        <div class="s17-ring" aria-label="Interpretive signage system diagram">
+          <svg viewBox="0 0 720 440" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+            <ellipse cx="360" cy="224" rx="174" ry="174" fill="rgba(10,10,10,.035)" stroke="rgba(10,10,10,.34)" stroke-width="3"/>
+            <ellipse cx="360" cy="224" rx="112" ry="112" fill="rgba(197,232,3,.18)" stroke="var(--accent)" stroke-width="13"/>
+            <ellipse cx="360" cy="224" rx="48" ry="48" fill="rgba(10,10,10,.9)" stroke="#0a0a0a" stroke-width="3"/>
+            <path d="M228 111 L148 84 M470 168 L602 146 M397 270 L503 341" fill="none" stroke="var(--ink)" stroke-width="1.8" opacity=".55"/>
+            <path d="M360 50 L360 398 M186 224 L534 224" fill="none" stroke="rgba(10,10,10,.14)" stroke-width="1"/>
+          </svg>
+          <div class="s17-label outer">
+            <div class="t-meta">OUTER / EXHIBIT</div>
+            <strong>Plant display</strong>
+            <span class="bi" lang="ja">植物展示</span>
+          </div>
+          <div class="s17-label middle">
+            <div class="t-meta">MIDDLE / TARGET</div>
+            <strong>Signage system</strong>
+            <span class="bi" lang="ja">解説サインシステム</span>
+          </div>
+          <div class="s17-label core">
+            <div class="t-meta">CORE / OUTCOME</div>
+            <strong>Visitor memory</strong>
+            <span class="bi" lang="ja">来訪者の記憶</span>
+          </div>
         </div>
-        <div class="object-functions">
-          <div class="object-function-row"><i data-lucide="badge-info"></i><div><h3>Identify</h3><p>植物を識別する。</p></div></div>
-          <div class="object-function-row"><i data-lucide="book-open"></i><div><h3>Explain</h3><p>知識体験へ変換する。</p></div></div>
-          <div class="object-function-row"><i data-lucide="route"></i><div><h3>Connect</h3><p>経路上でつなぐ。</p></div></div>
+        <div class="s17-notes">
+          <div class="s17-note"><i data-lucide="badge-info"></i><div><h3>Identify</h3><p>Name and distinguish plants.<span class="bi">植物を識別する。</span></p></div></div>
+          <div class="s17-note"><i data-lucide="book-open"></i><div><h3>Explain</h3><p>Turn displays into knowledge.<span class="bi">展示を知識へ変換する。</span></p></div></div>
+          <div class="s17-note"><i data-lucide="route"></i><div><h3>Connect</h3><p>Link signs across a route.<span class="bi">経路上でサインをつなぐ。</span></p></div></div>
         </div>
       </div>
     </div>
@@ -2353,12 +2438,14 @@ if(motion){
       /* 中间是同心圆: 从外圈到内圈依次 scale 入 */
       if(circles.length > 1){
         circles.forEach((c, j)=>{
-          c.style.transformOrigin = `${c.getAttribute('cx')}px ${c.getAttribute('cy')}px`;
+          c.style.transformBox = 'fill-box';
+          c.style.transformOrigin = 'center';
           animate(c, {opacity:[0,1], scale:[.4, 1]},
             {duration:.5, delay:base + j*.13, easing:EASE_ENTRY_EXP});
         });
       } else if(circles[0]){
-        circles[0].style.transformOrigin = `${circles[0].getAttribute('cx')}px ${circles[0].getAttribute('cy')}px`;
+        circles[0].style.transformBox = 'fill-box';
+        circles[0].style.transformOrigin = 'center';
         animate(circles[0], {opacity:[0,1], scale:[.4, 1]},
           {duration:.5, delay:base, easing:EASE_ENTRY_EXP});
       }
