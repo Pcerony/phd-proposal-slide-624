@@ -610,11 +610,12 @@
   .bg-hero-image{position:relative;overflow:hidden;background:var(--grey-1)}
   .bg-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block;filter:grayscale(.05) contrast(1.04)}
   .bg-hero-image::after{content:"";position:absolute;inset:0;background:rgba(250,250,248,.08)}
-  .bg-source{
-    position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
-    color:var(--text-placeholder);font-size:max(8px,.42vw);line-height:1;letter-spacing:.08em;
-    max-width:28vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-  }
+ .bg-source{
+   position:absolute;right:.9vw;top:.9vh;bottom:auto;background:rgba(250,250,248,.56);padding:.2vh .34vw;
+    font-family:var(--mono);text-transform:uppercase;
+    color:var(--text-placeholder);font-size:max(7px,.36vw);line-height:1;letter-spacing:.08em;
+    max-width:36vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+ }
   .source-caption{
     position:absolute;right:.75vw;bottom:.65vh;background:rgba(250,250,248,.56);padding:.2vh .34vw;
     color:var(--text-placeholder);font-family:var(--mono);font-size:max(8px,.42vw);
@@ -1674,7 +1675,7 @@
       </div>
       <figure class="bg-hero-image">
         <img data-image-slot="s22-hero-21x9" src="images/02-fukuoka-botanical-garden.jpg" alt="Entrance of Fukuoka City Botanical Garden" loading="eager">
-        <figcaption class="t-meta bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
+        <figcaption class="bg-source">Wikimedia Commons · Fukuoka City Botanical Garden</figcaption>
       </figure>
     </div>
   </div>
