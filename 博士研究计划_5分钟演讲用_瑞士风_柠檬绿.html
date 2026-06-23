@@ -539,6 +539,61 @@
     display:block!important;
     padding:2vh 5vw 2.2vh!important;
   }
+  .object-split{
+    display:grid;grid-template-columns:1fr 1fr;min-height:0;flex:1;background:var(--paper)
+  }
+  .context-panel{
+    position:relative;overflow:hidden;background:var(--paper);min-height:100vh;color:var(--ink)
+  }
+  .context-panel > img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;
+    filter:grayscale(.08) contrast(1.04)
+  }
+  .context-panel::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(250,250,248,.98) 0%,rgba(250,250,248,.86) 52%,rgba(250,250,248,.2) 100%)
+  }
+  .context-copy{
+    position:relative;z-index:1;height:100%;padding:5.6vh 3.6vw 4.4vh;
+    display:flex;flex-direction:column;justify-content:space-between;gap:2vh
+  }
+  .context-stat{
+    background:var(--accent);color:var(--accent-on);padding:2.2vh 1.6vw;
+    display:grid;grid-template-columns:auto 1fr;gap:1.5vw;align-items:end
+  }
+  .context-stat .num{
+    font-family:var(--sans);font-size:min(7vw,12vh);font-weight:200;line-height:.82;letter-spacing:-.06em
+  }
+  .object-panel{
+    padding:4.6vh 3.6vw 3.4vh;display:flex;flex-direction:column;gap:1vh;min-height:100vh;
+    background:var(--paper);color:var(--ink)
+  }
+  .object-definition{
+    border-top:2px solid var(--accent);padding-top:1vh;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:1.6vw;align-items:start
+  }
+  .object-photo{
+    height:13vh;overflow:hidden;background:var(--grey-1)
+  }
+  .object-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
+  .object-function-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:.8vw;margin-top:.4vh
+  }
+  .object-function{
+    background:var(--grey-1);border-top:3px solid var(--accent);padding:.8vh .85vw;min-height:8.8vh;
+    display:flex;flex-direction:column;gap:.25vh
+  }
+  .object-function i{width:24px;height:24px;color:var(--accent-text);stroke-width:1.8}
+  .object-function h3{font-size:max(16px,.9vw);font-weight:500;line-height:1.1;margin:0}
+  .object-function p{font-size:max(14px,.68vw);line-height:1.16;color:var(--text-secondary);font-weight:500;margin:0}
+  .system-chain{
+    display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.7vw;align-items:center;margin-top:.4vh
+  }
+  .system-node{background:var(--ink);color:var(--paper);padding:.65vh .75vw;min-height:6.3vh;display:flex;flex-direction:column;justify-content:center}
+  .system-node .t-meta{color:rgba(255,255,255,.62);font-size:max(11px,.64vw)}
+  .system-node p{font-size:max(14px,.78vw);line-height:1.25;margin:.4vh 0 0;color:rgba(246,245,239,.86);font-weight:500}
+  .system-node .bi{color:rgba(246,245,239,.82)}
+  .system-arrow{font-family:var(--sans);font-size:max(28px,2.6vw);font-weight:200;color:var(--accent-text);line-height:1}
   .method-grid .card-fill,.method-grid .card-accent{
     padding:1.3vh 1vw!important;
     min-height:0;
@@ -1369,20 +1424,52 @@
 </section>
 
 <section class="slide light" data-layout="S22" data-animate="image-hero">
-  <div class="canvas-card" style="padding:0;display:flex;flex-direction:column;overflow:hidden">
-    <div style="position:relative;flex:0 0 45%;overflow:hidden;background:var(--paper)">
-      <img data-image-slot="s22-hero-21x9" src="images/02-vandusen-sign.jpg" alt="Botanical garden interpretive sign" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:grayscale(.08) contrast(1.05)">
-      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(246,245,239,1) 0%,rgba(246,245,239,.96) 45%,rgba(246,245,239,.38) 74%,rgba(246,245,239,.08) 100%)"></div>
-      <div class="chrome-min" style="position:absolute;top:0;left:0;right:0;color:var(--ink);padding:3.2vh 5vw 0;margin:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 10</div></div>
-      <div style="position:absolute;left:5vw;top:11.2vh;max-width:44vw;color:var(--ink);z-index:3"><div class="t-cat accent">THE SCALE</div><h2 style="font-weight:200;font-size:min(5.5vw,9.6vh);line-height:.92;letter-spacing:-.04em;margin-top:1vh">Visitors come to learn.</h2><span class="jp" lang="ja" style="max-width:46ch;margin-top:1vh">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span></div>
-      <div class="t-meta" style="position:absolute;right:5vw;bottom:2vh;color:rgba(10,10,10,.68);background:rgba(246,245,239,.76);padding:.6vh .7vw">Image: Wikimedia Commons</div>
-    </div>
-    <div class="method-body" style="background:var(--paper);color:var(--ink);flex:1;display:flex;align-items:start">
-      <div class="bilingual-kpi-grid">
-        <div class="card-accent tight-card" style="display:flex;flex-direction:column;justify-content:space-between"><div class="t-meta">VISITOR MOTIVATION</div><div style="font-size:min(6.8vw,11.6vh);font-weight:200;line-height:.86;letter-spacing:-.06em">60%+</div><p style="font-weight:700;color:rgba(10,10,10,.88)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p></div>
-        <div class="card-fill tight-card"><i data-lucide="book-open" style="color:var(--accent)"></i><div class="t-meta" style="margin-top:1vh">LEARNING</div><p>Signs transform plant displays into knowledge.<span class="bi">サインは植物展示を知識体験へ変換する。</span></p></div>
-        <div class="card-fill tight-card"><i data-lucide="route" style="color:var(--accent)"></i><div class="t-meta" style="margin-top:1vh">ROUTE</div><p>Visitors read multiple signs across a path.<span class="bi">来訪者は経路上で複数のサインを読む。</span></p></div>
-        <div class="card-fill tight-card"><i data-lucide="brain" style="color:var(--accent)"></i><div class="t-meta" style="margin-top:1vh">RETENTION</div><p>The design target is memory, not only attention.<span class="bi">設計目標は注意喚起だけでなく記憶定着である。</span></p></div>
+  <div class="canvas-card" style="padding:0;overflow:hidden">
+    <div class="object-split">
+      <div class="context-panel">
+        <img data-image-slot="s22-hero-21x9" src="images/02-vandusen-sign.jpg" alt="Botanical garden interpretive sign" loading="eager">
+        <div class="context-copy">
+          <div>
+            <div class="chrome-min" style="margin-bottom:7vh"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 10</div></div>
+            <div class="t-cat accent">THE SCALE</div>
+            <h2 style="font-weight:200;font-size:min(5.2vw,9vh);line-height:.92;letter-spacing:-.04em;margin-top:1vh;max-width:10ch">Visitors come to learn.</h2>
+            <span class="jp" lang="ja" style="max-width:35ch;margin-top:1.2vh;color:rgba(10,10,10,.72)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
+          </div>
+          <div class="context-stat">
+            <div class="num">60%+</div>
+            <p style="font-size:max(18px,1.05vw);font-weight:700;line-height:1.28;margin:0;color:rgba(10,10,10,.86)">cite learning and exploring as a core motivation.<span class="bi">60%以上が「学習・探索」を主要動機に挙げる。</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="object-panel">
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">Research Object · 研究対象</div><div class="r">Interpretive Signage System</div></div>
+        <div>
+          <div class="t-cat accent">THE OBJECT</div>
+          <h2 style="font-weight:200;font-size:min(3.55vw,6.2vh);line-height:.94;letter-spacing:-.04em;margin-top:.55vh">Interpretive signage system.</h2>
+          <span class="jp" lang="ja" style="max-width:44ch;margin-top:.45vh">本研究の対象は、植物園における解説サインシステムである。</span>
+        </div>
+        <div class="object-definition">
+          <div>
+            <div class="t-meta">BASIC DEFINITION</div>
+            <p class="t-body-sm" style="font-size:max(16px,.84vw);line-height:1.25;margin-top:.55vh">A sequence of physical signs that links plant displays, route experience, and visitor cognition.<span class="bi">植物展示・回遊体験・来訪者の認知をつなぐ、複数の物理的サインの連続体。</span></p>
+          </div>
+          <figure class="object-photo">
+            <img data-image-slot="s22-object-16x9" src="images/02-vandusen-sign.jpg" alt="Close view of interpretive signage">
+          </figure>
+        </div>
+        <div class="system-chain" aria-label="Interpretive signage system chain">
+          <div class="system-node"><div class="t-meta">PLANT</div><p>Living display<span class="bi">植物展示</span></p></div>
+          <div class="system-arrow">→</div>
+          <div class="system-node"><div class="t-meta">SIGN</div><p>Text, image, layout<span class="bi">文字・画像・レイアウト</span></p></div>
+          <div class="system-arrow">→</div>
+          <div class="system-node"><div class="t-meta">VISITOR</div><p>Attention, route, memory<span class="bi">注意・経路・記憶</span></p></div>
+        </div>
+        <div class="object-function-grid">
+          <div class="object-function"><i data-lucide="badge-info"></i><h3>Identify</h3><p>Name and locate the plant.<span class="bi">植物を識別する。</span></p></div>
+          <div class="object-function"><i data-lucide="book-open"></i><h3>Explain</h3><p>Turn display into knowledge.<span class="bi">知識体験へ変換する。</span></p></div>
+          <div class="object-function"><i data-lucide="route"></i><h3>Sequence</h3><p>Connect signs across a path.<span class="bi">経路上で接続する。</span></p></div>
+          <div class="object-function"><i data-lucide="brain"></i><h3>Support memory</h3><p>Guide retention beyond attention.<span class="bi">記憶定着を支える。</span></p></div>
+        </div>
       </div>
     </div>
   </div>
