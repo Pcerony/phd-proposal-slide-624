@@ -24,6 +24,7 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 - Use straight rectangular blocks, hairline dividers, clear grid alignment, and high contrast.
 - Use Lucide icons where possible.
 - Do not add emoji, rounded cards, shadows, decorative gradients, or unrelated ornaments.
+- For any future slide layout, composition, spacing, or visual redesign work, call and follow `guizang-ppt-skill` before editing.
 
 ## Text Color And Readability Rules
 
@@ -92,7 +93,7 @@ node tests/readability_audit.mjs
 
 Then manually inspect the generated screenshots, especially:
 
-- all 10 slides render;
+- all 11 slides render;
 - no text overflows or enters the bottom navigation area;
 - all English body text has nearby Japanese;
 - method slides include real diagrams;
