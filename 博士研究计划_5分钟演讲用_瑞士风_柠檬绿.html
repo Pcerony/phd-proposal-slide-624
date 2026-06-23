@@ -2376,21 +2376,46 @@ if(motion){
      easing:opts.easing ?? EASE_ENTRY_EXP});
 
   /* ---------- recipe: hero · 封面索引 ----------
-     大编号一个个亮起 → 索引行最后落定 */
+     大标题改为可交互部分,一开始隐藏,按空格/右键依次展开 */
   function rHero(slide, all){
-    const numRows = [...slide.querySelectorAll('.cover-row')];
-    const rest = all.filter(el=>!numRows.length || el !== numRows[0]);
-    /* 先入: chrome 240ms */
+    const coverRows = [...slide.querySelectorAll('.cover-row')];
+    const targets = coverRows.map(row => row.querySelector('div'));
+
+    // 初始隐藏文本并向左偏移微调
+    targets.forEach(el => {
+      if (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(-12px)';
+        el.style.transition = 'opacity 0.4s var(--ease-entry-exp), transform 0.4s var(--ease-entry-exp)';
+      }
+    });
+
+    // 顶部 meta 栏先入
     const chrome = slide.querySelector('.chrome-min');
     if(chrome) animate(chrome, {opacity:[0,1]}, {duration:.24, easing:EASE_PROD});
-    /* 大编号 01/02/03 像点名一样依次亮 */
-    numRows.forEach((row, i)=>{
-      animate(row, {opacity:[0,1], x:[-12,0]},
-        {duration:.5, delay:.15 + i*.18, easing:EASE_ENTRY_EXP});
-    });
-    /* 索引底栏最后慢慢落定 */
-    const idx = slide.querySelector('[data-anim="line"]');
-    if(idx) fade(idx, {delay:.15 + numRows.length*.18 + .1, duration:.5, y:6});
+
+    // 底部文字也随后显现
+    const bottomGrid = slide.querySelector('div[style*="display:grid"]');
+    if(bottomGrid) {
+      bottomGrid.style.opacity = '0';
+      animate(bottomGrid, {opacity:[0,1], y:[6,0]}, {duration:.5, delay:.1, easing:EASE_ENTRY_EXP});
+    }
+
+    let currentStep = 0;
+
+    // 自定义按键/滚轮/滑动递进逻辑
+    window.__pipeAdvance = function() {
+      if (currentStep < targets.length) {
+        const el = targets[currentStep];
+        if (el) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateX(0)';
+        }
+        currentStep++;
+        return true; // 拦截默认翻页
+      }
+      return false; // 已展示完所有行，执行默认翻页
+    };
   }
 
   /* ---------- recipe: progression · 1× → 10× → 1000× ----------
