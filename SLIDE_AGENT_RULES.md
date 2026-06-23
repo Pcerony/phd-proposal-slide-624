@@ -50,13 +50,21 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 - Keep the bottom navigation safe area clear. Content should not extend into the bottom 7 percent of the viewport.
 - Avoid large empty lower halves. If a page has too much white space, add a diagram, process band, comparison row, or reduce the top media height.
 
+## Deck Structure Rules
+
+- The main deck has 18 pages: slides 01-17 plus the Appendix Entry slide.
+- Q&A slides are a separate appendix deck with `data-appendix="qa"` and their own `Q&A 01 / 10` page count.
+- Do not include Q&A appendix pages in the main page total, main navigation dots, or main slide overview.
+- The Appendix Entry page must keep clickable question cards that call `goAppendix(n)` for direct jumps.
+- ESC overview must keep both modes: Main Deck and Q&A Deck.
+
 ## Method Section Rules
 
 The method section must stay explanatory, not just stacked text cards.
 
-- Method 01 should explain the input-to-model logic.
-- Method 02 should show how co-creation translates the model into design variables.
-- Method 03 should show the validation sequence from setup to analysis.
+- Method 01 should explain variable selection with concrete sources, candidates, criteria, and decisions. Do not use pseudo-equations unless the model is genuinely mathematical.
+- Method 02 should show how co-creation translates Module A into Module B: design-principle hypotheses.
+- Method 03 should show how Module B is validated and filtered into Module C: validated principles.
 - Each method slide must contain a visible process diagram, matrix, route, or structural graphic.
 
 ## File Ownership For Multi-Agent Work
@@ -77,7 +85,6 @@ Only one agent should edit `index.html` at a time. If parallel work is needed, e
 - Do not update GitHub Pages unless the user explicitly asks to publish, push, deploy, or sync to GitHub.
 - Prefer small commits with focused messages, for example `Refine method diagram layout` or `Update bilingual wording`.
 - Before starting a new edit session, run `git status -sb` and understand whether there are uncommitted user changes.
-- If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, syncing mirror files, validating, and committing.
 - If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, validating, and committing. Mirror files stay untouched unless explicitly requested.
 
 ## Required Validation
@@ -88,13 +95,14 @@ Run these checks before committing:
 node /Users/heisei/.codex/skills/guizang-ppt-skill/scripts/validate-swiss-deck.mjs index.html
 node tests/validate_botanical_swiss_deck.mjs
 node tests/readability_audit.mjs
+node tests/color_hierarchy_audit.mjs
 ```
 
 `tests/readability_audit.mjs` opens the deck in real Chromium at 1280x720, forces a static final state, captures all slides to `output/readability-qa/`, and fails on low-contrast text.
 
 Then manually inspect the generated screenshots, especially:
 
-- all 27 slides render;
+- all 28 physical slides render: 18 main slides and 10 Q&A appendix slides;
 - no text overflows or enters the bottom navigation area;
 - all English body text has nearby Japanese;
 - method slides include real diagrams;

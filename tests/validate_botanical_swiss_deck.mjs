@@ -20,12 +20,12 @@ const slideClassFor = (label) => {
   return classMatch[1].split(/\s+/);
 };
 
-assert.equal(slides.length, 27, 'deck must contain exactly twenty-seven registered slides');
+assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
     'S01', 'S22', 'S17', 'S13', 'S22', 'S08', 'S09', 'S05',
-    'S11', 'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10',
+    'S11', 'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
   'registered layouts must match the approved narrative map',
@@ -42,25 +42,36 @@ assert.match(html, /classList\.toggle\(['"]low-power['"]/, 'B low-power mode mus
 assert.match(html, /overview/i, 'ESC overview must remain available');
 assert.match(html, /data-appendix="qa"/, 'Q&A appendix slides must be marked');
 assert.match(html, /__qaStartIndex/, 'Q&A appendix entry point must be wired');
-assert.match(html, /overview-qa-btn/, 'ESC overview must expose Q&A appendix entry');
+assert.match(html, /__mainSlideCount = mainSlideIndices\.length/, 'main deck must have its own slide count');
+assert.match(html, /__qaSlideCount = appendixSlideIndices\.length/, 'Q&A deck must have its own slide count');
+assert.match(html, /formatPage\(idx\)/, 'page indicator must use deck-aware page formatting');
+assert.match(html, /overview-mode-btn/, 'ESC overview must switch between main deck and Q&A deck');
+assert.match(html, /appendix-question-card/, 'appendix entry slide must provide clickable question cards');
+assert.match(html, /goAppendix\(9\)/, 'appendix entry must support direct jump to the tenth Q&A slide');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /method-overview-node phase-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /method-overview-node phase-how/, 'method overview HOW card must use lemon-green phase styling');
 assert.match(html, /method-overview-node phase-which/, 'method overview WHICH card must use black phase styling');
-assert.match(html, /y = n1\(x\)/, 'method 01 formula model must be present');
+assert.match(html, /Operational matrix/, 'method 01 must use an operational matrix instead of pseudo-formulas');
+assert.match(html, /MODEL INPUT/, 'method 01 must name the selected variables as model input');
+assert.doesNotMatch(html, /y = n1\(x\)|Σ y = N\(x\)/, 'method slides must not imply unsupported mathematical formulas');
 assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
 assert.match(html, /Method 02 Logic/, 'method 02 translation diagram slide must be present');
 assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hypothesis output must use numbered hypothesis blocks');
 assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
 assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
 assert.match(html, /Design principle 2/, 'method 03 output must reduce hypotheses into fewer principles');
+assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
+assert.match(html, /Module B: design-principle hypotheses/, 'method module B label must be standardized');
+assert.match(html, /Module C: validated principles/, 'method module C label must be standardized');
 assert.ok(slideClassFor('Method 01 Logic').includes('light'), 'method 01 logic slide must remain light');
 assert.ok(slideClassFor('Method 01 Detail').includes('light'), 'method 01 detail slide must remain light');
 assert.ok(slideClassFor('Method 02 Logic').includes('accent'), 'method 02 logic slide must use lemon-green background');
 assert.ok(slideClassFor('Method 02 Detail').includes('accent'), 'method 02 detail slide must use lemon-green background');
 assert.ok(slideClassFor('Method 03 Logic').includes('dark'), 'method 03 logic slide must use dark background');
 assert.ok(slideClassFor('Method 03 Detail').includes('dark'), 'method 03 detail slide must use dark background');
-assert.match(html, />18-27</, 'closing slide must show updated Q&A appendix range');
+assert.match(html, /Q&A 10 \/ 10/, 'Q&A appendix must use separate ten-slide page count');
+assert.doesNotMatch(html, />18-27</, 'main deck must not expose the old physical Q&A range');
 assert.doesNotMatch(html, /TAKEAWAYS/, 'closing slide must not include takeaways');
 assert.doesNotMatch(html, /\[必填\]|TODO/, 'required placeholders must be removed');
 assert.match(html, /認知メカニズム/, 'Japanese title translation must be present');
@@ -80,4 +91,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (27 slides)');
+console.log('PASS botanical Swiss deck structure (18 main + 10 appendix slides)');
