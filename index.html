@@ -1447,7 +1447,7 @@
   .rq-chips{display:flex;gap:.8vw;flex-wrap:wrap;margin-top:2vh}
   .rq-chip,.qa-tag{border:1px solid var(--border-subtle);padding:.55vh .75vw;font-family:var(--mono);font-size:max(13px,.72vw);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-helper)}
   .method-overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;align-items:stretch;margin-top:3vh}
-  .method-overview-node{border-top:3px solid var(--accent);background:var(--fill);padding:1.55vh 1.1vw;min-height:38vh;display:flex;flex-direction:column;justify-content:space-between}
+  .method-overview-node{border-top:3px solid var(--accent);background:var(--fill);padding:1.55vh 1.1vw;min-height:48vh;display:flex;flex-direction:column;justify-content:space-between}
   .method-overview-node .big{font-size:min(5.1vw,9vh);font-weight:200;line-height:.84;letter-spacing:-.06em;color:var(--accent-text)}
   .method-overview-node h3{font-size:max(20px,1.35vw);font-weight:400;line-height:1.08;margin:.8vh 0 .6vh}
   .method-overview-node p{color:var(--text-secondary);font-weight:500}
@@ -1471,22 +1471,22 @@
   .method-output-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.9vw;align-items:center;margin-top:1.2vh}
   .method-output-pill{border-top:2px solid var(--ink);padding:1vh .9vw;font-size:max(16px,.92vw);font-weight:500;line-height:1.18}
   .method-output-pill.accent{background:var(--accent);border-top-color:var(--ink)}
-  .value-layout{display:grid;grid-template-columns:4.2fr 7.8fr;gap:1.6vw;align-items:stretch;min-height:0}
-  .value-outputs{display:grid;grid-template-rows:repeat(3,1fr);gap:1vh}
-  .value-output{background:#eeeeec;color:var(--ink);display:grid;grid-template-columns:auto 1fr;gap:1.2vw;align-items:center;padding:1.2vh 1.2vw}
-  .value-output .num{font-family:var(--mono);font-size:min(3.8vw,6.8vh);font-weight:300;color:var(--accent-text);line-height:.9}
-  .value-output h3{font-size:max(18px,1.1vw);font-weight:500;line-height:1.12;margin:0}
-  .value-output p{font-size:max(14px,.78vw);line-height:1.25;margin:.4vh 0 0;color:var(--text-secondary);font-weight:500}
+  .value-layout{display:grid;grid-template-columns:4.2fr 7.8fr;gap:1.6vw;align-items:stretch;flex:1;min-height:0}
+  .value-outputs{display:grid;grid-template-rows:repeat(3,1fr);gap:.8vh}
+  .value-output{background:#eeeeec;color:var(--ink);display:grid;grid-template-columns:auto 1fr;gap:1.2vw;align-items:center;padding:0.9vh 1.2vw}
+  .value-output .num{font-family:var(--mono);font-size:min(3.6vw,6.4vh);font-weight:300;color:var(--accent-text);line-height:.9}
+  .value-output h3{font-size:max(17px,1.05vw);font-weight:500;line-height:1.12;margin:0}
+  .value-output p{font-size:max(13px,.74vw);line-height:1.25;margin:.3vh 0 0;color:var(--text-secondary);font-weight:500}
   .value-output h3{color:var(--ink)!important}
   .value-output p,.value-output .bi{color:#303030!important}
-  .value-hero{background:var(--accent);color:var(--accent-on);padding:2.4vh 1.8vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.4vh}
+  .value-hero{background:var(--accent);color:var(--accent-on);padding:2.4vh 1.6vw 2vh;display:flex;flex-direction:column;justify-content:space-between;gap:2vh}
   .value-hero .t-meta,.value-hero .jp,.value-hero .bi{color:#253000!important}
-  .value-hero h2{font-size:min(5.4vw,9.6vh);font-weight:200;line-height:.92;letter-spacing:-.05em;margin:0;max-width:12ch}
-  .value-domains{display:grid;grid-template-columns:repeat(3,1fr);gap:.9vw;align-items:stretch}
-  .value-domain{border-top:2px solid var(--ink);padding-top:1vh;display:flex;flex-direction:column;gap:.65vh}
-  .value-domain i{width:28px;height:28px;stroke-width:1.65;color:var(--ink)}
-  .value-domain h3{font-size:max(18px,1.05vw);font-weight:600;line-height:1.1;margin:0}
-  .value-domain p{font-size:max(14px,.78vw);line-height:1.26;color:var(--text-secondary);font-weight:500;margin:0}
+  .value-hero h2{font-size:min(3.5vw,5.8vh);font-weight:200;line-height:.92;letter-spacing:-.05em;margin:0;max-width:12ch}
+  .value-domains{display:grid;grid-template-columns:repeat(2,1fr);gap:1vh 1vw;align-items:stretch}
+  .value-domain{border-top:2px solid var(--ink);padding-top:.8vh;display:flex;flex-direction:column;gap:.4vh}
+  .value-domain i{width:22px;height:22px;stroke-width:1.65;color:var(--ink)}
+  .value-domain h3{font-size:max(16px,.95vw);font-weight:600;line-height:1.1;margin:0}
+  .value-domain p{font-size:max(12px,.7vw);line-height:1.2;color:var(--text-secondary);font-weight:500;margin:0}
   .closing-entry{height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:2vh}
   .qa-entry-list{display:grid;grid-template-columns:1fr 1fr;gap:.7vh 1vw}
   .qa-entry-item{border-top:1px solid var(--border-subtle);padding-top:.8vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,.86vw);line-height:1.2;font-weight:500;color:var(--text-secondary)}
@@ -2594,9 +2594,45 @@
       <span class="jp" lang="ja">研究方法は What / How / Which の順で進む。</span>
     </div>
     <div class="method-overview-grid" data-anim="up">
-      <article class="method-overview-node phase-what"><div><div class="big">WHAT</div><h3>Exploratory Modeling</h3><p>Map the candidate variables before designing an intervention.<span class="bi">介入設計の前に候補変数を整理する。</span></p></div><div><div class="t-meta">DECISION</div><strong>What to measure</strong></div></article>
-      <article class="method-overview-node phase-how"><div><div class="big">HOW</div><h3>Co-Creative Translation</h3><p>Convert the findings into shared design language.<span class="bi">知見を共有可能な設計言語へ変換する。</span></p></div><div><div class="t-meta">DECISION</div><strong>How to prototype</strong></div></article>
-      <article class="method-overview-node phase-which"><div><div class="big">WHICH</div><h3>Empirical Validation</h3><p>Compare conditions on the real greenhouse route.<span class="bi">実際の温室経路で条件を比較する。</span></p></div><div><div class="t-meta">DECISION</div><strong>Which to keep</strong></div></article>
+      <article class="method-overview-node phase-what">
+        <div>
+          <div class="big">WHAT</div>
+          <h3>Exploratory Modeling</h3>
+          <p>Map the candidate variables before designing an intervention.<span class="bi">介入設計の前に候補変数を整理する。</span></p>
+        </div>
+        <div>
+          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
+          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw)">Year 1, Sem 1<span class="bi">1年目前期</span></strong>
+          <div class="t-meta">DECISION</div>
+          <strong>What to measure</strong>
+        </div>
+      </article>
+      <article class="method-overview-node phase-how">
+        <div>
+          <div class="big">HOW</div>
+          <h3>Co-Creative Translation</h3>
+          <p>Convert the findings into shared design language.<span class="bi">知見を共有可能な設計言語へ変換する。</span></p>
+        </div>
+        <div>
+          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
+          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw);color:var(--accent-on)">Year 1, Sem 2<span class="bi" style="color:#253000">1年目後期</span></strong>
+          <div class="t-meta">DECISION</div>
+          <strong>How to prototype</strong>
+        </div>
+      </article>
+      <article class="method-overview-node phase-which">
+        <div>
+          <div class="big">WHICH</div>
+          <h3>Empirical Validation</h3>
+          <p>Compare conditions on the real greenhouse route.<span class="bi">実際の温室経路で条件を比較する。</span></p>
+        </div>
+        <div>
+          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
+          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw)">Year 2–3+<span class="bi" style="color:var(--text-inverse-secondary)">2〜3年目以降</span></strong>
+          <div class="t-meta">DECISION</div>
+          <strong>Which to keep</strong>
+        </div>
+      </article>
     </div>
     <div class="method-output-row nav-safe-bottom-tight" data-anim="up">
       <div class="method-output-pill" style="background:rgb(240,240,238);border-top:none">Select variables<span class="bi">変数選定</span></div>
@@ -2947,7 +2983,7 @@
 <section class="slide dark" data-layout="S13">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>16 / 17</div></div>
-    <div class="t-cat accent" style="margin-bottom:2vh">CONTRIBUTION TYPES · 貢献の種類</div>
+    <div class="t-cat accent" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
     <div class="value-layout nav-safe-bottom-tight">
       <div class="value-outputs">
         <article class="value-output"><div class="num">01</div><div><h3>Theoretical contribution<span class="bi">理論的貢献</span></h3><p>Move signage research from single objects to route-level systems.<span class="bi">単体サインから経路レベルのシステム研究へ拡張する。</span></p></div></article>
@@ -2955,13 +2991,14 @@
         <article class="value-output"><div class="num">03</div><div><h3>Design contribution<span class="bi">実践的貢献</span></h3><p>Give designers a memory-oriented decision basis.<span class="bi">記憶指向デザインの判断基盤を提供する。</span></p></div></article>
       </div>
       <div class="value-hero">
-        <div><div class="t-meta">TRANSFERABILITY</div><h2>Beyond botanical gardens.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">植物園を超えた応用可能性。</span></div>
+        <div style="display:flex;flex-direction:column;gap:0.8vh"><div class="t-meta">TRANSFERABILITY</div><h2>Beyond botanical gardens.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">植物園を超えた応用可能性。</span></div>
         <div class="value-domains">
           <div class="value-domain"><i data-lucide="landmark"></i><h3>Museums</h3><p>Large exhibition routes.<span class="bi">大型展示経路。</span></p></div>
           <div class="value-domain"><i data-lucide="trees"></i><h3>Zoos</h3><p>Learning across animal areas.<span class="bi">動物展示での学習。</span></p></div>
+          <div class="value-domain"><i data-lucide="store"></i><h3>Trade shows</h3><p>Trade show pavilions.<span class="bi">商業展示ブース。</span></p></div>
           <div class="value-domain"><i data-lucide="gamepad-2"></i><h3>VR guidance</h3><p>Task guidance in spatial media.<span class="bi">VR空間のタスク誘導。</span></p></div>
         </div>
-        <div style="border-top:1px solid rgba(10,10,10,.28);padding-top:1.2vh;font-size:max(18px,1vw);font-weight:600;line-height:1.35">Reduce mental load. Improve information retention.<span class="bi">認知負荷を下げ、情報保持率を高める。</span></div>
+        <div style="border-top:1px solid rgba(10,10,10,.28);padding-top:0.9vh;font-size:max(17px,.95vw);font-weight:600;line-height:1.35">Reduce mental load. Improve information retention.<span class="bi">認知負荷を下げ、情報保持率を高める。</span></div>
       </div>
     </div>
   </div>
