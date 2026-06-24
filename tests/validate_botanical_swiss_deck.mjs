@@ -40,14 +40,17 @@ assert.match(
 );
 assert.match(html, /classList\.toggle\(['"]low-power['"]/, 'B low-power mode must remain available');
 assert.match(html, /overview/i, 'ESC overview must remain available');
-assert.match(html, /data-appendix="qa"/, 'Q&A appendix slides must be marked');
+assert.match(html, /appendix-entry-slide[^"]*"[^>]*data-appendix="qa"[^>]*data-qa-entry="true"/, 'appendix entry slide must be part of the Q&A deck');
 assert.match(html, /__qaStartIndex/, 'Q&A appendix entry point must be wired');
 assert.match(html, /__mainSlideCount = mainSlideIndices\.length/, 'main deck must have its own slide count');
-assert.match(html, /__qaSlideCount = appendixSlideIndices\.length/, 'Q&A deck must have its own slide count');
+assert.match(html, /__appendixEntryIndex/, 'Q&A menu slide must have a dedicated index');
+assert.match(html, /__qaQuestionIndices/, 'Q&A question slides must be tracked separately from the menu');
+assert.match(html, /__qaSlideCount = qaQuestionIndices\.length/, 'Q&A question deck must have its own slide count');
 assert.match(html, /formatPage\(idx\)/, 'page indicator must use deck-aware page formatting');
 assert.match(html, /overview-mode-btn/, 'ESC overview must switch between main deck and Q&A deck');
 assert.match(html, /appendix-question-card/, 'appendix entry slide must provide clickable question cards');
 assert.match(html, /goAppendix\(9\)/, 'appendix entry must support direct jump to the tenth Q&A slide');
+assert.match(html, /Q&A MENU \/ 10/, 'appendix entry must use Q&A menu page labeling');
 assert.match(html, /overview-qa-list/, 'Q&A ESC overview must use a text menu list');
 assert.match(html, /overview-qa-card/, 'Q&A ESC overview must render question text cards');
 assert.match(html, /overviewMode==='appendix'\s*\?\s*'overview-qa-list'\s*:\s*'overview-thumb-grid'/, 'Q&A ESC overview must not use the thumbnail grid');
@@ -95,4 +98,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (18 main + 10 appendix slides)');
+console.log('PASS botanical Swiss deck structure (17 main + Q&A menu + 10 appendix questions)');
