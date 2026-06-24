@@ -63,9 +63,15 @@ assert.match(html, /Operational matrix/, 'method 01 must use an operational matr
 assert.match(html, /MODEL INPUT/, 'method 01 must name the selected variables as model input');
 assert.doesNotMatch(html, /y = n1\(x\)|Σ y = N\(x\)/, 'method slides must not imply unsupported mathematical formulas');
 assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
+assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">What variables matter\?/, 'method 01 logic body must reuse the detail-page question title');
+assert.match(html, /<div class="t-cat accent">WHAT · PHASE 1<\/div>\s*<h2[^>]*>WHAT<\/h2>/, 'method 01 detail heading must be WHAT');
 assert.match(html, /Method 02 Logic/, 'method 02 translation diagram slide must be present');
+assert.match(html, /<h2 class="block-logic-word">HOW<\/h2>\s*<p class="block-logic-note">How does the model become usable\?/, 'method 02 logic body must reuse the detail-page question title');
+assert.match(html, /<div><div class="t-cat accent">HOW · PHASE 2<\/div><h2>HOW<\/h2>/, 'method 02 detail heading must be HOW');
 assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hypothesis output must use numbered hypothesis blocks');
 assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
+assert.match(html, /<h2 class="block-logic-word">WHICH<\/h2>\s*<p class="block-logic-note">Which principles really work\?/, 'method 03 logic body must reuse the detail-page question title');
+assert.match(html, /<div><div class="t-cat accent">WHICH · PHASE 3<\/div><h2>WHICH<\/h2>/, 'method 03 detail heading must be WHICH');
 assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
 assert.match(html, /Design principle 2/, 'method 03 output must reduce hypotheses into fewer principles');
 assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
