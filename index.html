@@ -785,7 +785,7 @@
   .phase-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch}
   .method-hierarchy{display:grid;grid-template-columns:1.3fr 7.35fr 1.35fr;gap:1.1vw;align-items:stretch;margin-top:2.7vh}
   .method-stage-layout{display:grid;grid-template-columns:1.3fr 7.35fr 1.35fr;gap:1vw;align-items:stretch;margin-top:2.2vh}
-  .method-stage-layout.variable-selection{grid-template-columns:2.4fr 9.6fr;gap:1.6vw;margin-top:3.2vh}
+  .method-stage-layout.variable-selection{grid-template-columns:2.4fr 9.6fr;gap:1.6vw;margin-top:3.2vh;flex:1;min-height:0}
   .method-purpose{background:var(--paper);border-top:3px solid var(--ink);border-bottom:1px solid var(--border-subtle);padding:1.35vh 1vw;display:flex;flex-direction:column;justify-content:space-between;gap:1vh;min-height:22vh}
   .method-purpose i{width:30px;height:30px;color:var(--ink);stroke-width:1.7}
   .method-purpose h3{font-size:max(20px,1.34vw);font-weight:400;line-height:1.12;margin:0;letter-spacing:-.015em}
@@ -794,7 +794,17 @@
   .method-purpose.icon-only i{width:46px;height:46px;stroke-width:1.45}
   .method-purpose.icon-only h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12}
   .method-purpose.icon-only p{display:none}
-  .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr;gap:1.25vh;min-height:22vh}
+  .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.25vh;min-height:22vh}
+  .method-spotlight .phase-flow-node.accent {
+    background: var(--ink) !important;
+    color: var(--text-inverse-primary) !important;
+  }
+  .method-spotlight .phase-flow .arrow {
+    color: var(--ink) !important;
+  }
+  .method-spotlight .phase-flow-node.accent .bi {
+    color: var(--text-inverse-secondary) !important;
+  }
   .method-spotlight.dark{background:var(--ink);color:var(--text-inverse-primary)}
   .method-spotlight .t-meta{color:var(--text-helper)}
   .method-spotlight.dark .t-meta{color:var(--text-inverse-helper)}
@@ -2662,7 +2672,7 @@
       <h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:1.05;letter-spacing:-.04em;margin:0">WHAT</h2>
       <span class="jp" lang="ja" style="display:block">どの設計変数が認知負荷と情報保持に影響するのか。</span>
     </div>
-    <div class="method-stage-layout variable-selection" data-anim="up">
+    <div class="method-stage-layout variable-selection nav-safe-bottom-tight" data-anim="up">
       <div class="participant-panel icon-only" style="background:var(--grey-1); border-top:3px solid var(--accent); border-bottom:none; padding:2.2vh 1.1vw; display:flex; flex-direction:column; justify-content:center; gap:1.4vh">
         <div>
           <div class="t-meta" style="color:var(--text-helper)">PARTICIPANTS</div>
@@ -2676,29 +2686,18 @@
       <section class="method-spotlight">
         <div style="display:flex;justify-content:space-between;gap:1vw;align-items:end">
           <div><div class="t-meta" style="color:var(--text-helper)">METHODS · PRIMARY LAYER</div><h3 style="font-size:max(18px,1.2vw); font-weight:600; margin:0">Three inputs for variable selection.</h3></div>
-
         </div>
         <div class="method-units">
           <article class="method-unit"><i data-lucide="book-open"></i><div class="t-meta">01</div><h4>Literature review</h4><p>Prior models of attention, load, and memory.<span class="bi">注意、負荷、記憶に関する先行モデル。</span></p></article>
           <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">02</div><h4>Stakeholder interviews</h4><p>Visitor needs and management constraints.<span class="bi">来訪者ニーズと管理上の制約。</span></p></article>
           <article class="method-unit"><i data-lucide="footprints"></i><div class="t-meta">03</div><h4>Greenhouse walkthrough</h4><p>Trace signs on the real Fukuoka route.<span class="bi">福岡市植物園温室の実経路でサインを確認する。</span></p></article>
         </div>
+        <div class="phase-flow">
+          <div class="phase-flow-node">Studies · Interviews · Field walk<span class="bi">理論・面接・現場観察</span></div>
+          <div class="arrow">→</div>
+          <div class="phase-flow-node accent">Module A: causal model<span class="bi" style="color:rgba(10,10,10,0.85)">因果メカニズムモデル</span></div>
+        </div>
       </section>
-    </div>
-    <div class="nav-safe-bottom-tight" data-anim="up" style="margin-top:auto; width:100%">
-      <div style="display:flex; width:100%; height:6.0vh; border:1px solid var(--border-subtle); overflow:hidden; align-items:stretch">
-        <div style="flex:1.2; background:var(--ink); color:var(--paper); display:flex; align-items:center; padding:0 1.5vw; gap:1.2vw">
-          <div style="font-family:var(--mono); font-size:max(12px,0.72vw); letter-spacing:0.15em; color:var(--accent); font-weight:800">INPUTS</div>
-          <div style="font-size:max(15px,0.9vw); font-weight:500; color:var(--text-inverse-primary)">Studies · Interviews · Field walk <span class="bi" style="margin:0 0 0 0.6vw; color:rgba(255,255,255,0.85); display:inline; font-size:max(12px,0.72vw)">理論・面接・現場観察</span></div>
-        </div>
-        <div style="background:var(--accent); display:flex; align-items:center; padding:0 1vw; color:var(--accent-on)">
-          <i data-lucide="chevron-right" style="width:24px; height:24px; stroke-width:3.0"></i>
-        </div>
-        <div style="flex:1; background:var(--accent); color:var(--accent-on); display:flex; align-items:center; padding:0 1.5vw; gap:1.2vw">
-          <div style="font-family:var(--mono); font-size:max(12px,0.72vw); letter-spacing:0.15em; color:var(--accent-on); font-weight:800">OUTPUT</div>
-          <div style="font-size:max(15px,0.9vw); font-weight:700; color:var(--accent-on)">Module A: causal model <span class="bi" style="margin:0 0 0 0.6vw; color:rgba(10,10,10,0.85); display:inline; font-size:max(12px,0.72vw)">CAUSAL MECHANISM MODEL</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
