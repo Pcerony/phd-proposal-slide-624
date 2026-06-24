@@ -19,6 +19,14 @@ const slideClassFor = (label) => {
   assert.ok(classMatch, `missing class for section: ${label}`);
   return classMatch[1].split(/\s+/);
 };
+const slideSectionFor = (label) => {
+  const labelIndex = html.indexOf(label);
+  assert.notEqual(labelIndex, -1, `missing slide label: ${label}`);
+  const sectionIndex = html.lastIndexOf('<section', labelIndex);
+  const nextSectionIndex = html.indexOf('<section class="slide', labelIndex);
+  assert.notEqual(sectionIndex, -1, `missing section for label: ${label}`);
+  return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
+};
 
 assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight registered slides');
 assert.deepEqual(
@@ -53,6 +61,8 @@ assert.match(html, /goAppendix\(9\)/, 'appendix entry must support direct jump t
 assert.match(html, /Q&A MENU \/ 10/, 'appendix entry must use Q&A menu page labeling');
 assert.match(html, /overview-qa-list/, 'Q&A ESC overview must use a text menu list');
 assert.match(html, /overview-qa-card/, 'Q&A ESC overview must render question text cards');
+assert.match(html, /overview-resource-link/, 'ESC overview must include the master research slide site link');
+assert.match(html, /co-creation-signage-slides\/ppt\//, 'master research slide site link must be embedded');
 assert.match(html, /overviewMode==='appendix'\s*\?\s*'overview-qa-list'\s*:\s*'overview-thumb-grid'/, 'Q&A ESC overview must not use the thumbnail grid');
 assert.match(html, /s\.querySelector\(['"]\.qa-question h2['"]\)/, 'Q&A ESC overview must source each menu item from the question text');
 assert.match(html, /prior-gap-interactive/, 'prior research slide must mark the GAP module as interactive');
@@ -79,7 +89,13 @@ assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must b
 assert.match(html, /<h2 class="block-logic-word">WHICH<\/h2>\s*<p class="block-logic-note">Which principles really work\?/, 'method 03 logic body must reuse the detail-page question title');
 assert.match(html, /<div><div class="t-cat accent">WHICH · PHASE 3<\/div><h2>WHICH<\/h2>/, 'method 03 detail heading must be WHICH');
 assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
-assert.match(html, /Design principle 2/, 'method 03 output must reduce hypotheses into fewer principles');
+assert.match(html, /memory-oriented signage system design principle 2/i, 'method 03 output must reduce hypotheses into fewer principles');
+const method03Logic = slideSectionFor('Method 03 Logic');
+assert.match(method03Logic, /hypothesis-block-list hypothesis-only/, 'method 03 input hypotheses must be compact labels without example descriptions');
+assert.doesNotMatch(method03Logic, /Use theme colors to distinguish|Adjust content layout based on path|Place visual anchors at path stop points/, 'method 03 input module must not include example hypothesis text');
+assert.match(method03Logic, /block-arrow-stack method03-filter/, 'method 03 middle diagram must use the converging funnel shape');
+assert.match(method03Logic, /class="method03-funnel-svg"/, 'method 03 funnel must be SVG geometry');
+assert.doesNotMatch(method03Logic, /block-funnel-stage|FIELD<br\/>TEST|MEASURE<br\/>EFFECTS|KEEP<br\/>REVISE/, 'method 03 funnel must not use the old segmented text-arrow blocks');
 assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
 assert.match(html, /Module B: design-principle hypotheses/, 'method module B label must be standardized');
 assert.match(html, /Module C: validated principles/, 'method module C label must be standardized');
@@ -89,6 +105,11 @@ assert.ok(slideClassFor('Method 02 Logic').includes('accent'), 'method 02 logic 
 assert.ok(slideClassFor('Method 02 Detail').includes('accent'), 'method 02 detail slide must use lemon-green background');
 assert.ok(slideClassFor('Method 03 Logic').includes('dark'), 'method 03 logic slide must use dark background');
 assert.ok(slideClassFor('Method 03 Detail').includes('dark'), 'method 03 detail slide must use dark background');
+assert.match(html, /17-master-research-plan\.png/, 'closing slide must include the doctoral research process flow image');
+const closingSlide = slideSectionFor('Closing · まとめ');
+assert.match(closingSlide, /data-image-slot="s10-doctoral-process-flow"/, 'closing slide image must use a registered image slot');
+assert.match(closingSlide, /closing-flow-figure/, 'closing slide must embed the process flow inside the lemon-green closing layout');
+assert.doesNotMatch(closingSlide, /half b-paper|closing-reference-half/, 'closing slide must not create a separate right column for the image');
 assert.match(html, /Q&A 10 \/ 10/, 'Q&A appendix must use separate ten-slide page count');
 assert.doesNotMatch(html, />18-27</, 'main deck must not expose the old physical Q&A range');
 assert.doesNotMatch(html, /TAKEAWAYS/, 'closing slide must not include takeaways');
