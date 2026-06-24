@@ -6,7 +6,7 @@
 <title>Memory-Oriented Interpretive Signage Systems · Wang Pingcheng</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&family=Bungee+Inline&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 <style>
   :root{
     /* ============ 主题色: 🟢 柠檬绿 Lemon Green ============
@@ -1761,19 +1761,22 @@
     background:rgba(255,255,255,.055);border-top:2px solid var(--accent);
     overflow:hidden
   }
-  .sign-density .sign-icon{
+  .sign-icon{
     color:rgba(255,255,255,.72);height:var(--h,13vh);
     display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0
   }
   .sign-density .sign-icon:nth-child(even){color:rgba(255,255,255,.54)}
-  .sign-density .sign-icon.accent{color:var(--accent)}
-  .sign-density .sign-board{
+  .sign-icon.accent{color:var(--accent)}
+  .sign-board{
     width:var(--w,4.5vw);height:var(--bh,4.6vh);
     border:2px solid currentColor;background:rgba(255,255,255,.03);box-sizing:border-box
   }
-  .sign-density .sign-icon.accent .sign-board{background:var(--accent);border-color:var(--accent)}
-  .sign-density .sign-post{width:2px;height:var(--ph,4vh);background:currentColor}
-  .sign-density .sign-base{width:58%;height:2px;background:currentColor}
+  .sign-icon.accent .sign-board{
+    background:var(--accent);border-color:var(--accent);
+    box-shadow:0 0 12px rgba(0,0,0,.65)
+  }
+  .sign-post{width:2px;height:var(--ph,4vh);background:currentColor}
+  .sign-base{width:58%;height:2px;background:currentColor}
   .duo-compare .col-desc{
     font-family:var(--sans),var(--sans-zh);
     font-size:max(16px,1.04vw);line-height:1.55;opacity:.78;
@@ -1998,8 +2001,8 @@
 
         <!-- Right side vertical banner -->
         <div data-anim="hud-banner" style="position:absolute;right:0;top:0;bottom:0;width:7.5vw;background:var(--accent);color:var(--accent-on);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4">
-          <div style="font-family:'Orbitron',var(--sans);font-weight:900;font-size:max(22px,2.0vw);letter-spacing:.22em;text-transform:uppercase;writing-mode:vertical-rl;white-space:nowrap">
-            BOTANICAL GARDEN
+          <div style="font-family:'Bungee Inline',var(--sans);font-weight:900;font-size:max(42px,3.8vw);letter-spacing:.05em;text-transform:uppercase;writing-mode:vertical-rl;white-space:nowrap">
+            BOTANICAL
           </div>
         </div>
 
@@ -2093,9 +2096,23 @@
   </div>
 </section>
 
+<section class="slide dark" data-layout="S08">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 17</div></div>
+    <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at single sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
+    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
+      <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
+        <div class="sign-icon accent" style="--h:13.5vh;--w:5vw;--bh:4.8vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
+      </div><ul class="bi-list" style="opacity:.55"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw)">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
+      <div class="vrule"></div>
+      <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system<span class="bi">サインシステム</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
 <section class="slide light" data-layout="S22" data-animate="image-hero">
   <div class="canvas-card" style="display:grid;grid-template-rows:auto 30vh 1fr;gap:1.8vh;overflow:hidden">
-    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>05 / 17</div></div>
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>06 / 17</div></div>
     <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:30vh;max-height:none">
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
       <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
@@ -2122,21 +2139,6 @@
           <div class="fatigue-step"><i data-lucide="brain"></i><h3>Retention risk</h3><p>Memory weakens.<span class="bi">記憶保持が弱まる。</span></p></div>
         </section>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide dark" data-layout="S08">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>06 / 17</div></div>
-    <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at single sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
-    <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
-      <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
-        <div class="sign-icon" style="--h:12vh;--w:5.5vw;--bh:4.8vh;--ph:4.2vh;color:rgba(255,255,255,.82)"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
-        <div class="sign-icon" style="--h:10vh;--w:4.5vw;--bh:3.8vh;--ph:3.5vh;color:rgba(255,255,255,.82)"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
-      </div><ul class="bi-list" style="opacity:.55"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CLM</span><span class="bi">文脈が注意を形成する</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw)">AVM</span><span class="bi">価値が記憶符号化を促す</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CTML</span><span class="bi">二重チャネルが負荷を下げる</span></li></ul></div>
-      <div class="vrule"></div>
-      <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system<span class="bi">サインシステム</span></h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load<span class="bi">累積する認知負荷</span></li><li>Museum fatigue across the route<span class="bi">経路全体で生じる展示疲労</span></li><li>Sequential memory degradation<span class="bi">連続閲覧による記憶低下</span></li></ul></div>
     </div>
   </div>
 </section>
@@ -2498,18 +2500,23 @@
 
 <section class="slide hero dark split" data-layout="S10" data-animate="split-statement">
   <div class="canvas-card">
-    <div class="half b-accent" style="flex:0 0 42%;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)"><canvas class="ascii-bg" aria-hidden="true"></canvas><div class="chrome-min" style="color:var(--text-helper);margin-bottom:0"><div class="l">Closing · まとめ</div><div class="r" data-slide-page>17 / 17</div></div><div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1"><div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div><h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span></div><div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1"><div><div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div><div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div></div><div class="t-meta" style="color:var(--text-helper)">Thank you.</div></div></div>
-    <div class="half b-paper" style="flex:1 1 auto;padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;background:var(--paper);color:var(--ink)">
-      <div class="chrome-min" style="margin-bottom:0"><div class="l">Final Message · 結論</div><div class="r">MAIN DECK</div></div>
-      <div style="display:flex;flex-direction:column;gap:3vh">
-        <div class="t-cat accent">RESEARCH SHIFT · 研究の転換</div>
-        <h2 style="font-weight:200;font-size:min(4.8vw,8.2vh);line-height:.94;letter-spacing:-.04em;margin:0">From single signs to route-level memory design.</h2>
-        <span class="jp" lang="ja" style="font-size:max(20px,1.18vw);font-weight:500;line-height:1.45;color:var(--text-secondary)">単一サインの評価から、経路全体の記憶を支えるデザインへ。</span>
+    <div class="half b-accent" style="display:flex;flex-direction:column;justify-content:space-between;flex:1;padding:5.6vh 5vw 4.4vh;position:relative;overflow:hidden;background:var(--accent);color:var(--accent-on)">
+      <canvas class="ascii-bg" aria-hidden="true"></canvas>
+      <div class="chrome-min" style="color:var(--text-helper);margin-bottom:0">
+        <div class="l">Closing · まとめ</div>
+        <div class="r" data-slide-page>17 / 17</div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;border-top:1px solid var(--border-subtle);padding-top:1.8vh">
-        <div><div class="t-meta">01 MODEL</div><p style="font-size:max(16px,.92vw);font-weight:500;line-height:1.35;color:var(--text-secondary)">Explain the mechanism.<span class="bi">メカニズムを説明。</span></p></div>
-        <div><div class="t-meta">02 PRINCIPLES</div><p style="font-size:max(16px,.92vw);font-weight:500;line-height:1.35;color:var(--text-secondary)">Co-create design hypotheses.<span class="bi">設計仮説を共創。</span></p></div>
-        <div><div class="t-meta">03 VALIDATION</div><p style="font-size:max(16px,.92vw);font-weight:500;line-height:1.35;color:var(--text-secondary)">Test in a real route.<span class="bi">実経路で検証。</span></p></div>
+      <div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1">
+        <div class="t-meta" style="color:var(--text-helper)">MANIFESTO</div>
+        <h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.35vw,11.1vh);line-height:.94;letter-spacing:-.03em;font-weight:200;color:var(--accent-on)">One sign<br/>to a whole<br/><span style="font-style:italic;font-weight:300">system</span>.</h2>
+        <span class="jp" lang="ja" style="color:var(--text-secondary)">「一枚のサイン」から「システム全体」へ。</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(10,10,10,.28);padding-top:2vh;position:relative;z-index:1">
+        <div>
+          <div style="font-size:max(18px,1.05vw);font-weight:600">Wang Pingcheng</div>
+          <div class="t-meta" style="color:var(--text-helper)">PhD Research Proposal</div>
+        </div>
+        <div class="t-meta" style="color:var(--text-helper)">Thank you.</div>
       </div>
     </div>
   </div>

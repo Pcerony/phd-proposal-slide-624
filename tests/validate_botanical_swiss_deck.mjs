@@ -24,7 +24,7 @@ assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight register
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
-    'S01', 'S22', 'S17', 'S13', 'S22', 'S08', 'S09', 'S05',
+    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S05',
     'S11', 'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
