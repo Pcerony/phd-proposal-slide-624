@@ -1201,6 +1201,17 @@
   .overview-controls{display:flex;gap:.65vw;align-items:center}
   .overview-mode-btn{border:2px solid var(--ink);background:transparent;padding:.8vh 1vw;font-family:var(--mono);font-size:max(13px,.76vw);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
   .overview-mode-btn.active{background:var(--accent)}
+  .overview-thumb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto}
+  .overview-qa-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2vh 1.2vw;max-width:90vw;margin:0 auto}
+  .overview-qa-card{appearance:none;border:0;border-top:3px solid var(--ink);background:var(--paper);color:var(--ink);min-height:11.4vh;padding:1.35vh 1.25vw;display:grid;grid-template-columns:5.2vw 1fr auto;gap:1.2vw;align-items:center;text-align:left;cursor:pointer;font-family:var(--sans),var(--sans-zh);transition:background .18s,color .18s}
+  .overview-qa-card:hover,.overview-qa-card:focus-visible,.overview-qa-card.active{background:var(--accent);color:var(--accent-on);outline:0}
+  .overview-qa-card .qa-nb{font-family:var(--mono);font-size:max(18px,1.1vw);font-weight:800;letter-spacing:.12em;color:var(--accent-text)}
+  .overview-qa-card:hover .qa-nb,.overview-qa-card:focus-visible .qa-nb,.overview-qa-card.active .qa-nb{color:var(--accent-on)}
+  .overview-qa-card h3{font-size:max(20px,1.22vw);line-height:1.08;font-weight:500;letter-spacing:-.01em;margin:0;color:currentColor}
+  .overview-qa-card .jp{display:block;margin-top:.35vh;font-size:max(15px,.86vw);line-height:1.25;font-weight:600;color:var(--text-secondary)}
+  .overview-qa-card:hover .jp,.overview-qa-card:focus-visible .jp,.overview-qa-card.active .jp{color:rgba(10,10,10,.74)}
+  .overview-qa-card .qa-kind{font-family:var(--mono);font-size:max(12px,.72vw);letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--text-helper);justify-self:end}
+  .overview-qa-card:hover .qa-kind,.overview-qa-card:focus-visible .qa-kind,.overview-qa-card.active .qa-kind{color:rgba(10,10,10,.62)}
 
   /* ============ 动效 (与原模板一致) ============ */
   [data-anim]{opacity:1}
@@ -2892,10 +2903,37 @@ function buildOverview(mode=slideMode(idx)){
   }
   ov.appendChild(top);
   const grid=document.createElement('div');
-  grid.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';
+  grid.className=overviewMode==='appendix' ? 'overview-qa-list' : 'overview-thumb-grid';
   const pool = overviewMode==='appendix' ? appendixSlideIndices : mainSlideIndices;
   pool.forEach((slideIndex,logical)=>{
     const s=slides[slideIndex];
+    if(overviewMode==='appendix'){
+      const card=document.createElement('button');
+      card.type='button';
+      card.className='overview-qa-card';
+      card.classList.toggle('active', slideIndex===idx);
+      const number=document.createElement('div');
+      number.className='qa-nb';
+      number.textContent=`Q${String(logical+1).padStart(2,'0')}`;
+      const copy=document.createElement('div');
+      const heading=document.createElement('h3');
+      heading.textContent=s.querySelector('.qa-question h2')?.textContent?.trim() || `Question ${logical+1}`;
+      const jp=document.createElement('span');
+      jp.className='jp';
+      jp.lang='ja';
+      jp.textContent=s.querySelector('.qa-question .jp')?.textContent?.trim() || '';
+      copy.appendChild(heading);
+      copy.appendChild(jp);
+      const kind=document.createElement('div');
+      kind.className='qa-kind';
+      kind.textContent=s.querySelector('.qa-tag')?.textContent?.trim() || 'Q&A';
+      card.appendChild(number);
+      card.appendChild(copy);
+      card.appendChild(kind);
+      card.onclick=()=>{toggleOverview();go(slideIndex)};
+      grid.appendChild(card);
+      return;
+    }
     const card=document.createElement('div');
     card.style.cssText='cursor:pointer;overflow:hidden;border:2px solid '+(slideIndex===idx?'var(--accent)':'rgba(0,0,0,.12)')+';transition:border-color .2s';
     card.onmouseenter=()=>card.style.borderColor='rgba(0,0,0,.4)';

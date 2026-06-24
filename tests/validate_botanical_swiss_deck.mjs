@@ -48,6 +48,10 @@ assert.match(html, /formatPage\(idx\)/, 'page indicator must use deck-aware page
 assert.match(html, /overview-mode-btn/, 'ESC overview must switch between main deck and Q&A deck');
 assert.match(html, /appendix-question-card/, 'appendix entry slide must provide clickable question cards');
 assert.match(html, /goAppendix\(9\)/, 'appendix entry must support direct jump to the tenth Q&A slide');
+assert.match(html, /overview-qa-list/, 'Q&A ESC overview must use a text menu list');
+assert.match(html, /overview-qa-card/, 'Q&A ESC overview must render question text cards');
+assert.match(html, /overviewMode==='appendix'\s*\?\s*'overview-qa-list'\s*:\s*'overview-thumb-grid'/, 'Q&A ESC overview must not use the thumbnail grid');
+assert.match(html, /s\.querySelector\(['"]\.qa-question h2['"]\)/, 'Q&A ESC overview must source each menu item from the question text');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /method-overview-node phase-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /method-overview-node phase-how/, 'method overview HOW card must use lemon-green phase styling');
