@@ -949,12 +949,9 @@
   .block-core-tile strong{font-size:max(21px,1.32vw);font-weight:600;line-height:1.04;letter-spacing:-.02em}
   .block-core-tile .bi{color:var(--text-inverse-secondary);font-size:max(14px,.76vw);line-height:1.2}
   .variable-field-panel{gap:.78vh}
-  .variable-field-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:.52vw;flex:1;min-height:0}
-  .variable-field-grid .block-core-tile{grid-column:2 / span 2;grid-row:2 / span 1;min-height:0}
-  .variable-field-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.46vw;min-height:7.4vh}
-  .variable-strip-item{background:var(--fill);border-top:2px solid var(--accent);padding:.7vh .52vw;display:flex;flex-direction:column;justify-content:space-between;gap:.25vh;min-width:0}
-  .variable-strip-item i{width:18px;height:18px;stroke-width:1.75;color:var(--accent-text)}
-  .variable-strip-item span{font-family:var(--mono);font-size:max(11px,.58vw);font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1.05;color:var(--ink);overflow-wrap:anywhere}
+  .variable-field-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:.52vw;flex:1;min-height:0}
+  .variable-field-grid .block-core-tile{grid-column:2 / span 2;grid-row:2 / span 2;min-height:0}
+  .variable-field-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.52vw;margin-top:.45vh}
   .block-arrow-stack{display:flex;flex-direction:column;justify-content:center;gap:1.15vh;min-height:0}
   .block-arrow-card{min-height:8.6vh;background:var(--accent);color:var(--accent-on);clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%,17% 50%);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 1.05vw 0 1.55vw;font-family:var(--mono);font-size:max(13px,.74vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.16}
   .block-arrow-card.ink{background:var(--ink);color:var(--text-inverse-primary)}
@@ -977,7 +974,7 @@
   .block-key-strip div{border-top:1px solid var(--border-subtle);padding-top:.55vh;font-size:max(12px,.66vw);line-height:1.14;color:var(--text-secondary);font-weight:600}
   .block-key-strip strong{display:block;font-family:var(--mono);font-size:max(15px,.82vw);color:var(--ink)}
   .causal-model-panel{gap:.78vh}
-  .causal-formula-stack{display:flex;flex-direction:column;gap:.58vh;flex:1;min-height:0}
+  .causal-formula-stack{display:flex;flex-direction:column;gap:.58vh;min-height:0}
   .causal-formula-row{display:grid;grid-template-columns:minmax(98px,1.15fr) 2.25fr;gap:.85vw;align-items:center;background:var(--fill);border-top:2px solid var(--ink);padding:.74vh .82vw;min-height:0}
   .causal-formula-row .formula{font-family:var(--mono);font-size:max(20px,1.18vw);font-weight:600;letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
   .causal-formula-row p{font-size:max(14px,.76vw);line-height:1.14;color:var(--text-secondary);font-weight:650;margin:0}
@@ -985,7 +982,7 @@
   .causal-formula-row.total{background:var(--ink);border-top-color:var(--accent)}
   .causal-formula-row.total .formula{color:var(--accent)}
   .causal-formula-row.total p,.causal-formula-row.total .bi{color:var(--text-inverse-secondary)}
-  .causal-model-combo{background:var(--accent);color:var(--accent-on);border-top:4px solid var(--ink);padding:1.35vh 1vw;display:grid;grid-template-columns:1fr auto;gap:1vw;align-items:end}
+  .causal-model-combo{background:var(--accent);color:var(--accent-on);border-top:4px solid var(--ink);padding:2vh 1.2vw;display:grid;grid-template-columns:1fr auto;gap:1vw;align-items:center;flex:1;margin:0 -1vw -1.2vh -1vw}
   .causal-model-combo strong{font-family:var(--mono);font-size:max(23px,1.52vw);font-weight:650;letter-spacing:.02em;text-transform:uppercase;line-height:1.14}
   .causal-model-combo span{font-size:max(14px,.78vw);font-weight:750;line-height:1.2;color:#253000;text-align:right}
   .hypothesis-block-list{display:grid;grid-template-rows:repeat(4,1fr);gap:.78vh;flex:1;min-height:0}
@@ -2327,48 +2324,46 @@
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>10 / 17</div></div>
     <div class="block-logic-head" data-anim="line">
-      <h2 class="block-logic-word">WHAT</h2>
+
       <p class="block-logic-note">What variables matter?<span class="bi">どの設計変数が認知負荷と情報保持に影響するのか。</span></p>
     </div>
     <div class="block-flow what-causal-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel variable-field-panel">
-        <div class="block-panel-head"><div class="t-meta">INPUT</div><h3>Variable field</h3></div>
+
         <div class="block-tile-grid variable-field-grid" aria-label="Design variables around memory retention">
-          <div class="block-core-tile"><i data-lucide="brain"></i><strong>Memory<br/>retention</strong><span class="bi">記憶保持</span></div>
-          <div class="block-tile"><i data-lucide="type"></i><span>Font</span></div>
-          <div class="block-tile"><i data-lucide="layout-grid"></i><span>Layout</span></div>
-          <div class="block-tile"><i data-lucide="route"></i><span>Path</span></div>
-          <div class="block-tile"><i data-lucide="sun"></i><span>Light</span></div>
-          <div class="block-tile"><i data-lucide="palette"></i><span>Color</span></div>
-          <div class="block-tile"><i data-lucide="align-left"></i><span>Density</span></div>
-          <div class="block-tile"><i data-lucide="ruler"></i><span>Distance</span></div>
-          <div class="block-tile"><i data-lucide="image"></i><span>Image</span></div>
+          <div class="block-core-tile" style="grid-column: 2 / span 2; grid-row: 2 / span 2;"><i data-lucide="brain"></i><strong>Memory<br/>retention</strong><span class="bi">記憶保持</span></div>
+          <div class="block-tile" style="grid-column: 1; grid-row: 1;"><i data-lucide="type"></i><span>Font</span></div>
+          <div class="block-tile" style="grid-column: 2; grid-row: 1;"><i data-lucide="layout-grid"></i><span>Layout</span></div>
+          <div class="block-tile" style="grid-column: 3; grid-row: 1;"><i data-lucide="route"></i><span>Path</span></div>
+          <div class="block-tile" style="grid-column: 4; grid-row: 1;"><i data-lucide="sun"></i><span>Light</span></div>
+          <div class="block-tile" style="grid-column: 1; grid-row: 2;"><i data-lucide="palette"></i><span>Color</span></div>
+          <div class="block-tile" style="grid-column: 4; grid-row: 2;"><i data-lucide="align-left"></i><span>Density</span></div>
+          <div class="block-tile" style="grid-column: 1; grid-row: 3;"><i data-lucide="ruler"></i><span>Distance</span></div>
+          <div class="block-tile" style="grid-column: 4; grid-row: 3;"><i data-lucide="image"></i><span>Image</span></div>
+          
+          <div class="block-tile" style="grid-column: 1; grid-row: 4;"><i data-lucide="map"></i><span>Route<br/>order</span></div>
+          <div class="block-tile" style="grid-column: 2; grid-row: 4;"><i data-lucide="mouse-pointer-click"></i><span>Stop<br/>point</span></div>
+          <div class="block-tile" style="grid-column: 3; grid-row: 4;"><i data-lucide="text-select"></i><span>Text<br/>amount</span></div>
+          <div class="block-tile" style="grid-column: 4; grid-row: 4;"><i data-lucide="repeat-2"></i><span>Repeat<br/>view</span></div>
         </div>
-        <div class="variable-field-strip" aria-label="Additional observable variables">
-          <div class="variable-strip-item"><i data-lucide="map"></i><span>Route<br/>order</span></div>
-          <div class="variable-strip-item"><i data-lucide="scan-eye"></i><span>Gaze<br/>time</span></div>
-          <div class="variable-strip-item"><i data-lucide="mouse-pointer-click"></i><span>Stop<br/>point</span></div>
-          <div class="variable-strip-item"><i data-lucide="text-select"></i><span>Text<br/>amount</span></div>
-          <div class="variable-strip-item"><i data-lucide="image-plus"></i><span>Image<br/>match</span></div>
-          <div class="variable-strip-item"><i data-lucide="repeat-2"></i><span>Repeat<br/>view</span></div>
-        </div>
+        <div class="variable-field-strip" style="display:none" aria-label="Additional observable variables"></div>
       </section>
       <section class="block-arrow-stack causal-arrow-stack" aria-label="Method 1 turns variables into model formulas">
-        <div class="causal-arrow-card">
+        <div class="causal-arrow-card" style="border-top:none">
           <div class="arrow-label">METHOD 1<br/>MODEL BUILDING</div>
           <div class="arrow-line" aria-hidden="true"></div>
           <div class="arrow-note">screen variables into causal equations<span class="bi">変数を因果式へ変換</span></div>
         </div>
       </section>
       <section class="block-panel causal-model-panel">
-        <div class="block-panel-head"><div class="t-meta">MODEL OUTPUT</div><h3>Causal mechanism model</h3></div>
+
         <div class="causal-formula-stack" aria-label="Formula group forming the causal mechanism model">
           <article class="causal-formula-row"><div class="formula">y = n1(x)</div><p>design variables → cognitive load<span class="bi">設計変数 → 認知負荷</span></p></article>
           <article class="causal-formula-row"><div class="formula">y = n2(x)</div><p>route sequence → attention trace<span class="bi">経路順序 → 注意の軌跡</span></p></article>
           <article class="causal-formula-row"><div class="formula">y = n3(x)</div><p>media composition → memory retention<span class="bi">メディア構成 → 記憶保持</span></p></article>
           <article class="causal-formula-row total"><div class="formula">Σy = N(x)</div><p>integrated explanatory model<span class="bi">統合された説明モデル</span></p></article>
         </div>
-        <div class="causal-model-combo">
+        <div class="causal-model-combo" style="border-top:none">
           <strong>CAUSAL<br/>MECHANISM<br/>MODEL</strong>
           <span>All equations form one model.<span class="bi">すべての式が一つの因果メカニズムモデルを構成する。</span></span>
         </div>
