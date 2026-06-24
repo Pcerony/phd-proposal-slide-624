@@ -55,6 +55,10 @@ assert.match(html, /overview-qa-list/, 'Q&A ESC overview must use a text menu li
 assert.match(html, /overview-qa-card/, 'Q&A ESC overview must render question text cards');
 assert.match(html, /overviewMode==='appendix'\s*\?\s*'overview-qa-list'\s*:\s*'overview-thumb-grid'/, 'Q&A ESC overview must not use the thumbnail grid');
 assert.match(html, /s\.querySelector\(['"]\.qa-question h2['"]\)/, 'Q&A ESC overview must source each menu item from the question text');
+assert.match(html, /prior-gap-interactive/, 'prior research slide must mark the GAP module as interactive');
+assert.match(html, /gap-module/, 'prior research slide must expose a dedicated GAP module');
+assert.match(html, /gap-expanded/, 'prior research slide must include the expanded GAP state');
+assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(gapStep===0\)/, 'space key must trigger the GAP expansion step');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /method-overview-node phase-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /method-overview-node phase-how/, 'method overview HOW card must use lemon-green phase styling');

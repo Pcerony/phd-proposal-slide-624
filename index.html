@@ -1865,6 +1865,68 @@
   .three-forces .card-fill .t-body-sm{color:var(--text-secondary)!important}
   .three-forces .card-fill .jp{color:var(--text-secondary)!important}
   .three-forces .card-fill .bi{color:var(--text-secondary)!important}
+  .three-forces.prior-gap-interactive{
+    grid-template-rows:1.18fr .82fr;
+    transition:grid-template-columns .62s cubic-bezier(0,0,.3,1),
+      grid-template-rows .62s cubic-bezier(0,0,.3,1),gap .62s cubic-bezier(0,0,.3,1)
+  }
+  .three-forces.prior-gap-interactive .hero-ink-col,
+  .three-forces.prior-gap-interactive .gap-module,
+  .three-forces.prior-gap-interactive .force-stack,
+  .three-forces.prior-gap-interactive .force-card,
+  .three-forces.prior-gap-interactive .force-num,
+  .three-forces.prior-gap-interactive .force-title,
+  .three-forces.prior-gap-interactive .t-body-sm,
+  .three-forces.prior-gap-interactive .jp,
+  .three-forces.prior-gap-interactive .bi{
+    transition:padding .62s cubic-bezier(0,0,.3,1),gap .62s cubic-bezier(0,0,.3,1),
+      font-size .62s cubic-bezier(0,0,.3,1),line-height .62s cubic-bezier(0,0,.3,1),
+      opacity .62s cubic-bezier(0,0,.3,1),grid-template-columns .62s cubic-bezier(0,0,.3,1)
+  }
+  .three-forces.prior-gap-interactive.gap-expanded{
+    grid-template-columns:5.25fr 10.75fr;
+    grid-template-rows:.56fr 1.44fr;
+    gap:1vw
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .hero-ink-col{
+    padding:1.7vh 1.45vw;opacity:.86
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .hero-ink-col h2{
+    font-size:min(2.2vw,3.9vh)!important;line-height:1.08!important;max-width:none
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .hero-ink-col .jp{
+    font-size:max(12px,.66vw)!important;line-height:1.22!important
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .gap-module{
+    padding:3.1vh 3vw!important;display:flex;flex-direction:column;justify-content:center;gap:1.15vh
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-label{
+    font-size:max(17px,1vw)!important
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-en{
+    font-size:max(24px,1.74vw)!important;line-height:1.12!important;letter-spacing:.08em;
+    max-width:none;white-space:normal
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-jp{
+    font-size:max(18px,1.08vw)!important;line-height:1.25!important;letter-spacing:.06em;
+    max-width:none;white-space:normal
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .force-stack{
+    gap:.65vh;opacity:.78
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .force-card{
+    grid-template-columns:minmax(42px,.56fr) 2.15fr 3.2fr;
+    gap:.75vw;padding:1vh .85vw
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .force-num{
+    font-size:min(3vw,5.2vh);overflow:hidden
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .force-title{
+    font-size:max(14px,.98vw);line-height:1.03
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .force-card .t-body-sm{
+    font-size:max(11px,.58vw);line-height:1.13
+  }
   .hero-ink-col{
     background:var(--ink);color:var(--text-inverse-primary);padding:3.2vh 2.2vw;
     display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden
@@ -2061,7 +2123,7 @@
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 17</div></div>
-    <div class="three-forces nav-safe-bottom-tight">
+    <div class="three-forces prior-gap-interactive nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
           <div class="t-meta" style="color:rgba(255,255,255,.62);margin-bottom:1.6vh">EXISTING RESEARCH</div>
@@ -2069,10 +2131,10 @@
           <span class="jp" style="display:block;font-family:var(--sans-jp);font-size:max(16px,.86vw);font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);margin-top:1.2vh">三つの理論モデルが、サインによる学習メカニズムを説明してきた。</span>
         </div>
       </div>
-      <div class="accent-stripe" style="background:var(--accent);padding:1.8vh 2.2vw">
-        <div class="t-meta" style="color:rgba(10,10,10,.65);margin-bottom:.8vh">GAP</div>
-        <div class="t-meta" style="color:rgba(10,10,10,.85)">→ Each model studies a single sign in isolation.</div>
-        <div class="t-meta" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
+      <div class="accent-stripe gap-module" style="background:var(--accent);padding:1.8vh 2.2vw">
+        <div class="t-meta gap-label" style="color:rgba(10,10,10,.65);margin-bottom:.8vh">GAP</div>
+        <div class="t-meta gap-en" style="color:rgba(10,10,10,.85)">→ Each model studies a single sign in isolation.</div>
+        <div class="t-meta gap-jp" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
       </div>
       <div class="force-stack" style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
         <article class="card-fill force-card" data-anim="up">
@@ -3079,6 +3141,8 @@ if(motion){
       el.style.opacity='';
       el.style.transform='';
     });
+    slide.querySelectorAll('.prior-gap-interactive.gap-expanded')
+      .forEach(el=>el.classList.remove('gap-expanded'));
     /* 同时复位需要被 recipe 接管 of 元素 */
     slide.querySelectorAll('.row-fill,.tl-node,.stack-block,.bar-tower,.sub-card,.col,.vrule,.kpi-cell')
       .forEach(el=>{el.style.cssText = el.dataset._origCss || el.style.cssText;});
@@ -3499,27 +3563,43 @@ if(motion){
   }
 
   /* ---------- recipe: three-forces · P13 ----------
-     左 ink hero 先入 → 右 3 张卡按 1/2/3 依次从右滑入 + 每张大数字单独弹入 */
+     三个理论先入,空格触发 GAP 色块扩容,形成演讲中的重点转折 */
   function rThreeForces(slide, all){
     const head = slide.querySelector('[data-anim="line"]');
     if(head) fade(head, {duration:.5, y:8});
 
-    const grid = slide.querySelector('[data-anim="up"]');
+    const grid = slide.querySelector('.three-forces');
+    if(!grid) return;
+    grid.classList.remove('gap-expanded');
     if(grid) animate(grid, {opacity:[0,1]}, {duration:.3, delay:.3, easing:EASE_PROD});
 
-    const heroBlock = grid?.querySelector(':scope > div:first-child');
-    if(heroBlock) animate(heroBlock, {opacity:[0,1], x:[-26, 0]},
+    const heroBlock = grid.querySelector('.hero-ink-col');
+    if(heroBlock) animate(heroBlock, {opacity:[0,1], x:[26, 0]},
       {duration:.6, delay:.4, easing:EASE_ENTRY_EXP});
 
-    const cards = grid ? [...grid.querySelectorAll(':scope > div:nth-child(2) > .card-fill')] : [];
+    const gapBlock = grid.querySelector('.gap-module');
+    if(gapBlock) animate(gapBlock, {opacity:[0,1], y:[24, 0]},
+      {duration:.55, delay:.58, easing:EASE_ENTRY_EXP});
+
+    const cards = [...grid.querySelectorAll('.force-stack .card-fill')];
     cards.forEach((card, i)=>{
       const base = .6 + i*.18;
-      animate(card, {opacity:[0,1], x:[28, 0]},
+      animate(card, {opacity:[0,1], x:[-28, 0]},
         {duration:.6, delay:base, easing:EASE_ENTRY_EXP});
-      const num = card.querySelector(':scope > div:first-child');
+      const num = card.querySelector('.force-num');
       if(num) animate(num, {opacity:[0,1], scale:[.7, 1]},
         {duration:.5, delay:base + .15, easing:EASE_ENTRY_EXP});
     });
+
+    let gapStep = 0;
+    window.__pipeAdvance = function(){
+      if(gapStep===0){
+        grid.classList.add('gap-expanded');
+        gapStep = 1;
+        return true;
+      }
+      return false;
+    };
   }
 
   /* ---------- recipe: loop-form · P14 自学闭环 ----------
