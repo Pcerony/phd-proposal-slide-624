@@ -63,9 +63,11 @@ assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be pre
 assert.match(html, /method-overview-node phase-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /method-overview-node phase-how/, 'method overview HOW card must use lemon-green phase styling');
 assert.match(html, /method-overview-node phase-which/, 'method overview WHICH card must use black phase styling');
-assert.match(html, /Operational matrix/, 'method 01 must use an operational matrix instead of pseudo-formulas');
-assert.match(html, /MODEL INPUT/, 'method 01 must name the selected variables as model input');
-assert.doesNotMatch(html, /y = n1\(x\)|Σ y = N\(x\)/, 'method slides must not imply unsupported mathematical formulas');
+assert.match(html, /variable-field-strip/, 'method 01 input chart must include the lower row of observable variables');
+assert.match(html, /causal-arrow-card/, 'method 01 must use a large card with an embedded arrow');
+assert.match(html, /y = n1\(x\)/, 'method 01 must include the first causal formula');
+assert.match(html, /Σy = N\(x\)/, 'method 01 must integrate formulas into the model equation');
+assert.match(html, /CAUSAL<br\/>MECHANISM<br\/>MODEL/, 'method 01 must foreground the causal mechanism model output');
 assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
 assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">What variables matter\?/, 'method 01 logic body must reuse the detail-page question title');
 assert.match(html, /<div class="t-cat accent">WHAT · PHASE 1<\/div>\s*<h2[^>]*>WHAT<\/h2>/, 'method 01 detail heading must be WHAT');
