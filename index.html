@@ -30,12 +30,12 @@
        亮底:  primary 主文 / secondary 次文 / helper 辅助 / placeholder 占位
        暗底:  inverse 自动反向 */
     --text-primary:#0a0a0a;                 /* 重要文字: 纯黑 */
-    --text-secondary:rgba(10,10,10,.72);    /* 次级正文: 灰黑 */
-    --text-helper:rgba(10,10,10,.58);       /* 元信息/脚注: 更弱灰黑 */
+    --text-secondary:rgba(10,10,10,.58);    /* 次级正文: 半透明灰黑 */
+    --text-helper:rgba(10,10,10,.50);       /* 元信息/脚注: 约 50% 层级 */
     --text-placeholder:rgba(10,10,10,.42);  /* 占位/低优先级 */
     --text-inverse-primary:#ffffff;         /* 暗底重要文字: 纯白 */
-    --text-inverse-secondary:rgba(255,255,255,.78);
-    --text-inverse-helper:rgba(255,255,255,.62);
+    --text-inverse-secondary:rgba(255,255,255,.62);
+    --text-inverse-helper:rgba(255,255,255,.50);
     --text-inverse-placeholder:rgba(255,255,255,.42);
     --text-on-color:#ffffff;       /* 深色块反色 */
     --border-subtle:#e0e0e0;       /* gray 20, 极细分隔 */
@@ -815,7 +815,7 @@
   .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.25vh;min-height:22vh}
   .method-spotlight .phase-flow-node.accent {
     background: var(--ink) !important;
-    color: var(--text-inverse-primary) !important;
+    color: var(--text-inverse-secondary) !important;
   }
   .method-spotlight .phase-flow .arrow {
     color: var(--ink) !important;
@@ -1406,6 +1406,54 @@
   .card-accent{background:var(--accent);border:0;color:var(--accent-on)}
   .card-accent .t-meta,.card-accent .t-cat{color:var(--accent-on)}
   .card-accent .bi,.card-accent .jp{color:var(--text-secondary)}
+
+  /* Text hierarchy: reserve solid black/white for primary slide claims.
+     Card labels, subtitles, tags, and explanatory headings sit in the secondary layer. */
+  .slide :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
+    color:var(--text-secondary)!important;
+  }
+  .slide.dark :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
+  .half.b-ink :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
+    color:var(--text-inverse-secondary)!important;
+  }
+  .slide.accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
+  .half.b-accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
+  .card-accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
+    color:var(--text-secondary)!important;
+  }
+  .slide :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--text-primary)!important}
+  .slide.dark :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num),
+  .half.b-ink :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--text-inverse-primary)!important}
+  .slide.accent :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num),
+  .half.b-accent :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--accent-on)!important}
+  .slide :where(h3,h4){color:#333333!important}
+  .slide.dark :where(h3,h4),
+  .half.b-ink :where(h3,h4){color:#e5e5e5!important}
+  .slide.accent :where(h3,h4),
+  .half.b-accent :where(h3,h4),
+  .card-accent :where(h3,h4){color:var(--accent-text)!important}
+  .slide :where(.design-card.grey h4,.value-output h3,.qa-answer h3,.qa-point h4,.principle-output h4,.method03-output h4){color:#333333!important}
+  .slide :where(.sankey-label.what h3){color:#333333!important}
+  .slide :where(.sankey-label.how h3){color:var(--accent-text)!important}
+  .slide :where(.design-topic-card h3,.sankey-label.which h3){color:#e5e5e5!important}
+  .slide :where(.design-card.accent h4,.value-domain h3,.phase-main.validation h3){color:var(--accent-text)!important}
+  .slide :where(.design-card.ink h4,.hypothesis-block h4){color:#e5e5e5!important}
+  .slide :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
+  .slide.accent :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
+  .slide :where(.block-panel.accent .block-panel-head h3){color:var(--accent-text)!important}
+  .slide.dark :where(.design-card.grey h4,.value-output h3,.qa-answer h3,.qa-point h4,.principle-output h4,.method03-output h4){color:#333333!important}
+  .slide.dark :where(.sankey-label.what h3){color:#333333!important}
+  .slide.dark :where(.sankey-label.how h3){color:var(--accent-text)!important}
+  .slide.dark :where(.design-topic-card h3,.sankey-label.which h3){color:#e5e5e5!important}
+  .slide.dark :where(.design-card.accent h4,.value-domain h3,.phase-main.validation h3){color:var(--accent-text)!important}
+  .slide.dark :where(.design-card.ink h4,.hypothesis-block h4){color:#e5e5e5!important}
+  .slide.dark :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
+  .slide.dark :where(.block-panel.accent .block-panel-head h3){color:var(--accent-text)!important}
+  .slide :where(.col-ttl,.force-title){color:var(--text-primary)!important}
+  .slide.dark :where(.col-ttl,.force-title),
+  .half.b-ink :where(.col-ttl,.force-title){color:var(--text-inverse-primary)!important}
+  .slide.accent :where(.col-ttl,.force-title),
+  .half.b-accent :where(.col-ttl,.force-title){color:var(--accent-on)!important}
 
   /* ============ Current deck refinement components ============ */
   .route-system-grid{display:grid;grid-template-columns:5fr 7fr;gap:3vw;align-items:stretch;min-height:0}
@@ -2738,9 +2786,9 @@
     z-index: 4;
     overflow: hidden;
   }
-  .design-card.grey { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-primary); }
-  .design-card.accent { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--accent-on); }
-  .design-card.ink { background: var(--ink) !important; border: none !important; box-shadow: none !important; color: var(--text-inverse-primary); }
+  .design-card.grey { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-secondary) !important; }
+  .design-card.accent { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-secondary) !important; }
+  .design-card.ink { background: var(--ink) !important; border: none !important; box-shadow: none !important; color: var(--text-inverse-secondary) !important; }
   .design-card h4 {
     font-size: clamp(16px, 2.0vh, 22px) !important;
     font-weight: 500;
