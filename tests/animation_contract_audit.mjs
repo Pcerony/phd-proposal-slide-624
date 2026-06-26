@@ -41,6 +41,13 @@ assert.match(html, /\.qa-point:hover,\s*\.qa-point:focus-within/, 'Q&A point car
 assert.match(html, /\.value-domain:hover,\s*\.value-domain:focus-within/, 'contribution domain cards need a hover/focus interaction');
 assert.match(html, /\.rq-chip:hover,\s*\.rq-chip:focus-visible/, 'research-topic chips need a hover/focus interaction');
 
-assert.doesNotMatch(html, /rotate:\[/, 'global slide recipes should avoid rotational flourish for a more linear motion language');
+assert.match(html, /--ease-entry-prod:\s*cubic-bezier\(/, 'productive entry motion must use a non-linear cubic-bezier curve');
+assert.match(html, /--ease-entry-exp:\s*cubic-bezier\(/, 'expressive entry motion must use a non-linear cubic-bezier curve');
+assert.match(html, /#deck\{[^}]*transition:transform\s+[^;]*cubic-bezier\(/, 'deck page turns must use a non-linear timing function');
+assert.match(html, /const EASE_PROD\s*=\s*\[[^\]]+\]/, 'Motion One productive easing must be an explicit non-linear curve');
+assert.match(html, /const EASE_ENTRY_EXP\s*=\s*\[[^\]]+\]/, 'Motion One entry easing must be an explicit non-linear curve');
+assert.doesNotMatch(html, /const EASE_LINEAR|EASE_PROD\s*=\s*EASE_LINEAR|EASE_ENTRY_EXP\s*=\s*EASE_LINEAR/, 'Motion One recipes must not alias to linear easing');
+assert.doesNotMatch(html, /transition:[^;\n]*\slinear\b/, 'UI transitions must not use linear timing');
+assert.doesNotMatch(html, /rotate:\[/, 'global slide recipes should avoid rotational flourish while using non-linear easing');
 
 console.log('PASS animation contract audit');
