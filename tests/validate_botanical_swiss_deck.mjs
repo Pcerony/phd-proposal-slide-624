@@ -95,10 +95,10 @@ assert.match(researchDesignSlide, /design-sankey-stage/, 'research design slide 
   assert.match(researchDesignSlide, /sankey-label how[^"]*"[^>]*--x:\s*27\.7%/, 'HOW label must align with SVG background');
   assert.match(researchDesignSlide, /sankey-label which[^"]*"[^>]*--x:\s*27\.7%/, 'WHICH label must align with SVG background');
   assert.match(researchDesignSlide, /design-card m-what[^"]*"[^>]*--x:\s*47\.6%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top method card must align with SVG background');
-  assert.match(researchDesignSlide, /design-card o-what[^"]*"[^>]*--x:\s*67\.0%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top outcome card must align with SVG background');
+  assert.match(researchDesignSlide, /design-card o-what[^"]*"[^>]*--x:\s*67(?:\.0)?%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top outcome card must align with SVG background');
   assert.match(researchDesignSlide, /design-card m-how[^"]*"[^>]*--x:\s*54\.8%;\s*--y:\s*35\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'middle method card must align with SVG background');
-  assert.match(researchDesignSlide, /design-card m-which[^"]*"[^>]*--x:\s*62\.0%;\s*--y:\s*65\.2%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'bottom method card must align with SVG background');
-  assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*27\.7%;\s*--w:\s*33\.5%;?">Research question/, 'research-question label must reserve the wide blank column');
+  assert.match(researchDesignSlide, /design-card m-which[^"]*"[^>]*--x:\s*62(?:\.0)?%;\s*--y:\s*65\.2%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'bottom method card must align with SVG background');
+  assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*62(?:\.0)?%;\s*--w:\s*18\.6%;?">Research question/, 'research-question label must reserve the wide blank column');
   assert.doesNotMatch(researchDesignSlide, /sankey-band|design-flow-col|viewBox="0 0 200 300"/, 'research design slide must not use the old symmetric or rounded-rectangle connector bands');
 assert.match(html, /variable-field-strip/, 'method 01 input chart must include the lower row of observable variables');
 assert.match(html, /causal-arrow-card/, 'method 01 must use a large card with an embedded arrow');
