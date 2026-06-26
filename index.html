@@ -1007,7 +1007,7 @@
   .logic-arrow-card .arrow-note {
     font-size: max(13px, 0.72vw);
     line-height: 1.2;
-    font-weight: 800;
+    font-weight: 500;
     color: inherit;
     margin-top: 1.5vh;
   }
@@ -1182,7 +1182,7 @@
   }
   .twist-arrow-stack .twist-action {
     font-size: max(12px, 0.68vw);
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.15;
     color: var(--ink);
     text-align: center;
@@ -2586,6 +2586,233 @@
       min-height:100dvh;
     }
   }
+
+  /* ============ Research Design Sankey Grid ============ */
+  .research-design-grid {
+    position: relative;
+    height: clamp(540px, 68vh, 760px);
+    margin-top: 3.2vh;
+  }
+  .research-strategy-subtitle {
+    position: absolute;
+    left: 27.7%;
+    top: -3.6vh;
+    font-family: var(--sans);
+    font-size: clamp(14px, 1.55vh, 19px);
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: .02em;
+    z-index: 5;
+  }
+  .research-strategy-subtitle span {
+    font-weight: 400;
+    color: var(--text-helper);
+    margin-left: 0.4vw;
+  }
+  .design-sankey-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .design-topic-card {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    height: var(--h);
+    background: var(--ink) !important;
+    color: var(--text-inverse-primary);
+    padding: clamp(18px, 2.2vh, 26px) clamp(16px, 1.3vw, 26px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: clamp(12px, 1.8vh, 24px);
+    z-index: 5;
+  }
+  .design-topic-card h3 {
+    font-size: clamp(16px, 1.85vh, 22px) !important;
+    font-weight: 500;
+    line-height: 1.35 !important;
+    margin: 0;
+    letter-spacing: 0;
+  }
+  .design-topic-card .bi {
+    margin-top: auto;
+    font-size: clamp(14px, 1.35vh, 18px) !important;
+    line-height: 1.35 !important;
+    color: var(--text-inverse-secondary);
+  }
+  .sankey-label {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    height: var(--h);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+    padding-right: clamp(14px, 1.8vw, 32px);
+    padding-bottom: clamp(10px, 1.4vh, 18px);
+  }
+  .sankey-label h3 {
+    font-size: clamp(20px, 2.8vh, 32px);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.1;
+    text-align: right;
+    align-self: flex-end;
+  }
+  .sankey-label.what h3 { color: var(--text-primary); }
+  .sankey-label.how h3 { color: var(--accent-on); }
+  .sankey-label.which h3 { color: var(--text-inverse-primary); }
+  .sankey-label.which h3,
+  .sankey-label.which .bi {
+    background: var(--ink);
+  }
+
+  .sankey-label .bi {
+    font-size: clamp(14px, 1.45vh, 18px);
+    line-height: 1.28;
+    margin-top: 0.6vh;
+    text-align: right;
+    align-self: flex-end;
+  }
+  .sankey-label.what .bi { color: var(--text-secondary); }
+  .sankey-label.how .bi { color: var(--accent-text); }
+  .sankey-label.which .bi { color: var(--text-inverse-secondary); }
+
+  .design-card {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    height: var(--h);
+    padding: clamp(10px, 1.4vh, 18px) clamp(8px, 0.6vw, 12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: .4vh;
+    z-index: 4;
+    overflow: hidden;
+  }
+  .design-card.grey { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-primary); }
+  .design-card.accent { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--accent-on); }
+  .design-card.ink { background: var(--ink) !important; border: none !important; box-shadow: none !important; color: var(--text-inverse-primary); }
+  .design-card h4 {
+    font-size: clamp(16px, 2.0vh, 22px) !important;
+    font-weight: 500;
+    line-height: 1.25 !important;
+    margin: 0;
+    letter-spacing: 0;
+  }
+  .design-card .bi {
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+  .design-card.m-which .bi, .design-card.o-which .bi {
+    color: var(--text-inverse-secondary) !important;
+  }
+  .design-axis-label {
+    position: absolute;
+    top: 93.5%;
+    left: var(--x);
+    width: var(--w);
+    font-family: var(--mono);
+    font-size: clamp(12px, 1.35vh, 16px);
+    line-height: 1.15;
+    color: var(--text-helper);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  @media (max-width:700px), (max-aspect-ratio:3/4){
+    .research-design-grid{
+      height: auto;
+      min-height: 0;
+      margin-top: 0;
+    }
+    .research-strategy-subtitle {
+      position: relative;
+      left: auto !important;
+      top: auto !important;
+      margin-bottom: 12px;
+      font-size: 16px !important;
+      padding: 0 22px;
+      order: 0;
+    }
+    .design-sankey-stage {
+      display: grid;
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto !important;
+      gap: 16px !important;
+      padding: 0 22px;
+      height: auto !important;
+      order: 1;
+    }
+    .design-topic-card {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 180px;
+      padding: 24px 20px !important;
+      order: 1;
+    }
+    .design-sankey-bg, .design-axis-label {
+      display: none !important;
+    }
+    .sankey-label {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      padding: 12px 20px !important;
+      border-left: 4px solid var(--border-color, var(--grey-3));
+      background: rgba(var(--paper-rgb), 0.5);
+    }
+    .sankey-label h3 {
+      text-align: left !important;
+      align-self: flex-start !important;
+    }
+    .sankey-label .bi {
+      text-align: left !important;
+      align-self: flex-start !important;
+    }
+    .sankey-label.what { border-left-color: var(--grey-3); order: 2; }
+    .sankey-label.how { border-left-color: var(--accent); order: 4; }
+    .sankey-label.which { border-left-color: var(--ink); order: 6; }
+
+    .design-card {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      padding: 18px 20px !important;
+      border-left: 4px solid var(--border-color, var(--grey-3));
+    }
+    .design-card.grey { background: var(--grey-1) !important; border-left-color: var(--grey-3) !important; }
+    .design-card.accent { background: var(--accent) !important; border-left-color: var(--accent-text) !important; }
+    .design-card.ink { background: var(--ink) !important; border-left-color: var(--accent) !important; }
+
+    .design-card.m-what { order: 3; }
+    .design-card.o-what { order: 3; }
+    .design-card.m-how { order: 5; }
+    .design-card.o-how { order: 5; }
+    .design-card.m-which { order: 7; }
+    .design-card.o-which { order: 7; }
+    .design-topic-card h3,
+    .sankey-label h3,
+    .design-card h4{font-size:28px!important;line-height:1.08!important;white-space:normal!important}
+  }
 </style>
 </head>
 <body class="canvas-mode">
@@ -2621,7 +2848,7 @@
 <section class="slide accent" data-layout="S01" data-animate="hero">
     <div class="canvas-card">
    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 17 · 2026</div></div>
+    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 16 · 2026</div></div>
     <div style="flex:1;display:flex;flex-direction:column;gap:8vh">
       <div style="display:flex;flex-direction:column;gap:0;position:relative">
         <div class="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
@@ -2650,7 +2877,7 @@
   <div class="canvas-card" style="padding:0;overflow:hidden">
     <div class="bg-only-layout">
       <div class="bg-hero-copy">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 17</div></div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 16</div></div>
         <div class="bg-hero-title-container" data-anim="title-container" style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:2vh;margin-bottom:2vh">
           <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:0;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
@@ -2691,7 +2918,7 @@
 
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 17</div></div>
+    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 16</div></div>
     <div class="s17-object-layout">
       <div class="s17-object-copy" data-anim="line">
         <div>
@@ -2726,7 +2953,7 @@
 
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 17</div></div>
+    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 16</div></div>
     <div class="three-forces prior-gap-interactive nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
@@ -2775,7 +3002,7 @@
 
 <section class="slide dark" data-layout="S08">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 17</div></div>
+    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 16</div></div>
     <div style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at single sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
     <div class="duo-compare nav-safe-bottom-tight" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
       <div class="col"><h3 class="col-ttl">Single sign<span class="bi">単一サイン内の知見</span></h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);border-top:2px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:1.2vw">
@@ -2789,7 +3016,7 @@
 
 <section class="slide light" data-layout="S22" data-animate="image-hero">
   <div class="canvas-card" style="display:grid;grid-template-rows:auto 30vh 1fr;gap:1.8vh;overflow:hidden">
-    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>06 / 17</div></div>
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>06 / 16</div></div>
     <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:30vh;max-height:none">
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
       <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
@@ -2822,7 +3049,7 @@
 
 <section class="slide light" data-layout="S09" data-animate="statement">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Question · 研究問題</div><div class="r" data-slide-page>07 / 17</div></div>
+    <div class="chrome-min"><div class="l">Research Question · 研究問題</div><div class="r" data-slide-page>07 / 16</div></div>
     <div style="position:absolute;right:5vw;top:15vh;width:36vw;height:50vh;color:var(--accent);opacity:.42" class="dots-bold" aria-hidden="true"></div>
     <div class="rq-layout">
       <div class="rq-stat-panel">
@@ -2847,79 +3074,92 @@
   </div>
 </section>
 
-<section class="slide dark" data-layout="S05" data-animate="stack-build">
+<section class="slide light" data-layout="S09" data-animate="stack-build">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Objectives · 研究目標</div><div class="r" data-slide-page>08 / 17</div></div>
-    <div style="display:flex;flex-direction:column;gap:1.2vh" data-anim="line"><h2 style="font-weight:200;font-size:min(5.25vw,9.2vh);line-height:.96;letter-spacing:-.04em">Three actions guide the research.</h2><span class="jp inverse" lang="ja">本研究を導く三つの研究行為。</span></div>
-    <div class="stack-row" style="margin-top:5vh">
-      <div class="stack-block b-paper"><div class="layer-nb">01 · IDENTIFY</div><i data-lucide="search-check" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Identify variables<span class="bi">設計変数を特定する</span></h3><p class="layer-desc">Find which signage-system factors may affect cognitive load and information retention.<span class="bi">解説サインシステムのどの要因が認知負荷と情報保持に関わるかを把握する。</span></p><div class="layer-tag">WHAT</div></div>
-      <div class="stack-block b-paper" style="background:rgb(197,232,3)"><div class="layer-nb">02 · TRANSLATE</div><i data-lucide="messages-square" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl">Translate into hypotheses<span class="bi">仮説へ翻訳する</span></h3><p class="layer-desc">Use co-creation to turn cognitive findings into design-principle hypotheses.<span class="bi">共創を通じて、認知的知見を設計原則の仮説へ変換する。</span></p><div class="layer-tag">HOW</div></div>
-      <div class="stack-block b-accent" style="background:#212121;color:#fff;border-color:rgb(197,232,3);border-top:2px solid rgb(197,232,3);margin-top:2px"><div class="layer-nb" style="color:rgba(255,255,255,.65)">03 · VALIDATE</div><i data-lucide="flask-conical" class="lucide" aria-hidden="true"></i><h3 class="layer-ttl" style="color:#fff">Validate effects<span class="bi" style="color:rgba(255,255,255,.7)">効果を検証する</span></h3><p class="layer-desc" style="color:rgba(255,255,255,.75)">Test whether those hypotheses reduce load and improve retention in the greenhouse route.<span class="bi" style="color:rgba(255,255,255,.7)">温室経路で、認知負荷の低減と情報保持の向上を検証する。</span></p><div class="layer-tag" style="color:rgb(197,232,3);border-color:rgb(197,232,3)">WHICH</div></div>
+    <div class="chrome-min">
+      <div class="l">Research Design · 研究設計</div>
+      <div class="r" data-slide-page>08 / 16</div>
+    </div>
+
+    <div class="research-design-grid">
+      <div class="research-strategy-subtitle">
+        Research Strategy: Co-creative Research <span>· 研究戦略：共創研究</span>
+      </div>
+      <div class="design-sankey-stage" aria-label="Research design process from topic to validated outcomes">
+        <!-- SVG background image -->
+        <img class="design-sankey-bg" src="images/research_design_bg.svg" alt="" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none; z-index:1;" />
+
+        <div class="design-axis-label" style="--x: 0%; --w: 15.7%; top: 17.0%; text-align: left;">Research Topic <br/>研究主題</div>
+
+        <div class="design-topic-card" style="--x: 0%; --y: 23.4%; --w: 15.7%; --h: 76.6%;">
+          <i data-lucide="sprout" style="width:28px;height:28px;stroke-width:2;color:var(--accent)"></i>
+          <h3>Design of interpretive signage systems for reduced cognitive load and improved memory retention.</h3>
+          <span class="bi">認知負荷を低減し、記憶保持を向上させる解説サインシステムの設計。</span>
+        </div>
+
+        <div class="sankey-label what" style="--x: 27.7%; --y: 5.4%; --w: 19.0%; --h: 25.7%;">
+          <h3>WHAT should <br/>be designed</h3>
+          <span class="bi">Identify &amp; explore <br/>key design variables.<br/>設計変数の特定と探索</span>
+        </div>
+        <div class="sankey-label how" style="--x: 27.7%; --y: 35.4%; --w: 26.2%; --h: 25.7%;">
+          <h3>HOW should <br/>we design</h3>
+          <span class="bi">Formulate design principles <br/>through co-design.<br/>設計原則の仮説立案と協同</span>
+        </div>
+        <div class="sankey-label which" style="--x: 27.7%; --y: 65.2%; --w: 33.5%; --h: 25.7%;">
+          <h3>WHICH principle <br/>is the best</h3>
+          <span class="bi">Validate design effects <br/>through field experiments.<br/>設計効果の検証と実地評価</span>
+        </div>
+
+        <div class="design-card m-what grey" style="--x: 47.6%; --y: 5.4%; --w: 18.6%; --h: 25.7%;">
+          <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
+            <i data-lucide="users" style="width:16px;height:16px;stroke-width:2;color:var(--text-secondary)"></i>
+            <i data-lucide="graduation-cap" style="width:16px;height:16px;stroke-width:2;color:var(--text-secondary)"></i>
+          </div>
+          <h4>Literature review &amp;<br/>interviews</h4>
+          <span class="bi">文献調査および関係者面談</span>
+        </div>
+        <div class="design-card o-what grey" style="--x: 67.0%; --y: 5.4%; --w: 18.6%; --h: 25.7%;">
+          <i data-lucide="network" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--text-secondary)"></i>
+          <h4>Causal Mechanism<br/>Model</h4>
+          <span class="bi">因果メカニズムモデルの構築</span>
+        </div>
+        <div class="design-card m-how accent" style="--x: 54.8%; --y: 35.4%; --w: 18.6%; --h: 25.7%;">
+          <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
+            <i data-lucide="graduation-cap" style="width:16px;height:16px;stroke-width:2;color:var(--accent-text)"></i>
+            <i data-lucide="palette" style="width:16px;height:16px;stroke-width:2;color:var(--accent-text)"></i>
+          </div>
+          <h4>Co-design<br/>workshop</h4>
+          <span class="bi">共同デザインワークショップ</span>
+        </div>
+        <div class="design-card o-how accent" style="--x: 74.2%; --y: 35.4%; --w: 18.6%; --h: 25.7%;">
+          <i data-lucide="wrench" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent-text)"></i>
+          <h4>Design-principle<br/>hypotheses</h4>
+          <span class="bi">設計原則に関する仮説群</span>
+        </div>
+        <div class="design-card m-which ink" style="--x: 62.0%; --y: 65.2%; --w: 18.6%; --h: 25.7%;">
+          <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
+            <i data-lucide="users" style="width:16px;height:16px;stroke-width:2;color:var(--text-inverse-secondary)"></i>
+            <i data-lucide="leaf" style="width:16px;height:16px;stroke-width:2;color:var(--text-inverse-secondary)"></i>
+          </div>
+          <h4>Controlled field<br/>experiment</h4>
+          <span class="bi">統制されたフィールド実験</span>
+        </div>
+        <div class="design-card o-which ink" style="--x: 81.4%; --y: 65.2%; --w: 18.6%; --h: 25.7%;">
+          <i data-lucide="badge-check" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent)"></i>
+          <h4>Memory-oriented<br/>signage principles</h4>
+          <span class="bi">記憶保持を重視した設計原則</span>
+        </div>
+
+        <div class="design-axis-label" style="--x: 27.7%; --w: 33.5%;">Research question <br/>研究課題</div>
+        <div class="design-axis-label" style="--x: 62.0%; --w: 18.6%;">Method <br/>研究方法</div>
+        <div class="design-axis-label" style="--x: 81.4%; --w: 18.6%;">Outcome <br/>研究成果</div>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="slide light" data-layout="S11" data-animate="timeline-walk">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method Overview · 研究方法総覧</div><div class="r" data-slide-page>09 / 17</div></div>
-   <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
-      <h2 style="font-weight:200;font-size:min(4.85vw,8.5vh);line-height:.95;letter-spacing:-.04em;margin:0">W-H-W 3step</h2>
-      <span class="jp" lang="ja">研究方法は What / How / Which の順で進む。</span>
-    </div>
-    <div class="method-overview-grid" data-anim="up">
-      <article class="method-overview-node phase-what">
-        <div>
-          <div class="big">WHAT</div>
-          <h3>Exploratory Modeling</h3>
-          <p>Map the candidate variables before designing an intervention.<span class="bi">介入設計の前に候補変数を整理する。</span></p>
-        </div>
-        <div>
-          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
-          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw)">Year 1, Sem 1<span class="bi">1年目前期</span></strong>
-          <div class="t-meta">DECISION</div>
-          <strong>What to measure</strong>
-        </div>
-      </article>
-      <article class="method-overview-node phase-how">
-        <div>
-          <div class="big">HOW</div>
-          <h3>Co-Creative Translation</h3>
-          <p>Convert the findings into shared design language.<span class="bi">知見を共有可能な設計言語へ変換する。</span></p>
-        </div>
-        <div>
-          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
-          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw);color:var(--accent-on)">Year 1, Sem 2<span class="bi" style="color:#253000">1年目後期</span></strong>
-          <div class="t-meta">DECISION</div>
-          <strong>How to prototype</strong>
-        </div>
-      </article>
-      <article class="method-overview-node phase-which">
-        <div>
-          <div class="big">WHICH</div>
-          <h3>Empirical Validation</h3>
-          <p>Compare conditions on the real greenhouse route.<span class="bi">実際の温室経路で条件を比較する。</span></p>
-        </div>
-        <div>
-          <div class="t-meta" style="margin-bottom:0.4vh">TIMELINE</div>
-          <strong style="display:block;margin-bottom:1.5vh;font-family:var(--mono);font-size:max(14px,.8vw)">Year 2–3+<span class="bi" style="color:var(--text-inverse-secondary)">2〜3年目以降</span></strong>
-          <div class="t-meta">DECISION</div>
-          <strong>Which to keep</strong>
-        </div>
-      </article>
-    </div>
-    <div class="method-output-row nav-safe-bottom-tight" data-anim="up">
-      <div class="method-output-pill" style="background:rgb(240,240,238);border-top:none">Select variables<span class="bi">変数選定</span></div>
-      <div class="handoff-arrow">→</div>
-      <div class="method-output-pill" style="background:rgb(197,232,3);border-top:none">Translate hypotheses<span class="bi">仮説化</span></div>
-      <div class="handoff-arrow">→</div>
-      <div class="method-output-pill accent" style="background:rgb(10,10,10);border-top:none;color:#fff">Validate effects<span class="bi" style="color:rgba(255,255,255,0.7)">効果検証</span></div>
-    </div>
-  </div>
-</section>
-
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-     <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>10 / 17</div></div>
+     <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>09 / 16</div></div>
      <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHAT</h2>
        <p class="block-logic-note">What variables matter?<span class="bi">どの設計変数が認知負荷と情報保持に影響するのか。</span></p>
@@ -2975,7 +3215,7 @@
 
 <section class="slide light" data-layout="S16" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>11 / 17</div></div>
+    <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>10 / 16</div></div>
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
       <div class="t-cat accent">WHAT · PHASE 1</div>
       <h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:1.05;letter-spacing:-.04em;margin:0">WHAT</h2>
@@ -3013,7 +3253,7 @@
 
 <section class="slide accent" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>12 / 17</div></div>
+    <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>11 / 16</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">HOW</h2>
       <p class="block-logic-note">How does the model become usable?<span class="bi">認知モデルを、使える設計原則へどう変換するのか。</span></p>
@@ -3096,7 +3336,7 @@
 
 <section class="slide accent" data-layout="S14" data-animate="loop-form">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>13 / 17</div></div>
+    <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>12 / 16</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">HOW · PHASE 2</div><h2>HOW</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">認知モデルを、使える設計原則へどう変換するのか。</span></div>
       <p>Expert review, staff/design workshops, and prototypes translate the model into shared design language.<span class="bi">専門家レビュー、現場・デザインのワークショップ、試作により、モデルを共有可能な設計言語へ変換する。</span></p>
@@ -3138,7 +3378,7 @@
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>14 / 17</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>13 / 16</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHICH</h2>
       <p class="block-logic-note">Which principles really work?<span class="bi">どの設計原則が実際に有効なのか。</span></p>
@@ -3212,7 +3452,7 @@
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>15 / 17</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>14 / 16</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>WHICH</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">どの設計原則が実際に有効なのか。</span></div>
       <p>Controlled field experiments on the real greenhouse route measure actual cognitive load and memory retention.<span class="bi">温室での実地対照実験により、実際の認知負荷と記憶保持率を測定する。</span></p>
@@ -3255,7 +3495,7 @@
 
 <section class="slide dark" data-layout="S13">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>16 / 17</div></div>
+    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>15 / 16</div></div>
     <div class="t-cat accent" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
     <div class="value-layout nav-safe-bottom-tight">
       <div class="value-outputs">
@@ -3288,7 +3528,7 @@
             <span>Master's slide site</span>
             <i data-lucide="arrow-up-right"></i>
           </a>
-          <span data-slide-page>17 / 17</span>
+          <span data-slide-page>16 / 16</span>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1;max-width:48vw">
@@ -3659,6 +3899,9 @@ function go(n){
   if(lock)return;
   idx=Math.max(0,Math.min(total-1,n));
   window.__currentSlideIndex = idx;
+  try {
+    localStorage.setItem('guizang-ppt-current-slide', idx);
+  } catch (e) {}
   deck.style.transform=`translateX(${-idx*100}vw)`;
   renderNav();
   if(pageIndicator) pageIndicator.textContent = formatPage(idx);
@@ -3824,7 +4067,20 @@ addEventListener('touchend',e=>{
 },{passive:true});
 
 const initialSlideParam = new URLSearchParams(location.search).get('slide');
-const initialSlide = initialSlideParam ? Number(initialSlideParam) - 1 : 0;
+let initialSlide = 0;
+if (initialSlideParam) {
+  initialSlide = Number(initialSlideParam) - 1;
+} else {
+  try {
+    const saved = localStorage.getItem('guizang-ppt-current-slide');
+    if (saved !== null) {
+      const parsed = parseInt(saved, 10);
+      if (Number.isInteger(parsed) && parsed >= 0 && parsed < total) {
+        initialSlide = parsed;
+      }
+    }
+  } catch (e) {}
+}
 go(Number.isFinite(initialSlide) ? initialSlide : 0);
 </script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>

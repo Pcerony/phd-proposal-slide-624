@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
 const target = path.join(root, 'index.html');
@@ -8,6 +9,15 @@ const target = path.join(root, 'index.html');
 assert.ok(fs.existsSync(target), `missing ${path.basename(target)}`);
 
 const html = fs.readFileSync(target, 'utf8');
+const assertGitTracked = (relativePath) => {
+  assert.doesNotThrow(
+    () => execFileSync('git', ['ls-files', '--error-unmatch', relativePath], {
+      cwd: root,
+      stdio: 'ignore',
+    }),
+    `${relativePath} must be tracked so slide assets are not lost on publish`,
+  );
+};
 const slides = [...html.matchAll(/<section\s+class="slide[^"]*"[^>]*data-layout="(S\d{2})"/g)];
 const slideClassFor = (label) => {
   const labelIndex = html.indexOf(label);
@@ -28,12 +38,12 @@ const slideSectionFor = (label) => {
   return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
 };
 
-assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight registered slides');
+assert.equal(slides.length, 27, 'deck must contain exactly twenty-seven registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
-    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S05',
-    'S11', 'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10', 'S15',
+    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S09',
+    'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
   'registered layouts must match the approved narrative map',
@@ -70,14 +80,31 @@ assert.match(html, /gap-module/, 'prior research slide must expose a dedicated G
 assert.match(html, /gap-expanded/, 'prior research slide must include the expanded GAP state');
 assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(gapStep===0\)/, 'space key must trigger the GAP expansion step');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
-assert.match(html, /method-overview-node phase-what/, 'method overview WHAT card must use grey phase styling');
-assert.match(html, /method-overview-node phase-how/, 'method overview HOW card must use lemon-green phase styling');
-assert.match(html, /method-overview-node phase-which/, 'method overview WHICH card must use black phase styling');
+assert.match(html, /design-card m-what/, 'method overview WHAT card must use grey phase styling');
+assert.match(html, /design-card m-how/, 'method overview HOW card must use lemon-green phase styling');
+assert.match(html, /design-card m-which/, 'method overview WHICH card must use black phase styling');
+const researchDesignSlide = slideSectionFor('Research Design · 研究設計');
+assert.match(researchDesignSlide, /design-sankey-stage/, 'research design slide must use the rebuilt stepped Sankey stage');
+  assert.match(researchDesignSlide, /design-sankey-bg[\s\S]*?src="images\/research_design_bg\.svg"/, 'research design slide must render the background SVG image');
+  assert.ok(fs.existsSync(path.join(root, 'images/research_design_bg.svg')), 'research design SVG asset must exist locally');
+  assertGitTracked('images/research_design_bg.svg');
+  assert.match(researchDesignSlide, /sankey-label what/, 'WHAT label must be positioned independently');
+  assert.match(researchDesignSlide, /sankey-label how/, 'HOW label must be positioned independently');
+  assert.match(researchDesignSlide, /sankey-label which/, 'WHICH label must be positioned independently');
+  assert.match(researchDesignSlide, /sankey-label what[^"]*"[^>]*--x:\s*27\.7%/, 'WHAT label must align with SVG background');
+  assert.match(researchDesignSlide, /sankey-label how[^"]*"[^>]*--x:\s*27\.7%/, 'HOW label must align with SVG background');
+  assert.match(researchDesignSlide, /sankey-label which[^"]*"[^>]*--x:\s*27\.7%/, 'WHICH label must align with SVG background');
+  assert.match(researchDesignSlide, /design-card m-what[^"]*"[^>]*--x:\s*47\.6%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top method card must align with SVG background');
+  assert.match(researchDesignSlide, /design-card o-what[^"]*"[^>]*--x:\s*67\.0%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top outcome card must align with SVG background');
+  assert.match(researchDesignSlide, /design-card m-how[^"]*"[^>]*--x:\s*54\.8%;\s*--y:\s*35\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'middle method card must align with SVG background');
+  assert.match(researchDesignSlide, /design-card m-which[^"]*"[^>]*--x:\s*62\.0%;\s*--y:\s*65\.2%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'bottom method card must align with SVG background');
+  assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*27\.7%;\s*--w:\s*33\.5%;?">Research question/, 'research-question label must reserve the wide blank column');
+  assert.doesNotMatch(researchDesignSlide, /sankey-band|design-flow-col|viewBox="0 0 200 300"/, 'research design slide must not use the old symmetric or rounded-rectangle connector bands');
 assert.match(html, /variable-field-strip/, 'method 01 input chart must include the lower row of observable variables');
 assert.match(html, /causal-arrow-card/, 'method 01 must use a large card with an embedded arrow');
 assert.match(html, /y = n1\(x\)/, 'method 01 must include the first causal formula');
 assert.match(html, /Σy = N\(x\)/, 'method 01 must integrate formulas into the model equation');
-assert.match(html, /CAUSAL<br\/>MECHANISM<br\/>MODEL/, 'method 01 must foreground the causal mechanism model output');
+assert.match(html, /Causal Mechanism<br\/>Model/, 'method 01 must foreground the causal mechanism model output');
 assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
 assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">What variables matter\?/, 'method 01 logic body must reuse the detail-page question title');
 assert.match(html, /<div class="t-cat accent">WHAT · PHASE 1<\/div>\s*<h2[^>]*>WHAT<\/h2>/, 'method 01 detail heading must be WHAT');
