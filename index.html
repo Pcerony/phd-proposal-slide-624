@@ -536,8 +536,23 @@
   .frame-img.h-26{height:26vh}
   .frame-img.h-28{height:28vh}
   .frame-img.h-32{height:32vh}
-  .frame-img.swiss-lined{border-top:2px solid var(--accent)}
   .frame-img.swiss-keyline{border:0}
+  .photo-screen-filter{position:absolute;inset:0;background:var(--accent);opacity:.22;mix-blend-mode:screen;pointer-events:none;z-index:2}
+  .photo-hud{position:absolute;z-index:4;color:var(--accent);filter:drop-shadow(0 2px 7px rgba(0,0,0,.35));pointer-events:none}
+  .photo-hud.small{left:1.5vw;top:2.5vh}
+  .photo-hud.large{left:2.5vw;top:4.2vh}
+  .photo-hud.small i{width:36px;height:36px;stroke-width:2.2}
+  .photo-hud.large i{width:48px;height:48px;stroke-width:2.2}
+  .photo-vertical-label{
+    position:absolute;right:0;top:0;bottom:0;z-index:4;
+    display:flex;align-items:center;justify-content:center;
+    writing-mode:vertical-rl;text-orientation:mixed;
+    background:var(--accent);color:var(--accent-on);
+    font-family:var(--mono);font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    padding:.9vh .34vw;line-height:1.05;pointer-events:none
+  }
+  .s17-photo .photo-vertical-label{font-size:max(10px,.52vw)}
+  .frame-img .photo-vertical-label{font-size:max(11px,.58vw)}
 
   /* P22 Image Hero: 下半屏内容区必须和图片拉开距离,不要贴在图下沿 */
   .image-hero-body{
@@ -1231,7 +1246,7 @@
   .hypothesis-block .bi,.principle-output .bi{font-size:max(14px,.76vw);line-height:1.2;margin-top:.3vh}
   .hypothesis-block .bi{color:var(--text-inverse-secondary)}
   .principle-output-list{display:grid;grid-template-rows:repeat(2,1fr);gap:1vh;flex:1;min-height:0}
-  .principle-output{background:rgba(255,255,255,.45);border-top:3px solid var(--ink);display:grid;grid-template-columns:auto 1fr;gap:1vw;align-items:center;padding:1.4vh 1.05vw;min-height:0}
+  .principle-output{background:rgba(255,255,255,.45);display:grid;grid-template-columns:auto 1fr;gap:1vw;align-items:center;padding:1.4vh 1.05vw;min-height:0}
   .principle-output .bi{color:#253000}
   .block-funnel-horizontal{display:grid;grid-template-columns:2.15fr 1.55fr 1.05fr;gap:.42vw;align-items:center;height:33vh;margin:auto 0}
   .validation-flow .block-funnel-horizontal{height:31vh;grid-template-columns:1.55fr 1.22fr 1fr;gap:.5vw}
@@ -1250,7 +1265,7 @@
   .method03-panel.accent .block-panel-head{border-bottom-color:rgba(10,10,10,.28)}
   .method03-panel .block-panel-head h3{text-align:left;font-family:var(--mono);font-size:max(15px,.84vw);font-weight:800;letter-spacing:.14em;text-transform:uppercase}
   .method03-hypotheses{gap:0}
-  .method03-hypothesis{border-top:1px solid rgba(197,232,3,.72);background:#242424;padding:1.15vh .95vw;grid-template-columns:minmax(38px,.42fr) 1fr;gap:1vw}
+  .method03-hypothesis{background:#242424;padding:1.15vh .95vw;grid-template-columns:minmax(38px,.42fr) 1fr;gap:1vw}
   .method03-hypothesis .num{font-size:max(20px,1.22vw);color:var(--accent);align-self:center}
   .method03-hypothesis h4{font-size:max(15px,.88vw);line-height:1.04}
   .method03-hypothesis .bi{font-size:max(13px,.72vw)}
@@ -1264,11 +1279,11 @@
   .method03-filter-caption{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.6vw;font-family:var(--mono);font-size:max(11px,.62vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-inverse-secondary)}
   .method03-filter-caption span:nth-child(2){width:28px;height:2px;background:var(--accent);display:block}
   .method03-output-list{display:grid;grid-template-rows:repeat(2,1fr);gap:1.2vh;flex:1;min-height:0}
-  .method03-output{background:rgba(255,255,255,.55);border-top:3px solid var(--ink);display:grid;grid-template-columns:minmax(44px,.48fr) 1fr;gap:1.1vw;align-items:center;padding:1.55vh 1.2vw;min-height:0}
+  .method03-output{background:rgba(255,255,255,.55);display:grid;grid-template-columns:minmax(44px,.48fr) 1fr;gap:1.1vw;align-items:center;padding:1.55vh 1.2vw;min-height:0}
   .method03-output .num{font-family:var(--mono);font-size:max(26px,1.8vw);font-weight:500;line-height:1;color:var(--ink)}
   .method03-output h4{font-size:max(20px,1.25vw);font-weight:750;line-height:1.03;margin:0;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
   .method03-output .bi{font-size:max(15px,.82vw);line-height:1.25;margin-top:.6vh;color:#253000}
-  .method03-output-note{font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#253000;padding-top:.8vh;border-top:1px solid rgba(10,10,10,.3)}
+  .method03-output-note{font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#253000;padding-top:.8vh}
   .slide.accent .block-logic-note{color:rgba(10,10,10,.86)}
   .slide.accent .block-arrow-card:not(.ink){background:var(--paper);color:var(--ink)}
   .slide.dark .block-logic-word{color:var(--text-inverse-primary)}
@@ -1289,7 +1304,7 @@
   .slide.dark .block-panel.accent .bi,
   .slide.dark .principle-output .bi{color:#253000}
   .slide.dark .phase-header p{color:var(--text-inverse-secondary)}
-  .slide.dark .phase-mini{background:#1f1f1f;color:var(--text-inverse-primary);border-top:3px solid var(--accent);border-bottom:1px solid rgba(255,255,255,.18)}
+  .slide.dark .phase-mini{background:#1f1f1f;color:var(--text-inverse-primary);border-bottom:1px solid rgba(255,255,255,.18)}
   .slide.dark .phase-mini h3,.slide.dark .phase-icon-row span{color:var(--text-inverse-primary)}
   .slide.dark .phase-mini i,.slide.dark .phase-icon-row i{color:var(--accent)}
   .slide.dark .phase-main.validation{background:var(--accent);color:var(--accent-on)}
@@ -1394,8 +1409,7 @@
 
   /* ============ Current deck refinement components ============ */
   .route-system-grid{display:grid;grid-template-columns:5fr 7fr;gap:3vw;align-items:stretch;min-height:0}
-  .route-map-panel,.fatigue-panel{border-top:2px solid var(--ink);padding-top:1.5vh;min-height:32vh}
-  .route-map-panel{border-top-color:var(--accent)}
+  .route-map-panel,.fatigue-panel{padding-top:1.5vh;min-height:32vh}
   .route-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.75vw;align-items:end;margin-top:1.5vh}
   .route-sign{display:flex;flex-direction:column;gap:.8vh;align-items:center;min-height:34vh;text-align:center;box-sizing:border-box}
   .route-sign:nth-child(odd){padding-top:3.5vh}
@@ -1403,12 +1417,12 @@
   .route-axis{height:2px;background:var(--ink);margin:-15.5vh 0 0;position:relative}
   .route-axis:after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent}
   .fatigue-steps{display:flex;gap:.8vw;margin-top:1.25vh}
-  .fatigue-step{flex:1 1 0;min-width:0;background:var(--fill);border-top:2px solid var(--ink);padding:1vh .75vw;display:flex;flex-direction:column;gap:.5vh}
+  .fatigue-step{flex:1 1 0;min-width:0;background:var(--fill);padding:1vh .75vw;display:flex;flex-direction:column;gap:.5vh}
   .fatigue-step i{width:26px;height:26px;stroke-width:1.7;color:var(--accent-text)}
   .fatigue-step h3{font-size:max(17px,1vw);font-weight:600;line-height:1.12;margin:0}
   .fatigue-step p{font-size:max(14px,.78vw);line-height:1.26;color:var(--text-secondary);font-weight:500;margin:0}
   .rq-layout{display:grid;grid-template-columns:5.8fr 6.2fr;gap:3.2vw;align-items:center;flex:1;min-height:0}
-  .rq-stat-panel{border-top:3px solid var(--accent);padding-top:2vh;display:grid;grid-template-columns:auto 1fr;gap:2.5vw;align-items:center;min-width:0}
+  .rq-stat-panel{padding-top:2vh;display:grid;grid-template-columns:auto 1fr;gap:2.5vw;align-items:center;min-width:0}
   .forgetting-chart-img{width:auto;max-width:100%;height:37vh;object-fit:contain;object-position:left;background:var(--fill);display:block;margin:0;min-width:0}
   .rq-stat-copy{display:flex;flex-direction:column;justify-content:center;min-height:37vh;min-width:0}
   .rq-stat-panel .mega{font-size:min(7.8vw,17vh);font-weight:200;line-height:.82;letter-spacing:-.075em}
@@ -1416,7 +1430,6 @@
     background: var(--ink);
     color: var(--text-inverse-primary);
     padding: 4.5vh 3vw;
-    border-top: 4px solid var(--accent);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -2239,11 +2252,30 @@
   }
   .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-en{
     font-size:max(24px,1.74vw)!important;line-height:1.12!important;letter-spacing:.08em;
-    max-width:none;white-space:normal
+    max-width:78%;white-space:normal
   }
   .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-jp{
     font-size:max(18px,1.08vw)!important;line-height:1.25!important;letter-spacing:.06em;
-    max-width:none;white-space:normal
+    max-width:78%;white-space:normal
+  }
+  .gap-module {
+    position: relative;
+  }
+  .gap-module .gap-icon {
+    position: absolute;
+    right: 4.5vw;
+    top: 50%;
+    transform: translateY(-50%) scale(0.68);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0,0,.3,1), transform 0.5s cubic-bezier(0,0,.3,1);
+    color: var(--ink) !important;
+    height: var(--h, 13.5vh) !important;
+  }
+  .three-forces.prior-gap-interactive.gap-expanded .gap-module .gap-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+    pointer-events: auto;
   }
   .three-forces.prior-gap-interactive.gap-expanded .force-stack{
     gap:.65vh;opacity:.78
@@ -2584,6 +2616,9 @@
     .slide[data-layout="S10"] .half.b-accent{
       padding:var(--deck-pad-top) var(--deck-pad-x) var(--deck-pad-bottom)!important;
       min-height:100dvh;
+    }
+    .gap-module .gap-icon {
+      display: none !important;
     }
   }
 
@@ -2935,15 +2970,19 @@
         <div class="s17-photo-grid" aria-label="Interpretive signage system photos">
          <figure class="s17-photo main">
             <img data-image-slot="s16-brief-21x9" src="images/01.JPG" alt="Signage system at botanical garden" loading="eager">
-            <figcaption class="t-meta">JAPANESE PLANT LABEL · 日本語植物名ラベル</figcaption>
+            <div class="photo-screen-filter"></div>
+            <div class="photo-hud small"><i data-lucide="signpost"></i></div>
+            <div class="photo-vertical-label">PLANT LABEL</div>
           </figure>
          <figure class="s17-photo detail-a">
             <img data-image-slot="s16-brief-21x9" src="images/02.JPG" alt="Signage system at botanical garden" loading="eager">
-           <figcaption class="t-meta">IN-SITU LABEL · 植栽内のラベル</figcaption>
+           <div class="photo-screen-filter"></div>
+           <div class="photo-vertical-label">IN-SITU LABEL</div>
          </figure>
          <figure class="s17-photo detail-b">
             <img data-image-slot="s16-brief-21x9" src="images/03.JPG" alt="Signage system at botanical garden" loading="eager">
-           <figcaption class="t-meta">GARDEN INFORMATION BOARD · 園内案内板</figcaption>
+           <div class="photo-screen-filter"></div>
+           <div class="photo-vertical-label">GARDEN INFORMATION BOARD</div>
          </figure>
         </div>
       </div>
@@ -2966,6 +3005,11 @@
         <div class="t-meta gap-label" style="color:rgba(10,10,10,.65);margin-bottom:.8vh">GAP</div>
         <div class="t-meta gap-en" style="color:rgba(10,10,10,.85)">→ Each model studies a single sign in isolation.</div>
         <div class="t-meta gap-jp" style="color:rgba(10,10,10,.7);margin-top:.6vh">→ 単一サインを対象に研究が止まっている。</div>
+        <div class="gap-icon sign-icon" style="--h:13.5vh; --w:5vw; --bh:4.8vh; --ph:4.8vh;">
+          <span class="sign-board"></span>
+          <span class="sign-post"></span>
+          <span class="sign-base"></span>
+        </div>
       </div>
       <div class="force-stack" style="display:grid;grid-template-rows:repeat(3,1fr);gap:1.2vh">
         <article class="card-fill force-card" data-anim="up">
@@ -3019,7 +3063,9 @@
     <div class="chrome-min" style="margin-bottom:0"><div class="l">Signage Environment · 解説環境</div><div class="r" data-slide-page>06 / 16</div></div>
     <figure class="frame-img r-21x9 swiss-lined" data-anim="img" style="height:30vh;max-height:none">
       <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
-      <figcaption class="source-caption">Wikimedia Commons · Tsukuba Botanical Garden</figcaption>
+      <div class="photo-screen-filter"></div>
+      <div class="photo-hud large"><i data-lucide="signpost"></i></div>
+      <div class="photo-vertical-label">TSUKUBA BOTANICAL GARDEN</div>
     </figure>
     <div data-anim="kpi" class="route-system-grid nav-safe-bottom-tight">
       <div class="route-map-panel">
@@ -3089,28 +3135,28 @@
         <!-- SVG background image -->
         <img class="design-sankey-bg" src="images/research_design_bg.svg" alt="" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none; z-index:1;" />
 
-        <div class="design-axis-label" style="--x: 0%; --w: 15.7%; top: 17.0%; text-align: left;">Research Topic <br/>研究主題</div>
+        <div class="design-axis-label" style="--x: 0%; --w: 15.7%; top: 17%; text-align: left">Research Topic <br/>研究主題</div>
 
-        <div class="design-topic-card" style="--x: 0%; --y: 23.4%; --w: 15.7%; --h: 76.6%;">
+        <div class="design-topic-card" style="--x: 0%; --y: 23.4%; --w: 15.7%; --h: 76.6%">
           <i data-lucide="sprout" style="width:28px;height:28px;stroke-width:2;color:var(--accent)"></i>
           <h3>Design of interpretive signage systems for reduced cognitive load and improved memory retention.</h3>
-          <span class="bi">認知負荷を低減し、記憶保持を向上させる解説サインシステムの設計。</span>
+          <span class="bi">認知負荷を下げ、情報保持率を高める解説サインシステムの設計。</span>
         </div>
 
-        <div class="sankey-label what" style="--x: 27.7%; --y: 5.4%; --w: 19.0%; --h: 25.7%;">
+        <div class="sankey-label what" style="--x: 27.7%; --y: 5.4%; --w: 19%; --h: 25.7%">
           <h3>WHAT should <br/>be designed</h3>
           <span class="bi">Identify &amp; explore <br/>key design variables.<br/>設計変数の特定と探索</span>
         </div>
-        <div class="sankey-label how" style="--x: 27.7%; --y: 35.4%; --w: 26.2%; --h: 25.7%;">
+        <div class="sankey-label how" style="--x: 27.7%; --y: 35.4%; --w: 26.2%; --h: 25.7%">
           <h3>HOW should <br/>we design</h3>
           <span class="bi">Formulate design principles <br/>through co-design.<br/>設計原則の仮説立案と協同</span>
         </div>
-        <div class="sankey-label which" style="--x: 27.7%; --y: 65.2%; --w: 33.5%; --h: 25.7%;">
+        <div class="sankey-label which" style="--x: 27.7%; --y: 65.2%; --w: 33.5%; --h: 25.7%">
           <h3>WHICH principle <br/>is the best</h3>
           <span class="bi">Validate design effects <br/>through field experiments.<br/>設計効果の検証と実地評価</span>
         </div>
 
-        <div class="design-card m-what grey" style="--x: 47.6%; --y: 5.4%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card m-what grey" style="--x: 47.6%; --y: 5.4%; --w: 18.6%; --h: 25.7%">
           <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
             <i data-lucide="users" style="width:16px;height:16px;stroke-width:2;color:var(--text-secondary)"></i>
             <i data-lucide="graduation-cap" style="width:16px;height:16px;stroke-width:2;color:var(--text-secondary)"></i>
@@ -3118,12 +3164,12 @@
           <h4>Literature review &amp;<br/>interviews</h4>
           <span class="bi">文献調査および関係者面談</span>
         </div>
-        <div class="design-card o-what grey" style="--x: 67.0%; --y: 5.4%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card o-what grey" style="--x: 67%; --y: 5.4%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="network" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--text-secondary)"></i>
           <h4>Causal Mechanism<br/>Model</h4>
           <span class="bi">因果メカニズムモデルの構築</span>
         </div>
-        <div class="design-card m-how accent" style="--x: 54.8%; --y: 35.4%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card m-how accent" style="--x: 54.8%; --y: 35.4%; --w: 18.6%; --h: 25.7%">
           <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
             <i data-lucide="graduation-cap" style="width:16px;height:16px;stroke-width:2;color:var(--accent-text)"></i>
             <i data-lucide="palette" style="width:16px;height:16px;stroke-width:2;color:var(--accent-text)"></i>
@@ -3131,12 +3177,12 @@
           <h4>Co-design<br/>workshop</h4>
           <span class="bi">共同デザインワークショップ</span>
         </div>
-        <div class="design-card o-how accent" style="--x: 74.2%; --y: 35.4%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card o-how accent" style="--x: 74.2%; --y: 35.4%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="wrench" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent-text)"></i>
           <h4>Design-principle<br/>hypotheses</h4>
           <span class="bi">設計原則に関する仮説群</span>
         </div>
-        <div class="design-card m-which ink" style="--x: 62.0%; --y: 65.2%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card m-which ink" style="--x: 62%; --y: 65.2%; --w: 18.6%; --h: 25.7%">
           <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
             <i data-lucide="users" style="width:16px;height:16px;stroke-width:2;color:var(--text-inverse-secondary)"></i>
             <i data-lucide="leaf" style="width:16px;height:16px;stroke-width:2;color:var(--text-inverse-secondary)"></i>
@@ -3144,15 +3190,15 @@
           <h4>Controlled field<br/>experiment</h4>
           <span class="bi">統制されたフィールド実験</span>
         </div>
-        <div class="design-card o-which ink" style="--x: 81.4%; --y: 65.2%; --w: 18.6%; --h: 25.7%;">
+        <div class="design-card o-which ink" style="--x: 81.4%; --y: 65.2%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="badge-check" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent)"></i>
           <h4>Memory-oriented<br/>signage principles</h4>
           <span class="bi">記憶保持を重視した設計原則</span>
         </div>
 
-        <div class="design-axis-label" style="--x: 27.7%; --w: 33.5%;">Research question <br/>研究課題</div>
-        <div class="design-axis-label" style="--x: 62.0%; --w: 18.6%;">Method <br/>研究方法</div>
-        <div class="design-axis-label" style="--x: 81.4%; --w: 18.6%;">Outcome <br/>研究成果</div>
+        <div class="design-axis-label" style="--x: 27.7%; --w: 33.5%">Research question <br/>研究課題</div>
+        <div class="design-axis-label" style="--x: 62%; --w: 18.6%">Method <br/>研究方法</div>
+        <div class="design-axis-label" style="--x: 81.4%; --w: 18.6%">Outcome <br/>研究成果</div>
       </div>
     </div>
   </div>
