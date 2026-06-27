@@ -988,47 +988,52 @@
       margin-bottom: 4px;
     }
   }
-  .empirical-validation-layout {
-    display: grid;
-    grid-template-columns: 1.1fr 3fr 2.1fr;
-    gap: 1.2vw;
-    align-items: stretch;
-    min-height: 0;
-    margin-top: 0.8vh;
-  }
-  .principle-selector {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.6vh;
-  }
-  .selector-btn {
-    background: #151515;
-    color: rgba(255, 255, 255, 0.6);
-    border: none;
-    padding: 0.8vh 1vw;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.2s ease;
-    flex: 1;
-    min-height: 0;
-  }
-  .selector-btn strong {
-    font-family: var(--font-sans);
-    font-size: max(14px, 0.88vw);
-    font-weight: 700;
-    line-height: 1.15;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-  }
-  .selector-btn.active, .selector-btn:hover {
-    background: #000000 !important;
-    color: #ffffff !important;
-    opacity: 1;
-  }
+ .empirical-validation-layout {
+   display: grid;
+   grid-template-columns: 4fr 2.1fr;
+   gap: 1.2vw;
+   align-items: stretch;
+   min-height: 0;
+   margin-top: 0.8vh;
+ }
+ .principle-selector {
+   position: absolute;
+   bottom: 1.2vh;
+   left: 1.2vh;
+   display: flex;
+   flex-direction: row;
+   gap: 0.4vw;
+   z-index: 10;
+ }
+ .selector-btn {
+   background: rgba(0, 0, 0, 0.5);
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   color: rgba(255, 255, 255, 0.85);
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   border-radius: 6px;
+   padding: 0.4vh 0.6vw;
+   cursor: pointer;
+   transition: all 0.2s ease;
+   text-align: center;
+   flex: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .selector-btn strong {
+   font-family: var(--font-sans);
+   font-size: max(11px, 0.75vw);
+   font-weight: 700;
+   line-height: 1.15;
+   text-transform: uppercase;
+   letter-spacing: -0.01em;
+ }
+ .selector-btn.active, .selector-btn:hover {
+   background: rgba(0, 0, 0, 0.75) !important;
+   border-color: rgba(255, 255, 255, 0.35) !important;
+   color: #ffffff !important;
+ }
   .principle-image-viewer {
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -1088,11 +1093,11 @@
       flex-direction: row !important;
       gap: 8px !important;
     }
-    .selector-btn {
-      padding: 10px !important;
-      text-align: center !important;
-      align-items: center !important;
-    }
+   .selector-btn {
+     padding: 6px 10px !important;
+     text-align: center !important;
+     align-items: center !important;
+   }
     .principle-image-viewer {
       height: 200px !important;
     }
@@ -3772,19 +3777,19 @@
           <div><div class="t-meta" style="color:#253000">METHODS · EMPIRICAL VALIDATION</div></div>
         </div>
         <div class="empirical-validation-layout">
-          <div class="principle-selector">
-            <button class="selector-btn active" onmouseover="switchPrincipleImage(1, this)">
-              <strong>design by<br/>principle 01</strong>
-            </button>
-            <button class="selector-btn" onmouseover="switchPrincipleImage(2, this)">
-              <strong>design by<br/>principle 02</strong>
-            </button>
-            <button class="selector-btn" onmouseover="switchPrincipleImage(3, this)">
-              <strong>design by<br/>principle 03</strong>
-            </button>
-          </div>
           <div class="principle-image-viewer">
             <img id="principle-display-img" src="images/W01.png" alt="Design by principle illustration">
+            <div class="principle-selector">
+              <button class="selector-btn active" onmouseover="switchPrincipleImage(1, this)">
+                <strong>design by<br/>principle 01</strong>
+              </button>
+              <button class="selector-btn" onmouseover="switchPrincipleImage(2, this)">
+                <strong>design by<br/>principle 02</strong>
+              </button>
+              <button class="selector-btn" onmouseover="switchPrincipleImage(3, this)">
+                <strong>design by<br/>principle 03</strong>
+              </button>
+            </div>
           </div>
           <div class="validation-measures">
             <article class="phase-method-card">
