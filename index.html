@@ -3127,6 +3127,56 @@
       gap: 16px !important;
       margin-top: 0 !important;
     }
+
+  .method03-data-outcome {
+    background: var(--accent);
+    color: var(--accent-on);
+    padding: 1.2vh 1.3vw;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.8vw;
+    align-items: center;
+    margin-top: 0.6vh;
+    border: none;
+    flex: none;
+  }
+  .method03-data-outcome i {
+    width: 30px;
+    height: 30px;
+    color: var(--accent-on);
+    stroke-width: 1.6;
+  }
+  .method03-data-outcome h4 {
+    font-size: max(15px, 0.92vw);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--accent-on);
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+  }
+  .method03-data-outcome .bi {
+    font-size: max(12px, 0.7vw);
+    color: rgba(10,10,10,.72);
+    margin-top: 0.15vh;
+    line-height: 1.2;
+    display: block;
+  }
+  .method03-data-outcome .outcome-arrow i {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2.5;
+    opacity: 0.7;
+  }
+  @media (max-width:700px), (max-aspect-ratio:3/4){
+    .method03-data-outcome {
+      grid-template-columns: auto 1fr !important;
+      padding: 14px 16px !important;
+    }
+    .method03-data-outcome .outcome-arrow {
+      display: none !important;
+    }
+  }
 </style>
 </head>
 <body class="canvas-mode">
@@ -3748,145 +3798,6 @@
   </div>
 </section>
 
-<section class="slide dark" data-layout="S17" data-animate="system-diagram">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>13 / 16</div></div>
-    <div class="block-logic-head" data-anim="line">
-      <h2 class="block-logic-word">WHICH</h2>
-      <p class="block-logic-note">Validate design effects through field experiments.<span class="bi">設計効果の検証と実地評価</span></p>
-    </div>
-    <div class="block-flow validation-flow method03-flow nav-safe-bottom-tight" data-anim="up">
-      <section class="block-panel ink method03-panel">
-        <div class="block-panel-head"><div class="t-meta">INPUT</div></div>
-        <div class="hypothesis-block-list hypothesis-only method03-hypotheses">
-          <article class="hypothesis-block method03-hypothesis">
-            <div class="num">01</div>
-            <div class="hypo-body">
-              <h4>Design principle<br/>hypothesis 1</h4>
-              <span class="bi">設計原則仮説 1</span>
-            </div>
-          </article>
-          <article class="hypothesis-block method03-hypothesis">
-            <div class="num">02</div>
-            <div class="hypo-body">
-              <h4>Design principle<br/>hypothesis 2</h4>
-              <span class="bi">設計原則仮説 2</span>
-            </div>
-          </article>
-          <article class="hypothesis-block method03-hypothesis">
-            <div class="num">03</div>
-            <div class="hypo-body">
-              <h4>Design principle<br/>hypothesis 3</h4>
-              <span class="bi">設計原則仮説 3</span>
-            </div>
-          </article>
-          <article class="hypothesis-block method03-hypothesis">
-            <div class="num">04</div>
-            <div class="hypo-body">
-              <h4>Design principle<br/>hypothesis 4</h4>
-              <span class="bi">設計原則仮説 4</span>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="block-arrow-stack method03-filter" aria-label="Method 3 filters hypotheses from left to right">
-        <div class="logic-arrow-card" style="background: var(--accent); color: var(--accent-on); border: none; width: 100%;">
-          <div class="arrow-label">METHOD 3<br/>FIELD VALIDATION</div>
-          <div class="arrow-graphic">
-            <svg class="method03-funnel-svg" viewBox="0 0 420 260" aria-hidden="true" focusable="false" style="width: 100%; height: 10vh; max-height: 10vh;">
-              <defs>
-                <marker id="arrow-slide14" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="var(--ink)"/>
-                </marker>
-              </defs>
-              <!-- Solid white horizontal funnel cone -->
-              <polygon points="50,40 320,105 320,155 50,220" fill="#ffffff" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" />
-              <!-- Black horizontal funnel neck for visual contrast on green background card -->
-              <polygon points="320,105 370,115 370,145 320,155" fill="var(--ink)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" />
-              <!-- Horizontal arrow line passing through center Y=130 -->
-              <line x1="25" y1="130" x2="390" y2="130" stroke="var(--ink)" stroke-width="4" marker-end="url(#arrow-slide14)" />
-            </svg>
-          </div>
-          <div class="arrow-note">validate and refine design principles<span class="bi">実証実験による効果検証と原則確定</span></div>
-        </div>
-      </section>
-      <section class="block-panel accent method03-panel">
-        <div class="block-panel-head"><div class="t-meta">OUTPUT</div></div>
-        <div class="method03-output-list">
-          <article class="method03-output"><div class="num">01</div><div><h4>Memory-oriented signage system design principle 1</h4><span class="bi">記憶指向サインシステム設計原則 1</span></div></article>
-          <article class="method03-output"><div class="num">02</div><div><h4>Memory-oriented signage system design principle 2</h4><span class="bi">記憶指向サインシステム設計原則 2</span></div></article>
-        </div>
-        <div class="method03-output-note">validated and revised set</div>
-      </section>
-    </div>
-  </div>
-</section>
-
-<section class="slide dark" data-layout="S17" data-animate="system-diagram">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>14 / 16</div></div>
-    <div class="phase-header" data-anim="line">
-      <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>WHICH</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計効果の検証と実地評価</span></div>
-      <p>Controlled field experiments on the real greenhouse route measure actual cognitive load and memory retention.<span class="bi">温室での実地対照実験により、実際の認知負荷と記憶保持率を測定する。</span></p>
-    </div>
-    <div class="method-phase-shell nav-safe-bottom-tight" data-anim="up" style="margin-top: 2.2vh;">
-      <aside class="phase-side-rail">
-        <div class="phase-mini">
-          <div class="t-meta">GOAL</div>
-          <i data-lucide="badge-check"></i>
-          <h3>Validate principles</h3>
-          <span class="bi">有効性を実証する。</span>
-        </div>
-        <div class="phase-mini">
-          <div class="t-meta">PARTICIPANTS</div>
-          <div class="phase-icons">
-            <div class="phase-icon-row"><i data-lucide="users"></i><span>N ≈ 60</span></div>
-            <div class="phase-icon-row"><i data-lucide="leaf"></i><span>GREENHOUSE</span></div>
-          </div>
-        </div>
-      </aside>
-      <section class="phase-main validation">
-        <div class="phase-main-top">
-          <div><div class="t-meta" style="color:#253000">METHODS · EMPIRICAL VALIDATION</div></div>
-        </div>
-        <div class="empirical-validation-layout">
-          <div class="principle-image-viewer">
-            <img id="principle-display-img" src="images/W01.png" alt="Design by principle illustration">
-            <div class="principle-selector">
-              <button class="selector-btn active" onmouseover="switchPrincipleImage(1, this)">
-                <strong>design by<br/>principle 01</strong>
-              </button>
-              <button class="selector-btn" onmouseover="switchPrincipleImage(2, this)">
-                <strong>design by<br/>principle 02</strong>
-              </button>
-              <button class="selector-btn" onmouseover="switchPrincipleImage(3, this)">
-                <strong>design by<br/>principle 03</strong>
-              </button>
-            </div>
-          </div>
-          <div class="validation-measures">
-            <article class="phase-method-card">
-              <i data-lucide="scan-eye"></i>
-              <h4>Eye-tracking<span class="bi">アイトラッキング</span></h4>
-              <p>Measure sequential gaze on route signs.<span class="bi">経路上の視線推移を測定する。</span></p>
-            </article>
-            <article class="phase-method-card">
-              <i data-lucide="clipboard-list"></i>
-              <h4>NASA-TLX<span class="bi">NASAタスク負荷指標</span></h4>
-              <p>Capture perceived cognitive load.<span class="bi">主観的な認知負荷を測定する。</span></p>
-            </article>
-            <article class="phase-method-card">
-              <i data-lucide="timer-reset"></i>
-              <h4>Retention test<span class="bi">保持テスト</span></h4>
-              <p>Compare immediate and delayed recall.<span class="bi">即時・遅延再認を比較する。</span></p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
@@ -3980,9 +3891,16 @@
         </article>
       </div>
     </div>
-    </section>
-
-<section class="slide dark" data-layout="S13" data-animate="contribution-grid">
+    <div class="method03-data-outcome">
+      <i data-lucide="sparkles"></i>
+      <div>
+        <h4>Memory-oriented signage system design principle</h4>
+        <span class="bi">記憶指向サインシステム設計原則</span>
+      </div>
+      <div class="outcome-arrow"><i data-lucide="arrow-right"></i></div>
+    </div>
+  </div>
+</section><section class="slide dark" data-layout="S13" data-animate="contribution-grid">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>16 / 17</div></div>
     <div class="t-cat accent" data-anim="line" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
