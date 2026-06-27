@@ -3060,68 +3060,68 @@
     .design-card h4{font-size:28px!important;line-height:1.08!important;white-space:normal!important}
   }
   /* Method 03 Data Slide - New slide 15 */
-  .method03-data-layout {
+    .method03-data-layout {
     display: flex;
     flex-direction: column;
-    gap: 1.5vw;
+    gap: 2vw;
     align-items: stretch;
     flex: 1;
     min-height: 0;
-    margin-top: 1.2vh;
+    margin-top: 1.8vh;
   }
- .method03-data-modules {
-   display: flex;
-   flex-direction: column;
-    gap: 0.9vh;
-   min-height: 0;
-   justify-content: center;
- }
- .data-card {
-   background: #1f1f1f;
-   border-left: 3px solid var(--accent);
-    padding: 1.35vh 1.15vw;
-   display: grid;
-   grid-template-columns: auto 1fr auto;
-    gap: 1vw;
-   align-items: center;
- }
- .data-card i {
-    width: 32px;
-    height: 32px;
-   color: var(--accent);
-   stroke-width: 1.6;
- }
- .data-card h4 {
-    font-size: max(15px, 1vw);
-   font-weight: 600;
-   line-height: 1.2;
-   margin: 0;
-   color: var(--text-inverse-primary);
-   letter-spacing: -.01em;
- }
- .data-card .metrics {
-   font-family: var(--mono);
-    font-size: max(11px, 0.74vw);
-   color: var(--text-inverse-secondary);
-   letter-spacing: .04em;
-   font-weight: 500;
-    margin-top: 0.35vh;
- }
- .data-card .bi {
-    font-size: max(12px, 0.74vw);
-   color: var(--text-inverse-secondary);
-    margin-top: 0.3vh;
-   line-height: 1.2;
- }
- .data-card .mini-glyph {
-    width: 4.8vw;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   opacity: 0.75;
- }
-  @media (max-width:700px), (max-aspect-ratio:3/4){
+  .method03-data-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+    min-height: 0;
+    justify-content: center;
+  }
+  .data-card {
+    background: #1f1f1f;
+    border-left: 3px solid var(--accent);
+    padding: 2vh 1.3vw;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.2vw;
+    align-items: center;
+  }
+  .data-card i {
+    width: 36px;
+    height: 36px;
+    color: var(--accent);
+    stroke-width: 1.6;
+  }
+  .data-card h4 {
+    font-size: max(16px, 1.1vw);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--text-inverse-primary);
+    letter-spacing: -.01em;
+  }
+  .data-card .metrics {
+    font-family: var(--mono);
+    font-size: max(12px, 0.82vw);
+    color: var(--text-inverse-secondary);
+    letter-spacing: .04em;
+    font-weight: 500;
+    margin-top: 0.5vh;
+  }
+  .data-card .bi {
+    font-size: max(13px, 0.82vw);
+    color: var(--text-inverse-secondary);
+    margin-top: 0.5vh;
+    line-height: 1.2;
+  }
+  .data-card .mini-glyph {
+    width: 6vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.75;
+  }
+@media (max-width:700px), (max-aspect-ratio:3/4){
     .method03-data-layout {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
@@ -3891,7 +3891,32 @@
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 03 Data · 研究方法 03 取得データ</div><div class="r" data-slide-page>15 / 17</div></div>
-    <div class="t-cat accent" data-anim="line" style="margin-bottom:0.8vh">METHOD 03 DATA</div>
+   <div class="t-cat accent" data-anim="line" style="margin-bottom:0.2vh">METHOD 03 DATA</div>
+  .method03-data-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+    margin-top: 1.2vh;
+  }
+  .method03-data-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+    min-height: 0;
+    justify-content: center;
+  }
+  .data-card {
+    background: #1f1f1f;
+    border-left: 3px solid var(--accent);
+    padding: 2vh 1.3vw;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.2vw;
+    align-items: center;
+  }
    <div class="method03-data-layout nav-safe-bottom-tight" data-anim="up">
       <div class="method03-data-modules">
         <article class="data-card">
