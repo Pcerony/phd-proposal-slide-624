@@ -30,12 +30,12 @@
        亮底:  primary 主文 / secondary 次文 / helper 辅助 / placeholder 占位
        暗底:  inverse 自动反向 */
     --text-primary:#0a0a0a;                 /* 重要文字: 纯黑 */
-    --text-secondary:rgba(10,10,10,.58);    /* 次级正文: 半透明灰黑 */
-    --text-helper:rgba(10,10,10,.50);       /* 元信息/脚注: 约 50% 层级 */
+    --text-secondary:rgba(10,10,10,.72);    /* 次级正文: 灰黑 */
+    --text-helper:rgba(10,10,10,.58);       /* 元信息/脚注: 更弱灰黑 */
     --text-placeholder:rgba(10,10,10,.42);  /* 占位/低优先级 */
     --text-inverse-primary:#ffffff;         /* 暗底重要文字: 纯白 */
-    --text-inverse-secondary:rgba(255,255,255,.62);
-    --text-inverse-helper:rgba(255,255,255,.50);
+    --text-inverse-secondary:rgba(255,255,255,.78);
+    --text-inverse-helper:rgba(255,255,255,.62);
     --text-inverse-placeholder:rgba(255,255,255,.42);
     --text-on-color:#ffffff;       /* 深色块反色 */
     --border-subtle:#e0e0e0;       /* gray 20, 极细分隔 */
@@ -756,7 +756,7 @@
   .method-grid .lucide,.method-grid i[data-lucide]{width:22px;height:22px}
 
   /* Bilingual revision: compact bilingual content and method diagrams */
-  .bi{display:block;font-family:var(--sans-jp);font-size:max(14px,.76vw);font-weight:500;line-height:1.36;color:var(--text-secondary);margin-top:.45vh}
+  .bi{display:block;font-family:var(--sans),var(--sans-zh),var(--sans-jp);font-size:max(14px,.76vw);font-weight:500;line-height:1.36;color:var(--text-secondary);margin-top:.45vh}
   .slide.dark .bi,.half.b-ink .bi{color:var(--text-inverse-secondary)}
   .slide.accent .bi,.card-accent .bi,.half.b-accent .bi{color:var(--text-helper)}
   .bi-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1vh}
@@ -815,7 +815,7 @@
   .method-spotlight{background:var(--accent);color:var(--accent-on);padding:1.55vh 1.15vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.25vh;min-height:22vh}
   .method-spotlight .phase-flow-node.accent {
     background: var(--ink) !important;
-    color: var(--text-inverse-secondary) !important;
+    color: var(--text-inverse-primary) !important;
   }
   .method-spotlight .phase-flow .arrow {
     color: var(--ink) !important;
@@ -860,7 +860,7 @@
   .result-panel h3{font-size:max(17px,.98vw);font-weight:500;line-height:1.12;margin:0}
   .result-panel .t-meta{color:var(--text-helper)}
   .output-chip{display:inline-flex;align-items:center;gap:.45vw;border:1px solid currentColor;padding:.45vh .55vw;font-family:var(--mono);font-size:max(12px,.62vw);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:inherit}
-  .phase-header{display:grid;grid-template-columns:4.9fr 7.1fr;gap:3vw;align-items:end}
+  .phase-header{display:grid;grid-template-columns:2.05fr 9.95fr;gap:1.35vw;align-items:end}
   .phase-header h2{font-weight:200;font-size:min(3.95vw,6.9vh);line-height:1.02;letter-spacing:-.04em;margin:.75vh 0 0}
   .phase-header p{font-size:max(18px,1.02vw);line-height:1.38;color:var(--text-secondary);font-weight:500;margin:0}
   .method-phase-shell{display:grid;grid-template-columns:2.05fr 9.95fr;gap:1.35vw;align-items:stretch;margin-top:2.2vh;flex:1;min-height:0}
@@ -875,7 +875,7 @@
   .phase-icon-row span{font-family:var(--mono);font-size:max(13px,.72vw);font-weight:700;letter-spacing:.08em;color:var(--text-primary)}
   .phase-main{background:var(--paper);border-top:3px solid var(--ink);padding:1.35vh 1.15vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.15vh;min-height:0}
   .phase-main.dark{background:var(--ink);border-top-color:var(--accent);color:var(--text-inverse-primary)}
-  .phase-main.validation{background:var(--accent);border-top-color:var(--ink);color:var(--accent-on)}
+  .phase-main.validation{background:var(--accent);border-top-color:var(--ink);color:var(--accent-on);grid-template-rows:auto 1fr}
   .phase-main-top{display:flex;justify-content:space-between;gap:1.5vw;align-items:end}
   .phase-main h3{font-size:max(24px,1.65vw);font-weight:400;line-height:1.08;letter-spacing:-.018em;margin:0}
   .phase-main.dark .t-meta{color:var(--text-inverse-helper)}
@@ -898,6 +898,208 @@
   .phase-main.dark .phase-flow-node .bi{color:var(--text-inverse-secondary)!important}
   .phase-main.dark .phase-flow-node.accent .bi{color:#253000!important}
   .phase-flow .arrow{font-size:max(24px,2.2vw);font-weight:200;line-height:1;color:var(--accent-text)}
+  .co-design-layout {
+    display: grid;
+    grid-template-columns: 3.1fr 1fr;
+    gap: 1.2vw;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .co-design-workshop {
+    background: var(--accent);
+    color: #101010;
+    padding: 1.25vh 1.1vw;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 0.8fr;
+    gap: 1vw;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .workshop-stacked-column {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1vh;
+    min-height: 0;
+  }
+  .workshop-stacked-column .phase-method-card {
+    padding: 0.8vh 0.8vw;
+  }
+  .workshop-label-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #101010;
+    font-family: var(--font-sans);
+    padding-left: 0.5vw;
+  }
+  .workshop-label-column strong {
+    font-size: max(18px, 1.15vw);
+    font-weight: 750;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .workshop-label-column span.bi {
+    font-size: clamp(14px, 1.45vh, 18px) !important;
+    color: rgba(16, 16, 16, 0.75) !important;
+    margin-top: 0.5vh;
+    display: block;
+    line-height: 1.25;
+  }
+  .co-design-workshop .phase-method-card {
+    background: #202020 !important;
+    color: #ffffff !important;
+    border-top-color: var(--accent) !important;
+  }
+  .co-design-workshop .phase-method-card h4 {
+    color: #ffffff !important;
+  }
+  .co-design-workshop .phase-method-card p,
+  .co-design-workshop .phase-method-card .bi {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .co-design-workshop .phase-method-card .t-meta {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+  .co-design-workshop .phase-method-card i {
+    color: var(--accent) !important;
+  }
+  .co-design-layout .phase-method-card {
+    justify-content: center;
+  }
+  @media (max-width: 700px), (max-aspect-ratio: 3/4) {
+    .co-design-layout {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .co-design-workshop {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+      padding: 16px !important;
+    }
+    .workshop-stacked-column {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto !important;
+      gap: 12px !important;
+    }
+    .workshop-label-column {
+      order: -1;
+      padding-left: 0 !important;
+      margin-bottom: 4px;
+    }
+  }
+  .empirical-validation-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 3fr 2.1fr;
+    gap: 1.2vw;
+    align-items: stretch;
+    min-height: 0;
+    margin-top: 0.8vh;
+  }
+  .principle-selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.6vh;
+  }
+  .selector-btn {
+    background: #151515;
+    color: rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 0.8vh 1vw;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-height: 0;
+  }
+  .selector-btn strong {
+    font-family: var(--font-sans);
+    font-size: max(14px, 0.88vw);
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .selector-btn.active, .selector-btn:hover {
+    background: #000000 !important;
+    color: #ffffff !important;
+    opacity: 1;
+  }
+  .principle-image-viewer {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 0;
+  }
+  .principle-image-viewer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.15s ease-in-out;
+  }
+  .validation-measures {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.6vh;
+  }
+  .validation-measures .phase-method-card {
+    background: rgba(255, 255, 255, 0.42);
+    border-top: 2px solid var(--ink);
+    color: #253000;
+    padding: 0.5vh 0.95vw;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+  }
+  .validation-measures .phase-method-card h4 {
+    color: var(--ink);
+    font-size: max(16px, 0.9vw);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 0.2vh 0;
+  }
+  .validation-measures .phase-method-card p,
+  .validation-measures .phase-method-card .bi {
+    color: #253000;
+    font-size: max(13px, 0.74vw);
+    line-height: 1.15;
+    margin: 0;
+  }
+  .phase-main.validation .phase-flow {
+    padding-top: 0.5vh !important;
+  }
+  @media (max-width: 700px), (max-aspect-ratio: 3/4) {
+    .empirical-validation-layout {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .principle-selector {
+      flex-direction: row !important;
+      gap: 8px !important;
+    }
+    .selector-btn {
+      padding: 10px !important;
+      text-align: center !important;
+      align-items: center !important;
+    }
+    .principle-image-viewer {
+      height: 200px !important;
+    }
+    .validation-measures {
+      gap: 12px !important;
+    }
+  }
   .phase-main.dark .phase-flow .arrow{color:var(--accent)}
   .phase-main.validation .phase-flow .arrow{color:var(--ink)}
   .method-logic-head{display:grid;grid-template-columns:4.5fr 7.5fr;gap:3vw;align-items:end}
@@ -1220,14 +1422,14 @@
     min-height: 0;
   }
   .hypothesis-block .hypo-desc {
-    font-size: max(11.5px, 0.64vw);
+    font-size: clamp(14px, 1.45vh, 18px);
     line-height: 1.25;
     color: var(--text-inverse-secondary);
-    opacity: 0.6;
+    opacity: 0.75;
     font-weight: 500;
   }
   .hypothesis-block .hypo-desc .bi {
-    font-size: max(11px, 0.6vw) !important;
+    font-size: 1.0em !important;
     margin-top: 0.2vh;
     color: var(--text-inverse-helper) !important;
     opacity: 0.85;
@@ -1406,54 +1608,6 @@
   .card-accent{background:var(--accent);border:0;color:var(--accent-on)}
   .card-accent .t-meta,.card-accent .t-cat{color:var(--accent-on)}
   .card-accent .bi,.card-accent .jp{color:var(--text-secondary)}
-
-  /* Text hierarchy: reserve solid black/white for primary slide claims.
-     Card labels, subtitles, tags, and explanatory headings sit in the secondary layer. */
-  .slide :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
-    color:var(--text-secondary)!important;
-  }
-  .slide.dark :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
-  .half.b-ink :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
-    color:var(--text-inverse-secondary)!important;
-  }
-  .slide.accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
-  .half.b-accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num),
-  .card-accent :where(h3,h4,.rq-chip,.qa-tag,.qa-jump,.design-axis-label,.sankey-label,.design-card,.method-label,.phase-flow-node,.block-arrow-card,.output-chip,.appendix-question-card,.qa-point,.value-output,.value-domain,.hypothesis-block .num,.method03-output .num,.principle-output .num){
-    color:var(--text-secondary)!important;
-  }
-  .slide :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--text-primary)!important}
-  .slide.dark :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num),
-  .half.b-ink :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--text-inverse-primary)!important}
-  .slide.accent :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num),
-  .half.b-accent :where(.col-ttl,.force-title,.block-logic-word,.mega,.kpi-hero,.ledger-num,.num-mega,.name-mega,.bg-stat .num){color:var(--accent-on)!important}
-  .slide :where(h3,h4){color:#333333!important}
-  .slide.dark :where(h3,h4),
-  .half.b-ink :where(h3,h4){color:#e5e5e5!important}
-  .slide.accent :where(h3,h4),
-  .half.b-accent :where(h3,h4),
-  .card-accent :where(h3,h4){color:var(--accent-text)!important}
-  .slide :where(.design-card.grey h4,.value-output h3,.qa-answer h3,.qa-point h4,.principle-output h4,.method03-output h4){color:#333333!important}
-  .slide :where(.sankey-label.what h3){color:#333333!important}
-  .slide :where(.sankey-label.how h3){color:var(--accent-text)!important}
-  .slide :where(.design-topic-card h3,.sankey-label.which h3){color:#e5e5e5!important}
-  .slide :where(.design-card.accent h4,.value-domain h3,.phase-main.validation h3){color:var(--accent-text)!important}
-  .slide :where(.design-card.ink h4,.hypothesis-block h4){color:#e5e5e5!important}
-  .slide :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
-  .slide.accent :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
-  .slide :where(.block-panel.accent .block-panel-head h3){color:var(--accent-text)!important}
-  .slide.dark :where(.design-card.grey h4,.value-output h3,.qa-answer h3,.qa-point h4,.principle-output h4,.method03-output h4){color:#333333!important}
-  .slide.dark :where(.sankey-label.what h3){color:#333333!important}
-  .slide.dark :where(.sankey-label.how h3){color:var(--accent-text)!important}
-  .slide.dark :where(.design-topic-card h3,.sankey-label.which h3){color:#e5e5e5!important}
-  .slide.dark :where(.design-card.accent h4,.value-domain h3,.phase-main.validation h3){color:var(--accent-text)!important}
-  .slide.dark :where(.design-card.ink h4,.hypothesis-block h4){color:#e5e5e5!important}
-  .slide.dark :where(.block-panel.ink .block-panel-head h3,.phase-main.dark h3){color:#e5e5e5!important}
-  .slide.dark :where(.block-panel.accent .block-panel-head h3){color:var(--accent-text)!important}
-  .slide :where(.col-ttl,.force-title){color:var(--text-primary)!important}
-  .slide.dark :where(.col-ttl,.force-title),
-  .half.b-ink :where(.col-ttl,.force-title){color:var(--text-inverse-primary)!important}
-  .slide.accent :where(.col-ttl,.force-title),
-  .half.b-accent :where(.col-ttl,.force-title){color:var(--accent-on)!important}
 
   /* ============ Current deck refinement components ============ */
   .route-system-grid{display:grid;grid-template-columns:5fr 7fr;gap:3vw;align-items:stretch;min-height:0}
@@ -2786,9 +2940,9 @@
     z-index: 4;
     overflow: hidden;
   }
-  .design-card.grey { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-secondary) !important; }
-  .design-card.accent { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-secondary) !important; }
-  .design-card.ink { background: var(--ink) !important; border: none !important; box-shadow: none !important; color: var(--text-inverse-secondary) !important; }
+  .design-card.grey { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--text-primary); }
+  .design-card.accent { background: transparent !important; border: none !important; box-shadow: none !important; color: var(--accent-on); }
+  .design-card.ink { background: var(--ink) !important; border: none !important; box-shadow: none !important; color: var(--text-inverse-primary); }
   .design-card h4 {
     font-size: clamp(16px, 2.0vh, 22px) !important;
     font-weight: 500;
@@ -3180,7 +3334,7 @@
 
     <div class="research-design-grid">
       <div class="research-strategy-subtitle" data-anim="line">
-        Research Strategy: Co-creative Research <span>· 研究戦略：共創研究</span>
+        Research Strategy: Co-research <span>· 研究戦略：共創研究</span>
       </div>
       <div class="design-sankey-stage" data-anim="up" aria-label="Research design process from topic to validated outcomes">
         <!-- SVG background image -->
@@ -3247,8 +3401,8 @@
           <span class="bi">記憶保持を重視した設計原則</span>
         </div>
 
-        <div class="design-axis-label" style="--x: 62%; --w: 18.6%">Research question <br/>研究課題</div>
-        <div class="design-axis-label" style="--x: 81.4%; --w: 18.6%">Method <br/>研究方法</div>
+        <div class="design-axis-label" style="--x: 27.7%; --w: 33.5%">Research question <br/>研究課題</div>
+        <div class="design-axis-label" style="--x: 62%; --w: 18.6%">Method <br/>研究方法</div>
         <div class="design-axis-label" style="--x: 81.4%; --w: 18.6%">Outcome <br/>研究成果</div>
       </div>
     </div>
@@ -3259,7 +3413,7 @@
      <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>09 / 16</div></div>
      <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHAT</h2>
-       <p class="block-logic-note">What variables matter?<span class="bi">どの設計変数が認知負荷と情報保持に影響するのか。</span></p>
+       <p class="block-logic-note">Identify &amp; explore key design variables.<span class="bi">設計変数の特定と探索</span></p>
      </div>
     <div class="block-flow what-causal-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel variable-field-panel">
@@ -3313,10 +3467,13 @@
 <section class="slide light" data-layout="S16" data-animate="grid-reveal">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>10 / 16</div></div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
-      <div class="t-cat accent">WHAT · PHASE 1</div>
-      <h2 style="font-weight:200;font-size:min(4.75vw,8.3vh);line-height:1.05;letter-spacing:-.04em;margin:0">WHAT</h2>
-      <span class="jp" lang="ja" style="display:block">どの設計変数が認知負荷と情報保持に影響するのか。</span>
+    <div class="phase-header" data-anim="line" style="grid-template-columns: 2.4fr 9.6fr; gap: 1.6vw;">
+      <div>
+        <div class="t-cat accent">WHAT · PHASE 1</div>
+        <h2>WHAT</h2>
+        <span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計変数の特定と探索</span>
+      </div>
+      <p>This phase extracts the variables before any intervention is designed.<span class="bi">介入設計の前に、測定すべき変数を明確にする段階である。</span></p>
     </div>
     <div class="method-stage-layout variable-selection nav-safe-bottom-tight" data-anim="up">
       <div class="participant-panel icon-only" style="background:var(--grey-1); border-top:3px solid var(--accent); border-bottom:none; padding:2.2vh 1.1vw; display:flex; flex-direction:column; justify-content:center; gap:1.4vh">
@@ -3353,7 +3510,7 @@
     <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>11 / 16</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">HOW</h2>
-      <p class="block-logic-note">How does the model become usable?<span class="bi">認知モデルを、使える設計原則へどう変換するのか。</span></p>
+      <p class="block-logic-note">Formulate design principles through co-design.<span class="bi">設計原則の仮説立案と協同</span></p>
     </div>
     <div class="block-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel causal-model-panel">
@@ -3399,32 +3556,45 @@
             <div class="hypo-body">
               <h4>Design principle<br/>hypothesis 1</h4>
               <span class="bi">設計原則仮説 1</span>
-           </div>
-         </article>
-         <article class="hypothesis-block">
-           <div class="num">02</div>
-           <div class="hypo-body">
-             <h4>Design principle<br/>hypothesis 2</h4>
-             <span class="bi">設計原則仮説 2</span>
-           </div>
-         </article>
+            </div>
+            <div class="hypo-desc">
+              Minimize text volume and simplify layout to reduce cognitive load.
+              <span class="bi">テキスト量を抑えレイアウトを簡素化することで、認知負荷を軽減する。</span>
+            </div>
+          </article>
+          <article class="hypothesis-block">
+            <div class="num">02</div>
+            <div class="hypo-body">
+              <h4>Design principle<br/>hypothesis 2</h4>
+              <span class="bi">設計原則仮説 2</span>
+            </div>
+            <div class="hypo-desc">
+              Sequence sign placements along walking paths to guide attention flow.
+              <span class="bi">散策路に沿ってサインの配置を順序化し、注意の軌跡を誘導する。</span>
+            </div>
+          </article>
           <article class="hypothesis-block">
             <div class="num">03</div>
             <div class="hypo-body">
               <h4>Design principle<br/>hypothesis 3</h4>
               <span class="bi">設計原則仮説 3</span>
             </div>
-         </article>
-         <article class="hypothesis-block">
-           <div class="num">04</div>
-           <div class="hypo-body">
-             <h4>Design principle<br/>hypothesis 4</h4>
-             <span class="bi">設計原則仮説 4</span>
-           </div>
-           <div class="hypo-desc">
-             Place visual anchors at path stop points to reinforce retention.
-           </div>
-         </article>
+            <div class="hypo-desc">
+              Integrate visual graphics with concise text to enhance retention.
+              <span class="bi">視覚的グラフィックと簡潔なテキストを統合し、記憶の定着を高める。</span>
+            </div>
+          </article>
+          <article class="hypothesis-block">
+            <div class="num">04</div>
+            <div class="hypo-body">
+              <h4>Design principle<br/>hypothesis 4</h4>
+              <span class="bi">設計原則仮説 4</span>
+            </div>
+            <div class="hypo-desc">
+              Place visual anchors at path stop points to reinforce retention.
+              <span class="bi">経路の停留点に視覚的アンカーを配置し、記憶の定着を強化する。</span>
+            </div>
+          </article>
         </div>
       </section>
     </div>
@@ -3435,7 +3605,7 @@
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>12 / 16</div></div>
     <div class="phase-header" data-anim="line">
-      <div><div class="t-cat accent">HOW · PHASE 2</div><h2>HOW</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">認知モデルを、使える設計原則へどう変換するのか。</span></div>
+      <div><div class="t-cat accent">HOW · PHASE 2</div><h2>HOW</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計原則の仮説立案と協同</span></div>
       <p>Expert review, staff/design workshops, and prototypes translate the model into shared design language.<span class="bi">専門家レビュー、現場・デザインのワークショップ、試作により、モデルを共有可能な設計言語へ変換する。</span></p>
     </div>
     <div class="method-phase-shell nav-safe-bottom-tight" data-anim="up">
@@ -3456,12 +3626,39 @@
       </aside>
       <section class="phase-main dark">
         <div class="phase-main-top">
-          <div><div class="t-meta">METHODS · CO-CREATION CORE</div><h3>Three actions build design-principle hypotheses.</h3></div>
+          <div><div class="t-meta">METHODS · CO-CREATION CORE</div><h3>Four actions build design-principle hypotheses.</h3></div>
         </div>
-        <div class="phase-method-grid three">
-          <article class="phase-method-card"><i data-lucide="messages-square"></i><div class="t-meta">01</div><h4>Expert review</h4><p>Interpretation and design evaluation.<span class="bi">解説とデザインの専門評価。</span></p></article>
-          <article class="phase-method-card"><i data-lucide="panels-top-left"></i><div class="t-meta">02</div><h4>Scenario storyboard</h4><p>Visitor route stories and use situations.<span class="bi">来訪シナリオと経路物語。</span></p></article>
-          <article class="phase-method-card"><i data-lucide="shapes"></i><div class="t-meta">03</div><h4>Participatory prototype</h4><p>Mockups for the sign-system principles.<span class="bi">参加型サインシステム試作。</span></p></article>
+        <div class="co-design-layout">
+          <div class="co-design-workshop">
+            <article class="phase-method-card">
+              <i data-lucide="brain"></i>
+              <div class="t-meta">01</div>
+              <h4>Learning model</h4>
+              <p>Share and explain the causal model.<span class="bi">因果メカニズムモデルの共有と学習。</span></p>
+            </article>
+            <div class="workshop-stacked-column">
+              <article class="phase-method-card">
+                <i data-lucide="panels-top-left"></i>
+                <div class="t-meta">02</div>
+                <h4>Scenario storyboard</h4>
+              </article>
+              <article class="phase-method-card">
+                <i data-lucide="shapes"></i>
+                <div class="t-meta">03</div>
+                <h4>Participatory prototype</h4>
+              </article>
+            </div>
+            <div class="workshop-label-column">
+              <strong>workshop</strong>
+              <span class="bi">Focus group<br/>共同デザイン</span>
+            </div>
+          </div>
+          <article class="phase-method-card">
+            <i data-lucide="messages-square"></i>
+            <div class="t-meta">04</div>
+            <h4>Expert interview</h4>
+            <p>Validate principles with external experts.<span class="bi">外部専門家による仮説の検証と評価。</span></p>
+          </article>
         </div>
         <div class="phase-flow">
           <div class="phase-flow-node">Module A: causal model<span class="bi">因果メカニズムモデル</span></div>
@@ -3478,7 +3675,7 @@
     <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>13 / 16</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHICH</h2>
-      <p class="block-logic-note">Which principles really work?<span class="bi">どの設計原則が実際に有効なのか。</span></p>
+      <p class="block-logic-note">Validate design effects through field experiments.<span class="bi">設計効果の検証と実地評価</span></p>
     </div>
     <div class="block-flow validation-flow method03-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel ink method03-panel">
@@ -3551,10 +3748,10 @@
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>14 / 16</div></div>
     <div class="phase-header" data-anim="line">
-      <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>WHICH</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">どの設計原則が実際に有効なのか。</span></div>
+      <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>WHICH</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計効果の検証と実地評価</span></div>
       <p>Controlled field experiments on the real greenhouse route measure actual cognitive load and memory retention.<span class="bi">温室での実地対照実験により、実際の認知負荷と記憶保持率を測定する。</span></p>
     </div>
-    <div class="method-phase-shell nav-safe-bottom-tight" data-anim="up">
+    <div class="method-phase-shell nav-safe-bottom-tight" data-anim="up" style="margin-top: 2.2vh;">
       <aside class="phase-side-rail">
         <div class="phase-mini">
           <div class="t-meta">GOAL</div>
@@ -3574,16 +3771,41 @@
         <div class="phase-main-top">
           <div><div class="t-meta" style="color:#253000">METHODS · EMPIRICAL VALIDATION</div><h3>Four linked measures test the same route.</h3></div>
         </div>
-        <div class="phase-method-grid four">
-          <article class="phase-method-card"><i data-lucide="flask-conical"></i><div class="t-meta">01</div><h4>Field experiment</h4><p>Compare principle-based conditions.<span class="bi">原則に基づく条件を比較する。</span></p></article>
-          <article class="phase-method-card"><i data-lucide="scan-eye"></i><div class="t-meta">02</div><h4>Eye-tracking</h4><p>Measure sequential gaze on route signs.<span class="bi">経路上の視線推移を測定する。</span></p></article>
-          <article class="phase-method-card"><i data-lucide="clipboard-list"></i><div class="t-meta">03</div><h4>NASA-TLX</h4><p>Capture perceived cognitive load.<span class="bi">主観的な認知負荷を測定する。</span></p></article>
-          <article class="phase-method-card"><i data-lucide="timer-reset"></i><div class="t-meta">04</div><h4>Retention test</h4><p>Compare immediate and delayed recall.<span class="bi">即時・遅延再認を比較する。</span></p></article>
-        </div>
-        <div class="phase-flow">
-          <div class="phase-flow-node">Module B: design-principle hypotheses<span class="bi">設計原則の仮説群</span></div>
-          <div class="arrow">→</div>
-          <div class="phase-flow-node accent">Module C: validated principles<span class="bi" style="color:rgba(255,255,255,.86)">実証データ検証済みの原則</span></div>
+        <div class="empirical-validation-layout">
+          <div class="principle-selector">
+            <button class="selector-btn active" onmouseover="switchPrincipleImage(1, this)">
+              <strong>design by<br/>principle 01</strong>
+            </button>
+            <button class="selector-btn" onmouseover="switchPrincipleImage(2, this)">
+              <strong>design by<br/>principle 02</strong>
+            </button>
+            <button class="selector-btn" onmouseover="switchPrincipleImage(3, this)">
+              <strong>design by<br/>principle 03</strong>
+            </button>
+          </div>
+          <div class="principle-image-viewer">
+            <img id="principle-display-img" src="images/W01.png" alt="Design by principle illustration">
+          </div>
+          <div class="validation-measures">
+            <article class="phase-method-card">
+              <i data-lucide="scan-eye"></i>
+              <div class="t-meta">02</div>
+              <h4>Eye-tracking</h4>
+              <p>Measure sequential gaze on route signs.<span class="bi">経路上の視線推移を測定する。</span></p>
+            </article>
+            <article class="phase-method-card">
+              <i data-lucide="clipboard-list"></i>
+              <div class="t-meta">03</div>
+              <h4>NASA-TLX</h4>
+              <p>Capture perceived cognitive load.<span class="bi">主観的な認知負荷を測定する。</span></p>
+            </article>
+            <article class="phase-method-card">
+              <i data-lucide="timer-reset"></i>
+              <div class="t-meta">04</div>
+              <h4>Retention test</h4>
+              <p>Compare immediate and delayed recall.<span class="bi">即時・遅延再認を比較する。</span></p>
+            </article>
+          </div>
         </div>
       </section>
     </div>
@@ -5248,6 +5470,19 @@ if(motion){
   addEventListener('swiss-low-power-change', e=>{e.detail.on ? stop() : start();});
   start();
 })();
+</script>
+<script>
+function switchPrincipleImage(index, btn) {
+  const img = document.getElementById('principle-display-img');
+  if (img) {
+    img.src = `images/W0${index}.png`;
+  }
+  const buttons = btn.parentElement.getElementsByClassName('selector-btn');
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('active');
+  }
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>
