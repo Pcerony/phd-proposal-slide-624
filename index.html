@@ -3128,56 +3128,35 @@
       margin-top: 0 !important;
     }
 
- .method03-data-outcome {
-   background: var(--accent);
-   color: var(--accent-on);
-   padding: 1.2vh 1.3vw;
-   display: grid;
-    grid-template-columns: 1fr auto auto;
-   gap: 0.8vw;
+   .method03-data-outcome {
     text-align: right;
-   align-items: center;
-   margin-top: 0.6vh;
-   border: none;
-   flex: none;
- }
- .method03-data-outcome i {
-   width: 30px;
-   height: 30px;
-    color: #253000;
-   stroke-width: 1.6;
- }
- .method03-data-outcome h4 {
-   font-size: max(15px, 0.92vw);
-   font-weight: 700;
-   line-height: 1.2;
-   margin: 0;
-    color: #253000;
-   text-transform: uppercase;
-   letter-spacing: -.01em;
- }
+    margin-top: 0.6vh;
+  }
+  .method03-data-outcome i {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    stroke-width: 1.6;
+    display: block;
+    margin-left: auto;
+    margin-bottom: 0.15vh;
+  }
+  .method03-data-outcome h4 {
+    font-size: max(14px, 0.85vw);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+  }
   .method03-data-outcome .bi {
-    font-size: max(12px, 0.7vw);
-    color: rgba(10,10,10,.72);
-    margin-top: 0.15vh;
+    font-size: max(12px, 0.68vw);
+    color: var(--text-inverse-secondary);
     line-height: 1.2;
     display: block;
   }
-  .method03-data-outcome .outcome-arrow i {
-    width: 22px;
-    height: 22px;
-    stroke-width: 2.5;
-    opacity: 0.7;
-  }
-  @media (max-width:700px), (max-aspect-ratio:3/4){
-    .method03-data-outcome {
-      grid-template-columns: auto 1fr !important;
-      padding: 14px 16px !important;
-    }
-    .method03-data-outcome .outcome-arrow {
-      display: none !important;
-    }
-  }
+  
 </style>
 </head>
 <body class="canvas-mode">
@@ -3935,10 +3914,6 @@
           </div>
         </div>
       </section>
-    </div>
-  </div>
-</section>
-
 
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
@@ -4033,16 +4008,15 @@
         </article>
       </div>
     </div>
-   <div class="method03-data-outcome">
-     <div>
-       <h4>Memory-oriented signage system design principle</h4>
-       <span class="bi">記憶指向サインシステム設計原則</span>
-     </div>
+    <div class="method03-data-outcome">
       <i data-lucide="sparkles"></i>
-     <div class="outcome-arrow"><i data-lucide="arrow-right"></i></div>
-   </div>
+      <h4>Memory-oriented signage system design principle</h4>
+      <span class="bi">記憶指向サインシステム設計原則</span>
+    </div>
   </div>
-</section><section class="slide dark" data-layout="S13" data-animate="contribution-grid">
+</section>
+
+<section class="slide dark" data-layout="S13" data-animate="contribution-grid">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>16 / 17</div></div>
     <div class="t-cat accent" data-anim="line" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
