@@ -103,16 +103,12 @@ for (let i = 0; i < slideCount; i += 1) {
     const importantSelectors = [
       'h1',
       'h2',
+      'h3',
       '.force-title',
       '.layer-ttl',
       '.col-ttl',
       '.name-mega',
       '.num-mega',
-      '.mega',
-      '.kpi-hero',
-      '.block-logic-word',
-      '.ledger-num',
-      '.bg-stat .num',
     ];
     const auxiliarySelectors = [
       '.jp',

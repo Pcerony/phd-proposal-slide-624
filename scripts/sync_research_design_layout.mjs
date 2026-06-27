@@ -159,7 +159,9 @@ const updateOpeningTagStyle = (source, target) => {
   while ((match = re.exec(source))) {
     const classes = match[1].split(/\s+/);
     if (!target.classParts.every((className) => classes.includes(className))) continue;
-    if (target.contains && !source.slice(match.index, match.index + 260).includes(target.contains)) continue;
+    const closeIndex = source.indexOf('</div>', match.index);
+    const elementSource = closeIndex === -1 ? source.slice(match.index, match.index + 260) : source.slice(match.index, closeIndex);
+    if (target.contains && !elementSource.includes(target.contains)) continue;
 
     const before = source.slice(0, match.index);
     const after = source.slice(match.index + match[0].length);

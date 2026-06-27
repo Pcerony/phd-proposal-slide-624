@@ -98,7 +98,7 @@ assert.match(researchDesignSlide, /design-sankey-stage/, 'research design slide 
   assert.match(researchDesignSlide, /design-card o-what[^"]*"[^>]*--x:\s*67(?:\.0)?%;\s*--y:\s*5\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'top outcome card must align with SVG background');
   assert.match(researchDesignSlide, /design-card m-how[^"]*"[^>]*--x:\s*54\.8%;\s*--y:\s*35\.4%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'middle method card must align with SVG background');
   assert.match(researchDesignSlide, /design-card m-which[^"]*"[^>]*--x:\s*62(?:\.0)?%;\s*--y:\s*65\.2%;\s*--w:\s*18\.6%;\s*--h:\s*25\.7%/, 'bottom method card must align with SVG background');
-  assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*62(?:\.0)?%;\s*--w:\s*18\.6%;?">Research question/, 'research-question label must reserve the wide blank column');
+  assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*27\.7%;\s*--w:\s*33\.5%;?">Research question/, 'research-question label must reserve the wide blank column');
   assert.doesNotMatch(researchDesignSlide, /sankey-band|design-flow-col|viewBox="0 0 200 300"/, 'research design slide must not use the old symmetric or rounded-rectangle connector bands');
 assert.match(html, /variable-field-strip/, 'method 01 input chart must include the lower row of observable variables');
 assert.match(html, /causal-arrow-card/, 'method 01 must use a large card with an embedded arrow');
@@ -106,14 +106,14 @@ assert.match(html, /y = n1\(x\)/, 'method 01 must include the first causal formu
 assert.match(html, /Σy = N\(x\)/, 'method 01 must integrate formulas into the model equation');
 assert.match(html, /Causal Mechanism<br\/>Model/, 'method 01 must foreground the causal mechanism model output');
 assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
-assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">What variables matter\?/, 'method 01 logic body must reuse the detail-page question title');
+assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">Identify &amp; explore key design variables\./, 'method 01 logic body must reuse the detail-page question title');
 assert.match(html, /<div class="t-cat accent">WHAT · PHASE 1<\/div>\s*<h2[^>]*>WHAT<\/h2>/, 'method 01 detail heading must be WHAT');
 assert.match(html, /Method 02 Logic/, 'method 02 translation diagram slide must be present');
-assert.match(html, /<h2 class="block-logic-word">HOW<\/h2>\s*<p class="block-logic-note">How does the model become usable\?/, 'method 02 logic body must reuse the detail-page question title');
+assert.match(html, /<h2 class="block-logic-word">HOW<\/h2>\s*<p class="block-logic-note">Formulate design principles through co-design\./, 'method 02 logic body must reuse the detail-page question title');
 assert.match(html, /<div><div class="t-cat accent">HOW · PHASE 2<\/div><h2>HOW<\/h2>/, 'method 02 detail heading must be HOW');
 assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hypothesis output must use numbered hypothesis blocks');
 assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
-assert.match(html, /<h2 class="block-logic-word">WHICH<\/h2>\s*<p class="block-logic-note">Which principles really work\?/, 'method 03 logic body must reuse the detail-page question title');
+assert.match(html, /<h2 class="block-logic-word">WHICH<\/h2>\s*<p class="block-logic-note">Validate design effects through field experiments\./, 'method 03 logic body must reuse the detail-page question title');
 assert.match(html, /<div><div class="t-cat accent">WHICH · PHASE 3<\/div><h2>WHICH<\/h2>/, 'method 03 detail heading must be WHICH');
 assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
 assert.match(html, /memory-oriented signage system design principle 2/i, 'method 03 output must reduce hypotheses into fewer principles');
@@ -124,8 +124,8 @@ assert.match(method03Logic, /block-arrow-stack method03-filter/, 'method 03 midd
 assert.match(method03Logic, /class="method03-funnel-svg"/, 'method 03 funnel must be SVG geometry');
 assert.doesNotMatch(method03Logic, /block-funnel-stage|FIELD<br\/>TEST|MEASURE<br\/>EFFECTS|KEEP<br\/>REVISE/, 'method 03 funnel must not use the old segmented text-arrow blocks');
 assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
-assert.match(html, /Module B: design-principle hypotheses/, 'method module B label must be standardized');
-assert.match(html, /Module C: validated principles/, 'method module C label must be standardized');
+assert.match(html, /<h3>Module B<\/h3>/, 'method module B heading must be standardized');
+assert.match(html, /<h3>Module C<\/h3>/, 'method module C heading must be standardized');
 assert.ok(slideClassFor('Method 01 Logic').includes('light'), 'method 01 logic slide must remain light');
 assert.ok(slideClassFor('Method 01 Detail').includes('light'), 'method 01 detail slide must remain light');
 assert.ok(slideClassFor('Method 02 Logic').includes('accent'), 'method 02 logic slide must use lemon-green background');
