@@ -26,6 +26,11 @@
     --accent-bright:#C5E803;
     --accent-text:#3f4a00;    /* 亮底上的可读高亮文字 */
 
+    /* ============ 强调点缀色: 💗 活力粉 Accent Pink ============ */
+    --pink:#FF2D55;           /* 点缀高亮色: 活力粉 Pink */
+    --pink-rgb:255,45,85;
+    --pink-on:#ffffff;        /* 粉底上的反色文字: 纯白 */
+
     /* ============ Carbon 文本角色 token (role-based,代替 opacity) ============
        亮底:  primary 主文 / secondary 次文 / helper 辅助 / placeholder 占位
        暗底:  inverse 自动反向 */
@@ -186,6 +191,25 @@
   }
   .tag.solid{background:currentColor;color:var(--text-inverse-primary);border-color:transparent}
   .tag.accent{background:var(--accent);color:var(--accent-on);border-color:transparent;opacity:1}
+
+  /* 粉色不规则非对齐背景高亮色块 (瑞士风手绘马克笔质感) */
+  .pink-highlight {
+    position: relative;
+    z-index: 1;
+    color: var(--accent-on) !important; /* 保持高对比度深色文字 */
+    display: inline-block;
+  }
+  .pink-highlight::before {
+    content: "";
+    position: absolute;
+    inset: -0.06em -0.32em -0.12em -0.28em;
+    background: var(--pink);
+    z-index: -1;
+    /* 不规则圆角, 模拟手绘/切割的不完美感 */
+    border-radius: 250px 15px 225px 18px/15px 220px 22px 250px;
+    /* 轻微旋转与倾斜, 故意打破对齐与网格 */
+    transform: rotate(-1.5deg) skewX(-2deg);
+  }
 
   /* ============ 标题层级 (无衬线 · 极轻字重 · 极致字号对比) ============ */
   .h-hero{
@@ -3393,7 +3417,7 @@
       <div style="display:flex;flex-direction:column;gap:0;position:relative">
         <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
         <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Interpretive Signage Systems</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">解説サインシステム</span></div></div>
-        <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
+        <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em"><span class="pink-highlight">Memory-Oriented</span> Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
         <div class="overlay-row" style="position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0">
           <div>
             <span style="display:block;font-size:min(3.8vw,48px);font-weight:200;line-height:1.16;letter-spacing:0;color:var(--text-primary)">
@@ -3406,7 +3430,7 @@
         </div>
       </div>
       <div data-anim="cover-meta" style="display:grid;grid-template-columns:7fr 5fr;gap:3vw;align-items:end">
-        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems<br>in Botanical Gardens from a Co-creation Perspective:<br>Toward Memory-Oriented Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム：記憶志向型の設計原則に向けて</span></div>
+        <div><div class="t-meta" style="color:var(--text-helper);margin-bottom:1vh">DESIGN · COGNITION · MEMORY</div><h1 style="font-family:var(--sans),var(--sans-zh);font-weight:300;font-size:max(20px,1.32vw);line-height:1.38;color:var(--text-primary);max-width:72ch">Cognitive Mechanisms of Interpretive Signage Systems<br>in Botanical Gardens from a Co-creation Perspective:<br>Toward <span class="pink-highlight">Memory-Oriented</span> Design Principles</h1><span class="jp" lang="ja" style="margin-top:.8vh;color:var(--text-helper)">共創の視点から見た植物園における解説サインシステムの認知メカニズム：記憶志向型の設計原則に向けて</span></div>
       </div>
     </div>
     <div data-anim="cover-presenter" style="position:absolute;right:5vw;bottom:9.5vh;text-align:right"><i data-lucide="leaf" style="width:32px;height:32px;margin-bottom:0.55vh"></i><div><div style="font-size:max(18px,1.08vw);font-weight:400">Wang Pingcheng · 王 平成</div><div class="t-meta" style="color:var(--text-helper)">Strategic Design Course, M2</div></div></div>
