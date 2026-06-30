@@ -1845,6 +1845,20 @@
   .slide.accent .canvas-card{background:var(--accent);color:var(--accent-on)}
   .slide.grey .canvas-card{background:var(--grey-1);color:var(--ink)}
   .slide.split .canvas-card{padding:0;flex-direction:row}
+  .slide:not(:first-child):not(:last-child) .canvas-card{
+    --dot-matrix-color:rgba(10, 10, 10, .09);
+    background-image:radial-gradient(var(--dot-matrix-color) .9px, transparent .95px);
+    background-size:clamp(34px, 3vw, 52px) clamp(34px, 3vw, 52px);
+    background-position:clamp(12px, 1.1vw, 18px) clamp(12px, 1.1vw, 18px);
+  }
+  .slide.dark:not(:first-child):not(:last-child) .canvas-card{
+    --dot-matrix-color:rgba(255, 255, 255, .095);
+  }
+  .slide:not(:first-child):not(:last-child) .bg-only-layout,
+  .slide:not(:first-child):not(:last-child) .bg-object-stack,
+  .slide:not(:first-child):not(:last-child) .object-split{
+    background:transparent;
+  }
 
   /* ============ ASCII 点阵呼吸场 · IKB 封面/封底专用 ============
      用法:在 .canvas-card(或 split .half.b-accent)内首位插入 <canvas class="ascii-bg" aria-hidden="true">.
@@ -2953,7 +2967,7 @@
     z-index: 5;
   }
  .design-topic-card h3 {
-    color: rgba(245,245,238,.72);
+    color: var(--text-inverse-primary);
    font-size: clamp(16px, 1.85vh, 22px) !important;
    font-weight: 500;
    line-height: 1.35 !important;
