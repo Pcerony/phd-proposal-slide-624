@@ -1723,18 +1723,6 @@
   .route-sign:nth-child(even){justify-content:flex-end}
   .route-axis{height:2px;background:var(--ink);margin:-15.5vh 0 0;position:relative}
   .route-axis:after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent}
-  .problem-bridge-slide .canvas-card{display:grid;grid-template-rows:auto 28vh minmax(0,1fr);gap:2.4vh;overflow:hidden}
-  .problem-bridge-photo{height:28vh;max-height:none}
-  .problem-bridge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3vw;background:transparent;min-height:0;border-top:1px solid var(--border-subtle);padding-top:2.2vh}
-  .problem-bridge-metric{background:transparent;padding:0;display:grid;grid-template-rows:auto 1fr auto;align-items:start;min-width:0}
-  .problem-bridge-metric.accent{background:transparent;color:var(--accent-on)}
-  .problem-bridge-number{font-family:var(--sans);font-weight:200;font-size:min(13vw,19vh);line-height:.82;letter-spacing:0;color:var(--ink);align-self:center}
-  .problem-bridge-metric .t-meta{color:var(--text-secondary)}
-  .problem-bridge-metric.accent .t-meta{color:#253000}
-  .problem-bridge-metric p{margin:0;max-width:31ch;font-size:max(18px,1.04vw);line-height:1.34;font-weight:500;color:var(--text-secondary)}
-  .problem-bridge-metric p .jp{display:block;margin-top:.5vh;font-size:max(14px,.78vw);line-height:1.28;color:var(--text-helper)}
-  .problem-bridge-metric.accent p{color:rgba(10,10,10,.64)}
-  .problem-bridge-metric.accent p .jp{color:rgba(10,10,10,.52)}
   .route-problem-slide .canvas-card{display:grid;grid-template-rows:auto 1fr;gap:2.4vh;overflow:hidden}
   .route-problem-layout{display:grid;grid-template-columns:6.2fr 5.8fr;gap:3.4vw;align-items:center;min-height:0}
   .route-problem-title h2{font-weight:200;font-size:min(5.9vw,10.2vh);line-height:.92;letter-spacing:-.045em;margin:0;max-width:12ch}
@@ -2521,6 +2509,59 @@
     width:.5em;height:1px;background:currentColor;opacity:.55
   }
   .duo-compare .col.accent .col-list li::before{background:var(--accent);opacity:1}
+  .research-gap-slide .duo-compare{margin-top:4.4vh}
+  .gap-metric-expander{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1.1vw;
+    margin-top:2vh;
+    align-items:end
+  }
+  .gap-metric-card{
+    appearance:none;
+    border:0;
+    background:var(--accent);
+    color:var(--accent-on);
+    min-height:5.4vh;
+    padding:1.05vh 1vw;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:1vw;
+    cursor:pointer;
+    text-align:left;
+    overflow:hidden;
+    transition:min-height .32s var(--ease-prod), background .18s var(--ease-prod), transform .18s var(--ease-prod);
+  }
+  .gap-metric-card:hover,.gap-metric-card:focus-visible{background:#d7ff08;outline:0}
+  .gap-metric-card:active{transform:translateY(1px)}
+  .gap-metric-title{
+    font-family:var(--mono);
+    font-size:max(12px,.68vw);
+    font-weight:850;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    line-height:1.18;
+    color:rgba(10,10,10,.78)
+  }
+  .gap-metric-number{
+    font-family:var(--sans);
+    font-size:0;
+    font-weight:250;
+    line-height:.86;
+    letter-spacing:0;
+    color:var(--ink);
+    opacity:0;
+    transition:font-size .32s var(--ease-prod), opacity .18s var(--ease-prod)
+  }
+  .gap-metric-card[aria-expanded="true"]{
+    min-height:15.2vh;
+    align-items:end
+  }
+  .gap-metric-card[aria-expanded="true"] .gap-metric-number{
+    font-size:min(7.2vw,12vh);
+    opacity:1
+  }
 
   /* 半屏 statement (参考图 7) */
   .split-half{display:grid;grid-template-columns:1fr 1fr;gap:0;flex:1;align-items:stretch}
@@ -3454,14 +3495,14 @@
 </script>
 
 <canvas id="bg-grid" class="bg"></canvas>
-<div id="page-indicator" aria-live="polite">01 / 19</div>
+<div id="page-indicator" aria-live="polite">01 / 18</div>
 
 <div id="deck">
 
 <section class="slide accent" data-layout="S01" data-animate="hero">
     <div class="canvas-card">
    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 19 · 2026</div></div>
+    <div class="chrome-min"><div class="l">PhD Research Proposal · 博士研究計画書</div><div class="r" data-slide-page>01 / 18 · 2026</div></div>
     <div style="flex:1;display:flex;flex-direction:column;gap:8vh">
       <div style="display:flex;flex-direction:column;gap:0;position:relative">
         <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Cognitive Mechanisms</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">認知メカニズム</span></div></div>
@@ -3490,7 +3531,7 @@
   <div class="canvas-card" style="padding:0;overflow:hidden">
     <div class="bg-only-layout">
       <div class="bg-hero-copy">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 19</div></div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">Background · 研究背景</div><div class="r" data-slide-page>02 / 18</div></div>
         <div class="bg-hero-title-container" data-anim="title-container" style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:2vh;margin-bottom:2vh">
           <h2 style="font-weight:200;font-size:min(5.8vw,10vh);line-height:.92;letter-spacing:-.04em;margin-top:0;max-width:10ch">Visitors come to learn.</h2>
           <span class="jp" lang="ja" style="max-width:38ch;margin-top:1.2vh;color:var(--text-secondary)">来訪者は、見るだけでなく学ぶために植物園を訪れる。</span>
@@ -3531,7 +3572,7 @@
 
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 19</div></div>
+    <div class="chrome-min"><div class="l">Research Object · 研究対象</div><div class="r" data-slide-page>03 / 18</div></div>
     <div class="s17-object-layout">
       <div class="s17-object-copy" data-anim="line">
         <div>
@@ -3622,7 +3663,7 @@
 
 <section class="slide light" data-layout="S13" data-animate="three-forces">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 19</div></div>
+    <div class="chrome-min"><div class="l">Prior Research · 先行研究</div><div class="r" data-slide-page>04 / 18</div></div>
     <div class="three-forces prior-gap-interactive nav-safe-bottom-tight">
       <div class="hero-ink-col" data-anim="up">
         <div>
@@ -3674,47 +3715,33 @@
   </div>
 </section>
 
-<section class="slide dark" data-layout="S08" data-animate="duo-mirror">
+<section class="slide dark research-gap-slide" data-layout="S08" data-animate="duo-mirror">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 19</div></div>
+    <div class="chrome-min"><div class="l">Research Gap · 理論的ギャップ</div><div class="r" data-slide-page>05 / 18</div></div>
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1vh"><h2 style="font-weight:200;font-size:min(5.35vw,9.3vh);line-height:.95;letter-spacing:-.04em">Research stops at single sign.</h2><span class="jp inverse" lang="ja">既存研究は「一枚のサイン」で止まり、実際の連続した経路を十分に捉えていない。</span></div>
-    <div class="duo-compare nav-safe-bottom-tight" data-anim="up" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
+    <div class="duo-compare" data-anim="up" style="grid-template-columns:4.8fr auto 7.2fr">
       <div class="col"><h3 class="col-ttl">Single sign</h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);display:flex;align-items:center;justify-content:center;gap:1.2vw">
         <div class="sign-icon accent" style="--h:13.5vh;--w:5vw;--bh:4.8vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
       </div><ul class="bi-list" style="opacity:.55"><li>One interpretive unit for one object or topic.</li><li>Read at a single location and moment.</li><li>Design is judged by attention, legibility, and immediate understanding.</li></ul></div>
       <div class="vrule"></div>
       <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system</h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>A coordinated set of signs distributed across a route.</li><li>Meaning is built through sequence, spacing, and repetition.</li><li>Design is judged by route-level attention, load, and memory retention.</li></ul></div>
     </div>
-  </div>
-</section>
-
-<section class="slide light problem-bridge-slide" data-layout="S22" data-animate="image-hero">
-  <div class="canvas-card">
-    <div class="chrome-min" style="margin-bottom:0"><div class="l">Research Problem · 研究課題</div><div class="r" data-slide-page>06 / 19</div></div>
-    <figure class="frame-img r-21x9 swiss-lined problem-bridge-photo" data-anim="img">
-      <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
-      <div class="photo-screen-filter"></div>
-      <div class="photo-hud large"><i data-lucide="signpost"></i></div>
-      <div class="photo-vertical-label">TSUKUBA BOTANICAL GARDEN</div>
-    </figure>
-    <div class="problem-bridge-grid nav-safe-bottom-tight" data-anim="kpi">
-      <div class="problem-bridge-metric">
-        <div class="t-meta">PROBLEM 01 · COGNITIVE LOAD</div>
-        <div class="problem-bridge-number" data-anim="metric-number" data-kind="sign" data-from="1" data-to="5">No.5</div>
-        <p>Museum fatigue appears around the fifth sign in a route-level system.<span class="jp" lang="ja">経路レベルのサインシステムでは、第5サイン付近でミュージアム疲労が現れる。</span></p>
-      </div>
-      <div class="problem-bridge-metric accent">
-        <div class="t-meta">PROBLEM 02 · MEMORY</div>
-        <div class="problem-bridge-number" data-anim="metric-number" data-kind="percent" data-from="0" data-to="48">48%</div>
-        <p>Forgetting-curve test: average second-day forgetting rate.<span class="jp" lang="ja">忘却曲線テストにおける2日目の平均忘却率。</span></p>
-      </div>
+    <div class="gap-metric-expander nav-safe-bottom-tight" data-anim="gap-metrics" aria-label="Expandable research problem metrics">
+      <button class="gap-metric-card" type="button" aria-expanded="false" onclick="this.classList.toggle('expanded');this.setAttribute('aria-expanded',this.classList.contains('expanded'))">
+        <span class="gap-metric-title">PROBLEM 01 · COGNITIVE LOAD</span>
+        <span class="gap-metric-number">No.5</span>
+      </button>
+      <button class="gap-metric-card" type="button" aria-expanded="false" onclick="this.classList.toggle('expanded');this.setAttribute('aria-expanded',this.classList.contains('expanded'))">
+        <span class="gap-metric-title">PROBLEM 02 · MEMORY</span>
+        <span class="gap-metric-number">48%</span>
+      </button>
     </div>
   </div>
 </section>
 
 <section class="slide light route-problem-slide" data-layout="S09" data-animate="route-stop">
   <div class="canvas-card">
-    <div class="chrome-min" style="margin-bottom:0"><div class="l">Route-Level Problem · 経路レベルの課題</div><div class="r" data-slide-page>07 / 19</div></div>
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Route-Level Problem · 経路レベルの課題</div><div class="r" data-slide-page>06 / 18</div></div>
     <div data-anim="kpi" class="route-problem-layout nav-safe-bottom-tight">
       <div class="route-problem-title">
         <div class="t-cat accent">SIGN NO.5 · STOP POINT</div>
@@ -3739,7 +3766,7 @@
 
 <section class="slide light" data-layout="S09" data-animate="research-topic">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">RESEARCH PROBLEM · 研究課題</div><div class="r" data-slide-page>08 / 19</div></div>
+    <div class="chrome-min"><div class="l">RESEARCH PROBLEM · 研究課題</div><div class="r" data-slide-page>07 / 18</div></div>
     <div style="position:absolute;right:5vw;top:15vh;width:36vw;height:50vh;color:var(--accent);opacity:.32" class="dots-bold" aria-hidden="true"></div>
     <div class="rq-layout problem-only">
       <div class="rq-stat-panel" data-anim="left">
@@ -3757,7 +3784,7 @@
 
 <section class="slide light" data-layout="S09" data-animate="research-topic">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Research Topic · 研究主題</div><div class="r" data-slide-page>09 / 19</div></div>
+    <div class="chrome-min"><div class="l">Research Topic · 研究主題</div><div class="r" data-slide-page>08 / 18</div></div>
     <div class="topic-goal-layout">
       <div class="rq-question-panel" data-anim="right" style="align-self:stretch">
         <div class="t-cat accent">TARGET IMPROVEMENT</div>
@@ -3795,7 +3822,7 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">Research Design · 研究設計</div>
-      <div class="r" data-slide-page>10 / 19</div>
+      <div class="r" data-slide-page>09 / 18</div>
     </div>
 
     <div class="research-design-grid">
@@ -3876,7 +3903,7 @@
 </section>
 <section class="slide light" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-     <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>11 / 19</div></div>
+     <div class="chrome-min"><div class="l">Method 01 Logic · 研究方法 01 ロジック</div><div class="r" data-slide-page>10 / 18</div></div>
      <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHAT</h2>
        <p class="block-logic-note">Identify &amp; explore key design variables.</p>
@@ -3932,7 +3959,7 @@
 
 <section class="slide light" data-layout="S16" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>12 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 01 Detail · 研究方法 01 詳細</div><div class="r" data-slide-page>11 / 18</div></div>
     <div class="phase-header" data-anim="line" style="grid-template-columns: 2.4fr 9.6fr; gap: 1.6vw;">
       <div>
         <div class="t-cat accent">WHAT · PHASE 1</div>
@@ -3978,7 +4005,7 @@
 
 <section class="slide accent" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>13 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 02 Logic · 研究方法 02 ロジック</div><div class="r" data-slide-page>12 / 18</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">HOW</h2>
       <p class="block-logic-note">Formulate design principles through co-design.</p>
@@ -4060,7 +4087,7 @@
 
 <section class="slide accent" data-layout="S14" data-animate="loop-form">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>14 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 02 Detail · 研究方法 02 詳細</div><div class="r" data-slide-page>13 / 18</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">HOW · PHASE 2</div><h2>HOW</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計原則の仮説立案</span></div>
       <p>Expert review, staff/design workshops, and prototypes translate the model into shared design language.</p>
@@ -4133,7 +4160,7 @@
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>15 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Logic · 研究方法 03 ロジック</div><div class="r" data-slide-page>14 / 18</div></div>
     <div class="block-logic-head" data-anim="line">
       <h2 class="block-logic-word">WHICH</h2>
       <p class="block-logic-note">Validate design effects through field experiments.</p>
@@ -4205,7 +4232,7 @@
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>16 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Detail · 研究方法 03 詳細</div><div class="r" data-slide-page>15 / 18</div></div>
     <div class="phase-header" data-anim="line">
       <div><div class="t-cat accent">WHICH · PHASE 3</div><h2>WHICH</h2><span class="jp" lang="ja" style="display:block;margin-top:.6vh">設計効果の検証と実地評価</span></div>
       <p>Controlled field experiments on the real greenhouse route measure actual cognitive load and memory retention.</p>
@@ -4275,7 +4302,7 @@
 
 <section class="slide dark" data-layout="S17" data-animate="system-diagram">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Method 03 Data · 研究方法 03 取得データ</div><div class="r" data-slide-page>17 / 19</div></div>
+    <div class="chrome-min"><div class="l">Method 03 Data · 研究方法 03 取得データ</div><div class="r" data-slide-page>16 / 18</div></div>
     <div class="t-cat accent" data-anim="line" style="margin-bottom:0.2vh">METHOD 03 DATA</div>
     <div class="method03-data-layout nav-safe-bottom-tight" data-anim="up">
       <div class="method03-data-modules">
@@ -4375,7 +4402,7 @@
   </div>
 </section><section class="slide accent" data-layout="S13" data-animate="contribution-grid">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>18 / 19</div></div>
+    <div class="chrome-min"><div class="l">Expected Contributions · 期待される貢献</div><div class="r" data-slide-page>17 / 18</div></div>
     <div class="t-cat accent" data-anim="line" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
     <div class="value-layout nav-safe-bottom-tight" data-anim="up">
       <div class="value-outputs">
@@ -4423,7 +4450,7 @@
             <span>Master's slide site</span>
             <i data-lucide="arrow-up-right"></i>
           </a>
-          <span data-slide-page>19 / 19</span>
+          <span data-slide-page>18 / 18</span>
         </div>
       </div>
       <div data-anim="line" style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1;max-width:48vw">
@@ -5046,38 +5073,6 @@ if(motion){
     numEl._rafId = requestAnimationFrame(step);
   }
 
-  function animateBridgeMetricNumber(numEl, delay = 0) {
-    const kind = numEl.dataset.kind;
-    const start = Number(numEl.dataset.from ?? 0);
-    const end = Number(numEl.dataset.to ?? 0);
-    const durationMs = 900;
-    let startTime = null;
-
-    if (numEl._bridgeRafId) cancelAnimationFrame(numEl._bridgeRafId);
-    if (document.body.classList.contains('low-power')) {
-      numEl.textContent = kind === 'sign' ? `No.${end}` : `${end}%`;
-      numEl.style.opacity = '1';
-      numEl.style.transform = 'none';
-      return;
-    }
-    numEl.textContent = kind === 'sign' ? `No.${start}` : `${start}%`;
-    animate(numEl, {opacity:[0,1], y:[18, 0], scale:[.94, 1]}, {duration:.72, delay, easing:EASE_ENTRY_EXP});
-
-    setTimeout(() => {
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / durationMs, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(start + easeProgress * (end - start));
-        numEl.textContent = kind === 'sign' ? `No.${value}` : `${value}%`;
-        if (progress < 1) {
-          numEl._bridgeRafId = requestAnimationFrame(step);
-        }
-      }
-      numEl._bridgeRafId = requestAnimationFrame(step);
-    }, delay * 1000 + 120);
-  }
-
   /* ============ P22 · Background · 柠檬绿滤波/失落星球HUD + 标题居中 + 计数器 ============ */
   function rBackground(slide, all){
     // 1. Right Image Zoom
@@ -5391,6 +5386,14 @@ if(motion){
 
     const foot = slide.querySelector('.t-meta');
     if(foot) animate(foot, {opacity:[0,1]}, {duration:.3, delay:1.3, easing:EASE_PROD});
+
+    const gapMetrics = slide.querySelector('.gap-metric-expander');
+    if(gapMetrics){
+      animate(gapMetrics, {opacity:[0,1], y:[18,0]}, {duration:.55, delay:1.12, easing:EASE_ENTRY_EXP});
+      [...gapMetrics.querySelectorAll('.gap-metric-card')].forEach((card, i)=>{
+        animate(card, {opacity:[0,1], y:[12,0]}, {duration:.45, delay:1.18 + i*.1, easing:EASE_ENTRY_EXP});
+      });
+    }
   }
 
   /* ---------- recipe: split-statement · 收尾 ----------
@@ -5902,21 +5905,6 @@ if(motion){
     const kpiWrap = slide.querySelector('[data-anim="kpi"]');
     if(kpiWrap){
       animate(kpiWrap, {opacity:[0,1]}, {duration:.3, delay:.7, easing:EASE_PROD});
-
-      if(slide.classList.contains('problem-bridge-slide')){
-        const metrics = [...kpiWrap.querySelectorAll('.problem-bridge-metric')];
-        metrics.forEach((metric, i)=>{
-          const base = .88 + i*.18;
-          animate(metric, {opacity:[0,1], y:[16,0]}, {duration:.55, delay:base, easing:EASE_ENTRY_EXP});
-          const label = metric.querySelector('.t-meta');
-          if(label) animate(label, {opacity:[0,1]}, {duration:.35, delay:base + .1, easing:EASE_PROD});
-          const number = metric.querySelector('[data-anim="metric-number"]');
-          if(number) animateBridgeMetricNumber(number, base + .16);
-          const copy = metric.querySelector('p');
-          if(copy) animate(copy, {opacity:[0,1], y:[8,0]}, {duration:.45, delay:base + .55, easing:EASE_PROD});
-        });
-        return;
-      }
 
       /* 段落 */
       const para = kpiWrap.querySelector(':scope > div:first-child');

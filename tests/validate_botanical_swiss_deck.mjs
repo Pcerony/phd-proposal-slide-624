@@ -38,11 +38,11 @@ const slideSectionFor = (label) => {
   return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
 };
 
-assert.equal(slides.length, 30, 'deck must contain exactly thirty registered slides');
+assert.equal(slides.length, 29, 'deck must contain exactly twenty-nine registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
-    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S09', 'S09', 'S09',
+    'S01', 'S22', 'S17', 'S13', 'S08', 'S09', 'S09', 'S09', 'S09',
     'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
@@ -79,16 +79,14 @@ assert.match(html, /prior-gap-interactive/, 'prior research slide must mark the 
 assert.match(html, /gap-module/, 'prior research slide must expose a dedicated GAP module');
 assert.match(html, /gap-expanded/, 'prior research slide must include the expanded GAP state');
 assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(gapStep===0\)/, 'space key must trigger the GAP expansion step');
-const researchProblemSlide = slideSectionFor('Research Problem · 研究課題');
-assert.match(researchProblemSlide, /PROBLEM 01 · COGNITIVE LOAD/, 'research problem slide must rename problem 01 to cognitive load');
-assert.match(researchProblemSlide, /Museum fatigue appears around the fifth sign/, 'research problem slide must describe the No.5 issue as museum fatigue');
-assert.match(researchProblemSlide, /ミュージアム疲労/, 'research problem slide must include Japanese copy for museum fatigue');
-assert.match(researchProblemSlide, /Forgetting-curve test: average second-day forgetting rate/, 'research problem slide must describe the 48% metric as a forgetting-curve test');
-assert.match(researchProblemSlide, /忘却曲線テスト/, 'research problem slide must include Japanese copy for the forgetting-curve test');
-assert.match(researchProblemSlide, /data-anim="metric-number"[^>]*data-kind="sign"[^>]*data-from="1"[^>]*data-to="5"/, 'No.5 metric must have count-up entrance animation data');
-assert.match(researchProblemSlide, /data-anim="metric-number"[^>]*data-kind="percent"[^>]*data-from="0"[^>]*data-to="48"/, '48% metric must have count-up entrance animation data');
-assert.doesNotMatch(researchProblemSlide, /Attention is consumed by the fifth sign|Average second-day forgetting rate from the prior test|PROBLEM 01 · ROUTE/, 'research problem slide must remove the old annotated wording');
-assert.match(html, /animateBridgeMetricNumber/, 'research problem metric numbers must use the bridge count-up animation helper');
+const researchGapSlide = slideSectionFor('Research Gap · 理論的ギャップ');
+assert.match(researchGapSlide, /class="slide dark research-gap-slide"/, 'research gap slide must host the merged metric cards');
+assert.match(researchGapSlide, /gap-metric-expander/, 'research gap slide must include expandable green metric cards at the bottom');
+assert.match(researchGapSlide, /PROBLEM 01 · COGNITIVE LOAD[\s\S]*?gap-metric-number">No\.5/, 'No.5 metric must move into the research gap expandable card');
+assert.match(researchGapSlide, /PROBLEM 02 · MEMORY[\s\S]*?gap-metric-number">48%/, '48% metric must move into the research gap expandable card');
+assert.match(researchGapSlide, /aria-expanded="false"/, 'metric cards must be collapsed by default before click expansion');
+assert.doesNotMatch(researchGapSlide, /Museum fatigue appears|Forgetting-curve test|ミュージアム疲労|忘却曲線テスト/, 'merged metric cards must not include body copy');
+assert.doesNotMatch(html, /problem-bridge-slide|Attention is consumed by the fifth sign|Average second-day forgetting rate from the prior test/, 'old sixth research-problem slide and copy must be removed');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /design-card m-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /design-card m-how/, 'method overview HOW card must use lemon-green phase styling');
@@ -184,4 +182,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (19 main + Q&A menu + 10 appendix questions)');
+console.log('PASS botanical Swiss deck structure (18 main + Q&A menu + 10 appendix questions)');
