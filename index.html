@@ -1270,11 +1270,8 @@
   .block-logic-word{font-size:min(8.3vw,14.4vh);font-weight:200;line-height:.82;letter-spacing:-.055em;color:var(--ink);margin:0;text-transform:uppercase}
   .block-logic-note{border-top:none;padding-top:1.05vh;font-size:max(18px,1.05vw);line-height:1.38;color:var(--text-secondary);font-weight:500;margin:0;max-width:68vw}
   .block-flow{display:grid;grid-template-columns:4.6fr 2.05fr 5.35fr;gap:1.25vw;align-items:stretch;flex:1;min-height:0}
-  .block-flow.two-panel{grid-template-columns:5.35fr 6.65fr;gap:1.7vw}
   .block-flow.what-causal-flow{grid-template-columns:4.75fr 1.75fr 5.5fr;gap:1.15vw}
-  .block-flow.what-causal-flow.two-panel{grid-template-columns:5.25fr 6.75fr;gap:1.7vw}
   .block-flow.validation-flow{grid-template-columns:3.95fr 3.05fr 4.8fr;gap:1.05vw}
-  .block-flow.validation-flow.two-panel{grid-template-columns:5.2fr 6.8fr;gap:1.7vw}
   .block-panel{border-top:none;background:var(--paper);padding:1.2vh 1vw;display:flex;flex-direction:column;gap:1vh;min-height:0}
   .block-panel.ink{background:var(--ink);color:var(--text-inverse-primary)}
   .block-panel.accent{background:var(--accent);color:var(--accent-on)}
@@ -1556,13 +1553,6 @@
   .hypothesis-block h4,.principle-output h4{font-size:max(17px,1vw);font-weight:700;line-height:1.08;margin:0;text-transform:uppercase;letter-spacing:.03em}
   .hypothesis-block .bi,.principle-output .bi{font-size:max(14px,.76vw);line-height:1.2;margin-top:.3vh}
   .hypothesis-block .bi{color:var(--text-inverse-secondary)}
-  .hypothesis-block-list.compact-labels .hypothesis-block{
-    grid-template-columns:minmax(40px,.24fr) 1fr;
-    gap:1vw;
-    padding:1.15vh 1vw;
-  }
-  .hypothesis-block-list.compact-labels .hypo-desc{display:none}
-  .hypothesis-block-list.compact-labels .hypothesis-block h4{font-size:max(18px,1.05vw);line-height:1.12}
   .principle-output-list{display:grid;grid-template-rows:repeat(2,1fr);gap:1vh;flex:1;min-height:0}
   .principle-output{background:rgba(255,255,255,.45);display:grid;grid-template-columns:auto 1fr;gap:1vw;align-items:center;padding:1.4vh 1.05vw;min-height:0}
   .principle-output .bi{color:#253000}
@@ -1578,7 +1568,6 @@
   .sketch-funnel .funnel-line,.sketch-funnel .funnel-arrow{fill:none;stroke:var(--text-inverse-primary);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
   .sketch-funnel .funnel-arrow{stroke-width:9}
   .method03-flow.validation-flow{grid-template-columns:4.25fr 2.15fr 4.45fr;gap:1.3vw;align-items:stretch}
-  .method03-flow.validation-flow.two-panel{grid-template-columns:4.7fr 7.3fr;gap:1.7vw}
   .method03-panel{min-height:50vh}
   .method03-panel .block-panel-head{border-bottom:none;padding-bottom:0}
   .method03-panel .block-panel-head h3{text-align:left;font-family:var(--mono);font-size:max(15px,.84vw);font-weight:800;letter-spacing:.14em;text-transform:uppercase}
@@ -1602,17 +1591,6 @@
   .method03-output h4{font-size:max(20px,1.25vw);font-weight:750;line-height:1.03;margin:0;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
   .method03-output .bi{font-size:max(15px,.82vw);line-height:1.25;margin-top:.6vh;color:#253000}
   .method03-output-note{font-family:var(--mono);font-size:max(12px,.68vw);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#253000;padding-top:.8vh}
-  .method03-output-list.simplified{grid-template-rows:repeat(3,1fr);gap:1vh}
-  .method03-output.simplified{
-    background:rgba(255,255,255,.42);
-    grid-template-columns:minmax(40px,.32fr) 1fr;
-    padding:1.2vh 1vw;
-  }
-  .method03-output.simplified h4{
-    text-transform:none;
-    font-size:max(18px,1.05vw);
-    line-height:1.14;
-  }
   .slide.accent .block-logic-note{color:rgba(10,10,10,.86)}
   .slide.accent .block-arrow-card:not(.ink){background:var(--paper);color:var(--ink)}
   .slide.dark .block-logic-word{color:var(--text-inverse-primary)}
@@ -3901,7 +3879,7 @@
       <h2 class="block-logic-word">WHAT</h2>
        <p class="block-logic-note">Identify &amp; explore key design variables.</p>
      </div>
-    <div class="block-flow what-causal-flow two-panel nav-safe-bottom-tight" data-anim="up">
+    <div class="block-flow what-causal-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel variable-field-panel">
 
         <div class="block-tile-grid variable-field-grid" aria-label="Design variables around memory retention">
@@ -3921,6 +3899,13 @@
           <div class="block-tile" style="grid-column: 4; grid-row: 4;"><i data-lucide="repeat-2"></i><span>Repeat<br/>view</span></div>
         </div>
         <div class="variable-field-strip" style="display:none" aria-label="Additional observable variables"></div>
+      </section>
+      <section class="block-arrow-stack causal-arrow-stack" aria-label="Method 1 turns variables into model formulas">
+        <div class="causal-arrow-card" style="border-top:none">
+          <div class="arrow-label">METHOD 1<br/>MODEL BUILDING</div>
+          <div class="arrow-line" aria-hidden="true"></div>
+          <div class="arrow-note">screen variables into causal equations</div>
+        </div>
       </section>
      <section class="block-panel accent causal-model-panel">
 
@@ -3996,7 +3981,7 @@
       <h2 class="block-logic-word">HOW</h2>
       <p class="block-logic-note">Formulate design principles through co-design.</p>
     </div>
-    <div class="block-flow two-panel nav-safe-bottom-tight" data-anim="up">
+    <div class="block-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel causal-model-panel">
         <div class="causal-formula-stack" aria-label="Formula group forming the causal mechanism model">
            <article class="causal-formula-row" style="border-top:none"><div class="formula">y = n1(x)</div><p>design variables → cognitive load</p></article>
@@ -4013,15 +3998,33 @@
           <span>All equations form one integrated model.</span>
         </div>
       </section>
+      <section class="block-arrow-stack twist-arrow-stack" aria-label="Method 2 translates formulas to hypotheses from left to right">
+        <div class="logic-arrow-card" style="background: var(--fill); color: var(--ink); border: none; width: 100%;">
+          <div class="arrow-label">METHOD 2<br/>HYPOTHESIS FORMULATION</div>
+          <div class="arrow-graphic">
+            <svg viewBox="0 0 280 120" preserveAspectRatio="none" style="width: 100%; height: 10vh;">
+              <defs>
+                <marker id="arrow-slide12" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="var(--ink)"/>
+                </marker>
+              </defs>
+              <path d="M 10,27.5 C 75,27.5 75,52.5 140,52.5 C 205,52.5 205,27.5 270,27.5 L 270,92.5 C 205,92.5 205,67.5 140,67.5 C 75,67.5 75,92.5 10,92.5 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="3" />
+              <line x1="5" y1="60" x2="275" y2="60" stroke="var(--ink)" stroke-width="3" marker-end="url(#arrow-slide12)" />
+            </svg>
+          </div>
+          <div class="arrow-note">translate model into principle hypotheses</div>
+        </div>
+      </section>
       <section class="block-panel ink">
         <div class="block-panel-head"><h3>Set of design principle</h3></div>
-        <div class="hypothesis-block-list compact-labels">
+        <div class="hypothesis-block-list">
           <article class="hypothesis-block">
             <div class="num">01</div>
             <div class="hypo-body">
               <h4>Design principle<br/>hypothesis 1</h4>
 
             </div>
+            <div class="hypo-desc">Minimize text volume and simplify layout to reduce cognitive load.</div>
           </article>
           <article class="hypothesis-block">
             <div class="num">02</div>
@@ -4029,6 +4032,7 @@
               <h4>Design principle<br/>hypothesis 2</h4>
 
             </div>
+            <div class="hypo-desc">Sequence sign placements along walking paths to guide attention flow.</div>
           </article>
           <article class="hypothesis-block">
             <div class="num">03</div>
@@ -4036,6 +4040,7 @@
               <h4>Design principle<br/>hypothesis 3</h4>
 
             </div>
+            <div class="hypo-desc">Integrate visual graphics with concise text to enhance retention.</div>
           </article>
           <article class="hypothesis-block">
             <div class="num">04</div>
@@ -4043,6 +4048,7 @@
               <h4>Design principle<br/>hypothesis 4</h4>
 
             </div>
+            <div class="hypo-desc">Place visual anchors at path stop points to reinforce retention.</div>
           </article>
         </div>
       </section>
@@ -4130,7 +4136,7 @@
       <h2 class="block-logic-word">WHICH</h2>
       <p class="block-logic-note">Validate design effects through field experiments.</p>
     </div>
-    <div class="block-flow validation-flow method03-flow two-panel nav-safe-bottom-tight" data-anim="up">
+    <div class="block-flow validation-flow method03-flow nav-safe-bottom-tight" data-anim="up">
       <section class="block-panel ink method03-panel">
         <div class="block-panel-head"><div class="t-meta">INPUT</div></div>
         <div class="hypothesis-block-list hypothesis-only method03-hypotheses">
@@ -4164,14 +4170,31 @@
           </article>
         </div>
       </section>
+      <section class="block-arrow-stack method03-filter" aria-label="Method 3 filters hypotheses from left to right">
+        <div class="logic-arrow-card" style="background: var(--accent); color: var(--accent-on); border: none; width: 100%;">
+          <div class="arrow-label">METHOD 3<br/>FIELD VALIDATION</div>
+          <div class="arrow-graphic">
+            <svg class="method03-funnel-svg" viewBox="0 0 420 260" aria-hidden="true" focusable="false" style="width: 100%; height: 10vh; max-height: 10vh;">
+              <defs>
+                <marker id="arrow-slide14" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="var(--ink)"/>
+                </marker>
+              </defs>
+              <polygon points="50,40 320,105 320,155 50,220" fill="#ffffff" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" />
+              <polygon points="320,105 370,115 370,145 320,155" fill="var(--ink)" stroke="var(--ink)" stroke-width="3.5" stroke-linejoin="round" />
+              <line x1="25" y1="130" x2="390" y2="130" stroke="var(--ink)" stroke-width="4" marker-end="url(#arrow-slide14)" />
+            </svg>
+          </div>
+          <div class="arrow-note">validate and refine design principles</div>
+        </div>
+      </section>
       <section class="block-panel accent method03-panel">
         <div class="block-panel-head"><div class="t-meta">OUTPUT</div></div>
-        <div class="method03-output-list simplified">
-          <article class="method03-output simplified"><div class="num">01</div><div><h4>Validated memory-oriented signage principles</h4></div></article>
-          <article class="method03-output simplified"><div class="num">02</div><div><h4>Evidence on cognitive load and information retention</h4></div></article>
-          <article class="method03-output simplified"><div class="num">03</div><div><h4>Field-ready design guidance for route-level signage</h4></div></article>
+        <div class="method03-output-list">
+          <article class="method03-output"><div class="num">01</div><div><h4>Memory-oriented signage system design principle 1</h4></div></article>
+          <article class="method03-output"><div class="num">02</div><div><h4>Memory-oriented signage system design principle 2</h4></div></article>
         </div>
-        <div class="method03-output-note">validated through controlled greenhouse experiments</div>
+        <div class="method03-output-note">validated and revised set</div>
       </section>
     </div>
   </div>
