@@ -94,9 +94,11 @@ Only one agent should edit `index.html` at a time. If parallel work is needed, e
 - Before starting a new edit session, run `git status -sb` and understand whether there are uncommitted user changes.
 - If multiple agents are working, each agent should record proposed changes in `docs/agent_notes/`; the integrator is responsible for applying changes to `index.html`, validating, and committing. Mirror files stay untouched unless explicitly requested.
 
-## Required Validation
+## Required Validation (Optional / Under Explicit Request)
 
-Run these checks before committing:
+By default, the automated validation scripts and manual screenshot checks are omitted. These checks should only be run when the user explicitly requests or emphasizes turning on the automatic audit/review mode ("自动审查模式").
+
+When "自动审查模式" is requested, run these checks before committing:
 
 ```bash
 node /Users/heisei/.codex/skills/guizang-ppt-skill/scripts/validate-swiss-deck.mjs index.html
@@ -107,7 +109,7 @@ node tests/color_hierarchy_audit.mjs
 
 `tests/readability_audit.mjs` opens the deck in real Chromium at 1280x720, forces a static final state, captures all slides to `output/readability-qa/`, and fails on low-contrast text.
 
-Then manually inspect the generated screenshots, especially:
+Then manually inspect the generated screenshots when "自动审查模式" is active, especially:
 
 - all 28 physical slides render: 18 main slides and 10 Q&A appendix slides;
 - no text overflows or enters the bottom navigation area;
