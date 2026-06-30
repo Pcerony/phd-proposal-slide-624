@@ -682,10 +682,10 @@
   .object-only-layout .object-core{grid-template-columns:3.6fr 5.4fr 3fr}
   .object-only-layout .object-chain-node{min-height:24vh}
   .s17-object-layout{
-    flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;gap:3.6vw;align-items:stretch
+    flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;grid-template-rows:minmax(0,32vh) minmax(0,1fr);gap:2.4vh 3.6vw;align-items:stretch
   }
   .s17-object-copy{
-    min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:3.2vh;
+    min-height:0;display:flex;flex-direction:column;justify-content:center;gap:3.2vh;
     padding-bottom:calc(var(--nav-safe-bottom) * .48)
   }
   .s17-object-copy h2{
@@ -694,20 +694,19 @@
   }
   .s17-object-copy .jp{max-width:32ch;margin-top:1.5vh}
   .s17-system-stage{
-    min-height:0;display:grid;grid-template-rows:minmax(0,1fr);gap:1.7vh;
-    padding-bottom:calc(var(--nav-safe-bottom) * .42)
+    min-height:0;display:grid;grid-template-rows:minmax(0,1fr);gap:1.7vh;padding-bottom:0
   }
   .s17-function-stack{display:grid;gap:1.05vh;margin-top:auto}
  .s17-function-stack .s17-note{
     background:transparent;min-height:0;border-left:none;padding-left:0
  }
   .s17-photo-grid{
-    min-height:0;display:grid;grid-template-rows:1.22fr .88fr;grid-template-columns:1fr 1fr;gap:1vw
+    min-height:0;height:100%;display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:1fr;gap:1vw
   }
   .s17-photo{
     position:relative;overflow:hidden;background:var(--grey-1);border-top:3px solid var(--accent);min-height:0
   }
-  .s17-photo.main{grid-column:1 / -1}
+  .s17-photo.main{grid-column:auto}
   .s17-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.02) contrast(1.04)}
   .s17-photo.main img{object-position:center 46%}
   .s17-photo.detail-a img{object-position:56% 78%}
@@ -716,6 +715,42 @@
     position:absolute;left:.55vw;bottom:.55vh;background:rgba(250,250,248,.74);padding:.32vh .46vw;
     color:var(--text-helper);font-size:max(10px,.52vw);line-height:1;letter-spacing:.13em;max-width:64%;
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+  }
+  .signage-learning-flow{
+    grid-column:1 / -1;position:relative;min-height:0;
+    --axis-y:calc(2.2vh + 5.4vh + 29px);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;
+    padding:2.2vh 0 calc(var(--nav-safe-bottom) * .45)
+  }
+  .signage-learning-flow::before{
+    content:"";position:absolute;left:4%;right:4%;top:var(--axis-y);height:2px;background:var(--ink);opacity:.38
+  }
+  .learning-flow-step{
+    position:relative;z-index:1;min-height:22vh;
+    display:grid;grid-template-rows:minmax(5.4vh,auto) 58px minmax(9vh,1fr);gap:1vh;
+    padding:0 .8vw;text-align:center;background:transparent;color:var(--ink)
+  }
+  .learning-flow-step.accent,.learning-flow-step.ink{background:transparent;color:var(--ink)}
+  .learning-flow-step .flow-top{
+    grid-row:2;align-self:center;justify-self:center;
+    width:58px;height:58px;background:var(--paper);border:2px solid var(--ink);
+    display:grid;place-items:center;position:relative
+  }
+  .learning-flow-step.accent .flow-top{background:var(--accent);border-color:var(--accent-text)}
+  .learning-flow-step.ink .flow-top{background:var(--ink);border-color:var(--accent);color:var(--text-inverse-primary)}
+  .learning-flow-step .num{
+    position:absolute;left:50%;top:calc(100% + .75vh);transform:translateX(-50%);
+    font-family:var(--mono);font-size:max(16px,.86vw);font-weight:800;letter-spacing:.14em;color:inherit;opacity:.62
+  }
+  .learning-flow-step i{width:28px;height:28px;stroke-width:1.8;color:currentColor}
+  .learning-flow-step h3{
+    grid-row:1;align-self:end;font-size:max(28px,2vw);font-weight:300;line-height:1;
+    margin:0;letter-spacing:-.02em
+  }
+  .learning-flow-step p{grid-row:3;font-size:max(14px,.82vw);line-height:1.28;margin:0;color:var(--text-secondary);font-weight:500}
+  .learning-flow-step .bi{display:block;margin-top:.42vh;color:var(--text-helper)}
+  .learning-flow-arrow{
+    display:none
   }
   .s17-ring{
     position:relative;min-height:43vh;background:linear-gradient(90deg,rgba(10,10,10,.035),rgba(10,10,10,.015));
@@ -2716,9 +2751,57 @@
       min-width:0;
     }
     .s17-photo-grid{
-      min-height:46vh;
-      grid-template-rows:1fr 1fr;
+      min-height:0;
+      height:18vh!important;
+      grid-template-columns:1.2fr 1fr 1fr!important;
+      grid-template-rows:1fr!important;
+      gap:8px!important;
     }
+    .signage-learning-flow{
+      --axis-y:auto;
+      grid-template-columns:1fr!important;
+      gap:12px!important;
+      padding:0 0 24px!important;
+    }
+    .signage-learning-flow::before{
+      display:block!important;
+      left:28px!important;right:auto!important;top:0!important;bottom:24px!important;
+      width:2px!important;height:auto!important
+    }
+    .learning-flow-step{
+      min-height:0!important;
+      display:grid!important;
+      grid-template-columns:58px minmax(0,1fr)!important;
+      grid-template-rows:auto auto!important;
+      text-align:left!important;
+      gap:8px!important;
+      padding:12px!important;
+    }
+    .learning-flow-step .flow-top{
+      grid-column:1!important;
+      grid-row:1 / span 2!important;
+      align-self:start!important;
+      justify-self:start!important;
+      width:44px!important;
+      height:44px!important;
+    }
+    .learning-flow-step .num{
+      left:50%!important;
+      top:calc(100% + 4px)!important;
+      font-size:13px!important;
+      letter-spacing:.08em!important;
+    }
+    .learning-flow-step h3{
+      grid-column:2!important;
+      grid-row:1!important;
+    }
+    .learning-flow-step p{
+      grid-column:2!important;
+      grid-row:2!important;
+    }
+    .learning-flow-step h3{font-size:22px!important}
+    .learning-flow-step p{font-size:13px!important;line-height:1.18!important}
+    .learning-flow-step i{width:20px!important;height:20px!important}
     .s17-note,
     .force-card,
     .hypothesis-block,
@@ -3220,11 +3303,13 @@
         <div class="cover-row" data-anim="cover-row" style="border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0"><div><span style="display:block;font-size:min(4.45vw,7.7vh);font-weight:200;line-height:.93;letter-spacing:-.035em">Memory-Oriented Design Principles</span><span class="jp" lang="ja" style="margin-top:.55vh;color:var(--text-helper)">記憶指向デザイン原則</span></div></div>
         <div class="overlay-row" style="position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0">
           <div>
-            <span style="display:block;font-size:48px;font-weight:200;line-height:1.12;letter-spacing:-.03em;color:var(--text-primary)">
-              How the design of interpretive signage systems affects visitors' learning experiences and cognitive memory
+            <span style="display:block;font-size:min(3.8vw,48px);font-weight:200;line-height:1.16;letter-spacing:0;color:var(--text-primary)">
+              - Study the relationship between interpretive signage design, visitors' learning experiences, and cognitive memory.<br/>
+              - Establish and validate design principles for interpretive signage systems.
             </span>
             <span class="jp" lang="ja" style="display:block;margin-top:1.8vh;font-size:max(22px,1.2vw);color:var(--text-helper)">
-              解説サインシステムのデザインが来訪者の学習体験と認知的記憶に及ぼす影響に関する研究
+              - 解説サインデザインと来訪者の学習体験・認知的記憶との関係を明らかにする。<br/>
+              - 解説サインシステムの設計原則を構築し、検証する。
             </span>
           </div>
         </div>
@@ -3289,11 +3374,6 @@
           <h2>Interpretive signage system.</h2>
           <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
-        <div class="s17-function-stack" aria-label="Interpretive signage functions">
-          <div class="s17-note"><i data-lucide="badge-info"></i><div><h3>Identify</h3><p>Name and distinguish plants.<span class="bi">植物を識別する。</span></p></div></div>
-          <div class="s17-note"><i data-lucide="book-open"></i><div><h3>Explain</h3><p>Turn displays into knowledge.<span class="bi">展示を知識へ変換する。</span></p></div></div>
-          <div class="s17-note"><i data-lucide="route"></i><div><h3>Connect</h3><p>Link signs across a route.<span class="bi">経路上でサインをつなぐ。</span></p></div></div>
-        </div>
       </div>
       <div class="s17-system-stage" data-anim="up">
         <div class="s17-photo-grid" aria-label="Interpretive signage system photos">
@@ -3314,6 +3394,31 @@
            <div class="photo-vertical-label">GARDEN INFORMATION BOARD</div>
          </figure>
         </div>
+      </div>
+      <div class="signage-learning-flow" data-anim="up" aria-label="Signage learning process">
+        <article class="learning-flow-step">
+          <div class="flow-top"><span class="num">01</span><i data-lucide="eye"></i></div>
+          <h3>Attention</h3>
+          <p>Attend to the sign as a learning cue.<span class="bi">学習の手がかりとしてサインに注意を向ける。</span></p>
+          <span class="learning-flow-arrow" aria-hidden="true"></span>
+        </article>
+        <article class="learning-flow-step accent">
+          <div class="flow-top"><span class="num">02</span><i data-lucide="book-open"></i></div>
+          <h3>Reading</h3>
+          <p>Read labels, images, and explanatory text.<span class="bi">ラベル・画像・解説文を読解する。</span></p>
+          <span class="learning-flow-arrow" aria-hidden="true"></span>
+        </article>
+        <article class="learning-flow-step">
+          <div class="flow-top"><span class="num">03</span><i data-lucide="graduation-cap"></i></div>
+          <h3>Encoding</h3>
+          <p>Bind sign information to the observed plant.<span class="bi">サイン情報を観察対象の植物と結びつけて符号化する。</span></p>
+          <span class="learning-flow-arrow" aria-hidden="true"></span>
+        </article>
+        <article class="learning-flow-step ink">
+          <div class="flow-top"><span class="num">04</span><i data-lucide="refresh-cw"></i></div>
+          <h3>Recall</h3>
+          <p>Retrieve the learned content after the visit.<span class="bi">訪問後に学習内容を想起する。</span></p>
+        </article>
       </div>
     </div>
   </div>

@@ -45,6 +45,9 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 ## Layout Rules
 
 - Keep every slide in the registered Swiss layout family with `data-layout="Sxx"`.
+- Mobile-phone layout support is permanently out of scope. The deck is designed for desktop browsers, presentation displays, and landscape tablet-like viewports only.
+- Do not spend implementation or review time fixing phone-specific layout issues, stacking behavior, touch ergonomics, or portrait-phone screenshots unless the user explicitly reverses this rule in writing.
+- Responsive work should focus on mainstream presentation sizes: 13-inch laptop, 16:9 projector, 16:10 laptop, wide desktop, and reasonable landscape tablet widths.
 - SVG is for geometry only. Do not put visible text inside SVG `<text>` elements.
 - Labels for diagrams must be normal HTML text positioned in cards, captions, or grid cells.
 - Keep the bottom navigation safe area clear. Content should not extend into the bottom 7 percent of the viewport.
@@ -104,6 +107,8 @@ Then manually inspect the generated screenshots, especially:
 
 - all 28 physical slides render: 18 main slides and 10 Q&A appendix slides;
 - no text overflows or enters the bottom navigation area;
+- desktop, projector, wide desktop, and landscape tablet views remain readable;
+- phone portrait layouts are not an acceptance criterion and should not block completion;
 - all English body text has nearby Japanese;
 - method slides include real diagrams;
 - images under `images/` load correctly.
