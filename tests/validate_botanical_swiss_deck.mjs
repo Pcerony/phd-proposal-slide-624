@@ -38,11 +38,11 @@ const slideSectionFor = (label) => {
   return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
 };
 
-assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight registered slides');
+assert.equal(slides.length, 29, 'deck must contain exactly twenty-nine registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
-    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S09',
+    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S22', 'S09', 'S09',
     'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
@@ -138,7 +138,7 @@ assert.match(closingSlide, /data-image-slot="s10-doctoral-process-flow"/, 'closi
 assert.match(closingSlide, /closing-flow-figure/, 'closing slide must embed the process flow inside the lemon-green closing layout');
 assert.doesNotMatch(closingSlide, /half b-paper|closing-reference-half/, 'closing slide must not create a separate right column for the image');
 assert.match(html, /Q&A 10 \/ 10/, 'Q&A appendix must use separate ten-slide page count');
-assert.doesNotMatch(html, />18-27</, 'main deck must not expose the old physical Q&A range');
+assert.doesNotMatch(html, />(18-27|19-28)</, 'main deck must not expose a physical Q&A range');
 assert.doesNotMatch(html, /TAKEAWAYS/, 'closing slide must not include takeaways');
 assert.doesNotMatch(html, /\[必填\]|TODO/, 'required placeholders must be removed');
 assert.match(html, /認知メカニズム/, 'Japanese title translation must be present');
@@ -166,4 +166,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (17 main + Q&A menu + 10 appendix questions)');
+console.log('PASS botanical Swiss deck structure (18 main + Q&A menu + 10 appendix questions)');

@@ -679,7 +679,7 @@
   .object-only-layout .object-core{grid-template-columns:3.6fr 5.4fr 3fr}
   .object-only-layout .object-chain-node{min-height:24vh}
   .s17-object-layout{
-    flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;grid-template-rows:minmax(0,32vh) minmax(0,1fr);gap:2.4vh 3.6vw;align-items:stretch
+    flex:1;min-height:0;display:grid;grid-template-columns:4.8fr 7.2fr;gap:3.6vw;align-items:stretch
   }
   .s17-object-copy{
     min-height:0;display:flex;flex-direction:column;justify-content:center;gap:3.2vh;
@@ -715,37 +715,109 @@
   }
   .signage-learning-flow{
     grid-column:1 / -1;position:relative;min-height:0;
-    --axis-y:calc(2.2vh + 5.4vh + 29px);
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1.2vw;align-items:stretch;
     padding:2.2vh 0 calc(var(--nav-safe-bottom) * .45)
   }
   .signage-learning-flow::before{
-    content:"";position:absolute;left:4%;right:4%;top:var(--axis-y);height:2px;background:var(--ink);opacity:.38
+    display:none
   }
-  .learning-flow-step{
-    position:relative;z-index:1;min-height:22vh;
-    display:grid;grid-template-rows:minmax(5.4vh,auto) 58px minmax(9vh,1fr);gap:1vh;
-    padding:0 .8vw;text-align:center;background:transparent;color:var(--ink)
+  .learning-flow-wrapper{
+    margin-top:2.5vh;max-width:440px
   }
-  .learning-flow-step.accent,.learning-flow-step.ink{background:transparent;color:var(--ink)}
-  .learning-flow-step .flow-top{
-    grid-row:2;align-self:center;justify-self:center;
-    width:58px;height:58px;background:var(--paper);border:2px solid var(--ink);
-    display:grid;place-items:center;position:relative
+  .flow-header-row{
+    grid-column:1 / -1;
+    display:grid;grid-template-columns:1.5fr 0.8fr 1.7fr 130px;align-items:center;margin-bottom:1vh;
+    border-bottom:1px solid var(--border-subtle);padding-bottom:0.6vh
   }
-  .learning-flow-step.accent .flow-top{background:var(--accent);border-color:var(--accent-text)}
-  .learning-flow-step.ink .flow-top{background:var(--ink);border-color:var(--accent);color:var(--text-inverse-primary)}
-  .learning-flow-step .num{
-    position:absolute;left:50%;top:calc(100% + .75vh);transform:translateX(-50%);
-    font-family:var(--mono);font-size:max(16px,.86vw);font-weight:800;letter-spacing:.14em;color:inherit;opacity:.62
+  .flow-header-row .hdr-left{padding-left:0}
+  .flow-header-row .hdr-left,
+  .flow-header-row .hdr-mid,
+  .flow-header-row .hdr-right{
+    font-family:var(--sans);font-size:max(12px,0.76vw);font-weight:600;text-transform:none;
+    color:var(--text-helper);letter-spacing:normal
   }
-  .learning-flow-step i{width:28px;height:28px;stroke-width:1.8;color:currentColor}
-  .learning-flow-step h3{
-    grid-row:1;align-self:end;font-size:max(28px,2vw);font-weight:300;line-height:1;
-    margin:0;letter-spacing:-.02em
+  .flow-header-row .hdr-mid{text-align:left}
+  .flow-header-row .hdr-right{text-align:right;padding-right:8px}
+  .signage-learning-flow.vertical-flow{
+    --row-h:4.4vh;--row-gap:1.6vh;
+    display:flex;flex-direction:column;gap:var(--row-gap);padding:0;margin:0;
+    position:relative;width:440px
   }
-  .learning-flow-step p{grid-row:3;font-size:max(14px,.82vw);line-height:1.28;margin:2.8vh 0 0;color:var(--text-secondary);font-weight:500}
-  .learning-flow-step .bi{display:block;margin-top:.42vh;color:var(--text-helper)}
+  .signage-learning-flow.vertical-flow::before{
+    content:"";position:absolute;left:12px;
+    top:calc(var(--row-h)/2);
+    bottom:calc(var(--row-h) + var(--row-gap) + var(--row-h)/2);
+    width:1px;background:var(--ink);opacity:0.25;z-index:1
+  }
+  .flow-row{
+    display:grid;grid-template-columns:1.5fr 0.8fr 1.7fr;
+    align-items:center;min-height:var(--row-h);position:relative;
+    width:310px
+  }
+  .signage-visual-aside{
+    --row-h:4.4vh;--row-gap:1.6vh;
+    position:absolute;
+    right:0;
+    top:0;
+    /* bottom = after row 3: 3 rows + 2 gaps from top */
+    height:calc(var(--row-h)*3 + var(--row-gap)*2);
+    width:130px;
+    display:flex;align-items:stretch;justify-content:flex-end;z-index:2
+  }
+  .signage-connectors{
+    flex:1;position:relative;z-index:1;pointer-events:none
+  }
+  .signage-icon-box{
+    width:64px;align-self:stretch;background:var(--accent);color:var(--accent-on);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;z-index:2
+  }
+  .signage-svg-graphic{width:32px;height:32px}
+  .learning-flow-timeline-line{
+    position:absolute;left:12px;top:0;bottom:0;width:1px;
+    background:var(--ink);opacity:0.25;pointer-events:none;z-index:1
+  }
+  .flow-row::before{
+    display:none
+  }
+  .flow-step{
+    display:flex;align-items:center;gap:12px;z-index:2;position:relative
+  }
+  .flow-step .num{
+    width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+    background:var(--grey-2);color:var(--text-helper);font-family:var(--mono);
+    font-size:11px;font-weight:700;z-index:2;border:1px solid var(--border-subtle);box-sizing:border-box;
+    flex-shrink:0
+  }
+  .flow-row.highlighted .flow-step .num{
+    background:var(--accent);color:var(--accent-on);border-color:var(--accent)
+  }
+  .flow-row.dark .flow-step .num{
+    background:var(--ink);color:var(--text-inverse-primary);border-color:var(--ink)
+  }
+  .flow-step .step-name{
+    font-size:max(15px,0.98vw);font-weight:600;color:var(--text-primary)
+  }
+  .flow-row.highlighted .flow-step .step-name{
+    color:var(--accent-text)
+  }
+  .flow-connector{
+    border-bottom:1px dashed var(--border-strong);opacity:0.45;margin:0 0.8vw
+  }
+  .flow-row.highlighted .flow-connector{
+    border-bottom-color:var(--accent-text);opacity:0.6
+  }
+  .flow-badge{
+    font-family:var(--mono);font-size:max(11px,0.68vw);font-weight:600;text-transform:uppercase;
+    letter-spacing:0.02em;padding:0.4vh 0.6vw;border:1px solid var(--border-subtle);
+    background:var(--fill);color:var(--text-secondary);text-align:center
+  }
+  .flow-row.highlighted .flow-badge{
+    background:var(--accent);color:var(--accent-on);border-color:var(--accent);font-weight:700
+  }
+  .flow-badge-wrapper{
+    display:block;min-height:1px
+  }
   .learning-flow-arrow{
     display:none
   }
@@ -1651,6 +1723,16 @@
   .route-sign:nth-child(even){justify-content:flex-end}
   .route-axis{height:2px;background:var(--ink);margin:-15.5vh 0 0;position:relative}
   .route-axis:after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .problem-bridge-slide .canvas-card{display:grid;grid-template-rows:auto 41vh minmax(0,1fr);gap:2.4vh;overflow:hidden}
+  .problem-bridge-photo{height:41vh;max-height:none}
+  .problem-bridge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-subtle);min-height:0}
+  .problem-bridge-metric{background:var(--fill);padding:3.4vh 2.4vw;display:grid;grid-template-rows:auto 1fr auto;align-items:start;min-width:0}
+  .problem-bridge-metric.accent{background:var(--accent);color:var(--accent-on)}
+  .problem-bridge-number{font-family:var(--sans);font-weight:200;font-size:min(13vw,19vh);line-height:.82;letter-spacing:0;color:var(--ink);align-self:center}
+  .problem-bridge-metric .t-meta{color:var(--text-secondary)}
+  .problem-bridge-metric.accent .t-meta{color:#253000}
+  .problem-bridge-metric p{margin:0;max-width:31ch;font-size:max(18px,1.04vw);line-height:1.34;font-weight:500;color:var(--text-secondary)}
+  .problem-bridge-metric.accent p{color:rgba(10,10,10,.64)}
   .fatigue-steps{display:flex;gap:.8vw;margin-top:1.25vh}
   .fatigue-step{flex:1 1 0;min-width:0;background:var(--fill);padding:1vh .75vw;display:flex;flex-direction:column;gap:.5vh}
   .fatigue-step i{width:26px;height:26px;stroke-width:1.7;color:var(--accent-text)}
@@ -2519,7 +2601,7 @@
     right: 4.5vw;
     top: 50%;
     transform: translateY(-50%) scale(0.68);
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transition: opacity 0.5s cubic-bezier(0,0,.3,1), transform 0.5s cubic-bezier(0,0,.3,1);
     color: var(--ink) !important;
@@ -2534,7 +2616,7 @@
     gap:.65vh;opacity:.78
   }
   .three-forces.prior-gap-interactive.gap-expanded .force-card{
-    grid-template-columns:minmax(42px,.56fr) 2.15fr 3.2fr;
+    grid-template-columns:minmax(42px,.56fr) 2.15fr;
     gap:.75vw;padding:1vh .85vw
   }
   .three-forces.prior-gap-interactive.gap-expanded .force-num{
@@ -2544,7 +2626,7 @@
     font-size:max(14px,.98vw);line-height:1.03
   }
   .three-forces.prior-gap-interactive.gap-expanded .force-card .t-body-sm{
-    font-size:max(11px,.58vw);line-height:1.13
+    font-size:max(11px,.58vw);line-height:1.13;opacity:0;max-height:0;overflow:hidden
   }
   .hero-ink-col{
     background:var(--ink);color:var(--text-inverse-primary);padding:3.2vh 2.2vw;
@@ -2765,51 +2847,48 @@
       grid-template-rows:1fr!important;
       gap:8px!important;
     }
+    .learning-flow-wrapper{
+      display:block!important;
+      margin-top:12px!important
+    }
     .signage-learning-flow{
-      --axis-y:auto;
       grid-template-columns:1fr!important;
       gap:12px!important;
       padding:0 0 24px!important;
     }
     .signage-learning-flow::before{
-      display:block!important;
-      left:28px!important;right:auto!important;top:0!important;bottom:24px!important;
-      width:2px!important;height:auto!important
+      display:none!important
     }
-    .learning-flow-step{
-      min-height:0!important;
-      display:grid!important;
-      grid-template-columns:58px minmax(0,1fr)!important;
-      grid-template-rows:auto auto!important;
-      text-align:left!important;
+    .vertical-flow{
+      padding-left:0!important;
+      width:100%!important
+    }
+    .vertical-flow::before{
+      display:none!important
+    }
+    .flow-header-row{
+      display:none!important
+    }
+    .flow-row{
+      grid-template-columns:1fr 1fr!important;
       gap:8px!important;
-      padding:12px!important;
+      min-height:0!important
     }
-    .learning-flow-step .flow-top{
-      grid-column:1!important;
-      grid-row:1 / span 2!important;
-      align-self:start!important;
-      justify-self:start!important;
-      width:44px!important;
-      height:44px!important;
+    .flow-step{
+      display:flex!important;
+      align-items:center!important;
+      gap:8px!important
     }
-    .learning-flow-step .num{
-      left:50%!important;
-      top:calc(100% + 4px)!important;
-      font-size:13px!important;
-      letter-spacing:.08em!important;
+    .flow-step .num{
+      position:static!important;
+      flex-shrink:0!important
     }
-    .learning-flow-step h3{
-      grid-column:2!important;
-      grid-row:1!important;
+    .flow-connector{
+      display:none!important
     }
-    .learning-flow-step p{
-      grid-column:2!important;
-      grid-row:2!important;
+    .signage-visual-aside{
+      display:none!important
     }
-    .learning-flow-step h3{font-size:22px!important}
-    .learning-flow-step p{font-size:13px!important;line-height:1.18!important}
-    .learning-flow-step i{width:20px!important;height:20px!important}
     .s17-note,
     .force-card,
     .hypothesis-block,
@@ -3318,12 +3397,10 @@
         <div class="overlay-row" style="position:absolute;inset:0;opacity:0;pointer-events:none;display:flex;align-items:center;border-top:1px solid rgba(10,10,10,.28);border-bottom:1px solid rgba(10,10,10,.28);padding:1.5vh 0">
           <div>
             <span style="display:block;font-size:min(3.8vw,48px);font-weight:200;line-height:1.16;letter-spacing:0;color:var(--text-primary)">
-              - Study the relationship between interpretive signage design, visitors' learning experiences, and cognitive memory.<br/>
-              - Establish and validate design principles for interpretive signage systems.
+              Learn, build, and validate design principles that make interpretive signage easy to remember.
             </span>
             <span class="jp" lang="ja" style="display:block;margin-top:1.8vh;font-size:max(22px,1.2vw);color:var(--text-helper)">
-              - 解説サインデザインと来訪者の学習体験・認知的記憶との関係を明らかにする。<br/>
-              - 解説サインシステムの設計原則を構築し、検証する。
+              解説サインを記憶に残りやすくするための設計原則を学び、構築し、検証する。
             </span>
           </div>
         </div>
@@ -3388,51 +3465,83 @@
           <h2>Interpretive signage system.</h2>
           <span class="jp" lang="ja">本研究の対象は、植物園における解説サインシステムである。</span>
         </div>
+        <div class="learning-flow-wrapper" data-anim="up" aria-label="Signage learning process">
+          <div class="flow-header-row">
+            <div class="hdr-left">Learning process</div>
+            <div></div>
+            <div class="hdr-mid">Signage role</div>
+            <div class="hdr-right">Signage system</div>
+          </div>
+          <div class="signage-learning-flow vertical-flow">
+            <div class="learning-flow-timeline-line" aria-hidden="true"></div>
+            <div class="flow-row">
+              <div class="flow-step">
+                <span class="num">01</span>
+                <span class="step-name">Attention</span>
+              </div>
+              <div class="flow-connector"></div>
+              <div class="flow-badge">Gateway Cue</div>
+            </div>
+            <div class="flow-row highlighted">
+              <div class="flow-step">
+                <span class="num">02</span>
+                <span class="step-name">Reading</span>
+              </div>
+              <div class="flow-connector"></div>
+              <div class="flow-badge highlighted">Core Medium</div>
+            </div>
+            <div class="flow-row">
+              <div class="flow-step">
+                <span class="num">03</span>
+                <span class="step-name">Encoding</span>
+              </div>
+              <div class="flow-connector"></div>
+              <div class="flow-badge">Cognitive Link</div>
+            </div>
+            <div class="flow-row dark">
+              <div class="flow-step">
+                <span class="num">04</span>
+                <span class="step-name">Recall</span>
+              </div>
+              <div class="flow-connector" style="border-bottom:none"></div>
+              <div class="flow-badge-wrapper"></div>
+            </div>
+            <div class="signage-visual-aside">
+              <svg class="signage-connectors" viewBox="0 0 1 3" preserveAspectRatio="none">
+                <line x1="1" y1="0.5" x2="0" y2="0.5" stroke="var(--ink)" stroke-width="0.04" opacity="0.35" />
+                <line x1="1" y1="1.5" x2="0" y2="1.5" stroke="var(--accent)" stroke-width="0.08" />
+                <line x1="1" y1="2.5" x2="0" y2="2.5" stroke="var(--ink)" stroke-width="0.04" opacity="0.35" />
+              </svg>
+              <div class="signage-icon-box">
+                <svg class="signage-svg-graphic" viewBox="0 0 64 64">
+                  <rect x="12" y="14" width="40" height="24" fill="none" stroke="currentColor" stroke-width="3.2" />
+                  <line x1="32" y1="38" x2="32" y2="52" stroke="currentColor" stroke-width="3.2" />
+                  <line x1="22" y1="52" x2="42" y2="52" stroke="currentColor" stroke-width="3.2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="s17-system-stage" data-anim="up">
-        <div class="s17-photo-grid" aria-label="Interpretive signage system photos">
-         <figure class="s17-photo main">
+        <div class="s17-photo-grid" style="grid-template-rows:1.22fr .88fr;grid-template-columns:1fr 1fr;height:100%" aria-label="Interpretive signage system photos">
+          <figure class="s17-photo main" style="grid-column:1 / -1">
             <img data-image-slot="s16-brief-21x9" src="images/01.JPG" alt="Signage system at botanical garden" loading="eager">
             <div class="photo-screen-filter"></div>
             <div class="photo-hud small"><i data-lucide="signpost"></i></div>
             <div class="photo-vertical-label">PLANT LABEL</div>
           </figure>
-         <figure class="s17-photo detail-a">
+          <figure class="s17-photo detail-a">
             <img data-image-slot="s16-brief-21x9" src="images/02.JPG" alt="Signage system at botanical garden" loading="eager">
-           <div class="photo-screen-filter"></div>
-           <div class="photo-vertical-label">IN-SITU LABEL</div>
-         </figure>
-         <figure class="s17-photo detail-b">
+            <div class="photo-screen-filter"></div>
+            <div class="photo-vertical-label">IN-SITU LABEL</div>
+          </figure>
+          <figure class="s17-photo detail-b">
             <img data-image-slot="s16-brief-21x9" src="images/03.JPG" alt="Signage system at botanical garden" loading="eager">
-           <div class="photo-screen-filter"></div>
-           <div class="photo-vertical-label">GARDEN INFORMATION BOARD</div>
-         </figure>
+            <div class="photo-screen-filter"></div>
+            <div class="photo-vertical-label">GARDEN INFORMATION BOARD</div>
+          </figure>
         </div>
-      </div>
-      <div class="signage-learning-flow" data-anim="up" aria-label="Signage learning process">
-        <article class="learning-flow-step">
-          <div class="flow-top"><span class="num">01</span><i data-lucide="eye"></i></div>
-          <h3>Attention</h3>
-          <p>Attend to the sign as a learning cue.</p>
-          <span class="learning-flow-arrow" aria-hidden="true"></span>
-        </article>
-        <article class="learning-flow-step accent">
-          <div class="flow-top"><span class="num">02</span><i data-lucide="book-open"></i></div>
-          <h3>Reading</h3>
-          <p>Read labels, images, and explanatory text.</p>
-          <span class="learning-flow-arrow" aria-hidden="true"></span>
-        </article>
-        <article class="learning-flow-step">
-          <div class="flow-top"><span class="num">03</span><i data-lucide="graduation-cap"></i></div>
-          <h3>Encoding</h3>
-          <p>Bind sign information to the observed plant.</p>
-          <span class="learning-flow-arrow" aria-hidden="true"></span>
-        </article>
-        <article class="learning-flow-step ink">
-          <div class="flow-top"><span class="num">04</span><i data-lucide="refresh-cw"></i></div>
-          <h3>Recall</h3>
-          <p>Retrieve the learned content after the visit.</p>
-        </article>
       </div>
     </div>
   </div>
@@ -3499,9 +3608,33 @@
     <div class="duo-compare nav-safe-bottom-tight" data-anim="up" style="margin-top:6.4vh;grid-template-columns:4.8fr auto 7.2fr">
       <div class="col"><h3 class="col-ttl">Single sign</h3><div style="height:18vh;margin:1vh 0;background:rgba(255,255,255,.055);display:flex;align-items:center;justify-content:center;gap:1.2vw">
         <div class="sign-icon accent" style="--h:13.5vh;--w:5vw;--bh:4.8vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div>
-      </div><ul class="bi-list" style="opacity:.55"><li>Context shapes attention <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CLM</span></li><li>Value drives encoding <span style="font-family:var(--mono);font-size:max(12px,.7vw)">AVM</span></li><li>Dual-channel reduces load <span style="font-family:var(--mono);font-size:max(12px,.7vw)">CTML</span></li></ul></div>
+      </div><ul class="bi-list" style="opacity:.55"><li>One interpretive unit for one object or topic.</li><li>Read at a single location and moment.</li><li>Design is judged by attention, legibility, and immediate understanding.</li></ul></div>
       <div class="vrule"></div>
-      <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system</h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>Cumulative cognitive load</li><li>Museum fatigue across the route</li><li>Sequential memory degradation</li></ul></div>
+      <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system</h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>A coordinated set of signs distributed across a route.</li><li>Meaning is built through sequence, spacing, and repetition.</li><li>Design is judged by route-level attention, load, and memory retention.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light problem-bridge-slide" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card">
+    <div class="chrome-min" style="margin-bottom:0"><div class="l">Research Problem · 研究課題</div><div class="r" data-slide-page>06 / 18</div></div>
+    <figure class="frame-img r-21x9 swiss-lined problem-bridge-photo" data-anim="img">
+      <img data-image-slot="s22-hero-21x9" src="images/05-signage-environment-tsukuba.jpg" alt="Multiple interpretive signs in Tsukuba Botanical Garden" loading="eager" style="object-position:center 68%">
+      <div class="photo-screen-filter"></div>
+      <div class="photo-hud large"><i data-lucide="signpost"></i></div>
+      <div class="photo-vertical-label">TSUKUBA BOTANICAL GARDEN</div>
+    </figure>
+    <div class="problem-bridge-grid nav-safe-bottom-tight" data-anim="kpi">
+      <div class="problem-bridge-metric">
+        <div class="t-meta">PROBLEM 01 · ROUTE</div>
+        <div class="problem-bridge-number">No.5</div>
+        <p>Attention is consumed by the fifth sign in a route-level system.</p>
+      </div>
+      <div class="problem-bridge-metric accent">
+        <div class="t-meta">PROBLEM 02 · MEMORY</div>
+        <div class="problem-bridge-number">48%</div>
+        <p>Average second-day forgetting rate from the prior test.</p>
+      </div>
     </div>
   </div>
 </section>

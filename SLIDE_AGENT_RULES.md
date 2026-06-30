@@ -39,6 +39,7 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 
 ## Language Rules
 
+- User-agent communication may be in Chinese, but slide-facing text must not use Chinese. The deck itself may contain English and Japanese only.
 - English is the primary presentation language.
 - Japanese should be retained only for key reader-facing text: the cover title, slide/chapter labels, core research topic/question, method phase names, major contribution labels, closing statement, and Q&A question titles.
 - Method-detail cards, research-design nodes, and contribution cards may keep one short Japanese support line when removing it would make the slide too sparse or hard to present.
@@ -59,7 +60,8 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 
 ## Deck Structure Rules
 
-- The main deck has 18 pages: slides 01-17 plus the Appendix Entry slide.
+- The main deck has 18 numbered content pages.
+- The Appendix Entry slide is a separate Q&A entry page and is not included in the main page total.
 - Q&A slides are a separate appendix deck with `data-appendix="qa"` and their own `Q&A 01 / 10` page count.
 - Do not include Q&A appendix pages in the main page total, main navigation dots, or main slide overview.
 - The Appendix Entry page must keep clickable question cards that call `goAppendix(n)` for direct jumps.
@@ -111,7 +113,7 @@ node tests/color_hierarchy_audit.mjs
 
 Then manually inspect the generated screenshots when "自动审查模式" is active, especially:
 
-- all 28 physical slides render: 18 main slides and 10 Q&A appendix slides;
+- all 29 physical slides render: 18 main content slides, 1 Q&A menu slide, and 10 Q&A appendix slides;
 - no text overflows or enters the bottom navigation area;
 - desktop, projector, wide desktop, and landscape tablet views remain readable;
 - phone portrait layouts are not an acceptance criterion and should not block completion;
