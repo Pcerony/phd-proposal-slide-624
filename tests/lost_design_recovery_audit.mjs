@@ -51,7 +51,7 @@ assert.match(signageObjectSlide, /IN-SITU LABEL/, 'detail signage photo must use
 assert.match(signageObjectSlide, /GARDEN INFORMATION BOARD/, 'garden board photo must use a right-side vertical label');
 assert.doesNotMatch(signageObjectSlide, /<figcaption[^>]*class="t-meta"/, 'signage object photos must not fall back to bottom captions');
 
-const signageEnvironmentSlide = sectionFor('Signage Environment · 解説環境');
+const signageEnvironmentSlide = sectionFor('RESEARCH PROBLEM · 研究課題');
 assert.match(signageEnvironmentSlide, /photo-screen-filter/, 'signage environment photo must restore the lemon-green screen overlay');
 assert.match(signageEnvironmentSlide, /data-lucide="signpost"/, 'signage environment photo must restore the signpost HUD icon');
 assert.match(signageEnvironmentSlide, /TSUKUBA BOTANICAL GARDEN/, 'signage environment photo must use a vertical source label');
