@@ -38,11 +38,11 @@ const slideSectionFor = (label) => {
   return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
 };
 
-assert.equal(slides.length, 29, 'deck must contain exactly twenty-nine registered slides');
+assert.equal(slides.length, 30, 'deck must contain exactly thirty registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
-    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S22', 'S09', 'S09',
+    'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S09', 'S09', 'S09',
     'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
@@ -101,27 +101,32 @@ assert.match(researchDesignSlide, /design-sankey-stage/, 'research design slide 
   assert.match(researchDesignSlide, /design-axis-label" style="--x:\s*27\.7%;\s*--w:\s*33\.5%;?">Research question/, 'research-question label must reserve the wide blank column');
   assert.doesNotMatch(researchDesignSlide, /sankey-band|design-flow-col|viewBox="0 0 200 300"/, 'research design slide must not use the old symmetric or rounded-rectangle connector bands');
 assert.match(html, /variable-field-strip/, 'method 01 input chart must include the lower row of observable variables');
-assert.match(html, /causal-arrow-card/, 'method 01 must use a large card with an embedded arrow');
 assert.match(html, /y = n1\(x\)/, 'method 01 must include the first causal formula');
 assert.match(html, /Σy = N\(x\)/, 'method 01 must integrate formulas into the model equation');
 assert.match(html, /Causal Mechanism<br\/>Model/, 'method 01 must foreground the causal mechanism model output');
-assert.match(html, /block-arrow-card/, 'method logic pages must use block arrows instead of line arrows');
 assert.match(html, /<h2 class="block-logic-word">WHAT<\/h2>\s*<p class="block-logic-note">Identify &amp; explore key design variables\./, 'method 01 logic body must reuse the detail-page question title');
+const method01Logic = slideSectionFor('Method 01 Logic');
+assert.match(method01Logic, /what-causal-flow two-panel/, 'method 01 logic must use a simplified two-panel flow');
+assert.doesNotMatch(method01Logic, /causal-arrow-stack|causal-arrow-card/, 'method 01 logic must remove the middle relation widget');
 assert.match(html, /<div class="t-cat accent">WHAT · PHASE 1<\/div>\s*<h2[^>]*>WHAT<\/h2>/, 'method 01 detail heading must be WHAT');
 assert.match(html, /Method 02 Logic/, 'method 02 translation diagram slide must be present');
 assert.match(html, /<h2 class="block-logic-word">HOW<\/h2>\s*<p class="block-logic-note">Formulate design principles through co-design\./, 'method 02 logic body must reuse the detail-page question title');
 assert.match(html, /<div><div class="t-cat accent">HOW · PHASE 2<\/div><h2>HOW<\/h2>/, 'method 02 detail heading must be HOW');
 assert.match(html, /Design principle(?:<br\/>|\s)+hypothesis 1/i, 'method 02 hypothesis output must use numbered hypothesis blocks');
+const method02Logic = slideSectionFor('Method 02 Logic');
+assert.match(method02Logic, /hypothesis-block-list compact-labels/, 'method 02 right-side hypothesis cards must be simplified labels');
+assert.doesNotMatch(method02Logic, /Minimize text volume|Sequence sign placements|Integrate visual graphics|Place visual anchors/, 'method 02 right-side cards must remove explanatory descriptions');
 assert.match(html, /Method 03 Logic/, 'method 03 validation diagram slide must be present');
 assert.match(html, /<h2 class="block-logic-word">WHICH<\/h2>\s*<p class="block-logic-note">Validate design effects through field experiments\./, 'method 03 logic body must reuse the detail-page question title');
 assert.match(html, /<div><div class="t-cat accent">WHICH · PHASE 3<\/div><h2>WHICH<\/h2>/, 'method 03 detail heading must be WHICH');
-assert.match(html, /block-funnel-horizontal/, 'method 03 validation funnel must be horizontal');
-assert.match(html, /memory-oriented signage system design principle 2/i, 'method 03 output must reduce hypotheses into fewer principles');
+assert.match(html, /validated memory-oriented signage principles/i, 'method 03 output must reduce hypotheses into validated principles');
 const method03Logic = slideSectionFor('Method 03 Logic');
 assert.match(method03Logic, /hypothesis-block-list hypothesis-only/, 'method 03 input hypotheses must be compact labels without example descriptions');
 assert.doesNotMatch(method03Logic, /Use theme colors to distinguish|Adjust content layout based on path|Place visual anchors at path stop points/, 'method 03 input module must not include example hypothesis text');
-assert.match(method03Logic, /block-arrow-stack method03-filter/, 'method 03 middle diagram must use the converging funnel shape');
-assert.match(method03Logic, /class="method03-funnel-svg"/, 'method 03 funnel must be SVG geometry');
+assert.match(method03Logic, /method03-flow two-panel/, 'method 03 logic must use a simplified two-panel flow');
+assert.doesNotMatch(method03Logic, /block-funnel-horizontal/, 'method 03 logic must not use the removed funnel widget');
+assert.doesNotMatch(method03Logic, /block-arrow-stack method03-filter/, 'method 03 logic must remove the middle relation widget');
+assert.doesNotMatch(method03Logic, /class="method03-funnel-svg"/, 'method 03 logic must remove the funnel SVG widget');
 assert.doesNotMatch(method03Logic, /block-funnel-stage|FIELD<br\/>TEST|MEASURE<br\/>EFFECTS|KEEP<br\/>REVISE/, 'method 03 funnel must not use the old segmented text-arrow blocks');
 assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
 assert.match(html, /Design[\s-]principle(?:<br\/>|\s)+hypotheses/i, 'method module B output must remain explicit');
@@ -166,4 +171,4 @@ assert.doesNotMatch(
   'simplified-Chinese slide labels must be removed',
 );
 
-console.log('PASS botanical Swiss deck structure (18 main + Q&A menu + 10 appendix questions)');
+console.log('PASS botanical Swiss deck structure (19 main + Q&A menu + 10 appendix questions)');
