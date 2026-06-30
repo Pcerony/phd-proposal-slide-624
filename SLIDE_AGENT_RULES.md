@@ -37,14 +37,15 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 
 ## Language Rules
 
-- All reader-facing slide content must be English + Japanese.
-- English should be the primary presentation line.
-- Japanese should appear directly near the corresponding English content, not collected only in speaker notes.
-- If an agent adds or rewrites any English body text, it must add or update the Japanese equivalent in the same edit.
+- English is the primary presentation language.
+- Japanese should be retained only for key reader-facing text: the cover title, slide/chapter labels, core research topic/question, method phase names, major contribution labels, closing statement, and Q&A question titles.
+- Ordinary supporting text, explanatory body copy, metric captions, card descriptions, process details, and list items should be English only unless the user explicitly asks for Japanese there.
+- If an agent adds or rewrites body text, do not automatically add Japanese. Add Japanese only when the text is one of the key categories above.
 
 ## Layout Rules
 
 - Keep every slide in the registered Swiss layout family with `data-layout="Sxx"`.
+- Permanent decision: abandon mobile-phone layouts for this deck. This includes iPhone/Android portrait layouts and phone-first responsive behavior.
 - Mobile-phone layout support is permanently out of scope. The deck is designed for desktop browsers, presentation displays, and landscape tablet-like viewports only.
 - Do not spend implementation or review time fixing phone-specific layout issues, stacking behavior, touch ergonomics, or portrait-phone screenshots unless the user explicitly reverses this rule in writing.
 - Responsive work should focus on mainstream presentation sizes: 13-inch laptop, 16:9 projector, 16:10 laptop, wide desktop, and reasonable landscape tablet widths.
@@ -109,7 +110,7 @@ Then manually inspect the generated screenshots, especially:
 - no text overflows or enters the bottom navigation area;
 - desktop, projector, wide desktop, and landscape tablet views remain readable;
 - phone portrait layouts are not an acceptance criterion and should not block completion;
-- all English body text has nearby Japanese;
+- Japanese appears only for the key text categories defined in Language Rules; ordinary English body text does not need nearby Japanese;
 - method slides include real diagrams;
 - images under `images/` load correctly.
 - no white text appears on light backgrounds;

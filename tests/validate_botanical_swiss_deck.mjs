@@ -38,12 +38,12 @@ const slideSectionFor = (label) => {
   return html.slice(sectionIndex, nextSectionIndex === -1 ? html.length : nextSectionIndex);
 };
 
-assert.equal(slides.length, 27, 'deck must contain exactly twenty-seven registered slides');
+assert.equal(slides.length, 28, 'deck must contain exactly twenty-eight registered slides');
 assert.deepEqual(
   slides.map((match) => match[1]),
   [
     'S01', 'S22', 'S17', 'S13', 'S08', 'S22', 'S09', 'S09',
-    'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S13', 'S10', 'S15',
+    'S17', 'S16', 'S17', 'S14', 'S17', 'S17', 'S17', 'S13', 'S10', 'S15',
     'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08', 'S08',
   ],
   'registered layouts must match the approved narrative map',
@@ -124,8 +124,8 @@ assert.match(method03Logic, /block-arrow-stack method03-filter/, 'method 03 midd
 assert.match(method03Logic, /class="method03-funnel-svg"/, 'method 03 funnel must be SVG geometry');
 assert.doesNotMatch(method03Logic, /block-funnel-stage|FIELD<br\/>TEST|MEASURE<br\/>EFFECTS|KEEP<br\/>REVISE/, 'method 03 funnel must not use the old segmented text-arrow blocks');
 assert.match(html, /Module A: causal model/, 'method module A label must be standardized');
-assert.match(html, /<h3>Module B<\/h3>/, 'method module B heading must be standardized');
-assert.match(html, /<h3>Module C<\/h3>/, 'method module C heading must be standardized');
+assert.match(html, /Design[\s-]principle(?:<br\/>|\s)+hypotheses/i, 'method module B output must remain explicit');
+assert.match(html, /Memory-oriented(?:<br\/>|\s)+signage principles/i, 'method module C output must remain explicit');
 assert.ok(slideClassFor('Method 01 Logic').includes('light'), 'method 01 logic slide must remain light');
 assert.ok(slideClassFor('Method 01 Detail').includes('light'), 'method 01 detail slide must remain light');
 assert.ok(slideClassFor('Method 02 Logic').includes('accent'), 'method 02 logic slide must use lemon-green background');
@@ -145,13 +145,17 @@ assert.match(html, /認知メカニズム/, 'Japanese title translation must be 
 assert.match(html, /解説サインシステム/, 'Japanese signage-system term must be present');
 assert.match(html, /記憶指向デザイン/, 'Japanese memory-oriented design term must be present');
 assert.match(html, /理論的ギャップ/, 'Japanese theory-gap label must be present');
-assert.match(html, /閉ループ検証/, 'Japanese validation label must be present');
 assert.match(html, /期待される貢献/, 'Japanese contributions label must be present');
+assert.match(html, /研究方法 03 取得データ/, 'Japanese method-data phase label must be present');
+assert.match(html, /想定質問/, 'Japanese Q&A appendix label must be present');
 assert.ok(
-  ((html.match(/class="[^"]*\bjp\b[^"]*"/g) || []).length +
-    (html.match(/class="[^"]*\bbi\b[^"]*"/g) || []).length) >= 50,
-  'at least 50 Japanese text blocks must be present across jp and bi classes',
+  (html.match(/<span class="bi">/g) || []).length === 0,
+  'ordinary bilingual helper spans must be removed after Japanese simplification',
 );
+assert.doesNotMatch(html, /学習の手がかりとしてサインに注意を向ける。/, 'low-priority Japanese learning-flow copy must be removed');
+assert.doesNotMatch(html, /連続閲覧。|処理資源が低下。|記憶保持が弱まる。/, 'low-priority Japanese fatigue-step copy must be removed');
+assert.doesNotMatch(html, /文献レビュー|ステークホルダーインタビュー|現地調査/, 'method unit labels should be English-only supporting text');
+assert.doesNotMatch(html, /すべての式が一つの因果メカニズムモデルを構成する。/, 'method explanatory body copy should be English-only');
 assert.doesNotMatch(
   html,
   /理论缺口|研究延伸|研究问题|研究设计|实证验证|预期贡献|欢迎提问|结语/,

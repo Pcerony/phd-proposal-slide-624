@@ -19,8 +19,7 @@ const viewports = [
   { name: 'desktop-1920x1080', width: 1920, height: 1080 },
   { name: 'ultrawide-3440x1440', width: 3440, height: 1440 },
   { name: 'classic-1024x768', width: 1024, height: 768 },
-  { name: 'tablet-834x1112', width: 834, height: 1112 },
-  { name: 'mobile-390x844', width: 390, height: 844 },
+  { name: 'tablet-landscape-1112x834', width: 1112, height: 834 },
 ];
 
 const { chromium } = await import(playwrightModule);

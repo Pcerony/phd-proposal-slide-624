@@ -22,10 +22,10 @@ assert.match(slide, /Reading/, 'learning flow must include Reading');
 assert.match(slide, /Encoding/, 'learning flow must include Encoding');
 assert.match(slide, /Recall/, 'learning flow must include Recall');
 assert.doesNotMatch(slide, /<h3>Review<\/h3>/, 'learning flow must use Recall instead of Review');
-assert.match(slide, /注意/, 'learning flow must include Japanese for Attention');
-assert.match(slide, /読解/, 'learning flow must include Japanese for Reading');
-assert.match(slide, /符号化/, 'learning flow must include Japanese for Encoding');
-assert.match(slide, /想起/, 'learning flow must include Japanese for Recall');
+assert.doesNotMatch(slide, /学習の手がかりとしてサインに注意を向ける。/, 'learning flow supporting copy should remain English-only');
+assert.doesNotMatch(slide, /ラベル・画像・解説文を読解する。/, 'learning flow supporting copy should remain English-only');
+assert.doesNotMatch(slide, /サイン情報を観察対象の植物と結びつけて符号化する。/, 'learning flow supporting copy should remain English-only');
+assert.doesNotMatch(slide, /訪問後に学習内容を想起する。/, 'learning flow supporting copy should remain English-only');
 assert.match(html, /\.s17-photo-grid\{[^}]*grid-template-columns:1\.35fr 1fr 1fr/, 'photo grid must compress the three images into a top strip');
 assert.match(html, /\.signage-learning-flow\{[^}]*grid-column:1 \/ -1/, 'learning flow must reserve the full lower slide width');
 
