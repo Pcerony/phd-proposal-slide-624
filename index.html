@@ -1732,7 +1732,9 @@
   .problem-bridge-metric .t-meta{color:var(--text-secondary)}
   .problem-bridge-metric.accent .t-meta{color:#253000}
   .problem-bridge-metric p{margin:0;max-width:31ch;font-size:max(18px,1.04vw);line-height:1.34;font-weight:500;color:var(--text-secondary)}
+  .problem-bridge-metric p .jp{display:block;margin-top:.5vh;font-size:max(14px,.78vw);line-height:1.28;color:var(--text-helper)}
   .problem-bridge-metric.accent p{color:rgba(10,10,10,.64)}
+  .problem-bridge-metric.accent p .jp{color:rgba(10,10,10,.52)}
   .route-problem-slide .canvas-card{display:grid;grid-template-rows:auto 1fr;gap:2.4vh;overflow:hidden}
   .route-problem-layout{display:grid;grid-template-columns:6.2fr 5.8fr;gap:3.4vw;align-items:center;min-height:0}
   .route-problem-title h2{font-weight:200;font-size:min(5.9vw,10.2vh);line-height:.92;letter-spacing:-.045em;margin:0;max-width:12ch}
@@ -3697,14 +3699,14 @@
     </figure>
     <div class="problem-bridge-grid nav-safe-bottom-tight" data-anim="kpi">
       <div class="problem-bridge-metric">
-        <div class="t-meta">PROBLEM 01 · ROUTE</div>
-        <div class="problem-bridge-number">No.5</div>
-        <p>Attention is consumed by the fifth sign in a route-level system.</p>
+        <div class="t-meta">PROBLEM 01 · COGNITIVE LOAD</div>
+        <div class="problem-bridge-number" data-anim="metric-number" data-kind="sign" data-from="1" data-to="5">No.5</div>
+        <p>Museum fatigue appears around the fifth sign in a route-level system.<span class="jp" lang="ja">経路レベルのサインシステムでは、第5サイン付近でミュージアム疲労が現れる。</span></p>
       </div>
       <div class="problem-bridge-metric accent">
         <div class="t-meta">PROBLEM 02 · MEMORY</div>
-        <div class="problem-bridge-number">48%</div>
-        <p>Average second-day forgetting rate from the prior test.</p>
+        <div class="problem-bridge-number" data-anim="metric-number" data-kind="percent" data-from="0" data-to="48">48%</div>
+        <p>Forgetting-curve test: average second-day forgetting rate.<span class="jp" lang="ja">忘却曲線テストにおける2日目の平均忘却率。</span></p>
       </div>
     </div>
   </div>
@@ -5044,6 +5046,38 @@ if(motion){
     numEl._rafId = requestAnimationFrame(step);
   }
 
+  function animateBridgeMetricNumber(numEl, delay = 0) {
+    const kind = numEl.dataset.kind;
+    const start = Number(numEl.dataset.from ?? 0);
+    const end = Number(numEl.dataset.to ?? 0);
+    const durationMs = 900;
+    let startTime = null;
+
+    if (numEl._bridgeRafId) cancelAnimationFrame(numEl._bridgeRafId);
+    if (document.body.classList.contains('low-power')) {
+      numEl.textContent = kind === 'sign' ? `No.${end}` : `${end}%`;
+      numEl.style.opacity = '1';
+      numEl.style.transform = 'none';
+      return;
+    }
+    numEl.textContent = kind === 'sign' ? `No.${start}` : `${start}%`;
+    animate(numEl, {opacity:[0,1], y:[18, 0], scale:[.94, 1]}, {duration:.72, delay, easing:EASE_ENTRY_EXP});
+
+    setTimeout(() => {
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / durationMs, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(start + easeProgress * (end - start));
+        numEl.textContent = kind === 'sign' ? `No.${value}` : `${value}%`;
+        if (progress < 1) {
+          numEl._bridgeRafId = requestAnimationFrame(step);
+        }
+      }
+      numEl._bridgeRafId = requestAnimationFrame(step);
+    }, delay * 1000 + 120);
+  }
+
   /* ============ P22 · Background · 柠檬绿滤波/失落星球HUD + 标题居中 + 计数器 ============ */
   function rBackground(slide, all){
     // 1. Right Image Zoom
@@ -5868,6 +5902,21 @@ if(motion){
     const kpiWrap = slide.querySelector('[data-anim="kpi"]');
     if(kpiWrap){
       animate(kpiWrap, {opacity:[0,1]}, {duration:.3, delay:.7, easing:EASE_PROD});
+
+      if(slide.classList.contains('problem-bridge-slide')){
+        const metrics = [...kpiWrap.querySelectorAll('.problem-bridge-metric')];
+        metrics.forEach((metric, i)=>{
+          const base = .88 + i*.18;
+          animate(metric, {opacity:[0,1], y:[16,0]}, {duration:.55, delay:base, easing:EASE_ENTRY_EXP});
+          const label = metric.querySelector('.t-meta');
+          if(label) animate(label, {opacity:[0,1]}, {duration:.35, delay:base + .1, easing:EASE_PROD});
+          const number = metric.querySelector('[data-anim="metric-number"]');
+          if(number) animateBridgeMetricNumber(number, base + .16);
+          const copy = metric.querySelector('p');
+          if(copy) animate(copy, {opacity:[0,1], y:[8,0]}, {duration:.45, delay:base + .55, easing:EASE_PROD});
+        });
+        return;
+      }
 
       /* 段落 */
       const para = kpiWrap.querySelector(':scope > div:first-child');

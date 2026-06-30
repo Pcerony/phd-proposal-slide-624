@@ -79,6 +79,16 @@ assert.match(html, /prior-gap-interactive/, 'prior research slide must mark the 
 assert.match(html, /gap-module/, 'prior research slide must expose a dedicated GAP module');
 assert.match(html, /gap-expanded/, 'prior research slide must include the expanded GAP state');
 assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(gapStep===0\)/, 'space key must trigger the GAP expansion step');
+const researchProblemSlide = slideSectionFor('Research Problem · 研究課題');
+assert.match(researchProblemSlide, /PROBLEM 01 · COGNITIVE LOAD/, 'research problem slide must rename problem 01 to cognitive load');
+assert.match(researchProblemSlide, /Museum fatigue appears around the fifth sign/, 'research problem slide must describe the No.5 issue as museum fatigue');
+assert.match(researchProblemSlide, /ミュージアム疲労/, 'research problem slide must include Japanese copy for museum fatigue');
+assert.match(researchProblemSlide, /Forgetting-curve test: average second-day forgetting rate/, 'research problem slide must describe the 48% metric as a forgetting-curve test');
+assert.match(researchProblemSlide, /忘却曲線テスト/, 'research problem slide must include Japanese copy for the forgetting-curve test');
+assert.match(researchProblemSlide, /data-anim="metric-number"[^>]*data-kind="sign"[^>]*data-from="1"[^>]*data-to="5"/, 'No.5 metric must have count-up entrance animation data');
+assert.match(researchProblemSlide, /data-anim="metric-number"[^>]*data-kind="percent"[^>]*data-from="0"[^>]*data-to="48"/, '48% metric must have count-up entrance animation data');
+assert.doesNotMatch(researchProblemSlide, /Attention is consumed by the fifth sign|Average second-day forgetting rate from the prior test|PROBLEM 01 · ROUTE/, 'research problem slide must remove the old annotated wording');
+assert.match(html, /animateBridgeMetricNumber/, 'research problem metric numbers must use the bridge count-up animation helper');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /design-card m-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /design-card m-how/, 'method overview HOW card must use lemon-green phase styling');
