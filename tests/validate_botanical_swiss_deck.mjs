@@ -84,7 +84,10 @@ assert.match(researchGapSlide, /class="slide dark research-gap-slide"/, 'researc
 assert.match(researchGapSlide, /gap-metric-expander/, 'research gap slide must include expandable green metric cards at the bottom');
 assert.match(researchGapSlide, /PROBLEM 01 · COGNITIVE LOAD[\s\S]*?gap-metric-number">No\.5/, 'No.5 metric must move into the research gap expandable card');
 assert.match(researchGapSlide, /PROBLEM 02 · MEMORY[\s\S]*?gap-metric-number">48%/, '48% metric must move into the research gap expandable card');
-assert.match(researchGapSlide, /aria-expanded="false"/, 'metric cards must be collapsed by default before click expansion');
+assert.match(researchGapSlide, /aria-expanded="false"/, 'metric cards must be collapsed by default before space expansion');
+assert.doesNotMatch(researchGapSlide, /onclick=/, 'metric cards must not expand on click');
+assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(metricStep === 0\)/, 'space key must expand both research-gap metric cards');
+assert.match(html, /metricCards\.forEach\(card => card\.setAttribute\('aria-expanded', 'true'\)\)/, 'space expansion must reveal both metric cards together');
 assert.doesNotMatch(researchGapSlide, /Museum fatigue appears|Forgetting-curve test|ミュージアム疲労|忘却曲線テスト/, 'merged metric cards must not include body copy');
 assert.doesNotMatch(html, /problem-bridge-slide|Attention is consumed by the fifth sign|Average second-day forgetting rate from the prior test/, 'old sixth research-problem slide and copy must be removed');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');

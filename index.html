@@ -2514,7 +2514,7 @@
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:1.1vw;
-    margin-top:2vh;
+    margin-top:1.2vh;
     align-items:end
   }
   .gap-metric-card{
@@ -2522,22 +2522,21 @@
     border:0;
     background:var(--accent);
     color:var(--accent-on);
-    min-height:5.4vh;
-    padding:1.05vh 1vw;
+    min-height:3.9vh;
+    padding:.72vh .86vw;
     display:grid;
     grid-template-columns:1fr auto;
     align-items:center;
     gap:1vw;
-    cursor:pointer;
+    cursor:default;
     text-align:left;
     overflow:hidden;
     transition:min-height .32s var(--ease-prod), background .18s var(--ease-prod), transform .18s var(--ease-prod);
   }
-  .gap-metric-card:hover,.gap-metric-card:focus-visible{background:#d7ff08;outline:0}
-  .gap-metric-card:active{transform:translateY(1px)}
+  .gap-metric-card:focus-visible{outline:1px solid rgba(255,255,255,.68);outline-offset:2px}
   .gap-metric-title{
     font-family:var(--mono);
-    font-size:max(12px,.68vw);
+    font-size:max(10px,.58vw);
     font-weight:850;
     letter-spacing:.14em;
     text-transform:uppercase;
@@ -2555,7 +2554,7 @@
     transition:font-size .32s var(--ease-prod), opacity .18s var(--ease-prod)
   }
   .gap-metric-card[aria-expanded="true"]{
-    min-height:15.2vh;
+    min-height:13.2vh;
     align-items:end
   }
   .gap-metric-card[aria-expanded="true"] .gap-metric-number{
@@ -3727,11 +3726,11 @@
       <div class="col accent"><h3 class="col-ttl" style="color:var(--text-inverse-primary)">Sign system</h3><div class="sign-density" aria-label="Dense interpretive sign icons"><div class="sign-icon" style="--h:13.5vh;--w:4.1vw;--bh:4.5vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:9.8vh;--w:3.4vw;--bh:3.6vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:15.2vh;--w:4.9vw;--bh:5.1vh;--ph:5.2vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:11.2vh;--w:3.8vw;--bh:4vh;--ph:3.7vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:14vh;--w:4.3vw;--bh:4.7vh;--ph:4.8vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon" style="--h:10.4vh;--w:3.5vw;--bh:3.8vh;--ph:3.3vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div><div class="sign-icon accent" style="--h:15.8vh;--w:4.8vw;--bh:5.2vh;--ph:5vh"><span class="sign-board"></span><span class="sign-post"></span><span class="sign-base"></span></div></div><ul class="bi-list"><li>A coordinated set of signs distributed across a route.</li><li>Meaning is built through sequence, spacing, and repetition.</li><li>Design is judged by route-level attention, load, and memory retention.</li></ul></div>
     </div>
     <div class="gap-metric-expander nav-safe-bottom-tight" data-anim="gap-metrics" aria-label="Expandable research problem metrics">
-      <button class="gap-metric-card" type="button" aria-expanded="false" onclick="this.classList.toggle('expanded');this.setAttribute('aria-expanded',this.classList.contains('expanded'))">
+      <button class="gap-metric-card" type="button" aria-expanded="false" tabindex="-1">
         <span class="gap-metric-title">PROBLEM 01 · COGNITIVE LOAD</span>
         <span class="gap-metric-number">No.5</span>
       </button>
-      <button class="gap-metric-card" type="button" aria-expanded="false" onclick="this.classList.toggle('expanded');this.setAttribute('aria-expanded',this.classList.contains('expanded'))">
+      <button class="gap-metric-card" type="button" aria-expanded="false" tabindex="-1">
         <span class="gap-metric-title">PROBLEM 02 · MEMORY</span>
         <span class="gap-metric-number">48%</span>
       </button>
@@ -5389,10 +5388,21 @@ if(motion){
 
     const gapMetrics = slide.querySelector('.gap-metric-expander');
     if(gapMetrics){
+      const metricCards = [...gapMetrics.querySelectorAll('.gap-metric-card')];
+      metricCards.forEach(card => card.setAttribute('aria-expanded', 'false'));
       animate(gapMetrics, {opacity:[0,1], y:[18,0]}, {duration:.55, delay:1.12, easing:EASE_ENTRY_EXP});
-      [...gapMetrics.querySelectorAll('.gap-metric-card')].forEach((card, i)=>{
+      metricCards.forEach((card, i)=>{
         animate(card, {opacity:[0,1], y:[12,0]}, {duration:.45, delay:1.18 + i*.1, easing:EASE_ENTRY_EXP});
       });
+      let metricStep = 0;
+      window.__pipeAdvance = function(){
+        if(metricStep === 0){
+          metricCards.forEach(card => card.setAttribute('aria-expanded', 'true'));
+          metricStep = 1;
+          return true;
+        }
+        return false;
+      };
     }
   }
 
