@@ -24,6 +24,7 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 - Use straight rectangular blocks, hairline dividers, clear grid alignment, and high contrast.
 - Use Lucide icons where possible.
 - Do not add emoji, rounded cards, shadows, decorative gradients, or unrelated ornaments.
+- Do not draw decorative borders or stroke overlays on top of cards (禁止在卡片上方绘制装饰条描边).
 - For any future slide layout, composition, spacing, or visual redesign work, call and follow `guizang-ppt-skill` before editing.
 
 ## Text Color And Readability Rules
@@ -32,6 +33,7 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 - Never place white text on lemon green or other light backgrounds.
 - Do not use raw lemon green as body text on light backgrounds. Use `--accent-text` for readable highlighted text, and keep raw `--accent` for fills, rules, icons, bars, and geometry.
 - Primary text uses `--text-primary`; body/supporting text uses `--text-secondary`; auxiliary labels use `--text-helper`.
+- For text content on each page, only the important ~40% of the text can use fully opaque solid colors (0% transparency / 100% opacity). The remaining text must be set to approximately 50% opacity/transparency to establish a clear hierarchy and improve visual contrast (每一页的文本内容，只有重要的40%左右的文本可以使用0%透明度的纯色，其他设置为50%左右的透明度，以提高文本对比度与层级感).
 - Dark backgrounds use light text, but accent cards inside dark slides must switch back to dark text.
 - If an agent changes colors, it must verify both computed contrast and actual screenshots in a browser.
 
@@ -39,6 +41,7 @@ cp index.html '博士研究计划_5分钟演讲用_瑞士风_柠檬黄.html'
 
 - English is the primary presentation language.
 - Japanese should be retained only for key reader-facing text: the cover title, slide/chapter labels, core research topic/question, method phase names, major contribution labels, closing statement, and Q&A question titles.
+- Method-detail cards, research-design nodes, and contribution cards may keep one short Japanese support line when removing it would make the slide too sparse or hard to present.
 - Ordinary supporting text, explanatory body copy, metric captions, card descriptions, process details, and list items should be English only unless the user explicitly asks for Japanese there.
 - If an agent adds or rewrites body text, do not automatically add Japanese. Add Japanese only when the text is one of the key categories above.
 

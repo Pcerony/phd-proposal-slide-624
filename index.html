@@ -924,8 +924,8 @@
   .phase-main.dark .phase-method-card i{color:var(--accent)}
   .phase-method-card h4{font-size:max(17px,1.02vw);font-weight:650;line-height:1.1;margin:0;letter-spacing:-.01em}
   .phase-method-card p{font-size:max(15px,.82vw);line-height:1.25;font-weight:500;color:var(--text-secondary);margin:0}
-  .phase-main.dark .phase-method-card p,.phase-main.dark .phase-method-card .bi{color:var(--text-inverse-secondary)}
-  .phase-main.validation .phase-method-card p,.phase-main.validation .phase-method-card .bi{color:#253000}
+  .phase-main.dark .phase-method-card p,.phase-main.dark .phase-method-card .bi,.phase-main.dark .phase-method-card .jp{color:rgba(245,245,238,.72)!important}
+  .phase-main.validation .phase-method-card p,.phase-main.validation .phase-method-card .bi,.phase-main.validation .phase-method-card .jp{color:#253000!important}
   .phase-flow{display:grid;grid-template-columns:1fr auto 1.35fr;gap:.8vw;align-items:center;border-top:1px solid currentColor;border-color:rgba(127,127,127,.32);padding-top:.85vh}
   .phase-flow-node{font-size:max(15px,.88vw);line-height:1.15;font-weight:600}
   .phase-flow-node.accent{background:var(--accent);color:var(--accent-on);padding:.65vh .8vw}
@@ -2959,7 +2959,7 @@
     z-index: 5;
   }
  .design-topic-card h3 {
-    color: var(--text-inverse-secondary);
+    color: rgba(245,245,238,.72);
    font-size: clamp(16px, 1.85vh, 22px) !important;
    font-weight: 500;
    line-height: 1.35 !important;
@@ -2971,6 +2971,9 @@
     font-size: clamp(14px, 1.35vh, 18px) !important;
     line-height: 1.35 !important;
     color: var(--text-inverse-secondary);
+  }
+  .design-topic-card .jp {
+    color: rgba(245,245,238,.72) !important;
   }
   .sankey-label {
     position: absolute;
@@ -3044,6 +3047,9 @@
   }
   .design-card.m-which .bi, .design-card.o-which .bi {
     color: var(--text-inverse-secondary) !important;
+  }
+  .design-card.ink .jp {
+    color: rgba(245,245,238,.72) !important;
   }
   .design-axis-label {
     position: absolute;
@@ -3573,7 +3579,7 @@
         <div class="design-topic-card" style="--x: 0%; --y: 23.4%; --w: 15.7%; --h: 76.6%">
           <i data-lucide="sprout" style="width:28px;height:28px;stroke-width:2;color:var(--accent)"></i>
           <h3>Design of interpretive signage systems for reduced cognitive load and improved memory retention.</h3>
-
+          <span class="jp compact" lang="ja">認知負荷を下げ、記憶保持を高める解説サインシステムの設計。</span>
         </div>
 
         <div class="sankey-label what" style="--x: 27.7%; --y: 5.4%; --w: 19%; --h: 25.7%">
@@ -3595,12 +3601,12 @@
             <i data-lucide="graduation-cap" style="width:16px;height:16px;stroke-width:2;color:var(--text-secondary)"></i>
           </div>
           <h4>Literature review &amp;<br/>interviews</h4>
-
+          <span class="jp compact" lang="ja">文献調査と関係者面談</span>
         </div>
         <div class="design-card o-what grey" style="--x: 67%; --y: 5.4%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="network" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--text-secondary)"></i>
           <h4>Causal Mechanism<br/>Model</h4>
-
+          <span class="jp compact" lang="ja">因果メカニズムモデル</span>
         </div>
         <div class="design-card m-how accent" style="--x: 54.8%; --y: 35.4%; --w: 18.6%; --h: 25.7%">
           <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
@@ -3608,12 +3614,12 @@
             <i data-lucide="palette" style="width:16px;height:16px;stroke-width:2;color:var(--accent-text)"></i>
           </div>
           <h4>Co-design<br/>workshop</h4>
-
+          <span class="jp compact" lang="ja">共同デザインワークショップ</span>
         </div>
         <div class="design-card o-how accent" style="--x: 74.2%; --y: 35.4%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="wrench" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent-text)"></i>
           <h4>Design-principle<br/>hypotheses</h4>
-
+          <span class="jp compact" lang="ja">設計原則の仮説群</span>
         </div>
         <div class="design-card m-which ink" style="--x: 62%; --y: 65.2%; --w: 18.6%; --h: 25.7%">
           <div style="display:flex;gap:0.4vw;margin-bottom:0.4vh">
@@ -3621,12 +3627,12 @@
             <i data-lucide="leaf" style="width:16px;height:16px;stroke-width:2;color:var(--text-inverse-secondary)"></i>
           </div>
           <h4>Controlled field<br/>experiment</h4>
-
+          <span class="jp compact" lang="ja">統制された実地実験</span>
         </div>
         <div class="design-card o-which ink" style="--x: 81.4%; --y: 65.2%; --w: 18.6%; --h: 25.7%">
           <i data-lucide="badge-check" style="width:18px;height:18px;stroke-width:2;margin-bottom:0.2vh;color:var(--accent)"></i>
           <h4>Memory-oriented<br/>signage principles</h4>
-
+          <span class="jp compact" lang="ja">記憶指向型設計原則</span>
         </div>
 
         <div class="design-axis-label" style="--x: 27.7%; --w: 33.5%">Research question <br/>研究課題</div>
@@ -3709,7 +3715,7 @@
           <div class="t-meta">GOAL</div>
           <i data-lucide="search"></i>
           <h3>Identify & explore variables</h3>
-
+          <span class="jp compact" lang="ja">変数を特定し探索する</span>
         </div>
         <div class="phase-mini">
           <div class="t-meta">PARTICIPANTS</div>
@@ -3724,9 +3730,9 @@
           <div><div class="t-meta" style="color:var(--text-helper)">METHODS · PRIMARY LAYER</div><h3 style="font-size:max(18px,1.2vw); font-weight:600; margin:0">Three inputs for variable selection.</h3></div>
         </div>
         <div class="method-units">
-          <article class="method-unit"><i data-lucide="book-open"></i><div class="t-meta">01</div><h4>Literature review</h4><p>Prior models of attention, load, and memory.</p></article>
-          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">02</div><h4>Stakeholder interviews</h4><p>Understand actual user experience and design rationale.</p></article>
-          <article class="method-unit"><i data-lucide="footprints"></i><div class="t-meta">03</div><h4>Field survey</h4><p>Survey current signage design at Fukuoka Botanical Garden.</p></article>
+          <article class="method-unit"><i data-lucide="book-open"></i><div class="t-meta">01</div><h4>Literature review</h4><p>Prior models of attention, load, and memory.</p><span class="jp compact" lang="ja">注意・負荷・記憶の先行モデル</span></article>
+          <article class="method-unit"><i data-lucide="messages-square"></i><div class="t-meta">02</div><h4>Stakeholder interviews</h4><p>Understand actual user experience and design rationale.</p><span class="jp compact" lang="ja">利用経験と設計意図の把握</span></article>
+          <article class="method-unit"><i data-lucide="footprints"></i><div class="t-meta">03</div><h4>Field survey</h4><p>Survey current signage design at Fukuoka Botanical Garden.</p><span class="jp compact" lang="ja">福岡市植物園での現地調査</span></article>
         </div>
         <div class="phase-flow">
           <div class="phase-flow-node">Studies · Interviews · Field walk</div>
@@ -3847,7 +3853,7 @@
           <div class="t-meta">GOAL</div>
           <i data-lucide="wrench"></i>
           <h3>Translate model</h3>
-
+          <span class="jp compact" lang="ja">モデルを設計仮説へ変換</span>
         </div>
         <div class="phase-mini">
           <div class="t-meta">PARTICIPANTS</div>
@@ -3868,17 +3874,20 @@
               <div class="t-meta">01</div>
               <h4>Learning model</h4>
               <p>Share and explain the causal model.</p>
+              <span class="jp compact" lang="ja">因果モデルを共有し理解する</span>
             </article>
             <div class="workshop-stacked-column">
               <article class="phase-method-card">
                 <i data-lucide="panels-top-left"></i>
                 <div class="t-meta">02</div>
                 <h4>Scenario storyboard</h4>
+                <span class="jp compact" lang="ja">利用場面を可視化する</span>
               </article>
               <article class="phase-method-card">
                 <i data-lucide="shapes"></i>
                 <div class="t-meta">03</div>
                 <h4>Participatory prototype</h4>
+                <span class="jp compact" lang="ja">参加型で試作する</span>
               </article>
             </div>
             <div class="workshop-label-column">
@@ -3891,6 +3900,7 @@
             <div class="t-meta">04</div>
             <h4>Expert interview</h4>
             <p>Validate principles with external experts.</p>
+            <span class="jp compact" lang="ja">外部専門家により検証する</span>
           </article>
         </div>
         <div class="phase-flow">
@@ -3991,7 +4001,7 @@
           <div class="t-meta">GOAL</div>
           <i data-lucide="badge-check"></i>
           <h3>Validate principles</h3>
-
+          <span class="jp compact" lang="ja">設計原則を検証する</span>
         </div>
         <div class="phase-mini">
           <div class="t-meta">PARTICIPANTS</div>
@@ -4025,16 +4035,19 @@
               <i data-lucide="scan-eye"></i>
               <h4>Eye-tracking</h4>
               <p>Measure sequential gaze on route signs.</p>
+              <span class="jp compact" lang="ja">経路上の視線推移を測定</span>
             </article>
             <article class="phase-method-card">
               <i data-lucide="clipboard-list"></i>
               <h4>NASA-TLX</h4>
               <p>Capture perceived cognitive load.</p>
+              <span class="jp compact" lang="ja">主観的認知負荷を把握</span>
             </article>
             <article class="phase-method-card">
               <i data-lucide="timer-reset"></i>
               <h4>Retention test</h4>
               <p>Compare immediate and delayed recall.</p>
+              <span class="jp compact" lang="ja">即時・遅延想起を比較</span>
             </article>
           </div>
         </div>
@@ -4152,9 +4165,9 @@
     <div class="t-cat accent" data-anim="line" style="margin-bottom:1.5vh">CONTRIBUTION TYPES · 貢献の種類</div>
     <div class="value-layout nav-safe-bottom-tight" data-anim="up">
       <div class="value-outputs">
-        <article class="value-output"><div class="num">01</div><div><h3>Theoretical contribution</h3><p>Move signage research from single objects to route-level systems.</p></div></article>
-        <article class="value-output"><div class="num">02</div><div><h3>Method contribution</h3><p>Combine co-creation with field validation in a closed loop.</p></div></article>
-        <article class="value-output"><div class="num">03</div><div><h3>Design contribution</h3><p>Give designers a memory-oriented decision basis.</p></div></article>
+        <article class="value-output"><div class="num">01</div><div><h3>Theoretical contribution</h3><p>Move signage research from single objects to route-level systems.</p><span class="jp compact" lang="ja">単一サイン研究から経路レベルのシステム研究へ拡張する。</span></div></article>
+        <article class="value-output"><div class="num">02</div><div><h3>Method contribution</h3><p>Combine co-creation with field validation in a closed loop.</p><span class="jp compact" lang="ja">共創と実地検証を閉ループで接続する。</span></div></article>
+        <article class="value-output"><div class="num">03</div><div><h3>Design contribution</h3><p>Give designers a memory-oriented decision basis.</p><span class="jp compact" lang="ja">記憶指向型デザインの判断基盤を提示する。</span></div></article>
       </div>
       <div class="value-hero">
         <div style="display:flex;flex-direction:column;gap:0.8vh"><div class="t-meta">TRANSFERABILITY</div><h2>Beyond botanical gardens.</h2><span class="jp" lang="ja" style="color:var(--text-secondary)">植物園を超えた応用可能性。</span></div>
@@ -4164,7 +4177,7 @@
           <div class="value-domain"><i data-lucide="store"></i><h3>Trade shows</h3><p>Trade show pavilions.</p></div>
           <div class="value-domain"><i data-lucide="gamepad-2"></i><h3>VR guidance</h3><p>Task guidance in spatial media.</p></div>
         </div>
-        <div style="border-top:1px solid rgba(10,10,10,.28);padding-top:0.9vh;font-size:max(17px,.95vw);font-weight:600;line-height:1.35">Reduce mental load. Improve information retention.</div>
+        <div style="border-top:1px solid rgba(10,10,10,.28);padding-top:0.9vh;font-size:max(17px,.95vw);font-weight:600;line-height:1.35">Reduce mental load. Improve information retention.<span class="jp compact" lang="ja" style="display:block;margin-top:.35vh">認知負荷を下げ、情報保持を高める。</span></div>
       </div>
     </div>
   </div>

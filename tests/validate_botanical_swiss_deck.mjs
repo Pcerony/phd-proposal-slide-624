@@ -148,13 +148,17 @@ assert.match(html, /理論的ギャップ/, 'Japanese theory-gap label must be p
 assert.match(html, /期待される貢献/, 'Japanese contributions label must be present');
 assert.match(html, /研究方法 03 取得データ/, 'Japanese method-data phase label must be present');
 assert.match(html, /想定質問/, 'Japanese Q&A appendix label must be present');
+assert.match(html, /認知負荷を下げ、記憶保持を高める解説サインシステムの設計。/, 'research design slide must retain Japanese topic support');
+assert.match(html, /注意・負荷・記憶の先行モデル/, 'method 01 detail cards must retain concise Japanese support');
+assert.match(html, /因果モデルを共有し理解する/, 'method 02 detail cards must retain concise Japanese support');
+assert.match(html, /即時・遅延想起を比較/, 'method 03 detail cards must retain concise Japanese support');
+assert.match(html, /記憶指向型デザインの判断基盤を提示する。/, 'contribution cards must retain concise Japanese support');
 assert.ok(
   (html.match(/<span class="bi">/g) || []).length === 0,
   'ordinary bilingual helper spans must be removed after Japanese simplification',
 );
 assert.doesNotMatch(html, /学習の手がかりとしてサインに注意を向ける。/, 'low-priority Japanese learning-flow copy must be removed');
 assert.doesNotMatch(html, /連続閲覧。|処理資源が低下。|記憶保持が弱まる。/, 'low-priority Japanese fatigue-step copy must be removed');
-assert.doesNotMatch(html, /文献レビュー|ステークホルダーインタビュー|現地調査/, 'method unit labels should be English-only supporting text');
 assert.doesNotMatch(html, /すべての式が一つの因果メカニズムモデルを構成する。/, 'method explanatory body copy should be English-only');
 assert.doesNotMatch(
   html,
