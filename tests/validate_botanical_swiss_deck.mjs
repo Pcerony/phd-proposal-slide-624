@@ -90,6 +90,16 @@ assert.match(html, /window\.__pipeAdvance = function\(\)\{\s*if\(metricStep === 
 assert.match(html, /metricCards\.forEach\(card => card\.setAttribute\('aria-expanded', 'true'\)\)/, 'space expansion must reveal both metric cards together');
 assert.doesNotMatch(researchGapSlide, /Museum fatigue appears|Forgetting-curve test|ミュージアム疲労|忘却曲線テスト/, 'merged metric cards must not include body copy');
 assert.doesNotMatch(html, /problem-bridge-slide|Attention is consumed by the fifth sign|Average second-day forgetting rate from the prior test/, 'old sixth research-problem slide and copy must be removed');
+const routeProblemSlide = slideSectionFor('Route-Level Problem · 経路レベルの課題');
+assert.match(routeProblemSlide, /src="images\/06-visitor-fatigue\.jpg"/, 'route-level problem slide must include a top fatigue visitor photo');
+assert.match(routeProblemSlide, /MUSEUM FATIGUE/, 'route-level problem photo must be labeled as museum fatigue');
+assert.ok(fs.existsSync(path.join(root, 'images/06-visitor-fatigue.jpg')), 'route fatigue visitor image must exist locally');
+assertGitTracked('images/06-visitor-fatigue.jpg');
+const memoryProblemSlide = slideSectionFor('RESEARCH PROBLEM · 研究課題');
+assert.match(memoryProblemSlide, /src="images\/07-elderly-thinking-gallery\.jpg"/, 'memory problem slide must include a top elderly thinking photo');
+assert.match(memoryProblemSlide, /THINKING VISITOR/, 'memory problem photo must be labeled as thinking visitor');
+assert.ok(fs.existsSync(path.join(root, 'images/07-elderly-thinking-gallery.jpg')), 'elderly thinking image must exist locally');
+assertGitTracked('images/07-elderly-thinking-gallery.jpg');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /design-card m-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /design-card m-how/, 'method overview HOW card must use lemon-green phase styling');

@@ -1723,26 +1723,33 @@
   .route-sign:nth-child(even){justify-content:flex-end}
   .route-axis{height:2px;background:var(--ink);margin:-15.5vh 0 0;position:relative}
   .route-axis:after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent}
-  .route-problem-slide .canvas-card{display:grid;grid-template-rows:auto 1fr;gap:2.4vh;overflow:hidden}
+  .problem-top-photo{height:17.5vh;min-height:0;overflow:hidden;background:var(--fill);position:relative}
+  .problem-top-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02) saturate(.94)}
+  .problem-top-photo .photo-screen-filter{opacity:.16}
+  .problem-top-photo .photo-vertical-label{font-size:max(10px,.54vw)}
+  .route-fatigue-photo img{object-position:center 43%}
+  .elderly-thinking-photo img{object-position:center 38%}
+  .route-problem-slide .canvas-card{display:grid;grid-template-rows:auto 17.5vh minmax(0,1fr);gap:1.5vh;overflow:hidden}
   .route-problem-layout{display:grid;grid-template-columns:6.2fr 5.8fr;gap:3.4vw;align-items:center;min-height:0}
-  .route-problem-title h2{font-weight:200;font-size:min(5.9vw,10.2vh);line-height:.92;letter-spacing:-.045em;margin:0;max-width:12ch}
-  .route-problem-title .jp{max-width:34ch;margin-top:1.4vh}
-  .route-problem-title .problem-note{border-top:1px solid var(--border-subtle);margin-top:2.4vh;padding-top:1.3vh;font-size:max(18px,1.02vw);line-height:1.35;color:var(--text-secondary);font-weight:500;max-width:34ch}
+  .route-problem-title h2{font-weight:200;font-size:min(5.25vw,8.8vh);line-height:.92;letter-spacing:-.045em;margin:0;max-width:12ch}
+  .route-problem-title .jp{max-width:34ch;margin-top:1vh}
+  .route-problem-title .problem-note{border-top:1px solid var(--border-subtle);margin-top:1.5vh;padding-top:1vh;font-size:max(16px,.94vw);line-height:1.32;color:var(--text-secondary);font-weight:500;max-width:34ch}
   .route-problem-slide .route-map-panel{padding-top:0}
-  .route-problem-slide .route-strip{margin-top:4vh;align-items:center}
-  .route-problem-slide .route-sign{justify-content:center;min-height:28vh;padding-top:0!important}
+  .route-problem-slide .route-strip{margin-top:2.6vh;align-items:center}
+  .route-problem-slide .route-sign{justify-content:center;min-height:23vh;padding-top:0!important}
   .route-problem-slide .route-sign.active{color:var(--accent-text)}
-  .route-problem-slide .route-axis{margin:-14vh 0 0}
+  .route-problem-slide .route-axis{margin:-11.5vh 0 0}
   .fatigue-steps{display:flex;gap:.8vw;margin-top:1.25vh}
   .fatigue-step{flex:1 1 0;min-width:0;background:var(--fill);padding:1vh .75vw;display:flex;flex-direction:column;gap:.5vh}
   .fatigue-step i{width:26px;height:26px;stroke-width:1.7;color:var(--accent-text)}
   .fatigue-step h3{font-size:max(17px,1vw);font-weight:600;line-height:1.12;margin:0}
   .fatigue-step p{font-size:max(14px,.78vw);line-height:1.26;color:var(--text-secondary);font-weight:500;margin:0}
   .rq-layout{display:grid;grid-template-columns:5.8fr 6.2fr;gap:3.2vw;align-items:center;flex:1;min-height:0}
+  .research-problem-memory-slide .canvas-card{display:grid;grid-template-rows:auto 17.5vh minmax(0,1fr);gap:1.5vh;overflow:hidden}
   .rq-layout.problem-only{grid-template-columns:minmax(0,1fr);align-items:center}
   .rq-layout.problem-only .rq-stat-panel{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:4vw;padding-top:0}
   .rq-layout.problem-only .rq-stat-copy{min-height:0}
-  .rq-layout.problem-only .forgetting-chart-img{height:52vh}
+  .rq-layout.problem-only .forgetting-chart-img{height:39vh}
   .rq-stat-panel{padding-top:2vh;display:grid;grid-template-columns:auto 1fr;gap:2.5vw;align-items:center;min-width:0}
   .forgetting-chart-img{width:auto;max-width:100%;height:37vh;object-fit:contain;object-position:left;background:var(--fill);display:block;margin:0;min-width:0}
   .rq-stat-copy{display:flex;flex-direction:column;justify-content:center;min-height:37vh;min-width:0}
@@ -3741,6 +3748,11 @@
 <section class="slide light route-problem-slide" data-layout="S09" data-animate="route-stop">
   <div class="canvas-card">
     <div class="chrome-min" style="margin-bottom:0"><div class="l">Route-Level Problem · 経路レベルの課題</div><div class="r" data-slide-page>06 / 18</div></div>
+    <figure class="frame-img problem-top-photo route-fatigue-photo" data-anim="img">
+      <img data-image-slot="s06-fatigue-photo" src="images/06-visitor-fatigue.jpg" alt="A fatigued visitor resting on a park bench after walking through a route" loading="eager">
+      <div class="photo-screen-filter"></div>
+      <div class="photo-vertical-label">MUSEUM FATIGUE</div>
+    </figure>
     <div data-anim="kpi" class="route-problem-layout nav-safe-bottom-tight">
       <div class="route-problem-title">
         <div class="t-cat accent">SIGN NO.5 · STOP POINT</div>
@@ -3763,9 +3775,14 @@
   </div>
 </section>
 
-<section class="slide light" data-layout="S09" data-animate="research-topic">
+<section class="slide light research-problem-memory-slide" data-layout="S09" data-animate="research-topic">
   <div class="canvas-card">
     <div class="chrome-min"><div class="l">RESEARCH PROBLEM · 研究課題</div><div class="r" data-slide-page>07 / 18</div></div>
+    <figure class="frame-img problem-top-photo elderly-thinking-photo" data-anim="img">
+      <img data-image-slot="s07-elderly-thinking-photo" src="images/07-elderly-thinking-gallery.jpg" alt="An elderly visitor thinking while looking at framed images in a gallery" loading="eager">
+      <div class="photo-screen-filter"></div>
+      <div class="photo-vertical-label">THINKING VISITOR</div>
+    </figure>
     <div style="position:absolute;right:5vw;top:15vh;width:36vw;height:50vh;color:var(--accent);opacity:.32" class="dots-bold" aria-hidden="true"></div>
     <div class="rq-layout problem-only">
       <div class="rq-stat-panel" data-anim="left">
