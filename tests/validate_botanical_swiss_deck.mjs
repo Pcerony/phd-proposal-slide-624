@@ -100,6 +100,12 @@ assert.match(memoryProblemSlide, /src="images\/07-elderly-thinking-gallery\.jpg"
 assert.match(memoryProblemSlide, /THINKING VISITOR/, 'memory problem photo must be labeled as thinking visitor');
 assert.ok(fs.existsSync(path.join(root, 'images/07-elderly-thinking-gallery.jpg')), 'elderly thinking image must exist locally');
 assertGitTracked('images/07-elderly-thinking-gallery.jpg');
+const researchTopicSlide = slideSectionFor('Research Topic · 研究主題');
+assert.doesNotMatch(researchTopicSlide, /CURRENT RESULT|ROUTE BREAKPOINT|FORGETTING RATE/, 'research topic slide must not keep the old current-result metric block');
+assert.match(researchTopicSlide, /data-kind="percent"\s+data-from="48%"\s+data-to="70%"/, 'research topic slide must animate the target change from 48% to 70%');
+assert.match(researchTopicSlide, /RESEARCH INNOVATION/, 'research topic slide must add a research innovation area');
+assert.match(researchTopicSlide, /Co-creation perspective[\s\S]*?共創の視点/, 'research topic innovation must include the co-creation perspective');
+assert.match(researchTopicSlide, /Self-developed tool[\s\S]*?自研ツール/, 'research topic innovation must include the self-developed tool');
 assert.match(html, /Method 01 Logic/, 'method 01 logic diagram slide must be present');
 assert.match(html, /design-card m-what/, 'method overview WHAT card must use grey phase styling');
 assert.match(html, /design-card m-how/, 'method overview HOW card must use lemon-green phase styling');
